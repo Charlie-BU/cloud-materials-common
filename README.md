@@ -1,5 +1,21 @@
 # 云物料库
 
+> 离线消费说明：此仓库已附带 `@cloud-materials/common@1.20.1` 的运行时依赖树，供外网 Vite 项目直接消费；无需、也不要在本仓库执行 `pnpm install`，否则会尝试解析原始依赖中的字节内部包。
+
+## 外网项目使用
+
+```bash
+git clone git@github.com:Charlie-BU/cloud-materials-common.git ../../cloud-materials-common
+```
+
+在消费项目的 Vite 配置中，将 `@cloud-materials/common` alias 到：
+
+```text
+../../cloud-materials-common/@cloud-materials/common
+```
+
+仓库根目录 `node_modules/.pnpm` 和其中的符号链接是离线运行时依赖，必须一并保留。它们使 Vite 可以按标准 Node 解析规则找到组件库依赖，因此不会访问字节内网 registry。
+
 [物料平台文档中心](https://arco.bytedance.net/material/group/?groupId=85&tab=group_material&module=%40cloud-materials%2Fcommon%2FQuickStart)
 
 ## 快速开始
