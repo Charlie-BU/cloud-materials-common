@@ -1,0 +1,61 @@
+.c-m-btn-selector-common {
+  --common-group-margin-bottom: -12px;
+  --common-group-padding-bottom: 12px;
+  --common-item-padding-top: 5px;
+  --common-box-shadow-default: 0 0 0 1px #dde2e9;
+  --common-border-default: 1px solid #dde2e9;
+  --common-border-active: 1px solid #a2c1ff;
+}
+.c-m-btn-selector-common-badge {
+  background-color: transparent;
+  position: absolute;
+  right: 9px;
+  top: -10px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 10;
+  font-size: 10px;
+  font-weight: 500;
+}
+.c-m-btn-selector-common-badge-container {
+  padding-bottom: var(--common-group-padding-bottom);
+  display: inline-block;
+  position: relative;
+}
+.c-m-btn-selector-common-height-size .c-m-btn-selector-common-singleline-item {
+  height: 32px;
+}
+.c-m-btn-selector-common-height-size .c-m-btn-selector-common-doubleline-item {
+  height: 56px;
+}
+.c-m-btn-selector-common-height-size-small .c-m-btn-selector-common-singleline-item {
+  height: 28px;
+}
+.c-m-btn-selector-common-height-size-small .c-m-btn-selector-common-doubleline-item {
+  height: 56px;
+}
+.c-m-btn-selector-common-width-size.arco-radio-group-type-button .arco-radio-button .arco-radio-button-inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c-m-btn-selector-common-width-size.arco-checkbox-group .arco-checkbox .arco-checkbox-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c-m-btn-selector-common-width-size .c-m-btn-selector-common-item.arco-radio-button {
+  min-width: 72px;
+}
+.c-m-btn-selector-common-width-size .c-m-btn-selector-common-item.arco-checkbox {
+  min-width: 104px;
+}
+.c-m-btn-selector-common-width-size-small .c-m-btn-selector-common-item {
+  width: 104px;
+}
+.c-m-btn-selector-common-width-size-large .c-m-btn-selector-common-item {
+  width: 184px;
+}
+.c-m-btn-selector-common-width-size-default .c-m-btn-selector-common-item {
+  width: 120px;
+}

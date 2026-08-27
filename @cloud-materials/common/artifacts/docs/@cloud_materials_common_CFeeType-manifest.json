@@ -1,0 +1,190 @@
+{
+  "doclets": [
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "CFeeTypeProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "chargeType",
+          "type": "[ChargeType](#ChargeType)",
+          "required": true,
+          "description": "计费方式"
+        },
+        {
+          "name": "chargeStatus",
+          "type": "ChargeStatusType",
+          "required": true,
+          "description": "内置通用的计费状态"
+        },
+        {
+          "name": "defaultChargeLabel",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "未匹配到任何一种计费方式时的兜底展示"
+        },
+        {
+          "name": "customStatusMap",
+          "type": "ChargeStatusMap",
+          "required": false,
+          "description": "可自定义传入map映射"
+        },
+        {
+          "name": "createTime",
+          "type": "[TimeType](#TimeType)",
+          "required": false,
+          "description": "按量计费方式下可选是否展示创建时间 normal状态下展示（仅按量计费）"
+        },
+        {
+          "name": "statusChangeTime",
+          "type": "[StatusChangeTime](#StatusChangeTime)",
+          "required": false,
+          "description": "计费状态进入下一个状态的具体时间，可配置一个进入下一个状态的时间，或者一次性配置到期、关停、删除时间"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "自定义的样式传入"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "自定义组件的类名"
+        },
+        {
+          "name": "customChargeLabel",
+          "type": "ChargeTypeLabelType",
+          "required": false,
+          "description": "自定义计费类型展示的label"
+        }
+      ]
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "CFeeTypeHooksProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "date",
+          "type": "[TimeType](#TimeType)",
+          "required": true,
+          "description": "倒计时的目标时间，计算现在到该时间的倒计时"
+        },
+        {
+          "name": "chargeType",
+          "type": "[ChargeType](#ChargeType)",
+          "required": false,
+          "description": "计费类型：获取计费状态config需要"
+        },
+        {
+          "name": "chargeStatus",
+          "type": "ChargeStatusType",
+          "required": false,
+          "description": "计费状态：获取计费状态config需要"
+        },
+        {
+          "name": "displayType",
+          "type": "[DisplayType](#DisplayType)",
+          "required": false,
+          "description": "计费状态的展示方式"
+        },
+        {
+          "name": "statusMap",
+          "type": "ChargeStatusMap",
+          "required": false,
+          "description": "状态映射map，不传入则使用内置map"
+        }
+      ]
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "ChargeStatusConfigType",
+      "type": null,
+      "properties": [
+        {
+          "name": "customStatusMap",
+          "type": "ChargeStatusMap",
+          "required": false,
+          "description": "可自定义传入map映射"
+        },
+        {
+          "name": "defaultChargeLabel",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "未匹配到任何一种计费方式时的兜底展示"
+        },
+        {
+          "name": "customChargeLabel",
+          "type": "ChargeTypeLabelType",
+          "required": false,
+          "description": "自定义计费类型展示的label"
+        }
+      ]
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "ChargeType",
+      "type": "/**\n * 计费类型\n * @PostPaid 按量计费（后付费）状态\n * @PrePaid 包年包月 预付费）状态\n * */\n// eslint-disable-next-line @typescript-eslint/ban-types\nexport type ChargeType = 'PostPaid' | 'PrePaid' | (string & {});\n",
+      "properties": []
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "TimeType",
+      "type": "/** 传入的时间的类型 */\nexport type TimeType = Date | number | string | undefined;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "StatusChangeTime",
+      "type": "export type StatusChangeTime = TimeType | {\n  /** 包年包月的到期时间，displayType: normal状态下展示 */\n  overdueTime?: TimeType;\n  /** 关停时间，displayType: error状态下展示 */\n  closedTime?: TimeType;\n  /** 删除/释放/回收时间，error状态下展示 */\n  reclaimTime?: TimeType;\n};\n",
+      "properties": []
+    },
+    {
+      "filePath": "CFeeType/interface.ts",
+      "name": "DisplayType",
+      "type": "export type DisplayType = 'wait' | 'normal' | 'error' | 'typechanging' | 'changing' | 'none';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CFeeType, Descriptions, Space } from '@cloud-materials/common';\nimport dayjs from 'dayjs';\n\nexport default () => {\n  const date = [\n    dayjs().add(7, 'd').add(20, 'h').valueOf(),\n    dayjs().add(4, 'd').add(20, 'h').valueOf(),\n    dayjs().add(7, 'h').add(20, 'm').add(50, 's').valueOf(),\n    dayjs().add(7, 'm').add(50, 's').valueOf(),\n    dayjs().add(50, 's').valueOf(),\n    dayjs().subtract(3, 'd').valueOf(),\n  ];\n\n  const demoStyle = { style: { width: 150 } };\n\n  return (\n    <Descriptions\n      title=\"内置状态的使用\"\n      column={1}\n      data={[\n        {\n          label: 'WaitingPaid(未开始计费)',\n          value: (\n            <Space size={10}>\n              <CFeeType chargeType=\"PostPaid\" chargeStatus=\"WaitingPaid\" {...demoStyle} />\n              <CFeeType chargeType=\"PrePaid\" chargeStatus=\"WaitingPaid\" {...demoStyle} />\n            </Space>\n          ),\n        },\n        {\n          label: 'Normal(正常计费)',\n          value: (\n            <Space size={10}>\n              <CFeeType chargeType=\"PostPaid\" chargeStatus=\"Normal\" {...demoStyle} />\n              <CFeeType chargeType=\"PostPaid\" chargeStatus=\"Normal\" createTime={date[5]} {...demoStyle} />\n              <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Normal\" statusChangeTime={date[0]} {...demoStyle} />\n            </Space>\n          ),\n        },\n        {\n          label: 'Owing(欠费)',\n          value: (\n            <CFeeType\n              chargeType=\"PostPaid\"\n              chargeStatus=\"Owing\"\n              statusChangeTime={{ closedTime: date[0], reclaimTime: date[3] }}\n            />\n          ),\n        },\n        {\n          label: 'Owing(关停)',\n          value: (\n            <CFeeType\n              chargeType=\"PostPaid\"\n              chargeStatus=\"Owing\"\n              statusChangeTime={{ closedTime: date[1], reclaimTime: date[2] }}\n              isClosed\n            />\n          ),\n        },\n        {\n          label: 'Owing(删除)',\n          value: (\n            <CFeeType\n              chargeType=\"PostPaid\"\n              chargeStatus=\"Owing\"\n              statusChangeTime={{ closedTime: date[5], reclaimTime: date[2] }}\n              isReclaim\n            />\n          ),\n        },\n        {\n          label: 'Overdue(到期)',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"Overdue\"\n              statusChangeTime={{ closedTime: date[3], reclaimTime: date[4] }}\n            />\n          ),\n        },\n        {\n          label: 'Overdue(关停)',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"Overdue\"\n              statusChangeTime={{ closedTime: date[3], reclaimTime: date[4] }}\n              isClosed\n            />\n          ),\n        },\n        {\n          label: 'Overdue(删除)',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"Overdue\"\n              statusChangeTime={{ closedTime: date[5], reclaimTime: date[4] }}\n              isReclaim\n            />\n          ),\n        },\n        {\n          label: 'ChangingPayType(计费变更中)',\n          value: <CFeeType chargeType=\"PostPaid\" chargeStatus=\"ChangingPayType\" />,\n        },\n        {\n          label: 'Renewing(续费中)',\n          value: <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Renewing\" />,\n        },\n        {\n          label: 'ChangingPayType(退订中)',\n          value: <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Unsubscribing\" />,\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CConfigProvider, CFeeType, Descriptions, Space } from '@cloud-materials/common';\nimport dayjs from 'dayjs';\nimport enUS from '../../locales/en-US';\n\nexport default () => {\n  const date = [\n    dayjs().add(7, 'd').add(20, 'h').valueOf(),\n    dayjs().add(4, 'd').add(20, 'h').valueOf(),\n    dayjs().add(7, 'h').add(20, 'm').add(50, 's').valueOf(),\n    dayjs().add(7, 'm').add(50, 's').valueOf(),\n    dayjs().add(50, 's').valueOf(),\n    dayjs().subtract(3, 'd').valueOf(),\n  ];\n\n  const demoStyle = { style: { width: 150 } };\n\n  return (\n    <CConfigProvider locale={enUS}>\n      <Descriptions\n        title=\"内置状态的使用\"\n        column={1}\n        data={[\n          {\n            label: 'WaitingPaid(未开始计费)',\n            value: (\n              <Space size={10}>\n                <CFeeType chargeType=\"PostPaid\" chargeStatus=\"WaitingPaid\" {...demoStyle} />\n                <CFeeType chargeType=\"PrePaid\" chargeStatus=\"WaitingPaid\" {...demoStyle} />\n              </Space>\n            ),\n          },\n          {\n            label: 'Normal(正常计费)',\n            value: (\n              <Space size={10}>\n                <CFeeType chargeType=\"PostPaid\" chargeStatus=\"Normal\" {...demoStyle} />\n                <CFeeType chargeType=\"PostPaid\" chargeStatus=\"Normal\" createTime={date[5]} {...demoStyle} />\n                <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Normal\" statusChangeTime={date[0]} {...demoStyle} />\n              </Space>\n            ),\n          },\n          {\n            label: 'Owing(欠费)',\n            value: (\n              <CFeeType\n                chargeType=\"PostPaid\"\n                chargeStatus=\"Owing\"\n                statusChangeTime={{ closedTime: date[0], reclaimTime: date[3] }}\n              />\n            ),\n          },\n          {\n            label: 'Owing(关停)',\n            value: (\n              <CFeeType\n                chargeType=\"PostPaid\"\n                chargeStatus=\"Owing\"\n                statusChangeTime={{ closedTime: date[1], reclaimTime: date[2] }}\n                isClosed\n              />\n            ),\n          },\n          {\n            label: 'Owing(删除)',\n            value: (\n              <CFeeType\n                chargeType=\"PostPaid\"\n                chargeStatus=\"Owing\"\n                statusChangeTime={{ closedTime: date[5], reclaimTime: date[2] }}\n                isReclaim\n              />\n            ),\n          },\n          {\n            label: 'Overdue(到期)',\n            value: (\n              <CFeeType\n                chargeType=\"PrePaid\"\n                chargeStatus=\"Overdue\"\n                statusChangeTime={{ closedTime: date[3], reclaimTime: date[4] }}\n              />\n            ),\n          },\n          {\n            label: 'Overdue(关停)',\n            value: (\n              <CFeeType\n                chargeType=\"PrePaid\"\n                chargeStatus=\"Overdue\"\n                statusChangeTime={{ closedTime: date[3], reclaimTime: date[4] }}\n                isClosed\n              />\n            ),\n          },\n          {\n            label: 'Overdue(删除)',\n            value: (\n              <CFeeType\n                chargeType=\"PrePaid\"\n                chargeStatus=\"Overdue\"\n                statusChangeTime={{ closedTime: date[5], reclaimTime: date[4] }}\n                isReclaim\n              />\n            ),\n          },\n          {\n            label: 'ChangingPayType(计费变更中)',\n            value: <CFeeType chargeType=\"PostPaid\" chargeStatus=\"ChangingPayType\" />,\n          },\n          {\n            label: 'Renewing(续费中)',\n            value: <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Renewing\" />,\n          },\n          {\n            label: 'ChangingPayType(退订中)',\n            value: <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Unsubscribing\" />,\n          },\n        ]}\n      />\n    </CConfigProvider>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useEffect, useState } from 'react';\nimport { CFeeType, Descriptions, Divider, Space } from '@cloud-materials/common';\nimport dayjs from 'dayjs';\nimport type { ChargeStatusMap, TimeType } from '../interface';\n\nexport default () => {\n  const date = [\n    dayjs().add(7, 'd').add(20, 'h').valueOf(),\n    dayjs().add(4, 'd').add(20, 'h').valueOf(),\n    dayjs().add(7, 'h').add(20, 'm').add(50, 's').valueOf(),\n    dayjs().add(7, 'm').add(50, 's').valueOf(),\n    dayjs().add(20, 's').valueOf(),\n    dayjs().subtract(3, 'd').valueOf(),\n  ];\n\n  const customStatusMap: ChargeStatusMap = {\n    overdue: { statusName: '过期', nextStatusName: '回收', displayType: 'error' },\n    owing: { statusName: '欠费', nextStatusName: '释放', displayType: 'error' },\n    cancel: { statusName: '注销', nextStatusName: '释放', displayType: 'normal' },\n  };\n  // 此处设置时间仅用于展示关停时间失效后的效果\n  const [closedTime, setClosedTime] = useState<TimeType>(date[4]);\n\n  useEffect(() => {\n    setTimeout(() => {\n      setClosedTime(date[5]);\n    }, 4000);\n  }, []);\n\n  return (\n    <>\n      <Descriptions\n        title=\"1、overdueTime： 组件内部会自动计算到现在的时间，在大于7天、1-7天，1天内展示不同的UI\"\n        column={1}\n        data={[\n          {\n            label: '组件内置逻辑',\n            value: 'overdueTime只会在displayType设置为normal时生效(内置状态为Normal)',\n          },\n          {\n            label: '内置状态(大于7天)',\n            value: (\n              <CFeeType\n                chargeStatus=\"Normal\"\n                chargeType=\"PrePaid\"\n                statusChangeTime={{ overdueTime: date[0], closedTime: closedTime, reclaimTime: date[3] }}\n              />\n            ),\n          },\n          {\n            label: '内置状态(1-7天)',\n            value: (\n              <CFeeType\n                chargeStatus=\"Normal\"\n                chargeType=\"PrePaid\"\n                statusChangeTime={{ overdueTime: date[1], closedTime: closedTime, reclaimTime: date[3] }}\n              />\n            ),\n          },\n          {\n            label: '自定义map(1天内)',\n            value: (\n              <CFeeType\n                chargeStatus=\"cancel\"\n                chargeType=\"PrePaid\"\n                customStatusMap={customStatusMap}\n                statusChangeTime={{ overdueTime: date[2], closedTime: closedTime, reclaimTime: date[3] }}\n              />\n            ),\n          },\n        ]}\n      />\n      <Divider />\n\n      <Descriptions\n        title=\"2、closedTime和reclaimTime的使用\"\n        column={1}\n        data={[\n          {\n            label: '组件内置逻辑',\n            value: 'closedTime和reclaimTime只会在displayType设置为error时生效(内置状态为Overdue/Owing)',\n          },\n          {\n            label: 'closedTime有效',\n            value: (\n              <Space>\n                <CFeeType\n                  chargeStatus=\"Overdue\"\n                  chargeType=\"PrePaid\"\n                  statusChangeTime={{ closedTime: date[2], reclaimTime: date[3] }}\n                />\n                <CFeeType\n                  chargeStatus=\"Owing\"\n                  chargeType=\"PostPaid\"\n                  statusChangeTime={{ closedTime: date[2], reclaimTime: date[3] }}\n                />\n              </Space>\n            ),\n          },\n          {\n            label: 'closedTime/reclaimTime传入空',\n            value: (\n              <Space>\n                <CFeeType\n                  chargeStatus=\"owing\"\n                  chargeType=\"PostPaid\"\n                  customStatusMap={customStatusMap}\n                  statusChangeTime={{ closedTime: '' }}\n                />\n                <CFeeType\n                  chargeStatus=\"overdue\"\n                  chargeType=\"PrePaid\"\n                  customStatusMap={customStatusMap}\n                  statusChangeTime={{ closedTime: '' }}\n                />\n              </Space>\n            ),\n          },\n        ]}\n      />\n      <Divider />\n\n      <Descriptions\n        title=\"3、statusChangeTime： 只传入一个时间时，将该时间作为需要展示的倒计时时间\"\n        column={1}\n        data={[\n          {\n            label: '只传入一个状态变更时间',\n            value: <CFeeType chargeStatus=\"Normal\" chargeType=\"PrePaid\" statusChangeTime={date[0]} />,\n          },\n        ]}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CFeeType, CRadio, Space } from '@cloud-materials/common';\nimport dayjs from 'dayjs';\n\nenum Status {\n  Running = 'Running',\n  Closing = 'Closing',\n  Closed = 'Closed',\n  Deleting = 'Deleting',\n  Deleted = 'Deleted',\n}\n\nenum ChargeType {\n  PrePaid = 'PrePaid',\n  PostPaid = 'PostPaid',\n}\n\nconst StatusLabel: Record<Status, string> = {\n  [Status.Running]: '运行中',\n  [Status.Closing]: '关停中',\n  [Status.Closed]: '已关停',\n  [Status.Deleting]: '删除中',\n  [Status.Deleted]: '已删除',\n};\n\nconst ChargeTypeLabel: Record<ChargeType, string> = {\n  [ChargeType.PrePaid]: '包年包月',\n  [ChargeType.PostPaid]: '按量计费',\n};\n\nexport default () => {\n  const date = [dayjs().add(4, 'd').add(20, 'h').valueOf(), dayjs().add(20, 'h').valueOf()];\n  const [status, setStatus] = useState<Status>(Status.Running);\n  const [chargeType, setChargeType] = useState<ChargeType>(ChargeType.PostPaid);\n  return (\n    <Space direction=\"vertical\">\n      <h4>\n        计费状态统一规范中并未定义关停状态和删除状态，组件支持配置isClosed和isReclaim属性，解决计费方式为【到期/欠费】，但是实际为关停/释放\n      </h4>\n      <div>\n        <span>点击切换实例状态：</span>\n        <CRadio.Group\n          options={Object.entries(StatusLabel).map(([key, val]) => ({ label: val, value: key }))}\n          onChange={setStatus}\n          value={status}\n        />\n      </div>\n      <div>\n        <span>点击切换计费方式：</span>\n        <CRadio.Group\n          options={Object.entries(ChargeTypeLabel).map(([key, val]) => ({ label: val, value: key }))}\n          onChange={setChargeType}\n          value={chargeType}\n        />\n      </div>\n      <CFeeType\n        chargeType={chargeType}\n        chargeStatus={chargeType === ChargeType.PostPaid ? 'Owing' : 'Overdue'}\n        statusChangeTime={{ reclaimTime: date[0], closedTime: date[1] }}\n        isClosed={[Status.Closed, Status.Deleting].includes(status)}\n        isReclaim={[Status.Deleted].includes(status)}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport CFeeType from '..';\nimport { Space } from '@cloud-materials/common';\nimport type { ChargeStatusMap } from '../interface';\nimport dayjs from 'dayjs';\n\nexport default () => {\n  const date = [dayjs().add(4, 'd').add(20, 'h').valueOf(), dayjs().add(3, 'h').valueOf()];\n  const customStatusMap: ChargeStatusMap = {\n    undeployed: { statusName: '未部署', displayType: 'wait' },\n    expired: { statusName: '过期', nextStatusName: '回收', displayType: 'normal' },\n    overdue: { statusName: '到期', displayType: 'error' },\n    reclaim: { statusName: '释放中', displayType: 'typechanging' },\n  };\n  return (\n    <Space direction=\"vertical\" size={20}>\n      <h4>自定义map</h4>\n      <CFeeType chargeStatus=\"undeployed\" chargeType=\"PostPaid\" customStatusMap={customStatusMap} />\n      <CFeeType\n        chargeType=\"PrePaid\"\n        chargeStatus=\"expired\"\n        statusChangeTime={date[0]}\n        customStatusMap={customStatusMap}\n      />\n      <CFeeType\n        chargeType=\"PrePaid\"\n        chargeStatus=\"overdue\"\n        statusChangeTime={{ closedTime: date[1] }}\n        customStatusMap={customStatusMap}\n      />\n      <CFeeType chargeType=\"PrePaid\" chargeStatus=\"reclaim\" customStatusMap={customStatusMap} />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { Descriptions, CFeeType } from '@cloud-materials/common';\nimport type { ChargeStatusMap } from '../interface';\nimport dayjs from 'dayjs';\n\nexport default () => {\n  const date = [dayjs().add(4, 'd').add(20, 'h').valueOf(), dayjs().add(8, 'd').valueOf()];\n  const customStatusMap: ChargeStatusMap = {\n    unpaid: { statusName: '未支付', displayType: 'none' },\n    undeployed: { statusName: '未部署', displayType: 'wait' },\n    expired: { statusName: '过期', nextStatusName: '回收', displayType: 'normal' },\n    overdue: { statusName: '到期', nextStatusName: '释放', displayType: 'error' },\n    reclaim: { statusName: '释放中', displayType: 'typechanging' },\n    charging: { statusName: '充值中', displayType: 'changing' },\n  };\n  return (\n    <Descriptions\n      title=\"自定义map中displayType的使用\"\n      column={1}\n      data={[\n        {\n          label: 'none 不展示',\n          value: (\n            <CFeeType\n              chargeType=\"PostPaid\"\n              chargeStatus=\"unpaid\"\n              customStatusMap={customStatusMap}\n              statusChangeTime={date[0]}\n            />\n          ),\n        },\n        {\n          label: 'wait：纯文本',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"undeployed\"\n              customStatusMap={customStatusMap}\n              statusChangeTime={date[0]}\n            />\n          ),\n        },\n        {\n          label: 'normal 日期样式',\n          value: (\n            <>\n              <CFeeType\n                chargeType=\"PrePaid\"\n                chargeStatus=\"expired\"\n                customStatusMap={customStatusMap}\n                statusChangeTime={date[0]}\n              />\n              <CFeeType\n                chargeType=\"PrePaid\"\n                chargeStatus=\"expired\"\n                customStatusMap={customStatusMap}\n                statusChangeTime={date[1]}\n              />\n            </>\n          ),\n        },\n        {\n          label: 'error 红字倒计时',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"overdue\"\n              customStatusMap={customStatusMap}\n              statusChangeTime={date[0]}\n            />\n          ),\n        },\n        {\n          label: 'typechanging',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"reclaim\"\n              customStatusMap={customStatusMap}\n              statusChangeTime={date[0]}\n            />\n          ),\n        },\n        {\n          label: 'changing loading加载',\n          value: (\n            <CFeeType\n              chargeType=\"PrePaid\"\n              chargeStatus=\"charging\"\n              customStatusMap={customStatusMap}\n              statusChangeTime={date[0]}\n            />\n          ),\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CFeeType, Descriptions } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Descriptions\n      title=\"计费文案的配置\"\n      column={1}\n      data={[\n        {\n          label: '默认无计费文案',\n          value: <CFeeType chargeType=\"not\" chargeStatus=\"WaitingPaid\" />,\n        },\n        {\n          label: '自定义无计费文案',\n          value: <CFeeType chargeType=\"not\" chargeStatus=\"WaitingPaid\" defaultChargeLabel={'未开启'} />,\n        },\n        {\n          label: '自定义按量计费/后付费文案',\n          value: (\n            <CFeeType chargeType=\"PostPaid\" chargeStatus=\"WaitingPaid\" customChargeLabel={{ PostPaid: '按配置日结' }} />\n          ),\n        },\n        {\n          label: '自定义预付费/包年包月文案',\n          value: (\n            <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Renewing\" customChargeLabel={{ PrePaid: '预付费模式' }} />\n          ),\n        },\n        {\n          label: '自定义其它计费类型展示的文案',\n          value: <CFeeType chargeType=\"custom\" chargeStatus=\"\" customChargeLabel={{ custom: '其它计费类型' }} />,\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport dayjs from 'dayjs';\nimport { Space, CFeeType } from '@cloud-materials/common';\n\nCFeeType.config({\n  customStatusMap: {\n    Expired: {\n      statusName: '到期',\n      nextStatusName: '释放',\n      displayType: 'error',\n    },\n  },\n  defaultChargeLabel: '自定义无计费label',\n});\nexport default () => {\n  return (\n    <Space direction=\"vertical\">\n      <h4>使用config注册全局map</h4>\n      <CFeeType chargeType=\"PrePaid\" chargeStatus=\"Expired\" statusChangeTime={dayjs().add(1, 'd').valueOf()} />\n      <CFeeType chargeType=\"post\" chargeStatus=\"Normal\" statusChangeTime={dayjs().add(1, 'd').valueOf()} />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    }
+  ],
+  "extraDocs": []
+}

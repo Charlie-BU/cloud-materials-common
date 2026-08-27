@@ -1,0 +1,166 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-conditions-prefix: ~'@{cpn-prefix}-conditions';
+// 💥 变量声明尽量带上c-m前缀，避免存量项目接入时变量名冲突
+
+.@{c-m-conditions-prefix}-container,
+.@{c-m-conditions-prefix}-group-container {
+  display: flex;
+
+  .@{prefix}-btn {
+    padding: 0;
+  }
+
+  .@{c-m-conditions-prefix}-content,
+  .@{c-m-conditions-prefix}-group-content {
+    flex: none;
+    position: relative;
+
+    .@{c-m-conditions-prefix}-view {
+      position: relative;
+
+      & > div:only-child {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+    .@{c-m-conditions-prefix}-condition-delete {
+      display: inline-block;
+      height: 32px;
+
+      &-icon {
+        vertical-align: bottom;
+      }
+    }
+  }
+  .@{c-m-conditions-prefix}-condition-clear {
+    position: absolute;
+    right: 1em;
+    font-weight: 400;
+  }
+
+  .@{c-m-conditions-prefix}-group-wrapper {
+    & > .@{c-m-conditions-prefix}-group-delete {
+      position: absolute;
+      right: 0.5em;
+      margin-top: -2.5em;
+    }
+  }
+}
+
+.@{c-m-conditions-prefix}-relation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 12px;
+
+  &-upper-line,
+  &-lower-line {
+    flex: auto;
+
+    /* 原值为:1px solid #eaedf1，已被stylelint autofix，替换后为：1px solid @color-border-2， 推荐大家使用@arco-design/theme-ve-o-design/variables.less里的变量，可选替换项为: @color-border-2 */
+    border: 1px solid @color-border-2;
+    border-right: none;
+    // min-height: 12px;
+    width: 12px;
+    margin-left: 12px;
+  }
+
+  &-upper-line {
+    border-radius: 4px 0;
+    border-bottom: none;
+    margin-top: 1em;
+  }
+
+  &-lower-line {
+    border-radius: 0 0 0 4px;
+    border-top: none;
+    margin-top: 4px;
+    margin-bottom: 1em;
+
+    &.view {
+      margin-top: 0;
+    }
+  }
+
+  .@{c-m-conditions-prefix}-body > & > &-upper-line.view {
+    margin-top: 2em;
+  }
+  .@{c-m-conditions-prefix}-body > & > &-lower-line.view {
+    margin-bottom: 1.5em;
+  }
+
+  &-select {
+    width: 80px;
+  }
+
+  &-toggle {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &-card {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid;
+    border-radius: 2px;
+    background-color: @primary-1;
+    text-align: center;
+    color: @color-text-3;
+    font-size: 12px;
+    line-height: 24px;
+    user-select: none;
+    transition: top 0.2s ease, left 0.2s ease;
+    font-weight: 500;
+    padding: 0 !important;
+
+    .c-m-ellipsis-content {
+      padding: 0 !important;
+      margin: 0 auto;
+    }
+    &.@{c-m-conditions-prefix}-relation-small {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 10px;
+    }
+
+    &.@{c-m-conditions-prefix}-relation-first,
+    .@{c-m-conditions-prefix}-relation-first-color {
+      color: @success-6;
+      background-color: @success-1;
+    }
+
+    &.@{c-m-conditions-prefix}-relation-second-color {
+      color: @primary-6;
+      background-color: @primary-1;
+    }
+
+    &.@{c-m-conditions-prefix}-relation-second {
+      z-index: -1;
+      color: @primary-6;
+      background-color: @primary-1;
+      position: absolute;
+      left: -4px;
+      top: 4px;
+    }
+  }
+
+  &-flipped &-card {
+    &.@{c-m-conditions-prefix}-relation-first {
+      position: absolute;
+      left: -4px;
+      top: 4px;
+    }
+
+    &.@{c-m-conditions-prefix}-relation-second {
+      z-index: 1;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+}

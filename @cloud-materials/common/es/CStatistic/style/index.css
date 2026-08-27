@@ -1,0 +1,113 @@
+.c-m-statistic {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #FFFFFF;
+  padding: 16px 20px;
+}
+.c-m-statistic-border {
+  border: 1px solid #eaedf1;
+}
+.c-m-statistic-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: #737a87;
+  margin-bottom: 4px;
+}
+.c-m-statistic-unit {
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 2px;
+  color: #737a87;
+}
+.c-m-statistic-suffix {
+  font-size: 12px;
+  color: #737a87;
+  padding-left: 5px;
+}
+.c-m-statistic-describe {
+  font-weight: 400;
+  font-size: 12px;
+  color: #737a87;
+}
+.c-m-statistic-placeholder {
+  font-weight: 600;
+  font-size: 28px;
+  color: #737a87;
+}
+.c-m-statistic-trend-type {
+  padding-left: 4px;
+}
+.c-m-statistic .arco-statistic-value-int {
+  font-size: 28px;
+}
+.c-m-statistic-placeholder {
+  color: #737a87;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0;
+}
+.c-m-statistic-link {
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.c-m-statistic-link:hover {
+  box-shadow: 0 15px 35px -2px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.c-m-statistic-link:active {
+  background: #FFFFFF;
+  border: 1px solid #1664ff;
+}
+.c-m-statistic-link-disabled {
+  background: #fafbfc;
+  cursor: not-allowed;
+}
+.c-m-statistic-link-disabled .c-m-statistic-title,
+.c-m-statistic-link-disabled .c-m-statistic-unit,
+.c-m-statistic-link-disabled .c-m-statistic-describe {
+  color: #c7ccd6;
+}
+.c-m-statistic-link-disabled .arco-statistic-value {
+  color: #c7ccd6;
+}
+.c-m-statistic-link-disabled:hover {
+  background: #fafbfc;
+  box-shadow: none;
+}
+.c-m-statistic-link-disabled:active {
+  background: #fafbfc;
+  border: 1px solid #eaedf1;
+}
+.c-m-statistic-list {
+  background: #FFFFFF;
+  border: 1px solid #eaedf1;
+  border-radius: 8px;
+}
+.c-m-statistic-list-content {
+  display: flex;
+  justify-content: space-between;
+}
+.c-m-statistic-list-title {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 20px 20px 0 20px;
+  color: #0c0d0e;
+}
+.c-m-statistic .arco-skeleton-text-row {
+  display: none;
+}
+.c-m-statistic .arco-statistic-extra {
+  margin-top: 0;
+}
+.c-m-statistic .arco-statistic-title {
+  margin-bottom: 3px;
+}
+.c-m-statistic .arco-statistic-content .arco-statistic-value {
+  display: inline;
+}
+.c-m-statistic .arco-statistic-content .arco-statistic-value-suffix {
+  margin-left: 2px;
+}
+.c-m-statistic-countdown {
+  padding: 0;
+}

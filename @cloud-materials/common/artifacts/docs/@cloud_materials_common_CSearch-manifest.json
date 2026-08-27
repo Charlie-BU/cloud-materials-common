@@ -1,0 +1,1312 @@
+{
+  "doclets": [
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSimpleSearch",
+      "type": null,
+      "properties": [
+        {
+          "name": "content",
+          "type": "[CSearchComponentContent](#CSearchComponentContent)",
+          "required": true,
+          "description": "组件内容"
+        },
+        {
+          "name": "wrapperClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "容器类名，仅在存在 label 时生效"
+        },
+        {
+          "name": "wrapperStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "容器样式，仅在存在 label 时生效"
+        },
+        {
+          "name": "normalize",
+          "type": "| [InputProps](#InputProps)['normalize']| {/** 忽略无意义字符 */ignoreCharacters?: (string | RegExp)[];/** 英文字符大小写转换 */letterCase?: 'upperCase' | 'lowerCase';}",
+          "required": false,
+          "description": "Input组件格式化用户输入,当传入Input本身的normalize时忽略"
+        },
+        {
+          "name": "debounceOptions",
+          "type": "| (DebounceSettings & {wait?: number;})| null",
+          "required": false,
+          "description": "防抖参数",
+          "defaultValue": "`{wait: 500}`"
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "required": false,
+          "description": "显示名称"
+        },
+        {
+          "name": "labelBordered",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示标签边框"
+        },
+        {
+          "name": "labelWidth",
+          "type": "CSSProperties['width']",
+          "required": false,
+          "description": "标签宽度",
+          "defaultValue": "100"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCascaderSearchItem",
+      "type": null,
+      "properties": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "required": true,
+          "description": "选项名称"
+        },
+        {
+          "name": "fieldName",
+          "type": "Key",
+          "required": true,
+          "description": "选项字段"
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "required": false,
+          "description": "是否可见",
+          "defaultValue": "true"
+        },
+        {
+          "name": "content",
+          "type": "[CSearchComponentContent](#CSearchComponentContent)",
+          "required": true,
+          "description": "内容"
+        },
+        {
+          "name": "commonProps",
+          "type": "Record<string, any>",
+          "required": false,
+          "description": "组件参数"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCascaderSearch",
+      "type": null,
+      "properties": [
+        {
+          "name": "list",
+          "type": "[CCascaderSearchItem](#CCascaderSearchItem)[]",
+          "required": false,
+          "description": "搜索类型选择项"
+        },
+        {
+          "name": "arcoSelectProps",
+          "type": "Omit<[SelectProps](#SelectProps), 'options' | 'value'>",
+          "required": false,
+          "description": "搜索类型选择器参数"
+        },
+        {
+          "name": "labelWidth",
+          "type": "CSSProperties['width']",
+          "required": false,
+          "description": "标签宽度",
+          "defaultValue": "100"
+        },
+        {
+          "name": "prefixAutoWidth",
+          "type": "boolean",
+          "required": false,
+          "description": "搜索项Select组件是否配置自动宽度，开启后，labelWidth失效",
+          "defaultValue": "false"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "debounceOptions",
+          "type": "| (DebounceSettings & {wait?: number;})| null",
+          "required": false,
+          "description": "防抖参数",
+          "defaultValue": "`{wait: 500}`"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCCascaderSearchValue",
+      "type": null,
+      "properties": [
+        {
+          "name": "validOptions",
+          "type": "[CCascaderSearchItem](#CCascaderSearchItem)[]",
+          "required": true,
+          "description": "过滤掉 visible 为 false 的选项"
+        },
+        {
+          "name": "state",
+          "type": "{/** 字段 */fieldName: Key;/** 值 */value?: any;}",
+          "required": true,
+          "description": "当前值"
+        },
+        {
+          "name": "searchComponent",
+          "type": "[CSearchComponentProps](#CSearchComponentProps)",
+          "required": true,
+          "description": "组件"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCCascaderSearchControl",
+      "type": null,
+      "properties": [
+        {
+          "name": "updateField",
+          "type": "(value: Key) => void",
+          "required": true,
+          "description": "更新字段"
+        },
+        {
+          "name": "updateValue",
+          "type": "(value: any) => void",
+          "required": true,
+          "description": "更新值"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchItem",
+      "type": null,
+      "properties": [
+        {
+          "name": "fieldName",
+          "type": "Key",
+          "required": false,
+          "description": "字段 设置后会监管组件的 value 和 onChange 参数"
+        },
+        {
+          "name": "colspan",
+          "type": "number",
+          "required": false,
+          "description": "高级筛选搜索项所占栅格数量"
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "required": false,
+          "description": "是否可见"
+        },
+        {
+          "name": "valueFormatter",
+          "type": "((v?: string) => string | undefined) | ((v?: string[]) => string[] | undefined)",
+          "required": false,
+          "description": "输入值格式化"
+        },
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "required": false,
+          "description": "显示名称"
+        },
+        {
+          "name": "labelBordered",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示标签边框"
+        },
+        {
+          "name": "labelWidth",
+          "type": "CSSProperties['width']",
+          "required": false,
+          "description": "标签宽度",
+          "defaultValue": "100"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "content",
+          "type": "[CSearchComponentContent](#CSearchComponentContent)",
+          "required": true,
+          "description": "内容"
+        },
+        {
+          "name": "commonProps",
+          "type": "Record<string, any>",
+          "required": false,
+          "description": "组件参数"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCSearchValue",
+      "type": null,
+      "properties": [
+        {
+          "name": "displayList",
+          "type": "[CCSearchItem](#CCSearchItem)[]",
+          "required": true,
+          "description": "展示搜索项列表"
+        },
+        {
+          "name": "advanceList",
+          "type": "[CCSearchItem](#CCSearchItem)[]",
+          "required": true,
+          "description": "高级筛选搜索项列表"
+        },
+        {
+          "name": "advanceVisible",
+          "type": "boolean",
+          "required": true,
+          "description": "高级筛选列表可见性"
+        },
+        {
+          "name": "manual",
+          "type": "boolean | ButtonProps",
+          "required": false,
+          "description": "是否手动搜索"
+        },
+        {
+          "name": "activeAdvanceCount",
+          "type": "number",
+          "required": true,
+          "description": "已设置高级筛选数量"
+        },
+        {
+          "name": "params",
+          "type": "[CSearchParams](#CSearchParams)",
+          "required": true,
+          "description": "搜索参数"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCSearchControl",
+      "type": null,
+      "properties": [
+        {
+          "name": "toggleAdvanceVisible",
+          "type": "() => void",
+          "required": true,
+          "description": "切换高级筛选列表可见性"
+        },
+        {
+          "name": "search",
+          "type": "(flush?: true) => void",
+          "required": true,
+          "description": "搜索"
+        },
+        {
+          "name": "updateParams",
+          "type": "(val: [CSearchParams](#CSearchParams), replace?: boolean) => void",
+          "required": true,
+          "description": "更新搜索参数"
+        },
+        {
+          "name": "resetParams",
+          "type": "() => void",
+          "required": true,
+          "description": "重置搜索参数"
+        },
+        {
+          "name": "resetAdvanceParams",
+          "type": "() => void",
+          "required": true,
+          "description": "重置高级筛选搜索参数"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCSearchCustom",
+      "type": null,
+      "properties": [
+        {
+          "name": "defaultCollapseVisible",
+          "type": "boolean",
+          "required": false,
+          "description": "高级筛选折叠面板默认显隐",
+          "defaultValue": "false"
+        },
+        {
+          "name": "displayArcoSpaceProps",
+          "type": "Partial<[SpaceProps](#SpaceProps)>",
+          "required": false,
+          "description": "展示的组件外层 Space 组件参数"
+        },
+        {
+          "name": "collapsedClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "折叠的组件外层容器类名"
+        },
+        {
+          "name": "list",
+          "type": "[CCSearchItem](#CCSearchItem)[]",
+          "required": false,
+          "description": "搜索项列表"
+        },
+        {
+          "name": "manual",
+          "type": "boolean | ButtonProps",
+          "required": false,
+          "description": "是否手动搜索，会增加搜索按钮"
+        },
+        {
+          "name": "cacheKey",
+          "type": "string",
+          "required": false,
+          "description": "缓存关键字，设置后参数会存储在 localStorage 中"
+        },
+        {
+          "name": "displayCount",
+          "type": "number",
+          "required": false,
+          "description": "显示的搜索项数量，剩下的将作为高级筛选展示",
+          "defaultValue": "2"
+        },
+        {
+          "name": "labelWith",
+          "type": "number | string",
+          "required": false,
+          "description": "标签宽度",
+          "defaultValue": "100"
+        },
+        {
+          "name": "colspan",
+          "type": "[CSearchColspan](#CSearchColspan)",
+          "required": false,
+          "description": "组件占栅格数量",
+          "defaultValue": "{\n InputNumber: 4,\n Select: 4,\n DatePicker: 4,\n Input: 5,\n RangePicker: 7\n}"
+        },
+        {
+          "name": "showReset",
+          "type": "boolean | ButtonProps",
+          "required": false,
+          "description": "显示重置按钮，即使设置手动搜索参数重置后也会立即搜索"
+        },
+        {
+          "name": "showAdvanceReset",
+          "type": "boolean",
+          "required": false,
+          "description": "显示高级筛选中的重置按钮，即使设置手动搜索参数重置后也会立即搜索"
+        },
+        {
+          "name": "onCollapseVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false,
+          "description": "高级搜索折叠部分显隐切换后回调"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        },
+        {
+          "name": "debounceOptions",
+          "type": "| (DebounceSettings & {wait?: number;})| null",
+          "required": false,
+          "description": "防抖参数",
+          "defaultValue": "`{wait: 500}`"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearch",
+      "type": null,
+      "properties": [
+        {
+          "name": "position",
+          "type": "[CSearchPosition](#CSearchPosition)",
+          "required": false,
+          "description": "搜索项展示方向，left表示搜索组件在左侧、right表示搜索组件在右侧",
+          "defaultValue": "right"
+        },
+        {
+          "name": "reverseNode",
+          "type": "ReactNode",
+          "required": false,
+          "description": "搜索项相反位置内容"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "defaultCollapseVisible",
+          "type": "boolean",
+          "required": false,
+          "description": "高级筛选折叠面板默认显隐",
+          "defaultValue": "false"
+        },
+        {
+          "name": "displayArcoSpaceProps",
+          "type": "Partial<[SpaceProps](#SpaceProps)>",
+          "required": false,
+          "description": "展示的组件外层 Space 组件参数"
+        },
+        {
+          "name": "collapsedClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "折叠的组件外层容器类名"
+        },
+        {
+          "name": "list",
+          "type": "[CCSearchItem](#CCSearchItem)[]",
+          "required": false,
+          "description": "搜索项列表"
+        },
+        {
+          "name": "manual",
+          "type": "boolean | ButtonProps",
+          "required": false,
+          "description": "是否手动搜索，会增加搜索按钮"
+        },
+        {
+          "name": "cacheKey",
+          "type": "string",
+          "required": false,
+          "description": "缓存关键字，设置后参数会存储在 localStorage 中"
+        },
+        {
+          "name": "displayCount",
+          "type": "number",
+          "required": false,
+          "description": "显示的搜索项数量，剩下的将作为高级筛选展示",
+          "defaultValue": "2"
+        },
+        {
+          "name": "labelWith",
+          "type": "number | string",
+          "required": false,
+          "description": "标签宽度",
+          "defaultValue": "100"
+        },
+        {
+          "name": "colspan",
+          "type": "[CSearchColspan](#CSearchColspan)",
+          "required": false,
+          "description": "组件占栅格数量",
+          "defaultValue": "{\n InputNumber: 4,\n Select: 4,\n DatePicker: 4,\n Input: 5,\n RangePicker: 7\n}"
+        },
+        {
+          "name": "showReset",
+          "type": "boolean | ButtonProps",
+          "required": false,
+          "description": "显示重置按钮，即使设置手动搜索参数重置后也会立即搜索"
+        },
+        {
+          "name": "showAdvanceReset",
+          "type": "boolean",
+          "required": false,
+          "description": "显示高级筛选中的重置按钮，即使设置手动搜索参数重置后也会立即搜索"
+        },
+        {
+          "name": "onCollapseVisibleChange",
+          "type": "(visible: boolean) => void",
+          "required": false,
+          "description": "高级搜索折叠部分显隐切换后回调"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        },
+        {
+          "name": "debounceOptions",
+          "type": "| (DebounceSettings & {wait?: number;})| null",
+          "required": false,
+          "description": "防抖参数",
+          "defaultValue": "`{wait: 500}`"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCCombineSearchValue",
+      "type": null,
+      "properties": [
+        {
+          "name": "list",
+          "type": "NonNullable<[CCombineSearchProps](#CCombineSearchProps)['list']>",
+          "required": true,
+          "description": "搜索项列表"
+        },
+        {
+          "name": "tempValue",
+          "type": "any",
+          "required": true,
+          "description": "输入框值"
+        },
+        {
+          "name": "params",
+          "type": "[CSearchParams](#CSearchParams)",
+          "required": true,
+          "description": "搜索参数"
+        },
+        {
+          "name": "status",
+          "type": "[CCombineSearchStatus](#CCombineSearchStatus)",
+          "required": true,
+          "description": "当前状态"
+        },
+        {
+          "name": "current",
+          "type": "[CCombineSearchItem](#CCombineSearchItem) | null",
+          "required": true,
+          "description": "当前搜索项"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": true,
+          "description": "占位符"
+        },
+        {
+          "name": "defaultField",
+          "type": "{ fieldName: string; type: 'auto' | 'default' }",
+          "required": false,
+          "description": "默认查询字段"
+        },
+        {
+          "name": "searchWord",
+          "type": "string",
+          "required": false,
+          "description": "单选和多选时字段搜索词"
+        },
+        {
+          "name": "errState",
+          "type": "boolean",
+          "required": false,
+          "description": "校验错误信息"
+        },
+        {
+          "name": "filterUserInput",
+          "type": "Required<NonNullable<[UseCCombineSearchCustomProps](#UseCCombineSearchCustomProps)['fuzzyConfig']>>['filterUserInput']",
+          "required": true,
+          "description": "处理用户输入字符，包括大小写转换，忽略无意义字符等"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCCombineSearchControl",
+      "type": null,
+      "properties": [
+        {
+          "name": "search",
+          "type": "() => void",
+          "required": true,
+          "description": "搜索"
+        },
+        {
+          "name": "updateState",
+          "type": "(status: [CCombineSearchStatus](#CCombineSearchStatus), current?: [UseCCombineSearchValue](#UseCCombineSearchValue)['current']) => void",
+          "required": true,
+          "description": "更新组件状态和当前搜索项"
+        },
+        {
+          "name": "updateParams",
+          "type": "(value: [CSearchParams](#CSearchParams), replace?: boolean) => void",
+          "required": true,
+          "description": "更新搜索项参数"
+        },
+        {
+          "name": "resetParams",
+          "type": "() => void",
+          "required": true,
+          "description": "重置所有参数"
+        },
+        {
+          "name": "updateTempValue",
+          "type": "(value?: any) => void",
+          "required": true,
+          "description": "更新输入框值"
+        },
+        {
+          "name": "updateSearchField",
+          "type": "(field: Key) => void",
+          "required": true,
+          "description": "更新当前搜索项"
+        },
+        {
+          "name": "updateSearchValue",
+          "type": "(value?: any, field?: Key) => void",
+          "required": true,
+          "description": "更新当前搜索项参数"
+        },
+        {
+          "name": "resetCurrent",
+          "type": "() => void",
+          "required": true,
+          "description": "重置当前搜索项"
+        },
+        {
+          "name": "updateSearchWord",
+          "type": "(value?: string) => void",
+          "required": true,
+          "description": "更新搜索词"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "UseCCombineSearchCustom",
+      "type": null,
+      "properties": [
+        {
+          "name": "triggerClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索组件类名"
+        },
+        {
+          "name": "triggerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索组件样式"
+        },
+        {
+          "name": "trigger",
+          "type": "[PopoverProps](#PopoverProps)['trigger']",
+          "required": false,
+          "description": "触发方式",
+          "defaultValue": "click"
+        },
+        {
+          "name": "popoverTriggerProps",
+          "type": "Partial<[TriggerProps](#TriggerProps)>",
+          "required": false,
+          "description": "搜索组件 Popover 中的传递给 Trigger 组件的 props"
+        },
+        {
+          "name": "popoverClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索组件Popover类名"
+        },
+        {
+          "name": "popoverStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索组件Popover样式"
+        },
+        {
+          "name": "keyboardTip",
+          "type": "boolean",
+          "required": false,
+          "description": "键盘操作提示",
+          "defaultValue": "true"
+        },
+        {
+          "name": "viewClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索结果组件类名\nalignType为inline时无效"
+        },
+        {
+          "name": "viewStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索结果组件样式\nalignType为inline时无效"
+        },
+        {
+          "name": "list",
+          "type": "[CCombineSearchItem](#CCombineSearchItem)[]",
+          "required": false,
+          "description": "搜索项列表"
+        },
+        {
+          "name": "listGroup",
+          "type": "{ label: string; fieldNames: [CCombineSearchItem](#CCombineSearchItem)['fieldName'][] }[]",
+          "required": false,
+          "description": "搜索项分组配置。配置之后，需要给所有搜索项进行分组，未分组的将不进行展示"
+        },
+        {
+          "name": "cacheKey",
+          "type": "string",
+          "required": false,
+          "description": "缓存关键字，设置后参数会存储在 localStorage 中"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "占位符"
+        },
+        {
+          "name": "defaultField",
+          "type": "string | { fieldName: string; type?: 'auto' | 'default' }",
+          "required": false,
+          "description": "默认选中的字段。\n - 配置type，配置fuzzy时有效\n   - auto: 搜索时如果有匹配的候选项则自动根据第一个匹配类型作为搜索项；如果没有匹配项，则用配置的fieldName(如果有配置)作为搜索类型\n   - default: 不管是否匹配，直接用配置的fieldName作为搜索项\n   - default value: default"
+        },
+        {
+          "name": "loading",
+          "type": "boolean | [LoadingType](#LoadingType)",
+          "required": false,
+          "description": "加载态"
+        },
+        {
+          "name": "fuzzy",
+          "type": "boolean",
+          "required": false,
+          "description": "模糊搜索"
+        },
+        {
+          "name": "fuzzyConfig",
+          "type": "{/** 对用户输入字符进行自定义处理，模糊匹配搜索 */filterUserInput?: (userInputValue?: string) => string | undefined;/** 对用户输入字符进行英文字符大小写转换处理，模糊匹配搜索 */letterCase?: 'upperCase' | 'lowerCase' | 'ignore';/** 对用户输入字符进行忽略指定字符处理，模糊匹配搜索 */ignoreCharacters?: (string | RegExp)[];/*** 搜索目标为label(需要传入string或number)-只搜索label、value-只搜索value、both-同时搜索* @default label*/target?: 'label' | 'value' | 'both';/*** 每个搜索项展示最多条目数量*/displayNum?: number;/*** 是否开启点击搜索项分组label切换到对应的搜索字段*/enableChangeSearchItem?: boolean;/** 模糊搜索，搜索候选项自定义函数 */fuzzyOptionsFilter?: (searchWord: string, optionsSet: [CCombineSearchSelect](#CCombineSearchSelect)[]) => [CCombineSearchSelect](#CCombineSearchSelect)[];/*** @zh 模糊搜索时，触发搜索事件*/onSearch?: (options: {searchWord?: string;list: [CCombineSearchItem](#CCombineSearchItem)[];values: [CSearchParams](#CSearchParams);filterList: [CCombineSearchSelect](#CCombineSearchSelect)[];}) => void;/*** @zh 模糊搜索时，搜索事件debounce时间* @defaultValue 200*/searchHandleDebounce?: number;}",
+          "required": false,
+          "description": "模糊搜索list中Select配置的候选项，按照顺序处理输入字符"
+        },
+        {
+          "name": "validator",
+          "type": "<T extends [CSearchParams](#CSearchParams)>(params: {/** 当前输入的搜索值 */value: T;/** 已输入的搜索值 */prevValues: [CSearchParams](#CSearchParams);/** 即将更新的搜索值 */newValues: [CSearchParams](#CSearchParams);}) => boolean | undefined | void",
+          "required": false,
+          "description": "搜索值onChange之前的校验"
+        },
+        {
+          "name": "searchParamExtraLast",
+          "type": "ReactNode",
+          "required": false,
+          "description": "搜索展示参数末尾内容"
+        },
+        {
+          "name": "searchParamExtraStart",
+          "type": "ReactNode",
+          "required": false,
+          "description": "搜索展示参数开头内容"
+        },
+        {
+          "name": "alignType",
+          "type": "'inline' | 'bottom'",
+          "required": false,
+          "description": "搜索条件和搜索组件之间的位置关系，inline-搜索条件和搜索器在搜索框内，bottom-搜索条件在搜索器下方",
+          "defaultValue": "bottom"
+        },
+        {
+          "name": "enableEdit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否支持对已选搜索选项进行编辑",
+          "defaultValue": "true"
+        },
+        {
+          "name": "ellipsisProps",
+          "type": "{enable: boolean;config?: Omit<[CEllipsisProps](#CEllipsisProps), 'content' | 'children'>;}",
+          "required": false,
+          "description": "是否使用 CEllipsis 包裹 select 筛选项的 option.label"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearch",
+      "type": null,
+      "properties": [
+        {
+          "name": "extraLeft",
+          "type": "ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "搜索组件左侧内容，支持ReactNode和COperationMenuProps"
+        },
+        {
+          "name": "extraRight",
+          "type": "ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "搜索组件右侧内容，支持ReactNode和COperationMenuProps"
+        },
+        {
+          "name": "triggerSpaceSize",
+          "type": "[SpaceProps](#SpaceProps)['size']",
+          "required": false,
+          "description": "搜索组件内容间隔",
+          "defaultValue": "12"
+        },
+        {
+          "name": "triggerClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索组件类名"
+        },
+        {
+          "name": "triggerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索组件样式"
+        },
+        {
+          "name": "trigger",
+          "type": "[PopoverProps](#PopoverProps)['trigger']",
+          "required": false,
+          "description": "触发方式",
+          "defaultValue": "click"
+        },
+        {
+          "name": "popoverTriggerProps",
+          "type": "Partial<[TriggerProps](#TriggerProps)>",
+          "required": false,
+          "description": "搜索组件 Popover 中的传递给 Trigger 组件的 props"
+        },
+        {
+          "name": "popoverClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索组件Popover类名"
+        },
+        {
+          "name": "popoverStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索组件Popover样式"
+        },
+        {
+          "name": "keyboardTip",
+          "type": "boolean",
+          "required": false,
+          "description": "键盘操作提示",
+          "defaultValue": "true"
+        },
+        {
+          "name": "viewClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "搜索结果组件类名\nalignType为inline时无效"
+        },
+        {
+          "name": "viewStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "搜索结果组件样式\nalignType为inline时无效"
+        },
+        {
+          "name": "list",
+          "type": "[CCombineSearchItem](#CCombineSearchItem)[]",
+          "required": false,
+          "description": "搜索项列表"
+        },
+        {
+          "name": "listGroup",
+          "type": "{ label: string; fieldNames: [CCombineSearchItem](#CCombineSearchItem)['fieldName'][] }[]",
+          "required": false,
+          "description": "搜索项分组配置。配置之后，需要给所有搜索项进行分组，未分组的将不进行展示"
+        },
+        {
+          "name": "cacheKey",
+          "type": "string",
+          "required": false,
+          "description": "缓存关键字，设置后参数会存储在 localStorage 中"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "占位符"
+        },
+        {
+          "name": "defaultField",
+          "type": "string | { fieldName: string; type?: 'auto' | 'default' }",
+          "required": false,
+          "description": "默认选中的字段。\n - 配置type，配置fuzzy时有效\n   - auto: 搜索时如果有匹配的候选项则自动根据第一个匹配类型作为搜索项；如果没有匹配项，则用配置的fieldName(如果有配置)作为搜索类型\n   - default: 不管是否匹配，直接用配置的fieldName作为搜索项\n   - default value: default"
+        },
+        {
+          "name": "loading",
+          "type": "boolean | [LoadingType](#LoadingType)",
+          "required": false,
+          "description": "加载态"
+        },
+        {
+          "name": "fuzzy",
+          "type": "boolean",
+          "required": false,
+          "description": "模糊搜索"
+        },
+        {
+          "name": "fuzzyConfig",
+          "type": "{/** 对用户输入字符进行自定义处理，模糊匹配搜索 */filterUserInput?: (userInputValue?: string) => string | undefined;/** 对用户输入字符进行英文字符大小写转换处理，模糊匹配搜索 */letterCase?: 'upperCase' | 'lowerCase' | 'ignore';/** 对用户输入字符进行忽略指定字符处理，模糊匹配搜索 */ignoreCharacters?: (string | RegExp)[];/*** 搜索目标为label(需要传入string或number)-只搜索label、value-只搜索value、both-同时搜索* @default label*/target?: 'label' | 'value' | 'both';/*** 每个搜索项展示最多条目数量*/displayNum?: number;/*** 是否开启点击搜索项分组label切换到对应的搜索字段*/enableChangeSearchItem?: boolean;/** 模糊搜索，搜索候选项自定义函数 */fuzzyOptionsFilter?: (searchWord: string, optionsSet: [CCombineSearchSelect](#CCombineSearchSelect)[]) => [CCombineSearchSelect](#CCombineSearchSelect)[];/*** @zh 模糊搜索时，触发搜索事件*/onSearch?: (options: {searchWord?: string;list: [CCombineSearchItem](#CCombineSearchItem)[];values: [CSearchParams](#CSearchParams);filterList: [CCombineSearchSelect](#CCombineSearchSelect)[];}) => void;/*** @zh 模糊搜索时，搜索事件debounce时间* @defaultValue 200*/searchHandleDebounce?: number;}",
+          "required": false,
+          "description": "模糊搜索list中Select配置的候选项，按照顺序处理输入字符"
+        },
+        {
+          "name": "validator",
+          "type": "<T extends [CSearchParams](#CSearchParams)>(params: {/** 当前输入的搜索值 */value: T;/** 已输入的搜索值 */prevValues: [CSearchParams](#CSearchParams);/** 即将更新的搜索值 */newValues: [CSearchParams](#CSearchParams);}) => boolean | undefined | void",
+          "required": false,
+          "description": "搜索值onChange之前的校验"
+        },
+        {
+          "name": "searchParamExtraLast",
+          "type": "ReactNode",
+          "required": false,
+          "description": "搜索展示参数末尾内容"
+        },
+        {
+          "name": "searchParamExtraStart",
+          "type": "ReactNode",
+          "required": false,
+          "description": "搜索展示参数开头内容"
+        },
+        {
+          "name": "alignType",
+          "type": "'inline' | 'bottom'",
+          "required": false,
+          "description": "搜索条件和搜索组件之间的位置关系，inline-搜索条件和搜索器在搜索框内，bottom-搜索条件在搜索器下方",
+          "defaultValue": "bottom"
+        },
+        {
+          "name": "enableEdit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否支持对已选搜索选项进行编辑",
+          "defaultValue": "true"
+        },
+        {
+          "name": "ellipsisProps",
+          "type": "{enable: boolean;config?: Omit<[CEllipsisProps](#CEllipsisProps), 'content' | 'children'>;}",
+          "required": false,
+          "description": "是否使用 CEllipsis 包裹 select 筛选项的 option.label"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "类名"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "样式"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "当前值（受控）"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T",
+          "required": false,
+          "description": "默认值（非受控）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T) => void",
+          "required": false,
+          "description": "值改变事件"
+        }
+      ]
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchComponentContent",
+      "type": "/** 组件内容 */\nexport type CSearchComponentContent = (ReactElement & {\n  component?: undefined;\n}) | DefineBuiltInBasicType<CSearchComponentEnum>;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchComponentProps",
+      "type": "/** 简单搜索组件参数 */\nexport interface CSearchComponentProps {\n  /** 内容 */\n  content: CSearchComponentContent;\n  /** 组件参数 */\n  commonProps?: Record<string, any>;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchParams",
+      "type": "/** 搜索参数 */\nexport type CSearchParams = Record<string, any>;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchColspan",
+      "type": "/** 高级筛选搜索项所占栅格数量 */\nexport type CSearchColspan = Record<CSearchComponentType, number>;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CSearchPosition",
+      "type": "/** 高级筛选搜索项所处位置 */\nexport type CSearchPosition = 'left' | 'right';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchStatus",
+      "type": "/**\n * 组合搜索组件状态\n * default: 初始状态\n * field: 点击trigger选择搜索字段\n * value: 选择了搜索字段进行值的输入或者模糊匹配搜索时\n */\nexport type CCombineSearchStatus = 'default' | 'field' | 'value';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchItem",
+      "type": "/** 高级搜索选项类型 */\nexport type CCombineSearchItem = CCombineSearchInput | CCombineSearchSelect | CCombineSearchCustom;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchItemBase",
+      "type": "/** 高级搜索选项基类 */\nexport interface CCombineSearchItemBase {\n  /** 展示名称 */\n  label: string;\n  /** 字段 */\n  fieldName: Key;\n  /**\n   * @zh 是否禁用该搜索项\n   */\n  disabled?: boolean;\n  /**\n   * @zh 是否隐藏该搜索项\n   */\n  hidden?: boolean;\n  /** 组件类型 */\n  type?: CCombineSearchType;\n  /** 占位符 */\n  placeholder?: string;\n  /** 自定义渲染结果展示内容 */\n  renderViewItem?: (props: ViewItemRenderProps, options: {\n    item: Omit<CCombineSearchItem, 'renderViewItem'>;\n    value: any;\n    prefixClassName: string;\n  }) => ReactNode;\n  viewItemConfig?: {\n    /**\n     * @zh 搜索项是否隐藏其label\n     */\n    hiddenLable?: boolean;\n    /**\n     * @zh 搜索项是否隐藏其label\n     * @defaultValue true\n     */\n    enableEdit?: boolean;\n  };\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchType",
+      "type": "/** 组合搜索组件类型 */\nexport type CCombineSearchType = 'input' | 'select' | 'custom';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "ViewItemRenderProps",
+      "type": "export type ViewItemRenderProps = Pick<CTagProps, 'className' | 'closable' | 'onClick' | 'onClose'>;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchSelect",
+      "type": "/** 高级搜索 Select 类型 */\nexport interface CCombineSearchSelect extends CCombineSearchItemBase {\n  /** 组件类型 */\n  type: 'select';\n  /**\n   * @zh 选择模式\n   * @en Select mode\n   * @defaultValue single\n   */\n  mode?: 'multiple' | 'single';\n  /** 选项 */\n  options: Array<{\n    /** 展示名称 */\n    label: ReactNode;\n    /** 值 */\n    value: Key;\n    /** 是否禁用 */\n    disabled?: boolean;\n  }>;\n  /**\n   * @zh 允许选择同一搜索项的候选项，在 mode=single 时生效，设置后则进行合并\n   * @defaultValue false\n   */\n  multiValues?: boolean;\n  /** 结果展示分隔符，在 mode=multiple || multiValues=true  时生效，设置后则会以字符串形式输出，可配置输出数据是否加入分隔符 */\n  separator?: string | {\n    symbol: string;\n    isOriginalData?: boolean;\n  };\n  /**\n   * @zh 允许未匹配到的搜索词作为搜索条件\n   * @defaultValue false\n   */\n  allowCreate?: boolean;\n  fuzzyConfig?: {\n    /**\n     * 搜索目标为label(需要传入string或number)-只搜索label、value-只搜索value、both-同时搜索\n     * @default label\n     */\n    target?: 'label' | 'value' | 'both';\n    /** 对用户输入字符进行英文字符大小写转换处理，模糊匹配搜索 */\n    letterCase?: 'upperCase' | 'lowerCase' | 'ignore';\n    /**\n     * @zh 是否进行模糊匹配\n     * @defaultValue true\n     */\n    enableSearch?: boolean;\n  };\n  /**\n   * @zh 搜索事件\n   */\n  onSearch?: (options: {\n    searchWord?: string;\n    item: CCombineSearchSelect;\n    filterOptions: CCombineSearchSelect['options'];\n  }) => void;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "CCombineSearchCustom",
+      "type": "/** 高级搜索 自定义类型 */\nexport interface CCombineSearchCustom extends CCombineSearchItemBase {\n  /** 组件类型 */\n  type: 'custom';\n  /** 自定义渲染 Popover 内容组件，存在时输入框不可编辑 */\n  renderContent: (props: {\n    item: CCombineSearchCustom;\n    value: any;\n    onChange: (value: any) => void;\n    onReset: () => void;\n    onSave: (value?: any) => void;\n    onCancel: () => void;\n  }) => ReactNode;\n  /** 自定义渲染已输入值临时展示内容 */\n  renderTrigger?: (props: {\n    item: CCombineSearchCustom;\n    value: any;\n    onSave: (value?: any) => void;\n    /** 回退至选择筛选项 */\n    onBack: () => void;\n  }) => ReactNode;\n  /** 隐藏底部组件 */\n  hideFooter?: boolean;\n  /** 自定义项时可设置poover的style */\n  popoverStyle?: CSSProperties;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSearch/interface.ts",
+      "name": "LoadingType",
+      "type": "/**\n * 不同的loading状态\n * - `block`: trigger 整体loading，会阻塞操作\n * - `inline`: trigger 末尾和 popover 内容loading，不阻塞输入\n * - `none`: 不进行loading\n */\nexport type LoadingType = 'block' | 'inline' | 'none';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport { CEllipsis, CSearch, Checkbox } from '@cloud-materials/common';\n\nconst { CSimpleSearch } = CSearch;\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n  {\n    label: (\n      <CEllipsis>\n        很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容\n      </CEllipsis>\n    ),\n    value: 'long',\n  },\n  {\n    label:\n      '很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容',\n    value: 'longstring',\n  },\n];\n\nexport default (): ReactElement => {\n  const [showLabel, setShowLabel] = useState(false);\n  const label = showLabel ? '事件类型' : '';\n\n  const handleChange = (val: any) => {\n    console.log(val);\n  };\n\n  return (\n    <div>\n      <Checkbox onChange={() => setShowLabel(v => !v)}>显示标签</Checkbox>\n      <h3>输入框（默认防抖）</h3>\n      <CSimpleSearch label={label} onChange={handleChange} content={{ component: 'Input' }} />\n      <h3>普通输入框-自适应宽度</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{ component: 'Input', componentProps: { autoWidth: { minWidth: 240 } } }}\n        debounceOptions={null}\n      />\n      <h3>自动补全</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{\n          component: 'AutoComplete',\n          componentProps: {\n            data: Array(200)\n              .fill(0)\n              .map((_, idx) => `instanceID-${idx}`),\n          },\n        }}\n      />\n      <h3>格式化用户输入（Input）</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        normalize={{\n          letterCase: 'lowerCase',\n          ignoreCharacters: [',', '，'],\n        }}\n        content={{\n          component: 'Input',\n          componentProps: {\n            normalizeTrigger: ['onBlur', 'onPressEnter'],\n            placeholder: `忽略'，'，','，英文字母转小写`,\n          },\n        }}\n      />\n      <h3>格式化用户输入（AutoComplete）</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        normalize={{\n          letterCase: 'lowerCase',\n          ignoreCharacters: [',', '，'],\n        }}\n        content={{\n          component: 'AutoComplete',\n          componentProps: {\n            data: Array(200)\n              .fill(0)\n              .map((_, idx) => `instanceID-${idx}`),\n            inputProps: {\n              placeholder: `忽略'，'，','，英文字母转小写`,\n              normalizeTrigger: ['onBlur', 'onPressEnter'],\n            },\n          },\n        }}\n      />\n      <h3>数字输入框（默认防抖）</h3>\n      <CSimpleSearch label={label} onChange={handleChange} content={{ component: 'InputNumber' }} />\n      <h3>普通数字输入框</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{ component: 'InputNumber' }}\n        debounceOptions={null}\n      />\n      <h3>下拉选择器-自动宽度</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{\n          component: 'Select',\n          componentProps: {\n            options: educationOptions.slice(0, 3),\n            autoWidth: { minWidth: 240 },\n            triggerProps: {\n              style: { maxWidth: 500 },\n              autoAlignPopupMinWidth: false,\n              autoAlignPopupWidth: false,\n              position: 'bl',\n            },\n          },\n        }}\n      />\n      <h3>下拉选择器-自动宽度-长文本</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{\n          component: 'Select',\n          componentProps: {\n            options: educationOptions,\n            autoWidth: { minWidth: 240 },\n            triggerProps: {\n              style: { maxWidth: 500 },\n              autoAlignPopupMinWidth: false,\n              autoAlignPopupWidth: false,\n              position: 'bl',\n            },\n          },\n        }}\n      />\n      <h3>下拉选择器-自动宽度-多选</h3>\n      <CSimpleSearch\n        label={label}\n        onChange={handleChange}\n        content={{\n          component: 'Select',\n          componentProps: {\n            mode: 'multiple',\n            options: educationOptions,\n            autoWidth: { minWidth: 240 },\n            triggerProps: {\n              style: { maxWidth: 500 },\n              autoAlignPopupMinWidth: false,\n              autoAlignPopupWidth: false,\n              position: 'bl',\n            },\n          },\n        }}\n      />\n      <h3>日期选择器</h3>\n      <CSimpleSearch label={label} onChange={handleChange} content={{ component: 'DatePicker' }} />\n      <h3>日期范围选择器</h3>\n      <CSimpleSearch label={label} onChange={handleChange} content={{ component: 'RangePicker' }} />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCascaderSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\n\nconst { CCascaderSearch } = CSearch;\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nexport const cascaderList: CCascaderSearchItem[] = [\n  {\n    fieldName: 'name',\n    label: '名称',\n    content: {\n      component: 'Input',\n      componentProps: {\n        className: 'className',\n        allowClear: true,\n      },\n    },\n  },\n  {\n    fieldName: 'age',\n    label: '年龄',\n    content: {\n      component: 'InputNumber',\n      componentProps: {\n        step: 10,\n        max: 4000,\n      },\n    },\n  },\n  {\n    fieldName: 'degree',\n    label: '学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        allowClear: true,\n      },\n    },\n  },\n  {\n    fieldName: 'like',\n    label: '第二学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        mode: 'multiple',\n      },\n    },\n  },\n  {\n    fieldName: 'income',\n    label: '入学时间',\n    content: {\n      component: 'DatePicker',\n    },\n  },\n  {\n    fieldName: 'range',\n    label: '读书范围',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CCascaderSearch\n      onChange={val => {\n        console.log(val);\n      }}\n      defaultValue={{ name: '测试' }}\n      list={cascaderList}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport type { CCascaderSearchItem } from '@cloud-materials/common';\nimport { CSearch, CRadio, Space } from '@cloud-materials/common';\n\nconst { CCascaderSearch } = CSearch;\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst cascaderList: CCascaderSearchItem[] = [\n  {\n    fieldName: 'name',\n    label: '名称',\n    content: {\n      component: 'Input',\n      componentProps: {\n        className: 'className',\n      },\n    },\n  },\n  {\n    fieldName: 'age',\n    label: '年龄',\n    content: {\n      component: 'InputNumber',\n      componentProps: {\n        step: 10,\n        max: 4000,\n      },\n    },\n  },\n  {\n    fieldName: 'degree',\n    label: '学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'like',\n    label: '第二学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        mode: 'multiple',\n      },\n    },\n  },\n  {\n    fieldName: 'income',\n    label: '入学时间',\n    content: {\n      component: 'DatePicker',\n    },\n  },\n  {\n    fieldName: 'range',\n    label: '读书范围',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nconst options = [\n  {\n    label: 'like',\n    value: JSON.stringify({ like: ['junior', 'undergraduate'] }),\n  },\n  {\n    label: 'age',\n    value: JSON.stringify({ age: 27 }),\n  },\n];\n\nexport default (): ReactElement => {\n  const [value, setValue] = useState(options[0].value);\n\n  return (\n    <Space direction=\"vertical\">\n      <CRadio.Group value={value} options={options} onChange={setValue} />\n      <CCascaderSearch\n        style={{ width: 400 }}\n        onChange={val => {\n          setValue(JSON.stringify(val));\n        }}\n        list={cascaderList}\n        value={JSON.parse(value)}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCascaderSearchItem } from '@cloud-materials/common';\nimport { CConfigProvider, CSearch } from '@cloud-materials/common';\n\nconst { CCascaderSearch } = CSearch;\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nexport const cascaderList: CCascaderSearchItem[] = [\n  {\n    fieldName: 'name',\n    label: '名称-标题很长标题很长标题很长标题很长标题很长',\n    content: {\n      component: 'Input',\n      componentProps: {\n        className: 'className',\n        allowClear: true,\n      },\n    },\n  },\n  {\n    fieldName: 'name-autoWidth',\n    label: '名称-自适应宽度',\n    content: {\n      component: 'Input',\n      componentProps: {\n        autoWidth: { minWidth: 100 },\n        className: 'className',\n        allowClear: true,\n      },\n    },\n  },\n  {\n    fieldName: 'age',\n    label: '年龄',\n    content: {\n      component: 'InputNumber',\n      componentProps: {\n        step: 10,\n        max: 4000,\n      },\n    },\n  },\n  {\n    fieldName: 'degree',\n    label: '学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        allowClear: true,\n      },\n    },\n  },\n  {\n    fieldName: 'like',\n    label: '第二学历',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        mode: 'multiple',\n      },\n    },\n  },\n  {\n    fieldName: 'income',\n    label: '入学时间',\n    content: {\n      component: 'DatePicker',\n    },\n  },\n  {\n    fieldName: 'range',\n    label: '读书范围',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CConfigProvider cComponentConfig={{ 'CSearch.CCascaderSearch': { prefixAutoWidth: true } }}>\n      <CCascaderSearch\n        onChange={val => {\n          console.log(val);\n        }}\n        // prefixAutoWidth={true}\n        style={{ width: '400px' }}\n        defaultValue={{ name: '测试' }}\n        list={cascaderList}\n      />\n    </CConfigProvider>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": ".custom-div {\n  & > div {\n    position: static !important;\n  }\n}\n",
+      "language": "less"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport type { CCombineSearchItem } from '@cloud-materials/common';\nimport { CSearch, Space } from '@cloud-materials/common';\n\nconst { CCombineSearch } = CSearch;\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst combineList = [\n  { label: '名称', fieldName: 'name', type: 'input' },\n  {\n    label: '状态',\n    fieldName: 'status',\n    type: 'select',\n    mode: 'multiple',\n    options: [\n      {\n        label: '运行中',\n        value: 'running',\n      },\n      {\n        label: '已停止',\n        value: 'stop',\n      },\n      {\n        label: '安装中',\n        value: 'installing',\n      },\n    ],\n  },\n  { label: '年龄', fieldName: 'age', type: 'input', mode: 'number', placeholder: '请输入年龄' },\n  {\n    label: '学历',\n    fieldName: 'degree',\n    type: 'select',\n    options: educationOptions,\n  },\n];\n\nexport default (): ReactElement => {\n  const [value, setValue] = useState<Record<string, any>>({\n    name: '单向绑定',\n    status: ['running', 'stop'],\n  });\n\n  return (\n    <Space direction=\"vertical\">\n      <Space>\n        <CSearch.CSimpleSearch\n          content={{ component: 'Input' }}\n          defaultValue={value.name}\n          onChange={val => setValue(v => ({ ...v, name: val }))}\n        />\n        <CSearch.CSimpleSearch\n          style={{ width: 400 }}\n          label=\"双向绑定\"\n          content={{ component: 'Select', componentProps: { options: combineList[1].options, mode: 'multiple' } }}\n          value={value.status}\n          onChange={val => setValue(v => ({ ...v, status: val }))}\n          debounceOptions={null}\n        />\n      </Space>\n      <h3>受控搜索组件</h3>\n      <CCombineSearch\n        style={{ width: 800 }}\n        list={combineList as CCombineSearchItem[]}\n        value={value}\n        onChange={params => {\n          setValue(params);\n          console.log(params);\n        }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport type { ReactElement } from 'react';\nimport { Button, CSearch, Space, Alert, CCheckbox, CTag, CTags } from '@cloud-materials/common';\nimport type { CCombineSearchItem } from '@cloud-materials/common';\nimport { IconRefresh, IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst { CCombineSearch } = CSearch;\n\nconst singleOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst multiOptions = [\n  {\n    label: '未安装',\n    value: 'undeploy',\n  },\n  {\n    label: '运行中',\n    value: 'deploy',\n  },\n  {\n    label: '异常',\n    value: 'exception',\n  },\n  {\n    label: '安装中',\n    value: 'installing',\n  },\n  {\n    label: '升级中',\n    value: 'upgrading',\n  },\n  {\n    label: '卸载中',\n    value: 'uninstalling',\n  },\n];\n\nconst customOptions = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\n\nconst combineList: CCombineSearchItem[] = [\n  { label: '文本', fieldName: 'string', type: 'input', placeholder: '我是文本框' },\n  { label: '数值', fieldName: 'number', type: 'input', mode: 'number', placeholder: '请输入年龄' },\n  // 这里的tag指的InputTag\n  // { label: '标签', fieldName: 'tag', type: 'input', mode: 'tag' },\n  // { label: '标签（分隔符）', fieldName: 'tag-separator', type: 'input', mode: 'tag', separator: '|' },\n  {\n    label: '单选',\n    fieldName: 'single',\n    type: 'select',\n    multiValues: true,\n    options: singleOptions,\n    separator: { symbol: ' & ', isOriginalData: true },\n    placeholder: '我是单选',\n  },\n  {\n    label: '多选',\n    fieldName: 'multiple',\n    type: 'select',\n    mode: 'multiple',\n    options: multiOptions,\n  },\n  {\n    label: '多选（分隔符）',\n    fieldName: 'multiple-separator',\n    type: 'select',\n    mode: 'multiple',\n    separator: '|',\n    options: multiOptions,\n  },\n  {\n    label: '自定义',\n    fieldName: 'custom',\n    type: 'custom',\n    renderContent: ({ value, onChange }) => (\n      <CCheckbox.Group direction=\"vertical\" value={value} onChange={onChange} options={customOptions} />\n    ),\n    renderTrigger: ({ value }) => (\n      <CTags>\n        {value?.map((v: any) => {\n          const temp = customOptions.find(o => o.value === v);\n          return <CTag key={temp?.value}>{temp?.label}</CTag>;\n        })}\n      </CTags>\n    ),\n    renderViewItem: (props, { item, value = [] }) => (\n      <CTag {...props}>\n        <span style={{ color: 'rgb(22, 100, 255)' }}>{`${item.label}：`}</span>\n        {value.map((v: string) => customOptions.find(o => o.value === v)?.label ?? v).join(',')}\n      </CTag>\n    ),\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <Space direction=\"vertical\">\n      <Alert content=\"输入过程中可点击标签切换字段\" />\n      <CCombineSearch\n        cacheKey=\"combine\"\n        style={{ width: 800 }}\n        list={combineList}\n        onChange={params => {\n          console.log(params);\n        }}\n        placeholder=\"默认查询文本\"\n        defaultField=\"string\"\n        extraLeft={<Button type=\"primary\">创建实例</Button>}\n        extraRight={\n          <Space>\n            <Button icon={<IconSearch />} />\n            <Button icon={<IconRefresh />} type=\"primary\" />\n          </Space>\n        }\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport type { ReactElement } from 'react';\nimport type { CCombineSearchCustom, CCombineSearchItem } from '@cloud-materials/common';\nimport { Button, CSearch, Space, CTag, Form, Select, Input } from '@cloud-materials/common';\n\nconst { CCombineSearch } = CSearch;\n\nconst singleOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst nameMap: Record<string, string> = {\n  major: '专业',\n  degree: '学历',\n};\n\nconst Content: CCombineSearchCustom['renderContent'] = ({ value, onChange, onReset, onSave }) => {\n  const [form] = Form.useForm();\n  form.setFieldsValue(value);\n  return (\n    <Form\n      form={form}\n      style={{ width: 300 }}\n      initialValues={value}\n      onChange={(_, values) => {\n        onChange(values);\n      }}\n      onSubmit={values => {\n        onSave(values);\n      }}\n    >\n      <Form.Item field=\"major\" label={nameMap.major} rules={[{ required: true }]}>\n        <Input placeholder=\"请输入\" />\n      </Form.Item>\n      <Form.Item field=\"degree\" label={nameMap.degree}>\n        <Select options={singleOptions} placeholder=\"请选择\" />\n      </Form.Item>\n      <Space style={{ justifyContent: 'flex-end' }}>\n        <Button\n          size=\"mini\"\n          onClick={() => {\n            onReset();\n          }}\n        >\n          重置\n        </Button>\n        <Button\n          size=\"mini\"\n          type=\"primary\"\n          onClick={() => {\n            form.submit();\n          }}\n        >\n          确定\n        </Button>\n      </Space>\n    </Form>\n  );\n};\n\nconst Content2: CCombineSearchCustom['renderContent'] = ({ value, onReset, onSave, onCancel, onChange }) => {\n  const [form] = Form.useForm();\n  form.setFieldsValue(value);\n  return (\n    <Form\n      form={form}\n      style={{ width: 300 }}\n      initialValues={value}\n      onSubmit={values => {\n        onSave(values);\n      }}\n      onChange={(_, values) => {\n        onChange(values);\n      }}\n    >\n      <Form.Item field=\"major\" label={nameMap.major} rules={[{ required: true }]}>\n        <Input placeholder=\"请输入\" />\n      </Form.Item>\n      <Form.Item field=\"degree\" label={nameMap.degree}>\n        <Select options={singleOptions} placeholder=\"请选择\" />\n      </Form.Item>\n      <Space style={{ justifyContent: 'flex-end' }}>\n        <Button\n          size=\"mini\"\n          onClick={() => {\n            onReset();\n          }}\n        >\n          重置\n        </Button>\n        <Button\n          size=\"mini\"\n          onClick={() => {\n            onCancel();\n          }}\n        >\n          取消\n        </Button>\n        <Button\n          size=\"mini\"\n          type=\"primary\"\n          onClick={() => {\n            form.submit();\n          }}\n        >\n          确定\n        </Button>\n      </Space>\n    </Form>\n  );\n};\n\nconst combineList: CCombineSearchItem[] = [\n  {\n    type: 'custom',\n    fieldName: 'zhangSan',\n    label: '张三',\n    hideFooter: true,\n    renderContent: Content,\n    renderTrigger: ({ value = {} }) => {\n      return (\n        <Space>\n          {Object.entries(value)?.map(([key, value]) => {\n            return (\n              <CTag key={key} prefix={nameMap[key]}>\n                {singleOptions.find(s => s.value === value)?.label ?? value}\n              </CTag>\n            );\n          })}\n        </Space>\n      );\n    },\n    renderViewItem: (props, { value, item }) => {\n      return (\n        <CTag {...props} prefix={item.label}>\n          {`${value.major}（${singleOptions.find(s => s.value === value.degree)?.label ?? value.value}）`}\n        </CTag>\n      );\n    },\n  },\n  {\n    type: 'custom',\n    fieldName: 'liSi',\n    label: '李四（不渲染临时值）',\n    hideFooter: true,\n    renderContent: Content2,\n    renderViewItem: (props, { value, item, prefixClassName }) => {\n      return (\n        <CTag {...props} maxWidth={500}>\n          <span className={prefixClassName}>{`${item.label}：`}</span>\n          {`${value.major}（${singleOptions.find(s => s.value === value.degree)?.label ?? value.value}）`}\n        </CTag>\n      );\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CCombineSearch\n      cacheKey=\"combine-form\"\n      style={{ width: 800 }}\n      list={combineList}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport type { ReactElement } from 'react';\nimport { CSearch, CCheckbox, CTag, CTags } from '@cloud-materials/common';\nimport type { CCombineSearchItem } from '@cloud-materials/common';\n\nconst { CCombineSearch } = CSearch;\n\nconst singleOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst multiOptions = [\n  {\n    label: '未安装',\n    value: 'undeploy',\n  },\n  {\n    label: '运行中',\n    value: 'deploy',\n  },\n  {\n    label: '异常',\n    value: 'exception',\n  },\n  {\n    label: '安装中',\n    value: 'installing',\n  },\n  {\n    label: '升级中',\n    value: 'upgrading',\n  },\n  {\n    label: '卸载中',\n    value: 'uninstalling',\n  },\n];\n\nconst customOptions = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\n\nconst combineList: CCombineSearchItem[] = [\n  { label: '文本', fieldName: 'string', type: 'input', placeholder: '我是文本框' },\n  { label: '数值', fieldName: 'number', type: 'input', mode: 'number', placeholder: '请输入年龄' },\n  // 这里的tag指的InputTag\n  // { label: '标签', fieldName: 'tag', type: 'input', mode: 'tag' },\n  // { label: '标签（分隔符）', fieldName: 'tag-separator', type: 'input', mode: 'tag', separator: '|' },\n  {\n    label: '单选',\n    fieldName: 'single',\n    type: 'select',\n    multiValues: true,\n    allowCreate: true,\n    options: singleOptions,\n    separator: { symbol: ' & ', isOriginalData: true },\n    placeholder: '我是单选',\n  },\n  {\n    label: '多选',\n    fieldName: 'multiple',\n    type: 'select',\n    mode: 'multiple',\n    options: multiOptions,\n  },\n  {\n    label: '多选（分隔符）',\n    fieldName: 'multiple-separator',\n    type: 'select',\n    mode: 'multiple',\n    separator: '|',\n    options: multiOptions,\n  },\n  {\n    label: '自定义',\n    fieldName: 'custom',\n    type: 'custom',\n    renderContent: ({ value, onChange }) => (\n      <CCheckbox.Group direction=\"vertical\" value={value} onChange={onChange} options={customOptions} />\n    ),\n    renderTrigger: ({ value }) => (\n      <CTags>\n        {value?.map((v: any) => {\n          const temp = customOptions.find(o => o.value === v);\n          return <CTag key={temp?.value}>{temp?.label}</CTag>;\n        })}\n      </CTags>\n    ),\n    renderViewItem: (props, { item, value = [] }) => (\n      <CTag {...props}>\n        <span style={{ color: 'rgb(22, 100, 255)' }}>{`${item.label}：`}</span>\n        {value.map((v: string) => customOptions.find(o => o.value === v)?.label ?? v).join(',')}\n      </CTag>\n    ),\n  },\n];\n\nexport default (): ReactElement => {\n  const { CCombineSearchTrigger, CCombineSearchView } = CCombineSearch.useCustom({\n    list: combineList,\n    onChange: params => {\n      console.log(params);\n    },\n  });\n\n  return (\n    <div>\n      <div>\n        <p>触发区域</p>\n        {CCombineSearchTrigger}\n      </div>\n      <div>\n        <p>展示区域</p>\n        {CCombineSearchView}\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useEffect, useState } from 'react';\nimport type { ReactElement } from 'react';\nimport { Button, CSearch, Space, Alert, CCheckbox, CTag, CTags } from '@cloud-materials/common';\nimport type { CCombineSearchItem, LoadingType } from '@cloud-materials/common';\nimport { IconRefresh, IconSearch } from '@arco-design/iconbox-react-ve-o-design';\nimport { uniqBy } from 'lodash-es';\n\nconst { CCombineSearch } = CSearch;\n\n// const singleOptions = [\n//   {\n//     label: '专科',\n//     value: 'junior',\n//   },\n//   {\n//     label: '本科',\n//     value: 'undergraduate',\n//   },\n//   {\n//     label: '研究生',\n//     value: 'graduate',\n//   },\n// ];\n\nconst multiOptions = [\n  {\n    label: '未安装',\n    value: 'undeploy',\n  },\n  {\n    label: '运行中',\n    value: 'deploy',\n  },\n  {\n    label: '异常',\n    value: 'exception',\n  },\n  {\n    label: '安装中',\n    value: 'installing',\n  },\n  {\n    label: '升级中',\n    value: 'upgrading',\n  },\n  {\n    label: '卸载中',\n    value: 'uninstalling',\n  },\n];\n\nconst customOptions = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\nconst gloablKey = 'CCommbineSerchIgnoreKey';\nconst combineList: CCombineSearchItem[] = [\n  {\n    label: '全局搜索',\n    fieldName: gloablKey,\n    type: 'input',\n    hidden: true,\n    viewItemConfig: { hiddenLable: true, enableEdit: false },\n  },\n  { label: '描述（文本）', fieldName: 'string', type: 'input', placeholder: '请输入描述' },\n  { label: '年龄（数值）', fieldName: 'number', type: 'input', mode: 'number', placeholder: '请输入年龄' },\n  // 这里的tag指的InputTag\n  // { label: '标签', fieldName: 'tag', type: 'input', mode: 'tag' },\n  // { label: '标签（分隔符）', fieldName: 'tag-separator', type: 'input', mode: 'tag', separator: '|' },\n  {\n    label: '实例ID',\n    fieldName: 'instanceId',\n    mode: 'single',\n    type: 'select',\n    separator: '| ',\n    allowCreate: true,\n    multiValues: true,\n    options: Array(100)\n      .fill(0)\n      .map((_, index) => {\n        return {\n          label: `i-gdghsdkjfbdsfk${index}`,\n          value: `i-gdghsdkjfbdsfk${index}`,\n        };\n      }),\n    placeholder: '我是单选',\n  },\n  {\n    label: '状态（多选）',\n    fieldName: 'multiple',\n    type: 'select',\n    mode: 'multiple',\n    options: multiOptions,\n  },\n  {\n    label: '规格族（多选）（分隔符）',\n    fieldName: 'instanceTypeFamily',\n    type: 'select',\n    mode: 'multiple',\n    separator: '|',\n    options: Array(100)\n      .fill(0)\n      .map((_, index) => {\n        return {\n          label: `ecs.g${index}iXX型`,\n          value: `ecs.g${index}i`,\n        };\n      }),\n  },\n  {\n    label: '规格（多选）（分隔符-原数据）',\n    fieldName: 'instanceType',\n    type: 'select',\n    mode: 'multiple',\n    separator: { symbol: '|', isOriginalData: true },\n    options: Array(100)\n      .fill(0)\n      .map((_, index) => {\n        return {\n          label: `规格ecs.g${index}i.XLARGEasdXLARGEasdasdasdXLARGEasdasdasdXLARGEasdasdasdXLARGEasdasdasdXLARGEasdasdasdXLARGEasdasdasdasdasd`,\n          value: `ecs.g${index}i.XLARGE`,\n        };\n      }),\n  },\n  {\n    label: '自定义',\n    fieldName: 'custom',\n    type: 'custom',\n    renderContent: ({ value, onChange }) => (\n      <CCheckbox.Group direction=\"vertical\" value={value} onChange={onChange} options={customOptions} />\n    ),\n    renderTrigger: ({ value }) => (\n      <CTags>\n        {(Array.isArray(value) ? value : [value])?.map((v: any) => {\n          const temp = customOptions.find(o => o.value === v);\n          return <CTag key={temp?.value}>{temp?.label}</CTag>;\n        })}\n      </CTags>\n    ),\n    renderViewItem: (props, { item, value = [] }) => (\n      <CTag {...props}>\n        <span style={{ color: 'rgb(22, 100, 255)' }}>{`${item.label}：`}</span>\n        {(Array.isArray(value) ? value : [value])\n          .map((v: string) => customOptions.find(o => o.value === v)?.label ?? v)\n          .join(',')}\n      </CTag>\n    ),\n  },\n];\n\nexport default (): ReactElement => {\n  const [loading1, setLoading1] = useState<LoadingType>('none');\n  const [loading2, setLoading2] = useState<LoadingType>('none');\n\n  const customSelect1: CCombineSearchItem = {\n    label: '镜像（单选）',\n    fieldName: 'single',\n    type: 'select',\n    options: [\n      {\n        label: <span>Windows</span>,\n        value: 'Windows',\n      },\n      {\n        label: 'Windows-2',\n        value: 'Windows-2',\n      },\n      {\n        label: 'Windows-3s',\n        value: 'Windows-3',\n      },\n      {\n        label: 'Linux',\n        value: 'Linux-4',\n      },\n    ],\n    allowCreate: true,\n    placeholder: '我是单选',\n  };\n  const customSelect2: CCombineSearchItem = {\n    ...customSelect1,\n    onSearch({ searchWord, item, filterOptions }) {\n      console.log('asd', searchWord);\n      if (filterOptions.length === 0) {\n        setLoading2('inline');\n        setTimeout(() => {\n          setData2(pre =>\n            uniqBy(\n              [\n                ...(pre?.filter(el => el.fieldName !== item.fieldName) ?? []),\n                {\n                  ...item,\n                  options: [\n                    ...item.options,\n                    ...Array.from({ length: 22 }).map((_, index) => {\n                      return { label: `${searchWord}-${index}`, value: `${searchWord}-${index}` };\n                    }),\n                  ],\n                },\n              ],\n              'fieldName',\n            ),\n          );\n          setLoading2('none');\n        }, 1000);\n      }\n    },\n  };\n\n  const [data1, setData1] = useState<CCombineSearchItem[] | undefined>(undefined);\n  const fetchData = async () => {\n    setLoading1('block');\n    await new Promise(resolve => {\n      setTimeout(resolve, 100);\n    });\n    setData1([...combineList, customSelect1]);\n    setLoading1('none');\n  };\n  useEffect(() => {\n    fetchData();\n  }, []);\n\n  const [data2, setData2] = useState<CCombineSearchItem[] | undefined>([...combineList, customSelect2]);\n  console.log('asd', data2);\n  return (\n    <Space direction=\"vertical\">\n      <Alert content=\"输入过程中可点击标签切换字段\" />\n      <CCombineSearch\n        cacheKey=\"combine\"\n        fuzzy={true}\n        fuzzyConfig={{\n          letterCase: 'ignore',\n          displayNum: 10,\n          enableChangeSearchItem: true,\n        }}\n        loading={loading1}\n        defaultField={{ fieldName: gloablKey }}\n        style={{ width: 800 }}\n        list={data1}\n        onChange={params => {\n          console.log(params);\n        }}\n        // enableEdit={false}\n        placeholder=\"该选字段了\"\n        extraLeft={\n          <Button type=\"primary\" onClick={fetchData}>\n            创建实例\n          </Button>\n        }\n        extraRight={\n          <Space>\n            <Button icon={<IconSearch />} />\n            <Button icon={<IconRefresh />} type=\"primary\" />\n          </Space>\n        }\n      />\n      <Alert content=\"远程搜索\" />\n      <CCombineSearch\n        fuzzy={true}\n        fuzzyConfig={{\n          letterCase: 'ignore',\n          displayNum: 10,\n          enableChangeSearchItem: true,\n          onSearch({ filterList, list, searchWord }) {\n            const noOptionsList = filterList.filter(item => item.options.length === 0).map(el => el.fieldName);\n            if (!noOptionsList.length) {\n              return;\n            }\n            setLoading2('inline');\n            setTimeout(() => {\n              setData2(\n                list.map(el => {\n                  if (el.type === 'select' && noOptionsList.includes(el.fieldName)) {\n                    return {\n                      ...el,\n                      options: [\n                        ...el.options,\n                        ...Array.from({ length: 22 }).map((_, index) => {\n                          return { label: `${searchWord}-${index}-label`, value: `${searchWord}-${index}-value` };\n                        }),\n                      ],\n                    };\n                  }\n                  return el;\n                }),\n              );\n              setLoading2('none');\n            }, 1000);\n          },\n        }}\n        defaultField={{ fieldName: 'instanceId', type: 'auto' }}\n        style={{ width: 800 }}\n        triggerStyle={{ width: 'auto' }}\n        loading={loading2}\n        list={data2}\n        onChange={params => {\n          console.log(params);\n        }}\n        placeholder=\"该选字段了\"\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport type { ReactElement } from 'react';\nimport { Button, CSearch, Space, Alert, CCheckbox, CTag, CTags } from '@cloud-materials/common';\nimport type { CCombineSearchItem } from '@cloud-materials/common';\nimport { IconRefresh, IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst { CCombineSearch } = CSearch;\n\nconst singleOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst multiOptions = [\n  {\n    label: '未安装',\n    value: 'undeploy',\n  },\n  {\n    label: '运行中',\n    value: 'deploy',\n  },\n  {\n    label: '异常',\n    value: 'exception',\n  },\n  {\n    label: '安装中',\n    value: 'installing',\n  },\n  {\n    label: '升级中',\n    value: 'upgrading',\n  },\n  {\n    label: '卸载中',\n    value: 'uninstalling',\n  },\n];\n\nconst customOptions = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\n\nconst combineList: CCombineSearchItem[] = [\n  { label: '文本', fieldName: 'string', type: 'input', placeholder: '我是文本框' },\n  { label: '数值', fieldName: 'number', type: 'input', mode: 'number', placeholder: '请输入年龄' },\n  // 这里的tag指的InputTag\n  // { label: '标签', fieldName: 'tag', type: 'input', mode: 'tag' },\n  // { label: '标签（分隔符）', fieldName: 'tag-separator', type: 'input', mode: 'tag', separator: '|' },\n  {\n    label: '单选',\n    fieldName: 'single',\n    type: 'select',\n    multiValues: true,\n    allowCreate: true,\n    options: singleOptions,\n    separator: { symbol: ' & ', isOriginalData: true },\n    placeholder: '我是单选',\n  },\n  {\n    label: '多选',\n    fieldName: 'multiple',\n    type: 'select',\n    mode: 'multiple',\n    options: multiOptions,\n  },\n  {\n    label: '多选（分隔符）',\n    fieldName: 'multiple-separator',\n    type: 'select',\n    mode: 'multiple',\n    separator: '|',\n    options: multiOptions,\n  },\n  {\n    label: '自定义',\n    fieldName: 'custom',\n    type: 'custom',\n    renderContent: ({ value, onChange }) => (\n      <CCheckbox.Group direction=\"vertical\" value={value} onChange={onChange} options={customOptions} />\n    ),\n    renderTrigger: ({ value }) => (\n      <CTags>\n        {value?.map((v: any) => {\n          const temp = customOptions.find(o => o.value === v);\n          return <CTag key={temp?.value}>{temp?.label}</CTag>;\n        })}\n      </CTags>\n    ),\n    renderViewItem: (props, { item, value = [] }) => (\n      <CTag {...props}>\n        <span style={{ color: 'rgb(22, 100, 255)' }}>{`${item.label}：`}</span>\n        {value.map((v: string) => customOptions.find(o => o.value === v)?.label ?? v).join(',')}\n      </CTag>\n    ),\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <Space direction=\"vertical\">\n      <Alert content=\"输入过程中可点击标签切换字段\" />\n      <CCombineSearch\n        cacheKey=\"combine\"\n        style={{ width: 800 }}\n        list={combineList}\n        onChange={params => {\n          console.log(params);\n        }}\n        validator={({ newValues }) => {\n          if (newValues?.single?.length > 1) {\n            return true;\n          }\n        }}\n        placeholder=\"该选字段了\"\n        extraLeft={{\n          operations: [{ name: '创建实例', arcoButtonProps: { type: 'primary' } }],\n        }}\n        triggerStyle={{ width: 'auto' }}\n        alignType=\"inline\"\n        extraRight={\n          <Space>\n            <Button icon={<IconSearch />} />\n            <Button icon={<IconRefresh />} type=\"primary\" />\n          </Space>\n        }\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n    commonProps: {\n      onChange: (val: string) => {\n        console.log('val', val);\n      },\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      list={searchList}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\nimport { Input } from '@arco-design/web-react';\nimport type { AutoCompleteProps } from '@arco-design/web-react';\n\nexport default (): ReactElement => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState<AutoCompleteProps['data']>([]);\n  const fetchData = async (inputValue?: string) => {\n    setLoading(true);\n    await new Promise(r => {\n      setTimeout(r, 1000);\n    });\n    const options = Array(10)\n      .fill(0)\n      .map((_, idx) => `${inputValue}-${idx}`);\n    setData(options);\n    setLoading(false);\n  };\n\n  const searchList: CCSearchItem[] = [\n    {\n      fieldName: 'name1',\n      content: {\n        component: 'AutoComplete',\n        componentProps: {\n          data: ['AAA', 'aaa', 'AaA', 'AAa'],\n        },\n      },\n      label: '默认自动补全',\n      colspan: 5,\n    },\n    {\n      fieldName: 'name2',\n      content: {\n        component: 'AutoComplete',\n        componentProps: {\n          strict: true,\n          data: ['AAA', 'aaa', 'AaA', 'AAa'],\n        },\n      },\n\n      label: '大小写敏感',\n      colspan: 5,\n    },\n    {\n      fieldName: 'name3',\n      content: {\n        component: 'AutoComplete',\n        componentProps: {\n          triggerElement: <Input prefix={<IconSearch />} />,\n          placeholder: '搜索任务',\n          data: ['AAA', 'aaa', 'AaA', 'AAa'],\n        },\n      },\n      label: '自定义trigger',\n      colspan: 8,\n    },\n    {\n      fieldName: 'name4',\n      content: {\n        component: 'AutoComplete',\n        componentProps: {\n          triggerElement: <Input prefix={<IconSearch />} />,\n          placeholder: '忽略“,”',\n        },\n      },\n      valueFormatter: (v?: string) => {\n        return v?.replaceAll(',', '');\n      },\n      label: '忽略字符',\n      colspan: 8,\n    },\n    {\n      fieldName: 'name5',\n      content: {\n        component: 'AutoComplete',\n        componentProps: {\n          onSearch: fetchData,\n          placeholder: '搜索任务',\n          loading,\n          data,\n        },\n      },\n      label: '远端搜索',\n      colspan: 8,\n    },\n  ];\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      list={searchList}\n      onChange={params => {\n        console.log(params);\n      }}\n      position=\"left\"\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  const { CSearchDisplay, CSearchCollapse } = CSearch.useCustom({\n    list: searchList,\n    displayCount: 0,\n    onChange: params => {\n      console.log(params);\n    },\n  });\n\n  return (\n    <CSearch.Provider>\n      <div>\n        <p>展示区域</p>\n        {CSearchDisplay}\n      </div>\n      <div>\n        <p>收起区域</p>\n        {CSearchCollapse}\n      </div>\n    </CSearch.Provider>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { Space, useCSearch, Button, Popover, CSearch } from '@cloud-materials/common';\nimport { IconRefresh, IconSearch } from '@arco-design/iconbox-react-ve-o-design';\nimport SearchComponent from '../components/Component';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  const [value, control] = useCSearch({\n    list: searchList,\n    displayCount: 0,\n    onChange: params => {\n      console.log(params);\n    },\n  });\n\n  return (\n    <CSearch.Provider>\n      <Space align=\"center\">\n        {value.displayList.map(({ fieldName, content, ...rest }) => (\n          <SearchComponent\n            {...rest}\n            key={fieldName}\n            content={content}\n            commonProps={\n              fieldName\n                ? {\n                    value: value.params[fieldName],\n                    onChange: (val: any) => {\n                      control.updateParams({ [fieldName]: val });\n                    },\n                  }\n                : undefined\n            }\n          />\n        ))}\n        {value.advanceList.length > 0 && (\n          <Popover\n            trigger=\"click\"\n            position=\"bl\"\n            popupVisible={value.advanceVisible}\n            onVisibleChange={control.toggleAdvanceVisible}\n            content={\n              <Space wrap>\n                {value.advanceList.map(({ fieldName, content, ...rest }) => (\n                  <SearchComponent\n                    {...rest}\n                    key={fieldName}\n                    content={content}\n                    commonProps={\n                      fieldName\n                        ? {\n                            value: value.params[fieldName],\n                            onChange: (val: any) => {\n                              control.updateParams({ [fieldName]: val });\n                            },\n                          }\n                        : undefined\n                    }\n                  />\n                ))}\n              </Space>\n            }\n          >\n            <Button>添加搜索项</Button>\n          </Popover>\n        )}\n        <Button onClick={control.resetParams}>重置</Button>\n        <Button icon={<IconRefresh />} onClick={() => control.search()} />\n      </Space>\n      <pre>{JSON.stringify(value.params, null, 2)}</pre>\n    </CSearch.Provider>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n    label: (\n      <>\n        事件类型\n        <IconSearch />\n      </>\n    ),\n    labelBordered: true,\n    colspan: 7,\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n    label: '事件类型',\n    colspan: 7,\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n    label: '事件类型',\n    colspan: 7,\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n    label: '事件类型',\n    colspan: 7,\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n    label: '事件类型',\n    colspan: 7,\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n    label: '事件类型',\n    colspan: 7,\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      list={searchList}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      list={searchList}\n      displayCount={3}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      manual\n      list={searchList}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch, Checkbox, Space, CCascaderSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\nimport { cascaderList } from './cascader';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'cascader',\n    content: <CCascaderSearch list={cascaderList} />,\n  },\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  const [showReset, setShowReset] = useState(true);\n  const [showAdvanceReset, setShowAdvanceReset] = useState(true);\n\n  return (\n    <div style={{ width: 1000 }}>\n      <Space style={{ marginBottom: 24 }}>\n        <Checkbox checked={showReset} onChange={setShowReset}>\n          显示重置按钮\n        </Checkbox>\n        <Checkbox checked={showAdvanceReset} onChange={setShowAdvanceReset}>\n          显示高级筛选重置按钮\n        </Checkbox>\n      </Space>\n      <CSearch\n        showReset={showReset}\n        showAdvanceReset={showAdvanceReset}\n        list={searchList}\n        onChange={params => {\n          console.log(params);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React, { useState } from 'react';\nimport type { CSearchPosition, CCSearchItem } from '@cloud-materials/common';\nimport { CSearch, Button, Select, Space } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  const [position, setPosition] = useState<CSearchPosition>('right');\n\n  return (\n    <div style={{ width: 1000 }}>\n      <Space style={{ marginBottom: 24 }}>\n        <Select\n          placeholder=\"菜单展示方向\"\n          size=\"small\"\n          style={{ width: 200 }}\n          value={position}\n          options={[\n            {\n              label: '搜索项在左侧',\n              value: 'left',\n            },\n            {\n              label: '搜索项在右侧',\n              value: 'right',\n            },\n          ]}\n          onChange={setPosition}\n        />\n      </Space>\n      <CSearch\n        list={searchList}\n        position={position}\n        reverseNode={\n          <Space>\n            <Button type=\"primary\">创建作业</Button>\n            <Button>次要按钮</Button>\n          </Space>\n        }\n        onChange={params => {\n          console.log(params);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { CSearch } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      showReset\n      cacheKey=\"CSearch\"\n      list={searchList}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import type { ReactElement } from 'react';\nimport React from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { Button, CSearch, Message, Select } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\n\nconst educationOptions = [\n  {\n    label: '专科',\n    value: 'junior',\n  },\n  {\n    label: '本科',\n    value: 'undergraduate',\n  },\n  {\n    label: '研究生',\n    value: 'graduate',\n  },\n];\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'name1',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n      },\n    },\n  },\n  {\n    fieldName: 'name2',\n    content: {\n      component: 'Input',\n    },\n  },\n  {\n    fieldName: 'name3',\n    content: {\n      component: 'Input',\n      componentProps: {\n        prefix: <IconSearch />,\n        placeholder: '搜索任务',\n      },\n    },\n  },\n  {\n    fieldName: 'name4',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name5',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部平台',\n      },\n    },\n  },\n  {\n    fieldName: 'name6',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部结果',\n      },\n    },\n  },\n  {\n    fieldName: 'name7',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部状态',\n      },\n    },\n  },\n  {\n    fieldName: 'name8',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部组织',\n      },\n    },\n    colspan: 5,\n  },\n  {\n    fieldName: 'name9',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name10',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: educationOptions,\n        placeholder: '全部负责人',\n      },\n    },\n  },\n  {\n    fieldName: 'name11',\n    content: {\n      component: 'RangePicker',\n    },\n  },\n];\n\nexport default (): ReactElement => {\n  return (\n    <CSearch\n      style={{ width: 1000 }}\n      showReset\n      list={[\n        {\n          content: (\n            <Button type=\"primary\" onClick={() => Message.success('创建成功')}>\n              创建实例\n            </Button>\n          ),\n        },\n        ...searchList,\n        {\n          fieldName: 'custom',\n          colspan: 12,\n          content: <Select placeholder=\"我是自定义组件\" options={educationOptions} />,\n        },\n      ]}\n      displayCount={1}\n      onChange={params => {\n        console.log(params);\n      }}\n    />\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

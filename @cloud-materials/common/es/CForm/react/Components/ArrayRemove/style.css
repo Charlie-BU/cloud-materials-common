@@ -1,0 +1,27 @@
+.c-m-cform-array-remove {
+  display: flex;
+  align-items: center;
+}
+.c-m-cform-array-remove-size-mini {
+  height: 24px;
+  line-height: 24px;
+}
+.c-m-cform-array-remove-size-small {
+  height: 28px;
+  line-height: 28px;
+}
+.c-m-cform-array-remove-size-default {
+  height: 32px;
+  line-height: 32px;
+}
+.c-m-cform-array-remove-size-large {
+  height: 36px;
+  line-height: 36px;
+}
+.c-m-cform-array-remove .arco-link .arco-link-icon {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-right: 0;
+  color: #000000;
+}

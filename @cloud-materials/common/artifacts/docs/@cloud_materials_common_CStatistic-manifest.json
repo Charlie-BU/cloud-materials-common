@@ -1,0 +1,536 @@
+{
+  "doclets": [
+    {
+      "filePath": "CStatistic/interface.ts",
+      "name": "CStatisticProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false,
+          "description": "单位"
+        },
+        {
+          "name": "describe",
+          "type": "ReactNode",
+          "required": false,
+          "description": "描述"
+        },
+        {
+          "name": "placeholder",
+          "type": "ReactNode",
+          "required": false,
+          "description": "当没有数据或者数据 loading 时的占位符"
+        },
+        {
+          "name": "type",
+          "type": "'default' | 'link'",
+          "required": false,
+          "description": "数值展示的类型"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用； 只对 type 为 'link' 有用"
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "required": false,
+          "description": "边框设置"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false,
+          "description": "type 为 'link' 的点击事件"
+        },
+        {
+          "name": "styleValue",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值的样式"
+        },
+        {
+          "name": "styleDecimal",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值小数部分的样式",
+          "version": "2.47.0"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "数值的标题"
+        },
+        {
+          "name": "value",
+          "type": "string | number | Dayjs",
+          "required": false,
+          "description": "数值"
+        },
+        {
+          "name": "precision",
+          "type": "number",
+          "required": false,
+          "description": "数字精度"
+        },
+        {
+          "name": "groupSeparator",
+          "type": "boolean",
+          "required": false,
+          "description": "显示千位分割符"
+        },
+        {
+          "name": "prefix",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "前缀"
+        },
+        {
+          "name": "suffix",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "countUp",
+          "type": "boolean",
+          "required": false,
+          "description": "数字动态变大"
+        },
+        {
+          "name": "countFrom",
+          "type": "number",
+          "required": false,
+          "description": "从什么数字开始动态变大",
+          "defaultValue": "0"
+        },
+        {
+          "name": "countDuration",
+          "type": "number",
+          "required": false,
+          "description": "动态变大的过渡时间 (ms)",
+          "defaultValue": "2000"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "[dayjs](https://github.com/iamkun/dayjs)'s format"
+        },
+        {
+          "name": "renderFormat",
+          "type": "(value: [StatisticProps](#StatisticProps)['value'], formattedValue: string) => ReactNode",
+          "required": false,
+          "description": "自定义 render 函数。`formattedValue` 表示格式化后的值。",
+          "version": "2.36.0"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "数字是否加载中",
+          "version": "2.20.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatistic/interface.ts",
+      "name": "CCountdownProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false,
+          "description": "单位"
+        },
+        {
+          "name": "describe",
+          "type": "ReactNode",
+          "required": false,
+          "description": "在数值下的描述"
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "前缀"
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "required": false,
+          "description": "边框设置"
+        },
+        {
+          "name": "styleValue",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值的样式"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "数值的标题"
+        },
+        {
+          "name": "value",
+          "type": "number | string | Date | Dayjs",
+          "required": false,
+          "description": "倒计时的时间"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "[dayjs](https://github.com/iamkun/dayjs)'s format",
+          "defaultValue": "HH:mm:ss"
+        },
+        {
+          "name": "renderFormat",
+          "type": "(valueDiff: number, formattedDiff: string) => ReactNode",
+          "required": false,
+          "description": "自定义 render 函数。`valueDiff` 表示两个时间的时间差，`formattedDiff` 表示格式化后的时间差，",
+          "version": "2.36.0"
+        },
+        {
+          "name": "onFinish",
+          "type": "() => void",
+          "required": false,
+          "description": "倒计时完成后触发的回调"
+        },
+        {
+          "name": "start",
+          "type": "boolean",
+          "required": false,
+          "description": "是否开始倒计时，默认为 `true`，可以通过设置该值控制倒计时的时机",
+          "defaultValue": "true"
+        },
+        {
+          "name": "now",
+          "type": "number | string | Date | Dayjs",
+          "required": false,
+          "description": "用于修正初始化时间显示不正确"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatistic/interface.ts",
+      "name": "CStatisticListItemProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "isCountdown",
+          "type": "boolean",
+          "required": false,
+          "description": "是否是倒计时"
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false,
+          "description": "单位"
+        },
+        {
+          "name": "describe",
+          "type": "ReactNode",
+          "required": false,
+          "description": "描述"
+        },
+        {
+          "name": "placeholder",
+          "type": "ReactNode",
+          "required": false,
+          "description": "当没有数据或者数据 loading 时的占位符"
+        },
+        {
+          "name": "type",
+          "type": "'default' | 'link'",
+          "required": false,
+          "description": "数值展示的类型"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用； 只对 type 为 'link' 有用"
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "required": false,
+          "description": "边框设置"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false,
+          "description": "type 为 'link' 的点击事件"
+        },
+        {
+          "name": "styleValue",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值的样式"
+        },
+        {
+          "name": "styleDecimal",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值小数部分的样式",
+          "version": "2.47.0"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "数值的标题"
+        },
+        {
+          "name": "value",
+          "type": "string | number | Dayjs",
+          "required": false,
+          "description": "数值"
+        },
+        {
+          "name": "precision",
+          "type": "number",
+          "required": false,
+          "description": "数字精度"
+        },
+        {
+          "name": "groupSeparator",
+          "type": "boolean",
+          "required": false,
+          "description": "显示千位分割符"
+        },
+        {
+          "name": "prefix",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "前缀"
+        },
+        {
+          "name": "suffix",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "countUp",
+          "type": "boolean",
+          "required": false,
+          "description": "数字动态变大"
+        },
+        {
+          "name": "countFrom",
+          "type": "number",
+          "required": false,
+          "description": "从什么数字开始动态变大",
+          "defaultValue": "0"
+        },
+        {
+          "name": "countDuration",
+          "type": "number",
+          "required": false,
+          "description": "动态变大的过渡时间 (ms)",
+          "defaultValue": "2000"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "[dayjs](https://github.com/iamkun/dayjs)'s format"
+        },
+        {
+          "name": "renderFormat",
+          "type": "(value: [StatisticProps](#StatisticProps)['value'], formattedValue: string) => ReactNode",
+          "required": false,
+          "description": "自定义 render 函数。`formattedValue` 表示格式化后的值。",
+          "version": "2.36.0"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "数字是否加载中",
+          "version": "2.20.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatistic/interface.ts",
+      "name": "CStatisticListCountdownItemProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "isCountdown",
+          "type": "boolean",
+          "required": false,
+          "description": "是否是倒计时"
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false,
+          "description": "单位"
+        },
+        {
+          "name": "describe",
+          "type": "ReactNode",
+          "required": false,
+          "description": "在数值下的描述"
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "前缀"
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "required": false,
+          "description": "边框设置"
+        },
+        {
+          "name": "styleValue",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "数值的样式"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "数值的标题"
+        },
+        {
+          "name": "value",
+          "type": "number | string | Date | Dayjs",
+          "required": false,
+          "description": "倒计时的时间"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "[dayjs](https://github.com/iamkun/dayjs)'s format",
+          "defaultValue": "HH:mm:ss"
+        },
+        {
+          "name": "renderFormat",
+          "type": "(valueDiff: number, formattedDiff: string) => ReactNode",
+          "required": false,
+          "description": "自定义 render 函数。`valueDiff` 表示两个时间的时间差，`formattedDiff` 表示格式化后的时间差，",
+          "version": "2.36.0"
+        },
+        {
+          "name": "onFinish",
+          "type": "() => void",
+          "required": false,
+          "description": "倒计时完成后触发的回调"
+        },
+        {
+          "name": "start",
+          "type": "boolean",
+          "required": false,
+          "description": "是否开始倒计时，默认为 `true`，可以通过设置该值控制倒计时的时机",
+          "defaultValue": "true"
+        },
+        {
+          "name": "now",
+          "type": "number | string | Date | Dayjs",
+          "required": false,
+          "description": "用于修正初始化时间显示不正确"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatistic/interface.ts",
+      "name": "CStatisticListProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "列表标题"
+        },
+        {
+          "name": "list",
+          "type": "([CStatisticListItemProps](#CStatisticListItemProps) | [CStatisticListCountdownItemProps](#CStatisticListCountdownItemProps))[]",
+          "required": false,
+          "description": "数据列表"
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "description": "子元素"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CStatistic, IconCaretDown } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <>\n      <CStatistic\n        title=\"卡片标题\"\n        value={0}\n        groupSeparator\n        style={{ width: 200 }}\n        countUp\n        unit=\"单位\"\n        describe={\n          <span>\n            昨日 <IconCaretDown style={{ color: 'green' }} /> 25%\n          </span>\n        }\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic } from '@cloud-materials/common';\n\nconst CCountdown = CStatistic.Countdown;\n\nexport default () => {\n  const now = Date.now();\n  return (\n    <>\n      <CCountdown\n        title=\"天级别\"\n        value={now + 1000 * 60 * 60 * 2}\n        now={now}\n        start\n        format=\"D 天 H 时 m 分 s 秒\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        renderFormat={(_valueDiff, formattedDiff) => {\n          const day = formattedDiff.split('天')[0];\n          const hour = formattedDiff.split('时')[0].split('天')[1];\n          const minute = formattedDiff.split('分')[0].split('时')[1];\n          const second = formattedDiff.split('秒')[0].split('分')[1];\n          return (\n            <span>\n              {day}\n              <span style={{ fontSize: 10, color: '#ccc' }}>天</span>\n              {hour}\n              <span style={{ fontSize: 10, color: '#ccc' }}>时</span>\n              {minute}\n              <span style={{ fontSize: 10, color: '#ccc' }}>分</span>\n              {second}\n              <span style={{ fontSize: 10, color: '#ccc' }}>秒</span>\n            </span>\n          );\n        }}\n        style={{ width: 250 }}\n      />\n      <CCountdown\n        title=\"秒级别\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        start\n        format=\"H:m:s\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ marginLeft: 16, width: 250 }}\n      />\n      <CCountdown\n        title=\"时：分 ：秒. 毫秒\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        start\n        format=\"HH:mm:ss.SSS\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ marginLeft: 16, width: 250 }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic, Space } from '@cloud-materials/common';\nimport { IconIconAscending, IconIconDescending } from '@arco-design/iconbox-react-ve-o-design';\n\nconst CCountdown = CStatistic.Countdown;\n\nexport default () => {\n  const now = Date.now();\n  return (\n    <Space>\n      <CStatistic\n        title=\"上升趋势\"\n        value={50.32}\n        unit=\"%\"\n        suffix={<IconIconAscending />}\n        describe=\"置于数值后：呈上升趋势\"\n        style={{ width: 250 }}\n      />\n      <CStatistic\n        title=\"下降趋势\"\n        value={50.32}\n        unit=\"%\"\n        suffix={<IconIconDescending />}\n        describe=\"置于数值后：呈下降趋势\"\n        style={{ width: 250 }}\n      />\n      <CCountdown\n        title=\"倒计时上升趋势\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        start\n        suffix={<IconIconAscending />}\n        format=\"H:m:s\"\n        describe=\"置于数值后：呈上升趋势\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ width: 250 }}\n      />\n      <CCountdown\n        title=\"倒计时下降趋势\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        suffix={<IconIconDescending />}\n        start\n        format=\"H:m:s\"\n        describe=\"置于数值后：呈下降趋势\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ width: 250 }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic, Space } from '@cloud-materials/common';\nimport { IconRise, IconDrop } from '@arco-design/iconbox-react-ve-o-design';\n\nexport default () => {\n  return (\n    <Space>\n      <CStatistic\n        title=\"增长xxx\"\n        value={50.32}\n        prefix={<IconRise />}\n        unit=\"%\"\n        style={{ width: 250 }}\n        describe=\"箭头置于数值前，做动词：增长xx\"\n      />\n      <CStatistic\n        title=\"下降xxx\"\n        value={50.32}\n        unit=\"%\"\n        prefix={<IconDrop />}\n        style={{ width: 250 }}\n        describe=\"箭头置于数值前，做动词：下降xx\"\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic } from '@cloud-materials/common';\n\nconst CStatisticList = CStatistic.List;\nexport default () => {\n  const now = Date.now();\n  return (\n    <CStatisticList\n      list={[\n        {\n          title: '离抽奖还剩：',\n          value: now + 1000 * 60 * 60 * 2,\n          isCountdown: true,\n          start: true,\n          format: 'D 天 H 时 m 分 s 秒',\n          renderFormat: (_valueDiff: number, formattedDiff: string) => {\n            const day = formattedDiff.split('天')[0];\n            const hour = formattedDiff.split('时')[0].split('天')[1];\n            const minute = formattedDiff.split('分')[0].split('时')[1];\n            const second = formattedDiff.split('秒')[0].split('分')[1];\n            return (\n              <span>\n                {day}\n                <span style={{ fontSize: 10, color: '#ccc' }}>天</span>\n                {hour}\n                <span style={{ fontSize: 10, color: '#ccc' }}>时</span>\n                {minute}\n                <span style={{ fontSize: 10, color: '#ccc' }}>分</span>\n                {second}\n                <span style={{ fontSize: 10, color: '#ccc' }}>秒</span>\n              </span>\n            );\n          },\n        },\n        {\n          title: '请求数',\n          value: 2540,\n          countUp: true,\n          unit: '次',\n          groupSeparator: true,\n        },\n        {\n          title: '带宽峰值',\n          value: 4.01,\n          unit: 'bps',\n        },\n        {\n          title: '峰值QPS',\n          value: 13,\n          unit: '次/秒',\n        },\n        {\n          title: '已用流量',\n          value: 930.52,\n          unit: 'KB',\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic } from '@cloud-materials/common';\n\nconst CStatisticList = CStatistic.List;\nconst CCountdown = CStatistic.Countdown;\n\nexport default () => {\n  const now = Date.now();\n  return (\n    <CStatisticList>\n      <CStatistic title=\"请求数\" value={235} countUp unit=\"次\" border={false} />\n      <CStatistic title=\"带宽峰值\" value={2540} countUp unit=\"单位\" border={false} />\n      <CStatistic title=\"标签标题\" value={2540} countUp unit=\"单位\" border={false} />\n      <CCountdown\n        title=\"倒计时\"\n        value={now + 1000 * 60 * 60 * 2}\n        now={now}\n        start\n        border={false}\n        format=\"D 天 H 时 m 分 s 秒\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        renderFormat={(_valueDiff, formattedDiff) => {\n          const day = formattedDiff.split('天')[0];\n          const hour = formattedDiff.split('时')[0].split('天')[1];\n          const minute = formattedDiff.split('分')[0].split('时')[1];\n          const second = formattedDiff.split('秒')[0].split('分')[1];\n          return (\n            <span>\n              {day}\n              <span style={{ fontSize: 10, color: '#ccc' }}>天</span>\n              {hour}\n              <span style={{ fontSize: 10, color: '#ccc' }}>时</span>\n              {minute}\n              <span style={{ fontSize: 10, color: '#ccc' }}>分</span>\n              {second}\n              <span style={{ fontSize: 10, color: '#ccc' }}>秒</span>\n            </span>\n          );\n        }}\n      />\n      <CCountdown\n        title=\"倒计时\"\n        value={now + 1000 * 60 * 60 * 2}\n        now={now}\n        start\n        border={false}\n        format=\"D : H : m : s\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n      />\n    </CStatisticList>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space>\n      <CStatistic\n        title=\"点击跳转 (Default 状态)\"\n        value={192393}\n        groupSeparator\n        unit=\"次\"\n        type=\"link\"\n        onClick={() => {\n          console.log('点击了');\n        }}\n        style={{ width: 250 }}\n      />\n      <CStatistic\n        title=\"点击跳转 (disabled 状态)\"\n        value={192393}\n        groupSeparator\n        unit=\"次\"\n        type=\"link\"\n        disabled={true}\n        style={{ width: 250 }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { IconCheckCircleFill, IconCloseCircleFill } from '@arco-design/iconbox-react-ve-o-design';\nimport { CStatistic, Space } from '@cloud-materials/common';\n\nexport default () => {\n  const now = Date.now();\n  return (\n    <Space>\n      <CStatistic\n        title=\"添加前缀\"\n        value={192393}\n        groupSeparator\n        prefix={<IconCheckCircleFill />}\n        unit=\"次\"\n        onClick={() => {\n          console.log('点击了');\n        }}\n        style={{ width: 250 }}\n      />\n      <CStatistic\n        title=\"添加后缀\"\n        value={192393}\n        groupSeparator\n        suffix={<IconCloseCircleFill />}\n        unit=\"次\"\n        disabled={true}\n        style={{ width: 250 }}\n      />\n      <CStatistic.Countdown\n        title=\"秒级别添加前缀\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        start\n        prefix={<IconCheckCircleFill />}\n        format=\"H:m:s\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ marginLeft: 16, width: 250 }}\n      />\n      <CStatistic.Countdown\n        title=\"时：分 ：秒. 毫秒（添加后缀）\"\n        value={now + 1000 * 60 * 60}\n        now={now}\n        start\n        suffix={<IconCloseCircleFill />}\n        format=\"HH:mm:ss.SSS\"\n        onFinish={() => {\n          console.log('倒计时完成');\n        }}\n        style={{ marginLeft: 16, width: 250 }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatistic, Space, IconCaretUp, IconArrowRise } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space>\n      <CStatistic\n        title=\"默认占位符\"\n        countUp\n        prefix={<IconCaretUp style={{ color: 'green' }} />}\n        suffix={<IconArrowRise style={{ color: 'green' }} />}\n        unit=\"单位\"\n        styleValue={{ color: 'red' }}\n        describe=\"描述\"\n        style={{ width: 250 }}\n        value={12341}\n        loading={true}\n      />\n      <CStatistic\n        title=\"可自定义占位符\"\n        countUp\n        prefix={<IconCaretUp style={{ color: 'green' }} />}\n        suffix={<IconArrowRise style={{ color: 'green' }} />}\n        unit=\"单位\"\n        styleValue={{ color: 'red' }}\n        describe=\"描述\"\n        placeholder={<span style={{ fontSize: 12 }}>******</span>}\n        style={{ width: 250 }}\n      />\n      <CStatistic\n        title=\"loading状态\"\n        countUp\n        prefix={<IconCaretUp style={{ color: 'green' }} />}\n        suffix={<IconArrowRise style={{ color: 'green' }} />}\n        unit=\"单位\"\n        styleValue={{ color: 'red' }}\n        describe=\"描述\"\n        placeholder={<span style={{ fontSize: 12 }}>~~~~~~~</span>}\n        style={{ width: 250 }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

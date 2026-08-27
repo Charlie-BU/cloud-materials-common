@@ -1,0 +1,10 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-link-prefix: ~'@{cpn-prefix}-link';
+// 💥 变量声明尽量带上c-m前缀，避免存量项目接入时变量名冲突
+
+.@{c-m-link-prefix} {
+  &-suffixicon {
+    margin-left: 4px;
+  }
+}

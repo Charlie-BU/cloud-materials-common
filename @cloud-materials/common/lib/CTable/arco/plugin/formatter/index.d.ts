@@ -1,0 +1,10 @@
+import type { Formatter } from '../../../core';
+import type { BuiltInFormatterFn } from '../../types';
+export declare const intFormatter: Formatter;
+export declare const floatFormatter: Formatter;
+export declare const money: Formatter;
+export declare const time: Formatter;
+export declare const utcTime: Formatter;
+export declare const timestamp: Formatter;
+export declare const fallbackText: Formatter;
+export declare const formatter: BuiltInFormatterFn;

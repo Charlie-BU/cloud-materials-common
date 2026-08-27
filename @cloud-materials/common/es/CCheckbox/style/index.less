@@ -1,0 +1,147 @@
+@import (reference) '../../style/variables.less';
+@import '../../_components/BtnSelector/style/index.less';
+
+@c-m-checkbox-prefix: ~'@{cpn-prefix}-checkbox';
+
+.@{c-m-checkbox-prefix} {
+  // group样式
+  &-group {
+    margin-bottom: var(--checkbox-group-margin-bottom);
+  }
+
+  &-popover-inner {
+    display: block;
+    // 不同选项之间的水平距离
+    margin-right: 8px;
+  }
+
+  // 默认样式覆盖（仅在 非自定义渲染时 生效）
+  .@{prefix}-checkbox-group .@{prefix}-checkbox.@{c-m-checkbox-prefix}-cover-render {
+    margin-right: 0;
+    // 覆盖布局方式为flex，不然在多行模式下会对不齐
+    display: flex;
+
+    .@{prefix}-checkbox-text {
+      display: inline-block;
+      width: 100%;
+      margin-left: 12px;
+      min-width: 0;
+      color: @color-text-2;
+    }
+  }
+
+  // 交互状态样式（仅在 非自定义渲染时 生效）
+  .@{prefix}-checkbox.@{c-m-checkbox-prefix}-cover-render {
+    background: @color-bg-1;
+    border: var(--common-border-default);
+    border-radius: 4px;
+    padding: 5px 12px;
+    color: @color-text-2;
+
+    &:hover {
+      border: var(--common-border-active);
+      .@{prefix}-checkbox-mask {
+        box-shadow: 0 1px 1px rgba(70, 79, 96, 0.16), 0 0 0 1px @dark-color-primary-light-3;
+      }
+    }
+
+    .@{prefix}-checkbox-mask-wrapper {
+      height: 12px;
+    }
+
+    .@{prefix}-checkbox-mask {
+      box-shadow: 0 0 0 1.2px @color-border-3;
+      border: 0 solid @color-black;
+      width: 12px;
+      height: 12px;
+    }
+
+    &.@{prefix}-checkbox-checked {
+      background: @link-1;
+      border: var(--common-border-active);
+      font-weight: 500;
+
+      &:hover {
+        border: var(--common-border-active);
+        .@{prefix}-checkbox-mask {
+          background: @primary-5;
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 0 1px @primary-6;
+        }
+
+        .@{prefix}-checkbox-text {
+          color: @primary-5;
+        }
+      }
+
+      .@{prefix}-checkbox-text {
+        color: @primary-6;
+      }
+
+      .@{prefix}-checkbox-mask {
+        background-color: @primary-6;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 0 1px @primary-6;
+        border: 0 solid @color-black;
+      }
+    }
+
+    &.@{prefix}-checkbox-disabled {
+      background: @color-bg-1;
+      border: var(--common-border-default);
+      color: @color-text-4;
+
+      .@{prefix}-checkbox-mask {
+        box-shadow: 0 0 0 1px @color-border-3;
+        background: @color-bg-5;
+      }
+
+      .@{prefix}-checkbox-text {
+        color: @color-text-4;
+      }
+    }
+
+    &.@{prefix}-checkbox-disabled.@{prefix}-checkbox-checked {
+      background: @link-1;
+      border: var(--common-border-active);
+      font-weight: 500;
+
+      .@{prefix}-checkbox-mask {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 0 1px @primary-6;
+        background: @primary-3;
+        border: 0 solid @color-black;
+      }
+
+      .@{prefix}-checkbox-text {
+        color: @primary-3;
+      }
+    }
+  }
+
+  .@{prefix}-checkbox.@{c-m-checkbox-prefix}-doubleline-checkbox {
+    padding: 5px 16px 5px 12px;
+  }
+
+  // 偏移量设置
+  &.@{c-m-checkbox-prefix}-height-size {
+    .@{prefix}-checkbox {
+      .@{prefix}-checkbox-mask-wrapper {
+        top: 4px;
+      }
+    }
+
+    &-small {
+      .@{c-m-checkbox-prefix}-singleline-checkbox {
+        .@{prefix}-checkbox-mask-wrapper {
+          top: 2px;
+        }
+      }
+    }
+  }
+
+  .@{prefix}-checkbox-group {
+    .@{c-m-checkbox-prefix}-doubleline-checkbox.@{prefix}-checkbox {
+      .@{prefix}-checkbox-mask-wrapper {
+        top: 5px;
+      }
+    }
+  }
+}

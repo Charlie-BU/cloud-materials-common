@@ -1,0 +1,76 @@
+@import (reference) '../../../../../style/variables.less';
+
+@c-m-form-section-prefix: ~'@{cpn-prefix}-cform-section';
+
+.@{c-m-form-section-prefix} {
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    &-extra {
+      margin-left: auto;
+    }
+
+    &-tag {
+      width: 3px;
+      height: 14px;
+
+      /* 原值为:#1664ff，已被stylelint autofix，替换后为：@primary-6， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @primary-6 | @link-6 */
+      background: @primary-6;
+      border-radius: 0 4px 4px 0;
+    }
+
+    &-title {
+      font-weight: @font-weight-500;
+      font-size: @font-size-body-3;
+      line-height: 22px;
+      letter-spacing: 0.003em;
+
+      /* 原值为:#020814，已被stylelint autofix，替换后为：@color-text-1， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-1 | @color-fill-4 */
+      color: @color-text-1;
+
+      &-pointer {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      &-icon {
+        width: 12px;
+        height: 12px;
+        margin-left: 4px;
+        display: none;
+
+        svg {
+          stroke-width: 5;
+        }
+
+        &-expand > svg {
+          transform: rotate(180deg);
+        }
+
+        &-visible {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  &-section-children {
+    > .@{prefix}-formily-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-collapse-children-hidden {
+    display: none;
+  }
+}

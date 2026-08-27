@@ -1,0 +1,362 @@
+{
+  "doclets": [
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "CDrawerSelectProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "arcoSelectProps",
+          "type": "Omit<[SelectProps](#SelectProps), 'popupVisible' | 'suffixIcon' | 'onClick' | 'mode'>",
+          "required": false,
+          "description": "Arco Select组件属性"
+        },
+        {
+          "name": "mode",
+          "type": "[SelectProps](#SelectProps)['mode']",
+          "required": false,
+          "description": "Select选择模式"
+        },
+        {
+          "name": "customRender",
+          "type": "({ close, open }: { close: () => void; open: () => void }) => ReactNode",
+          "required": false,
+          "description": "自定义渲染基础组件"
+        },
+        {
+          "name": "onChange",
+          "type": "(value?: T | T[]) => void",
+          "required": false,
+          "description": "每次选择时(如组件内部TableSelect点击选择时)都会触发"
+        },
+        {
+          "name": "onOk",
+          "type": "(...args: unknown[]) => Promise<any> | any",
+          "required": false,
+          "description": "这里需要用any去最大化onOk的参数和返回值范围，以便做扩展"
+        },
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "data",
+          "type": "[TableSelectData](#TableSelectData)<T>[]",
+          "required": false,
+          "description": "筛选的数据"
+        },
+        {
+          "name": "rowKey",
+          "type": "Required<TableConfig<T>>['rowKey']",
+          "required": true,
+          "description": "指定key"
+        },
+        {
+          "name": "afterSelectRow",
+          "type": "(options: Parameters<Parameters<typeof onRowSelect>[0]>[0], value: T) => void",
+          "required": false,
+          "description": "选择数据后的回调"
+        },
+        {
+          "name": "searchConfig",
+          "type": "[ToolbarItemGroup](#ToolbarItemGroup)<T>",
+          "required": false,
+          "description": "配置搜索"
+        },
+        {
+          "name": "customTip",
+          "type": "((value: T | T[]) => ReactNode) | ReactNode",
+          "required": false,
+          "description": "信息说明"
+        },
+        {
+          "name": "showDefaultFooter",
+          "type": "boolean",
+          "required": false,
+          "description": "单选模式下是否展示默认footer"
+        },
+        {
+          "name": "tableSelectProps",
+          "type": "Partial<CTableSelectProps<T>>",
+          "required": false,
+          "description": "其他tableSelect属性"
+        },
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "TableSelectData",
+      "type": "export type TableSelectData<T = any> = T & {\n  disabled?: DisabledType;\n};\n",
+      "properties": []
+    },
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "R",
+      "type": "export type R = Record<string, any>;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "DisabledType",
+      "type": "export type DisabledType = boolean | 'row';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "RowKeyConfig",
+      "type": "export type RowKeyConfig<DataItemType> = keyof DataItemType | ((record: DataItemType, index: number) => string);\n",
+      "properties": []
+    },
+    {
+      "filePath": "CDrawerSelect/interface.ts",
+      "name": "ToolbarItemGroup",
+      "type": "export type ToolbarItemGroup<T extends R = any, GlobalScopeType extends R = any> = AllowEmpty<ToolbarItemConfig<T, GlobalScopeType>>[];\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CDrawerSelect, CTable, Space, Typography } from '@cloud-materials/common';\nimport DemoContainer, { dealContainer } from './demoContainer';\nimport { chunk } from 'lodash-es';\n\nexport default () => {\n  const getData = (strs: string[], curPage = 1, pageSize = 10) => {\n    const data: any[] = [];\n    strs.forEach(str => {\n      [\n        {\n          key: '1',\n          name: 'Jane Doe',\n          salary: 23000,\n          address: '32 Park Road, London',\n          email: 'jane.doe@example.com',\n        },\n        {\n          key: '2',\n          name: 'Alisa Ross',\n          salary: 25000,\n          address: '35 Park Road, London',\n          email: 'alisa.ross@example.com',\n        },\n        {\n          key: '3',\n          name: 'Kevin Sandra',\n          salary: 22000,\n          address: '31 Park Road, London',\n          email: 'kevin.sandra@example.com',\n        },\n        {\n          key: '4',\n          name: 'Ed Hellen',\n          salary: 17000,\n          address: '42 Park Road, London',\n          email: 'ed.hellen@example.com',\n        },\n        {\n          key: '5',\n          name: 'William Smith',\n          salary: 7000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n\n        {\n          key: '6',\n          name: 'William Smith 6',\n          salary: 12000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n        {\n          key: '7',\n          name: 'William Smith 7',\n          salary: 37000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n      ].forEach(item => data.push({ ...item, name: `${item.name}${str}` }));\n    });\n    return { data: chunk(data, pageSize)[curPage - 1], total: data.length };\n  };\n\n  const columnsConfig = CTable.defineColumns([\n    {\n      title: 'Name',\n      dataIndex: 'name',\n      tooltip: '提示信息',\n    },\n    {\n      title: 'Salary',\n      dataIndex: 'salary',\n      render(_, rowData) {\n        return (\n          <span>\n            <span style={{ color: '#FF7D00', fontWeight: 600 }}>$</span>\n            {rowData.salary?.toLocaleString()}\n          </span>\n        );\n      },\n    },\n    {\n      title: 'Address',\n      dataIndex: 'address',\n    },\n    {\n      title: 'Email',\n      dataIndex: 'email',\n    },\n  ]);\n\n  return (\n    // DemoContainer 仅Demo使用\n    <DemoContainer id={'demo-basic'}>\n      <Space size={20} direction=\"vertical\">\n        <Typography.Title heading={6}>组件基本使用（非受控模式）</Typography.Title>\n        <CDrawerSelect\n          title={'单选，选择后默认会关闭Drawer，可配置showDefaultFooter'}\n          contentTop={'这是顶部的Top提示'}\n          searchConfig={[\n            {\n              name: 'name',\n              component: 'CSimpleSearch',\n              componentProps: { content: { component: 'Input', componentProps: { placeholder: '搜索' } } },\n            },\n          ]}\n          columns={columnsConfig}\n          data={getData(['', 'abc'], 1, 20).data}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          value={'Alisa Ross'}\n          customTip={'暂无资源，请创建'}\n          // dealContainer 挂载container，仅demo使用\n          {...dealContainer('demo-basic')}\n        />\n        <CDrawerSelect\n          title={'异步获取表格的数据'}\n          contentTop={'组件默认跨页选中'}\n          searchConfig={[\n            {\n              name: 'name',\n              component: 'CSimpleSearch',\n              componentProps: { content: { component: 'Input', componentProps: { placeholder: '搜索' } } },\n            },\n          ]}\n          columns={columnsConfig}\n          fetcher={({ currentPage, pageSize }) =>\n            new Promise(res => {\n              const resp = getData(['', 'test'], currentPage, pageSize);\n              return setTimeout(() => res(resp), 300);\n            })\n          }\n          value={['Alisa Ross']}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          mode=\"multiple\"\n          customTip={value => `已选择${value?.length ?? 0}个 `}\n          // dealContainer 挂载container，仅demo使用\n          {...dealContainer('demo-basic')}\n        />\n      </Space>\n    </DemoContainer>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useRef, useState } from 'react';\nimport { Button, CDrawerSelect, CTable, IconApps, Space } from '@cloud-materials/common';\nimport DemoContainer, { dealContainer } from './demoContainer';\nimport { chunk } from 'lodash-es';\n\nexport default () => {\n  const [value, setValue] = useState<any>(['Alisa Ross']);\n  const ref = useRef<any>();\n\n  const getData = (strs: string[], curPage = 1, pageSize = 10) => {\n    const data: any[] = [];\n    strs.forEach(str => {\n      [\n        {\n          key: '1',\n          name: 'Jane Doe',\n          salary: 23000,\n          address: '32 Park Road, London',\n          email: 'jane.doe@example.com',\n        },\n        {\n          key: '2',\n          name: 'Alisa Ross',\n          salary: 25000,\n          address: '35 Park Road, London',\n          email: 'alisa.ross@example.com',\n        },\n        {\n          key: '3',\n          name: 'Kevin Sandra',\n          salary: 22000,\n          address: '31 Park Road, London',\n          email: 'kevin.sandra@example.com',\n        },\n        {\n          key: '4',\n          name: 'Ed Hellen',\n          salary: 17000,\n          address: '42 Park Road, London',\n          email: 'ed.hellen@example.com',\n        },\n        {\n          key: '5',\n          name: 'William Smith',\n          salary: 7000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n\n        {\n          key: '6',\n          name: 'William Smith 6',\n          salary: 12000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n        {\n          key: '7',\n          name: 'William Smith 7',\n          salary: 37000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n      ].forEach(item => data.push({ ...item, name: `${item.name}${str}` }));\n    });\n    return { data: chunk(data, pageSize)[curPage - 1], total: data.length };\n  };\n  const columnsConfig = CTable.defineColumns([\n    {\n      title: 'Name',\n      dataIndex: 'name',\n      tooltip: '提示信息',\n    },\n    {\n      title: 'Salary',\n      dataIndex: 'salary',\n      render(_, rowData) {\n        return (\n          <span>\n            <span style={{ color: '#FF7D00', fontWeight: 600 }}>$</span>\n            {rowData.salary?.toLocaleString()}\n          </span>\n        );\n      },\n    },\n    {\n      title: 'Address',\n      dataIndex: 'address',\n    },\n    {\n      title: 'Email',\n      dataIndex: 'email',\n    },\n  ]);\n\n  return (\n    // DemoContainer 仅Demo使用\n    <DemoContainer id=\"demo-custom\">\n      <Space direction={'vertical'} size={20}>\n        <CDrawerSelect\n          ref={ref}\n          title={'这是drawer的header'}\n          contentTop={'这是顶部的Top提示'}\n          columns={columnsConfig}\n          data={getData(['', 'cus'], 1, 20).data}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          value={value}\n          customTip={'暂无资源，请创建'}\n          onChange={v => setValue(v)}\n          customRender={({ open }) => <Button onClick={open}>自定义组件触发节点__多选{value.join(',')}</Button>}\n          mode={'multiple'}\n          // 仅用于demo挂载\n          {...dealContainer('demo-custom')}\n        />\n        <CDrawerSelect\n          title={'单选，选择后默认会关闭Drawer，可配置showDefaultFooter'}\n          columns={columnsConfig}\n          data={getData(['', 'show'], 1, 20).data}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          value={'Alisa Ross'}\n          customRender={({ open }) => (\n            <>\n              自定义节点：\n              <IconApps onClick={open} style={{ fontSize: 20, cursor: 'pointer', color: 'red' }} />\n            </>\n          )}\n          showDefaultFooter={true}\n          // 仅用于demo挂载\n          {...dealContainer('demo-custom')}\n        />\n      </Space>\n    </DemoContainer>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CDrawerSelect, CTable, Popover, Space } from '@cloud-materials/common';\nimport DemoContainer, { dealContainer } from './demoContainer';\nimport { chunk } from 'lodash-es';\n\nexport default () => {\n  const getData = (strs: string[], curPage = 1, pageSize = 10) => {\n    const data: any[] = [];\n    strs.forEach(str => {\n      [\n        {\n          key: '1',\n          name: 'Jane Doe',\n          salary: 23000,\n          address: '32 Park Road, London',\n          email: 'jane.doe@example.com',\n        },\n        {\n          key: '2',\n          name: 'Alisa Ross',\n          salary: 25000,\n          address: '35 Park Road, London',\n          email: 'alisa.ross@example.com',\n        },\n        {\n          key: '3',\n          name: 'Kevin Sandra',\n          salary: 22000,\n          address: '31 Park Road, London',\n          email: 'kevin.sandra@example.com',\n        },\n        {\n          key: '4',\n          name: 'Ed Hellen',\n          salary: 17000,\n          address: '42 Park Road, London',\n          email: 'ed.hellen@example.com',\n        },\n        {\n          key: '5',\n          name: 'William Smith',\n          salary: 7000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n\n        {\n          key: '6',\n          name: 'William Smith 6',\n          salary: 12000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n        {\n          key: '7',\n          name: 'William Smith 7',\n          salary: 37000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n      ].forEach(item => data.push({ ...item, name: `${item.name}${str}` }));\n    });\n    return { data: chunk(data, pageSize)[curPage - 1], total: data.length };\n  };\n\n  const columnsConfig = CTable.defineColumns([\n    {\n      title: 'Name',\n      dataIndex: 'name',\n      tooltip: '提示信息',\n    },\n    {\n      title: 'Salary',\n      dataIndex: 'salary',\n      render(_, rowData) {\n        return (\n          <span>\n            <span style={{ color: '#FF7D00', fontWeight: 600 }}>$</span>\n            {rowData.salary?.toLocaleString()}\n          </span>\n        );\n      },\n    },\n    {\n      title: 'Address',\n      dataIndex: 'address',\n    },\n    {\n      title: 'Email',\n      dataIndex: 'email',\n    },\n  ]);\n\n  return (\n    <DemoContainer id={'demo-limit'}>\n      <Space size={20} direction=\"vertical\">\n        <CDrawerSelect\n          title={'选择数量限制'}\n          contentTop={'这是顶部的Top提示'}\n          columns={columnsConfig}\n          fetcher={({ currentPage, pageSize }) =>\n            new Promise(res => {\n              const resp = getData(['', 'test'], currentPage, pageSize);\n              return setTimeout(() => res(resp), 300);\n            })\n          }\n          max={6}\n          min={2}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          mode=\"multiple\"\n          customTip={value => `已选择${value?.length ?? 0}个，最多选择6个，最少选择2个 `}\n          tableSelectProps={{\n            arcoTableProps: {\n              rowSelection: {\n                checkboxProps: record => {\n                  return { disabled: record.data?.salary === 7000 };\n                },\n              },\n            },\n            renderSelectCell: oriNode => <Popover content={'工资太低了，不能选'}>{oriNode}</Popover>,\n          }}\n          // dealContainer 挂载container，仅demo使用\n          {...dealContainer('demo-limit')}\n        />\n        <CDrawerSelect\n          title={'支持自定义校验'}\n          contentTop={'这是顶部的Top提示'}\n          columns={columnsConfig}\n          fetcher={({ currentPage, pageSize }) =>\n            new Promise(res => {\n              const resp = getData(['', 'test'], currentPage, pageSize);\n              return setTimeout(() => res(resp), 300);\n            })\n          }\n          max={6}\n          min={1}\n          customErrorMessage={value => value?.includes('Jane Doe') && '不能选择Jane Doe'}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          mode=\"multiple\"\n          customTip={value => `已选择${value?.length ?? 0}个，最多选择6个，最少选择1个，不能选择Jane Doe `}\n          // dealContainer 挂载container，仅demo使用\n          {...dealContainer('demo-limit')}\n        />\n      </Space>\n    </DemoContainer>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useRef, useState } from 'react';\nimport { Alert, CDrawerSelect, CTable, Divider, Message, Space, Typography } from '@cloud-materials/common';\nimport DemoContainer, { dealContainer } from './demoContainer';\nimport { chunk } from 'lodash-es';\n\nexport default () => {\n  const [value, setValue] = useState<any>(['Alisa Ross']);\n  const [value2, setValue2] = useState<any>(['Kevin Sandra']);\n\n  const ref = useRef<any>();\n\n  const getData = (strs: string[], curPage = 1, pageSize = 10) => {\n    const data: any[] = [];\n    strs.forEach(str => {\n      [\n        {\n          key: '1',\n          name: 'Jane Doe',\n          salary: 23000,\n          address: '32 Park Road, London',\n          email: 'jane.doe@example.com',\n        },\n        {\n          key: '2',\n          name: 'Alisa Ross',\n          salary: 25000,\n          address: '35 Park Road, London',\n          email: 'alisa.ross@example.com',\n        },\n        {\n          key: '3',\n          name: 'Kevin Sandra',\n          salary: 22000,\n          address: '31 Park Road, London',\n          email: 'kevin.sandra@example.com',\n        },\n        {\n          key: '4',\n          name: 'Ed Hellen',\n          salary: 17000,\n          address: '42 Park Road, London',\n          email: 'ed.hellen@example.com',\n        },\n        {\n          key: '5',\n          name: 'William Smith',\n          salary: 7000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n\n        {\n          key: '6',\n          name: 'William Smith 6',\n          salary: 12000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n        {\n          key: '7',\n          name: 'William Smith 7',\n          salary: 37000,\n          address: '62 Park Road, London',\n          email: 'william.smith@example.com',\n        },\n      ].forEach(item => data.push({ ...item, name: `${item.name}${str}` }));\n    });\n    return { data: chunk(data, pageSize)[curPage - 1], total: data.length };\n  };\n  const columnsConfig = CTable.defineColumns([\n    {\n      title: 'Name',\n      dataIndex: 'name',\n      tooltip: '提示信息',\n    },\n    {\n      title: 'Salary',\n      dataIndex: 'salary',\n      render(_, rowData) {\n        return (\n          <span>\n            <span style={{ color: '#FF7D00', fontWeight: 600 }}>$</span>\n            {rowData.salary?.toLocaleString()}\n          </span>\n        );\n      },\n    },\n    {\n      title: 'Address',\n      dataIndex: 'address',\n    },\n    {\n      title: 'Email',\n      dataIndex: 'email',\n    },\n  ]);\n\n  return (\n    // DemoContainer 仅Demo使用\n    <DemoContainer id=\"demo-value\">\n      <Space direction={'vertical'} size={20}>\n        <Typography.Title heading={6}>组件的值的设置（受控模式的使用）</Typography.Title>\n        <Alert\n          content=\"组件的onValueChange函数只会在组件的值真正变更时触发，即单选无footer时选中、有footer点击确定提交值时(为减少组件重绘、建议选择该受控模式)\"\n          type=\"warning\"\n        />\n        <span>你选择了{value.join('、')}</span>\n        <CDrawerSelect\n          ref={ref}\n          title={'title'}\n          columns={columnsConfig}\n          data={getData(['', 'cus'], 1, 20).data}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          controlledValue={value}\n          contentTop={'每次打开Drawer都会请求数据'}\n          customTip={'暂无资源，请创建'}\n          onValueChange={setValue}\n          fetcher={async ({ currentPage, pageSize }) => {\n            Message.info('请求了数据');\n            return await getData(['', 'value'], currentPage, pageSize);\n          }}\n          mode={'multiple'}\n          onOk={(v: string[]) => Message.success(`提交成功, 您选择了${v.join(';')}`)}\n          // 仅用于demo挂载\n          {...dealContainer('demo-value')}\n        />\n        <Divider />\n        <Alert\n          content=\"组件的onChange函数触发时机更多，在点击内部checkbox时，会触发onChange，可实时拿到勾选的数据\"\n          type=\"warning\"\n        />\n        <span>你选择了{value2.join('、')}</span>\n        <CDrawerSelect\n          unmountOnExit\n          ref={ref}\n          title={'title'}\n          columns={columnsConfig}\n          data={getData(['', 'cus'], 1, 20).data}\n          showRefreshIcon={true}\n          rowKey={'name'}\n          controlledValue={value2}\n          contentTop={'每次打开Drawer都会请求数据'}\n          customTip={'暂无资源，请创建'}\n          onChange={setValue2}\n          fetcher={async ({ currentPage, pageSize }) => {\n            Message.info('请求了数据');\n            return await getData(['', 'value2'], currentPage, pageSize);\n          }}\n          mode={'multiple'}\n          onOk={(v: string[]) => Message.success(`提交成功, 您选择了${v.join(';')}`)}\n          // 仅用于demo挂载\n          {...dealContainer('demo-value')}\n        />\n      </Space>\n    </DemoContainer>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

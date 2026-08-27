@@ -1,0 +1,24 @@
+{
+  "doclets": [
+    {
+      "filePath": "CTextFormat/interface.ts",
+      "name": "CTextFormatProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "discount",
+          "type": "number",
+          "required": true,
+          "description": "中文环境下的折扣信息，在 0~10 之间，可以为小数。例如：9、3.5、1"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport CTextFormat from '..';\nimport { Descriptions, Divider, Space } from '@arco-design/web-react';\nimport { CConfigProvider } from '@cloud-materials/common';\nimport enUS from '@cloud-materials/common/es/locales/en-US';\nimport zhCN from '@cloud-materials/common/es/locales/zh-CN';\n\nexport default () => {\n  return (\n    <Descriptions\n      column={1}\n      data={[\n        {\n          label: '中文',\n          value: (\n            <CConfigProvider locale={zhCN}>\n              <Space split={<Divider type=\"vertical\" />}>\n                <CTextFormat.Discount discount={1} />\n                <CTextFormat.Discount discount={8.8} />\n                <CTextFormat.Discount discount={9.9} />\n              </Space>\n            </CConfigProvider>\n          ),\n        },\n        {\n          label: '英文',\n          value: (\n            <CConfigProvider locale={enUS}>\n              <Space split={<Divider type=\"vertical\" />}>\n                <CTextFormat.Discount discount={1} />\n                <CTextFormat.Discount discount={8.8} />\n                <CTextFormat.Discount discount={9.9} />\n              </Space>\n            </CConfigProvider>\n          ),\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

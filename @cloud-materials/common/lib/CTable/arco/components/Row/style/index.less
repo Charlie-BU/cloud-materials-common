@@ -1,0 +1,29 @@
+@import (reference) '../../../style/index.less';
+
+.@{prefixCTable}-row {
+  &:hover {
+    .@{prefix}-table-td {
+      .@{cpn-prefix}-name-info-copy {
+        display: inline;
+        position: relative;
+        visibility: visible;
+      }
+
+      .@{cpn-prefix}-popup-edit-popconfirm-edit {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .@{cpn-prefix}-copy {
+        visibility: visible;
+      }
+    }
+  }
+  .@{cpn-prefix}-popup-edit,.@{cpn-prefix}-name-info,.@{cpn-prefix}-inline-edit,.@{cpn-prefix}-ellipsis {
+    //2023-11-16 CNameInfo、CPopupEdit、CInlineEdit的icon大小限定在14px
+    .@{cpn-prefix}-icon {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "doclets": [
+    {
+      "filePath": "CTabs/interface.ts",
+      "name": "CTabsProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "leftBottomBorder",
+          "type": "boolean",
+          "required": false,
+          "description": "是否有左下角 border"
+        },
+        {
+          "name": "sceneType",
+          "type": "'statistic'",
+          "required": false,
+          "description": "场景类型"
+        },
+        {
+          "name": "isFullElement",
+          "type": "boolean",
+          "required": false,
+          "description": "是否充满父元素 width"
+        },
+        {
+          "name": "defaultActiveTab",
+          "type": "string",
+          "required": false,
+          "description": "默认选中的标签选项卡，如不指定默认选择第一个"
+        },
+        {
+          "name": "activeTab",
+          "type": "string",
+          "required": false,
+          "description": "当前选中的 tab 的 key"
+        },
+        {
+          "name": "animation",
+          "type": "boolean | {tabPane?: boolean;inkBar?: boolean;}",
+          "required": false,
+          "description": "是否开启过渡效果"
+        },
+        {
+          "name": "tabPosition",
+          "type": "'left' | 'right' | 'top' | 'bottom'",
+          "required": false,
+          "description": "选项卡位置",
+          "defaultValue": "top"
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "description": "标签选项卡的方向是水平还是竖直，分别对应 `horizontal `和 `vertical`。** 注意： 已废弃，使用 tabPosition 替代。**"
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'small' | 'default' | 'large'",
+          "required": false,
+          "description": "有四个尺寸供选择，分别为`mini`, `small`, `default`, `large`"
+        },
+        {
+          "name": "type",
+          "type": "'line' | 'card' | 'card-gutter' | 'text' | 'rounded' | 'capsule'",
+          "required": false,
+          "description": "标签选项卡的类型",
+          "defaultValue": "line"
+        },
+        {
+          "name": "inkBarSize",
+          "type": "{width?: CSSProperties['width'];height?: CSSProperties['height'];}",
+          "required": false,
+          "description": "定制下划线尺寸",
+          "version": "2.54.0"
+        },
+        {
+          "name": "headerPadding",
+          "type": "boolean",
+          "required": false,
+          "description": "选项卡头部是否存在水平边距。仅对 `type`等于 `line`、`text`类型的选项卡生效",
+          "defaultValue": "true",
+          "version": "2.6.0"
+        },
+        {
+          "name": "overflow",
+          "type": "'scroll' | 'dropdown'",
+          "required": false,
+          "description": "标签页较多时候，选择滚动/下拉菜单形式展示 tab",
+          "defaultValue": "scroll"
+        },
+        {
+          "name": "editable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否允许增减标签。只在 `type` 为 `card` 或 `card-gutter` 时候生效。"
+        },
+        {
+          "name": "showAddButton",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示新增按钮（仅在`editable`为`true`时生效）",
+          "defaultValue": "true"
+        },
+        {
+          "name": "icons",
+          "type": "{add?: ReactNode;delete?: ReactNode;prev?: ReactNode;next?: ReactNode;dropdown?: ReactNode;}",
+          "required": false,
+          "description": "标签页头部 编辑/滚动/下拉 图标配置。对于不想展示的图标可以将其设置为`null`",
+          "version": "2.15.0, `prev`,`next`,`dropdown` in `2.47.0`"
+        },
+        {
+          "name": "scrollAfterEdit",
+          "type": "{delete?: boolean;add?: boolean;}",
+          "required": false,
+          "description": "是否在标签增减后，自动进行滚动调整(`editable`为`true`时生效）",
+          "defaultValue": "{ add: true, delete: true }",
+          "version": "2.25.0"
+        },
+        {
+          "name": "extra",
+          "type": "ReactNode",
+          "required": false,
+          "description": "显示在标签页右侧的附加"
+        },
+        {
+          "name": "destroyOnHide",
+          "type": "boolean",
+          "required": false,
+          "description": "是否销毁隐藏标签页的节点, `TabPane` 的该属性优先级高于 `Tabs`。"
+        },
+        {
+          "name": "lazyload",
+          "type": "boolean",
+          "required": false,
+          "description": "设置为 `true` 时，将不会在组件挂载的时候渲染被隐藏的标签页。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "justify",
+          "type": "boolean",
+          "required": false,
+          "description": "高度撑满容器，只在水平模式下生效。（默认的高度是又撑起的。）"
+        },
+        {
+          "name": "deleteButton",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义删除按钮",
+          "version": "2.16.0"
+        },
+        {
+          "name": "addButton",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义新增按钮",
+          "version": "2.16.0"
+        },
+        {
+          "name": "scrollPosition",
+          "type": "'start' | 'end' | 'center' | 'auto' | number",
+          "required": false,
+          "description": "被选中 tab 的滚动位置，默认 auto 即会将 activeTab 滚动到可见区域，但不会特意做位置调整",
+          "defaultValue": "auto",
+          "version": "2.25.0"
+        },
+        {
+          "name": "onChange",
+          "type": "(key: string) => void",
+          "required": false,
+          "description": "`activeTab` 改变的回调"
+        },
+        {
+          "name": "onClickTab",
+          "type": "(key: string) => void",
+          "required": false,
+          "description": "点击选项卡的回调"
+        },
+        {
+          "name": "onAddTab",
+          "type": "() => void",
+          "required": false,
+          "description": "点击新增 tab 按钮的回调"
+        },
+        {
+          "name": "onDeleteTab",
+          "type": "(key: string) => void",
+          "required": false,
+          "description": "点击删除按钮的回调"
+        },
+        {
+          "name": "renderTabHeader",
+          "type": "(tabProps: [TabsProps](#TabsProps), DefaultTabHeader: typeof TabHeader) => ReactElement",
+          "required": false,
+          "description": "自定义选项卡头部"
+        },
+        {
+          "name": "renderTabTitle",
+          "type": "(tabTitle: ReactNode, info: {key: string | number;isActive: boolean;disabled: boolean;editable: boolean;}) => ReactNode",
+          "required": false,
+          "description": "自定义单个选项卡头部"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport type { TabsProps } from '@cloud-materials/common';\nimport { CStatistic, CTabs, Tabs, Radio } from '@cloud-materials/common';\n\nconst TabPane = Tabs.TabPane;\n\nexport default () => {\n  const [type, setType] = useState<TabsProps['type']>('card-gutter');\n  const [leftBottomBorder, setBorder] = useState(true);\n  const [isFullElement, setIsfullElement] = useState(false);\n\n  return (\n    <>\n      <Radio.Group value={type} onChange={setType} style={{ marginBottom: 40 }}>\n        <Radio value=\"card-gutter\">card-gutter</Radio>\n        <Radio value=\"rounded\">rounded</Radio>\n        <Radio value=\"card\">card</Radio>\n        <Radio value=\"line\">line</Radio>\n        <Radio value=\"text\">text</Radio>\n        <Radio value=\"capsule\">capsule</Radio>\n      </Radio.Group>\n      <br />\n      <Radio.Group value={leftBottomBorder} onChange={setBorder} style={{ marginBottom: 40 }}>\n        <Radio value={true}>有左边底部 border</Radio>\n        <Radio value={false}>无左边底部 border</Radio>\n      </Radio.Group>\n      <Radio.Group value={isFullElement} onChange={setIsfullElement} style={{ marginBottom: 40 }}>\n        <Radio value={false}>不铺满父元素</Radio>\n        <Radio value={true}>铺满父元素</Radio>\n      </Radio.Group>\n      <br />\n      <CTabs\n        type={type}\n        leftBottomBorder={leftBottomBorder}\n        sceneType=\"statistic\"\n        defaultActiveTab=\"1\"\n        isFullElement={isFullElement}\n      >\n        <TabPane key=\"1\" title={<CStatistic title=\"标题\" value={23245423} unit=\"单位\" />}>\n          title 场景为 statistic （1）\n        </TabPane>\n        <TabPane key=\"2\" disabled={true} title={<CStatistic title=\"禁用状态\" value={23245423} unit=\"单位\" />}>\n          title 场景为 statistic （2）\n        </TabPane>\n        <TabPane key=\"3\" title={<CStatistic title=\"标题\" value={23245423} unit=\"单位\" />}>\n          title 场景为 statistic （3）\n        </TabPane>\n      </CTabs>\n\n      <CTabs\n        type={type}\n        leftBottomBorder={leftBottomBorder}\n        defaultActiveTab=\"1\"\n        style={{ marginTop: 50 }}\n        isFullElement={isFullElement}\n      >\n        <TabPane key=\"1\" title={12312}>\n          Arco 源力主题包自带（1）\n        </TabPane>\n        <TabPane key=\"2\" title={1111} disabled={true}>\n          Arco 源力主题包自带（2）\n        </TabPane>\n        <TabPane key=\"3\" title={12312}>\n          Arco 源力主题包自带（3）\n        </TabPane>\n      </CTabs>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

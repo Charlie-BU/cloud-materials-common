@@ -1,0 +1,517 @@
+{
+  "doclets": [
+    {
+      "filePath": "CTreeTransfer/interface.ts",
+      "name": "本地加载模式 Props",
+      "type": null,
+      "properties": [
+        {
+          "name": "hasLoadMore",
+          "type": "false",
+          "required": false,
+          "description": "当 hasLoadMore 为 false 或 undefined 时，组件为本地加载模式",
+          "defaultValue": "false"
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "required": false,
+          "description": "已选中项的 Value 值"
+        },
+        {
+          "name": "totalCheckedCountInLocal",
+          "type": "number",
+          "required": false,
+          "description": "右侧显示当前已选择项数量，未传入时默认为所有父子节点均计算"
+        },
+        {
+          "name": "onChange",
+          "type": "(newValue: string[]) => void",
+          "required": true,
+          "description": "选中项发生修改时触发的 change 方法"
+        },
+        {
+          "name": "treeData",
+          "type": "[TreeTransferDataType](#TreeTransferDataType)[]",
+          "required": true,
+          "description": "穿梭框左侧数据"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "穿梭框的 loading 状态",
+          "defaultValue": "false"
+        },
+        {
+          "name": "extraSourceAction",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "左侧 Header 的自定义额外操作，默认在顶部右侧展示"
+        },
+        {
+          "name": "extraTargetAction",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 的自定义额外操作，默认在顶部右侧展示"
+        },
+        {
+          "name": "extraInfo",
+          "type": "{ [key: string]: any }",
+          "required": false,
+          "description": "可能存在的附加信息，选中节点时会将其加载 targetNode 中"
+        },
+        {
+          "name": "checkInfo",
+          "type": "{checkedKeys: string[];halfCheckedKeys?: string[];}",
+          "required": false,
+          "description": "在左侧列表的 checkbox 状态需特殊处理的情况时，此时可传入该参数受控控制左侧列表的选中状态"
+        },
+        {
+          "name": "sourceSearchPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "左侧搜索框的 placeholder，默认: 请搜索"
+        },
+        {
+          "name": "targetSearchPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "右侧搜索框的 placeholder，默认: 请搜索"
+        },
+        {
+          "name": "sourceEmptyContent",
+          "type": "React.ReactElement | boolean",
+          "required": false,
+          "description": "左侧无数据时的自定义渲染能力，为 false 时则不渲染空状态",
+          "defaultValue": "true"
+        },
+        {
+          "name": "targetEmptyContent",
+          "type": "React.ReactElement | boolean",
+          "required": false,
+          "description": "右侧无数据时的自定义渲染能力,为 false 时则不渲染空状态",
+          "defaultValue": "false"
+        },
+        {
+          "name": "sourceItemRender",
+          "type": "(item: [NodeProps](#NodeProps)) => React.ReactNode",
+          "required": false,
+          "description": "左侧 Item 自定义渲染"
+        },
+        {
+          "name": "targetItemRender",
+          "type": "(item: [NodeProps](#NodeProps), treeData?: [TreeTransferDataType](#TreeTransferDataType)[]) => React.ReactNode",
+          "required": false,
+          "description": "右侧 Item 自定义渲染"
+        },
+        {
+          "name": "onSearch",
+          "type": "(searchString: string, type: 'source' | 'target') => void",
+          "required": false,
+          "description": "外部传入 search 函数。为空时搜索将进行本地字符串匹配"
+        },
+        {
+          "name": "sourceHeader",
+          "type": "(onSelectAll: (checked: boolean) => void,checkAllStatus: {checked: boolean;indeterminate: boolean;},) => React.ReactNode",
+          "required": false,
+          "description": "左侧 Header 自定义渲染方法"
+        },
+        {
+          "name": "targetHeader",
+          "type": "() => React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 自定义渲染方法"
+        },
+        {
+          "name": "targetTitle",
+          "type": "string | React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 自定义 title"
+        },
+        {
+          "name": "arcoTransferProps",
+          "type": "Pick<[TransferProps](#TransferProps), 'disabled' | 'className' | 'listStyle' | 'showSearch'>",
+          "required": false,
+          "description": "Transfer 的更多属性配置"
+        },
+        {
+          "name": "arcoSourceTreeProps",
+          "type": "Omit<[TreeProps](#TreeProps), 'onCheck' | 'onExpand' | 'onSelect' | 'loadMore' | 'treeData'>",
+          "required": false,
+          "description": "左侧 Tree 的更多属性配置"
+        },
+        {
+          "name": "arcoTargetTreeProps",
+          "type": "Omit<[TreeProps](#TreeProps), 'onCheck' | 'onExpand' | 'onSelect' | 'loadMore' | 'treeData'>",
+          "required": false,
+          "description": "右侧 Tree 的更多属性配置"
+        },
+        {
+          "name": "checkedStrategy",
+          "type": "[TransferCheckStrategy](#TransferCheckStrategy)",
+          "required": false,
+          "description": "选中模式，对应 arcoTree.checkedStrategy 参数"
+        },
+        {
+          "name": "loadType",
+          "type": "LoadType.remoteExpand",
+          "required": false,
+          "description": "树形穿梭框模式，目前支持 LoadType.remoteExpand"
+        },
+        {
+          "name": "checkNodeRemove",
+          "type": "(isParentCheck: boolean, targetNode: [NodeProps](#NodeProps)) => Promise<boolean>",
+          "required": false,
+          "description": "当点击反选某节点时是否触发移除该节点，由外层确定"
+        },
+        {
+          "name": "isEmptyShowLoadMore",
+          "type": "boolean",
+          "required": false,
+          "description": "子节点列表为空时是否显示加载更多"
+        },
+        {
+          "name": "loadingTitle",
+          "type": "string | React.ReactNode",
+          "required": false,
+          "description": "loading 的文案提示"
+        },
+        {
+          "name": "isExpandTarget",
+          "type": "boolean",
+          "required": false,
+          "description": "选中后右侧自动展开项"
+        },
+        {
+          "name": "isAutoExpandSource",
+          "type": "boolean",
+          "required": false,
+          "description": "选中后左侧节点自动展开"
+        },
+        {
+          "name": "enableRaceCondition",
+          "type": "boolean",
+          "required": false,
+          "description": "是否开启 fetcher 的竞态处理"
+        },
+        {
+          "name": "sourceHeaderCustomText",
+          "type": "{checkAllTitle?: string | ((searchStr: string) => string);}",
+          "required": false,
+          "description": "左侧 Header 自定义文案"
+        },
+        {
+          "name": "isDisableItemNotCheckable",
+          "type": "boolean",
+          "required": false,
+          "description": "disable 状态的 Node 在全选时是否可选中"
+        }
+      ]
+    },
+    {
+      "filePath": "CTreeTransfer/interface.ts",
+      "name": "懒加载模式 Props",
+      "type": null,
+      "properties": [
+        {
+          "name": "hasLoadMore",
+          "type": "true",
+          "required": true,
+          "description": "当 hasLoadMore 为 true 时，组件为懒加载模式",
+          "defaultValue": "false"
+        },
+        {
+          "name": "firstLevelHasMore",
+          "type": "boolean | 'error'",
+          "required": false,
+          "description": "source 首层是否还有加载更多节点",
+          "defaultValue": "false"
+        },
+        {
+          "name": "targetFirstLevelHasMore",
+          "type": "boolean | 'error'",
+          "required": false,
+          "description": "target 首层是否还有加载更多节点",
+          "defaultValue": "false"
+        },
+        {
+          "name": "removeChildConfirmInfo",
+          "type": "{isShowConfirm: boolean;title?: string;content?: string;}",
+          "required": false,
+          "description": "去除一个全选节点下的子节点时的提示相关信息"
+        },
+        {
+          "name": "targetTreeData",
+          "type": "[TreeTransferDataType](#TreeTransferDataType)[]",
+          "required": true,
+          "description": "已选节点的信息，为树形结构"
+        },
+        {
+          "name": "onChange",
+          "type": "(newData: [TreeTransferDataType](#TreeTransferDataType)[]) => void",
+          "required": true,
+          "description": "选中项发生修改时触发的 change 方法"
+        },
+        {
+          "name": "totalCheckedCount",
+          "type": "number",
+          "required": false,
+          "description": "右侧显示当前已选择项数量，在懒加载模式下必须传入才会显示选中项数量"
+        },
+        {
+          "name": "onSourceLoadMore",
+          "type": "(parentKeys: string[]) => Promise<void>",
+          "required": false,
+          "description": "左侧点击展开 or 加载更多"
+        },
+        {
+          "name": "onTargetLoadMore",
+          "type": "(parentKeys: string[]) => Promise<void>",
+          "required": false,
+          "description": "右侧点击展开 or 加载更多"
+        },
+        {
+          "name": "treeData",
+          "type": "[TreeTransferDataType](#TreeTransferDataType)[]",
+          "required": true,
+          "description": "穿梭框左侧数据"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "穿梭框的 loading 状态",
+          "defaultValue": "false"
+        },
+        {
+          "name": "extraSourceAction",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "左侧 Header 的自定义额外操作，默认在顶部右侧展示"
+        },
+        {
+          "name": "extraTargetAction",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 的自定义额外操作，默认在顶部右侧展示"
+        },
+        {
+          "name": "extraInfo",
+          "type": "{ [key: string]: any }",
+          "required": false,
+          "description": "可能存在的附加信息，选中节点时会将其加载 targetNode 中"
+        },
+        {
+          "name": "checkInfo",
+          "type": "{checkedKeys: string[];halfCheckedKeys?: string[];}",
+          "required": false,
+          "description": "在左侧列表的 checkbox 状态需特殊处理的情况时，此时可传入该参数受控控制左侧列表的选中状态"
+        },
+        {
+          "name": "sourceSearchPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "左侧搜索框的 placeholder，默认: 请搜索"
+        },
+        {
+          "name": "targetSearchPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "右侧搜索框的 placeholder，默认: 请搜索"
+        },
+        {
+          "name": "sourceEmptyContent",
+          "type": "React.ReactElement | boolean",
+          "required": false,
+          "description": "左侧无数据时的自定义渲染能力，为 false 时则不渲染空状态",
+          "defaultValue": "true"
+        },
+        {
+          "name": "targetEmptyContent",
+          "type": "React.ReactElement | boolean",
+          "required": false,
+          "description": "右侧无数据时的自定义渲染能力,为 false 时则不渲染空状态",
+          "defaultValue": "false"
+        },
+        {
+          "name": "sourceItemRender",
+          "type": "(item: [NodeProps](#NodeProps)) => React.ReactNode",
+          "required": false,
+          "description": "左侧 Item 自定义渲染"
+        },
+        {
+          "name": "targetItemRender",
+          "type": "(item: [NodeProps](#NodeProps), treeData?: [TreeTransferDataType](#TreeTransferDataType)[]) => React.ReactNode",
+          "required": false,
+          "description": "右侧 Item 自定义渲染"
+        },
+        {
+          "name": "onSearch",
+          "type": "(searchString: string, type: 'source' | 'target') => void",
+          "required": false,
+          "description": "外部传入 search 函数。为空时搜索将进行本地字符串匹配"
+        },
+        {
+          "name": "sourceHeader",
+          "type": "(onSelectAll: (checked: boolean) => void,checkAllStatus: {checked: boolean;indeterminate: boolean;},) => React.ReactNode",
+          "required": false,
+          "description": "左侧 Header 自定义渲染方法"
+        },
+        {
+          "name": "targetHeader",
+          "type": "() => React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 自定义渲染方法"
+        },
+        {
+          "name": "targetTitle",
+          "type": "string | React.ReactNode",
+          "required": false,
+          "description": "右侧 Header 自定义 title"
+        },
+        {
+          "name": "arcoTransferProps",
+          "type": "Pick<[TransferProps](#TransferProps), 'disabled' | 'className' | 'listStyle' | 'showSearch'>",
+          "required": false,
+          "description": "Transfer 的更多属性配置"
+        },
+        {
+          "name": "arcoSourceTreeProps",
+          "type": "Omit<[TreeProps](#TreeProps), 'onCheck' | 'onExpand' | 'onSelect' | 'loadMore' | 'treeData'>",
+          "required": false,
+          "description": "左侧 Tree 的更多属性配置"
+        },
+        {
+          "name": "arcoTargetTreeProps",
+          "type": "Omit<[TreeProps](#TreeProps), 'onCheck' | 'onExpand' | 'onSelect' | 'loadMore' | 'treeData'>",
+          "required": false,
+          "description": "右侧 Tree 的更多属性配置"
+        },
+        {
+          "name": "checkedStrategy",
+          "type": "[TransferCheckStrategy](#TransferCheckStrategy)",
+          "required": false,
+          "description": "选中模式，对应 arcoTree.checkedStrategy 参数"
+        },
+        {
+          "name": "loadType",
+          "type": "LoadType.remoteExpand",
+          "required": false,
+          "description": "树形穿梭框模式，目前支持 LoadType.remoteExpand"
+        },
+        {
+          "name": "checkNodeRemove",
+          "type": "(isParentCheck: boolean, targetNode: [NodeProps](#NodeProps)) => Promise<boolean>",
+          "required": false,
+          "description": "当点击反选某节点时是否触发移除该节点，由外层确定"
+        },
+        {
+          "name": "isEmptyShowLoadMore",
+          "type": "boolean",
+          "required": false,
+          "description": "子节点列表为空时是否显示加载更多"
+        },
+        {
+          "name": "loadingTitle",
+          "type": "string | React.ReactNode",
+          "required": false,
+          "description": "loading 的文案提示"
+        },
+        {
+          "name": "isExpandTarget",
+          "type": "boolean",
+          "required": false,
+          "description": "选中后右侧自动展开项"
+        },
+        {
+          "name": "isAutoExpandSource",
+          "type": "boolean",
+          "required": false,
+          "description": "选中后左侧节点自动展开"
+        },
+        {
+          "name": "enableRaceCondition",
+          "type": "boolean",
+          "required": false,
+          "description": "是否开启 fetcher 的竞态处理"
+        },
+        {
+          "name": "sourceHeaderCustomText",
+          "type": "{checkAllTitle?: string | ((searchStr: string) => string);}",
+          "required": false,
+          "description": "左侧 Header 自定义文案"
+        },
+        {
+          "name": "isDisableItemNotCheckable",
+          "type": "boolean",
+          "required": false,
+          "description": "disable 状态的 Node 在全选时是否可选中"
+        }
+      ]
+    },
+    {
+      "filePath": "CTreeTransfer/interface.ts",
+      "name": "TreeTransferDataType",
+      "type": "// 节点数据\nexport interface TreeTransferDataType extends TreeNodeProps {\n  title: string | React.ReactNode;\n  key: string;\n  // 是否为叶子节点\n  isLeaf?: boolean;\n  children?: TreeTransferDataType[];\n  // 该节点是否为全选状态\n  isCheckAll?: boolean;\n  extraInfo?: {\n    [key: string]: string;\n  };\n  // 是否有更多更请求的数据。加载失败时设置其值为 error 显示重试按钮\n  hasMore?: boolean | 'error';\n  // 由外部指定该项是否选中，懒加载时可自定义设置\n  checked?: boolean;\n  icon?: React.ReactNode;\n  nodeCheckAllExtra?: string | React.ReactNode;\n  isClickCheckAll?: boolean;\n  childrenData?: TreeTransferDataType[];\n  [key: string]: unknown;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CTreeTransfer/interface.ts",
+      "name": "TransferCheckStrategy",
+      "type": "export enum TransferCheckStrategy {\n  all = 'all',\n  parent = 'parent',\n  child = 'child'\n}\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getAllDataDemo } from './mockData';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>(getAllDataDemo());\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer hasLoadMore={false} treeData={data} onChange={setValue} value={values} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { LoadType } from '../interface';\nimport { getInitTreeData, getTablesDataByKey, getDataBaseDataByInstanceIDInExpand, getSearchData } from './mockData';\n\nexport default () => {\n  const [data, setData] = useState<TreeTransferDataType[]>(getInitTreeData().data);\n  const [values, setValue] = useState<TreeTransferDataType[]>([]);\n  const [loading] = useState(false);\n\n  const loadMore = async (nodeData: TreeTransferDataType, pageSize = 10): Promise<TreeTransferDataType> => {\n    if (nodeData?.type === 'instance') {\n      if (nodeData.key === '0') {\n        const dbData = await getDataBaseDataByInstanceIDInExpand({\n          id: nodeData?.key || 0,\n          dbNum: 1000,\n          initCount: nodeData.children?.length || 0,\n        });\n        return {\n          ...nodeData,\n          nodeExtra: '数据过多(>5000)，请使用搜索过滤',\n          children: dbData.data,\n        };\n      }\n\n      const dbData = await getDataBaseDataByInstanceIDInExpand({\n        id: nodeData?.key || 0,\n        dbNum: pageSize,\n        initCount: nodeData.children?.length || 0,\n      });\n      return {\n        ...nodeData,\n        children: dbData.data,\n      };\n    }\n\n    const tableData = await getTablesDataByKey({\n      tableNum: 10,\n      instanceId: '0',\n      dbId: nodeData.key,\n      initCount: nodeData?.children?.length,\n    });\n    return {\n      ...nodeData,\n      children: tableData.data,\n    };\n  };\n\n  const onSearch = async (searchStr: string) => {\n    const res = await getSearchData(searchStr);\n    setData(res);\n    // setLoading(false);\n  };\n\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        onExpand={loadMore}\n        loadType={LoadType.remoteExpand}\n        treeData={data}\n        targetTreeData={values}\n        loading={loading}\n        onChange={setValue}\n        onSearch={onSearch}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getDataBaseDataByInstanceID, getInitTreeData, getSearchData, getTablesDataByKey } from './mockData';\nimport { cloneDeep, set } from 'lodash-es';\n\nconst findItem = (data: TreeTransferDataType[], key: string | number) => {\n  return data.find(item => item.key === key);\n};\nconst findItemByPath = (\n  pathParentKeys: (string | number)[],\n  transferTree: TreeTransferDataType[],\n): TreeTransferDataType | undefined => {\n  const item = findItem(transferTree, pathParentKeys[0]);\n  if (pathParentKeys.length === 1 || !item) {\n    return item;\n  }\n  return findItemByPath(pathParentKeys.slice(1), item.children || []);\n};\n\nexport default () => {\n  const [data, setData] = useState<TreeTransferDataType[]>(getInitTreeData().data);\n  const [values, setValue] = useState<TreeTransferDataType[]>([]);\n  const [loading, setLoading] = useState(false);\n\n  const loadMore = async (parentKeys: (string | number)[], oldData: any[], pageSize = 10) => {\n    const cloneTree = cloneDeep(oldData);\n    const nodeData = findItemByPath(parentKeys, cloneTree);\n\n    if (nodeData?.type === 'instance') {\n      const dbData = await getDataBaseDataByInstanceID({\n        id: nodeData?.key || 0,\n        dbNum: pageSize,\n        initCount: nodeData.children?.length || 0,\n      });\n      set(nodeData, 'children', [...(nodeData?.children || []), ...dbData.data]);\n      set(nodeData, 'hasMore', dbData.hasMore);\n      return cloneTree;\n    }\n\n    const tableData = await getTablesDataByKey({\n      tableNum: 10,\n      instanceId: parentKeys[0],\n      dbId: parentKeys[1],\n      initCount: nodeData?.children?.length,\n    });\n    if (nodeData) {\n      set(nodeData, 'children', [...(nodeData?.children || []), ...tableData.data]);\n      set(nodeData, 'hasMore', tableData.hasMore);\n    }\n    return cloneTree;\n  };\n\n  const onSearch = async (searchStr: string, type: 'source' | 'target') => {\n    if (type === 'source') {\n      setLoading(true);\n      const res = await getSearchData(searchStr);\n      setData(res);\n      setLoading(false);\n    }\n  };\n\n  const onSourceLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, data)) || [];\n    setData(newData);\n  };\n  const onTargetLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, values)) || [];\n    setValue(newData);\n  };\n\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={true}\n        treeData={data}\n        targetTreeData={values}\n        loading={loading}\n        onChange={setValue}\n        onSourceLoadMore={onSourceLoadMore}\n        onTargetLoadMore={onTargetLoadMore}\n        onSearch={onSearch}\n        isExpandTarget={true}\n        isAutoExpandSource={true}\n        removeChildConfirmInfo={{\n          isShowConfirm: true,\n          title: '是否确认移除',\n          content: '移除后将取消父节点全选状态',\n        }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport { TransferCheckStrategy } from '../interface';\nimport type { TreeTransferDataType } from '../interface';\nimport { getAllDataDemo } from './mockData';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>(getAllDataDemo());\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={setValue}\n        value={values}\n        checkedStrategy={TransferCheckStrategy.child}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getAllDataDemo } from './mockData';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>(getAllDataDemo());\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={setValue}\n        value={values}\n        sourceItemRender={item => {\n          return (\n            <div>\n              {`${item.dataRef?.title}`}\n              <span style={{ color: '#4E5969', fontSize: '12px' }}>（{`${item.dataRef?.children?.length}`}）</span>\n            </div>\n          );\n        }}\n        targetItemRender={item => {\n          return (\n            <div>\n              {item.dataRef?.title}\n              {item.dataRef?.children && (\n                <span style={{ color: '#4E5969', fontSize: '12px' }}>\n                  （{`${item.dataRef?.children?.length}/${item.dataRef?.totalChildLength}`}）\n                </span>\n              )}\n            </div>\n          );\n        }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getAllDataDemo } from './mockData';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>(getAllDataDemo());\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={setValue}\n        value={values}\n        sourceHeader={() => <div>source header</div>}\n        targetHeader={() => <div> target header</div>}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>([]);\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={setValue}\n        value={values}\n        targetEmptyContent={false}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport {\n  getDataBaseDataByInstanceID,\n  getInitTreeData,\n  getMoreFirstLevelData,\n  getSearchData,\n  getTablesDataByKey,\n} from './mockData';\nimport { cloneDeep, set } from 'lodash-es';\n\nconst findItem = (data: TreeTransferDataType[], key: string | number) => {\n  return data.find(item => item.key === key);\n};\nconst findItemByPath = (\n  pathParentKeys: (string | number)[],\n  transferTree: TreeTransferDataType[],\n): TreeTransferDataType | undefined => {\n  const item = findItem(transferTree, pathParentKeys[0]);\n  if (pathParentKeys.length === 1 || !item) {\n    return item;\n  }\n  return findItemByPath(pathParentKeys.slice(1), item.children || []);\n};\n\nexport default () => {\n  const [data, setData] = useState<TreeTransferDataType[]>(getInitTreeData().data);\n  const [values, setValue] = useState<TreeTransferDataType[]>([]);\n  const [loading, setLoading] = useState(false);\n\n  const loadMore = async (parentKeys: (string | number)[], oldData: any[], pageSize = 10) => {\n    if (!parentKeys?.length) {\n      const newData = (await getMoreFirstLevelData(5, data.length)).data;\n      return [...data, ...newData];\n    }\n    const cloneTree = cloneDeep(oldData);\n    const nodeData = findItemByPath(parentKeys, cloneTree);\n\n    if (nodeData?.type === 'instance') {\n      const dbData = await getDataBaseDataByInstanceID({\n        id: nodeData?.key || 0,\n        dbNum: pageSize,\n        initCount: nodeData.children?.length || 0,\n      });\n      set(nodeData, 'children', [...(nodeData?.children || []), ...dbData.data]);\n      set(nodeData, 'hasMore', dbData.hasMore);\n      return cloneTree;\n    }\n\n    const tableData = await getTablesDataByKey({\n      tableNum: 10,\n      instanceId: parentKeys[0],\n      dbId: parentKeys[1],\n      initCount: nodeData?.children?.length,\n    });\n    if (nodeData) {\n      set(nodeData, 'children', [...(nodeData?.children || []), ...tableData.data]);\n      set(nodeData, 'hasMore', tableData.hasMore);\n    }\n    return cloneTree;\n  };\n\n  const onSearch = async (searchStr: string, type: 'source' | 'target') => {\n    if (type === 'source') {\n      setLoading(true);\n      const res = await getSearchData(searchStr);\n      setData(res);\n      setLoading(false);\n    }\n  };\n\n  const onSourceLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, data)) || [];\n    setData(newData);\n  };\n  const onTargetLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, values)) || [];\n    setValue(newData);\n  };\n\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={true}\n        arcoSourceTreeProps={{ autoExpandParent: true }}\n        treeData={data}\n        targetTreeData={values}\n        firstLevelHasMore={true}\n        targetFirstLevelHasMore={values.length ? true : false}\n        loading={loading}\n        onChange={setValue}\n        onSourceLoadMore={onSourceLoadMore}\n        onTargetLoadMore={onTargetLoadMore}\n        onSearch={onSearch}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport {\n  getDataBaseDataByInstanceID,\n  getInitTreeData,\n  getMoreFirstLevelData,\n  getSearchData,\n  getTablesDataByKey,\n} from './mockData';\nimport { cloneDeep, set } from 'lodash-es';\n\nconst findItem = (data: TreeTransferDataType[], key: string | number) => {\n  return data.find(item => item.key === key);\n};\nconst findItemByPath = (\n  pathParentKeys: (string | number)[],\n  transferTree: TreeTransferDataType[],\n): TreeTransferDataType | undefined => {\n  const item = findItem(transferTree, pathParentKeys[0]);\n  if (pathParentKeys.length === 1 || !item) {\n    return item;\n  }\n  return findItemByPath(pathParentKeys.slice(1), item.children || []);\n};\n\nexport default () => {\n  const [data, setData] = useState<TreeTransferDataType[]>(getInitTreeData().data);\n  const [values, setValue] = useState<TreeTransferDataType[]>([]);\n  const [firstLevelHasMore, setFirstLevelHasMore] = useState<boolean | 'error'>('error');\n  const [loading, setLoading] = useState(false);\n\n  const loadMore = async (parentKeys: (string | number)[], oldData: any[], pageSize = 10) => {\n    if (!parentKeys?.length) {\n      const newData = (await getMoreFirstLevelData(5, data.length)).data;\n      setFirstLevelHasMore(true);\n      return [...data, ...newData];\n    }\n    const cloneTree = cloneDeep(oldData);\n    const nodeData = findItemByPath(parentKeys, cloneTree);\n\n    if (nodeData?.type === 'instance') {\n      const dbData = await getDataBaseDataByInstanceID({\n        id: nodeData?.key || 0,\n        dbNum: pageSize,\n        initCount: nodeData.children?.length || 0,\n      });\n      set(nodeData, 'children', [...(nodeData?.children || []), ...dbData.data]);\n      set(nodeData, 'hasMore', dbData.hasMore);\n      return cloneTree;\n    }\n\n    const tableData = await getTablesDataByKey({\n      tableNum: 10,\n      instanceId: parentKeys[0],\n      dbId: parentKeys[1],\n      initCount: nodeData?.children?.length,\n    });\n    if (nodeData) {\n      set(nodeData, 'children', [...(nodeData?.children || []), ...tableData.data]);\n      set(nodeData, 'hasMore', tableData.hasMore);\n    }\n    return cloneTree;\n  };\n\n  const onSearch = async (searchStr: string, type: 'source' | 'target') => {\n    if (type === 'source') {\n      setLoading(true);\n      const res = await getSearchData(searchStr);\n      setData(res);\n      setLoading(false);\n    }\n  };\n\n  const onSourceLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, data)) || [];\n    setData(newData);\n  };\n  const onTargetLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, values)) || [];\n    setValue(newData);\n  };\n\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={true}\n        treeData={data}\n        targetTreeData={values}\n        firstLevelHasMore={firstLevelHasMore}\n        loading={loading}\n        onChange={setValue}\n        onSourceLoadMore={onSourceLoadMore}\n        onTargetLoadMore={onTargetLoadMore}\n        onSearch={onSearch}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getAllDataDemo } from './mockData';\nimport { Button, IconPlus } from '@cloud-materials/common';\nimport { IconRefresh } from '@arco-design/iconbox-react-ve-o-design';\n\nexport default () => {\n  const [data] = useState<TreeTransferDataType[]>(getAllDataDemo());\n  const [values, setValue] = useState<string[]>([]);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={setValue}\n        value={values}\n        extraSourceAction={\n          <div>\n            <Button\n              type=\"text\"\n              icon={<IconPlus />}\n              style={{ width: 'inherit', padding: '4px', border: 0, color: '#42434e' }}\n            />\n            <Button\n              type=\"text\"\n              icon={<IconRefresh />}\n              style={{ width: 'inherit', padding: '4px', border: 0, color: '#42434e' }}\n            />\n          </div>\n        }\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport CTreeTransfer from '..';\nimport type { TreeTransferDataType } from '../interface';\nimport { getInitDbTreeData, getSearchData, getTablesDataByKey } from './mockData';\nimport { cloneDeep, set } from 'lodash-es';\nimport { Input } from '@cloud-materials/common';\nimport { IconSearch } from '@arco-design/iconbox-react-ve-o-design';\nimport type { NodeProps } from '@arco-design/web-react/es/Tree/interface';\nimport CEllipsis from '../../CEllipsis';\n\nconst findItem = (data: TreeTransferDataType[], key: string | number) => {\n  return data.find(item => item.key === key);\n};\nconst findItemByPath = (\n  pathParentKeys: (string | number)[],\n  transferTree: TreeTransferDataType[],\n): TreeTransferDataType | undefined => {\n  const item = findItem(transferTree, pathParentKeys[0]);\n  if (pathParentKeys.length === 1 || !item) {\n    return item;\n  }\n  return findItemByPath(pathParentKeys.slice(1), item.children || []);\n};\n\nconst renderTargetHeader = () => {\n  return (\n    <div style={{ paddingRight: '12px' }}>\n      <Input style={{ margin: '8px 0' }} placeholder=\"搜索数据库\" prefix={<IconSearch />} size=\"small\" />\n      <div\n        style={{\n          display: 'flex',\n          alignItems: 'center',\n          height: '28px',\n          borderBottom: '1px solid #e5e8ef',\n          margin: '2px 0 8px',\n        }}\n      >\n        <div style={{ marginRight: '97px' }}>已选择的实例库表</div>\n        <div style={{ marginRight: '122px' }}>数据库新名</div>\n      </div>\n    </div>\n  );\n};\n\nconst renderTargetItem = ({\n  item,\n  onInputChange,\n}: {\n  item: NodeProps;\n  onInputChange: (key: string, newValue: string) => void;\n}) => {\n  const { dataRef } = item;\n  return (\n    <div style={{ display: 'flex', alignItems: 'center' }}>\n      <div style={{ width: '152px', marginRight: '8px' }}>\n        <CEllipsis content={<span>{dataRef?.title}</span>} maxWidth={false} />\n      </div>\n      <Input\n        size=\"small\"\n        style={{ height: '20px', width: '200px' }}\n        value={dataRef?.newName}\n        status={dataRef?.inputError ? 'error' : undefined}\n        onChange={v => {\n          onInputChange(dataRef?.key || '', v);\n        }}\n      />\n    </div>\n  );\n};\n\nexport default () => {\n  const [data, setData] = useState<TreeTransferDataType[]>(getInitDbTreeData().data);\n  const [values, setValue] = useState<TreeTransferDataType[]>([]);\n  const [loading, setLoading] = useState(false);\n\n  const loadMore = async (parentKeys: (string | number)[], oldData: any[]) => {\n    const cloneTree = cloneDeep(oldData);\n    const nodeData = findItemByPath(parentKeys, cloneTree);\n\n    const tableData = await getTablesDataByKey({\n      tableNum: 10,\n      instanceId: '',\n      dbId: parentKeys[0],\n      initCount: nodeData?.children?.length,\n    });\n    if (nodeData) {\n      set(nodeData, 'children', [...tableData.data]);\n      set(nodeData, 'hasMore', false);\n    }\n    return cloneTree;\n  };\n\n  const onSearch = async (searchStr: string, type: 'source' | 'target') => {\n    if (type === 'source') {\n      setLoading(true);\n      const res = await getSearchData(searchStr);\n      setData(res);\n      setLoading(false);\n    }\n  };\n\n  const onSourceLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, data)) || [];\n    setData(newData);\n  };\n  const onTargetLoadMore = async (parentKeys: string[]) => {\n    const newData = (await loadMore(parentKeys, values)) || [];\n    setValue(newData);\n  };\n\n  const handleInputChange = (itemKey: string, newValue: string) => {\n    const newData = values.map(item => {\n      if (item.key === itemKey) {\n        item.newName = newValue;\n        // 可校验 input 内容是否有问题\n        if (!newValue) {\n          item.inputError = true;\n        }\n      }\n      return item;\n    });\n    setValue(newData);\n  };\n\n  return (\n    <>\n      <CTreeTransfer\n        arcoTransferProps={{\n          listStyle: [\n            { height: '480px', width: '300px' },\n            { height: '480px', width: '500px' },\n          ],\n        }}\n        hasLoadMore={true}\n        treeData={data}\n        targetTreeData={values}\n        loading={loading}\n        onChange={setValue}\n        onSourceLoadMore={onSourceLoadMore}\n        onTargetLoadMore={onTargetLoadMore}\n        onSearch={onSearch}\n        sourceSearchPlaceholder=\"搜索数据库\"\n        targetHeader={renderTargetHeader}\n        targetItemRender={item => {\n          return renderTargetItem({ item, onInputChange: handleInputChange });\n        }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useMemo, useState } from 'react';\nimport CTreeTransfer from '..';\nimport { getAllDataDemo } from './mockData';\n\nexport default () => {\n  const [values, setValue] = useState<string[]>([]);\n  const data = useMemo(() => {\n    return getAllDataDemo({ instanceNum: 100, dbNum: 10, tableNum: 20 });\n  }, []);\n  return (\n    <>\n      <CTreeTransfer\n        hasLoadMore={false}\n        treeData={data}\n        onChange={(keys: string[]) => {\n          setValue(keys);\n          console.log('setValue', Date.now());\n        }}\n        value={values}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

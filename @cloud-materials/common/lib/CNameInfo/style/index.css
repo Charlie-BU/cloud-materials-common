@@ -1,0 +1,61 @@
+.c-m-name-info-name,
+.c-m-name-info-id {
+  height: 20px;
+  line-height: 24px;
+  color: #42464e;
+}
+.c-m-name-info-name:hover .c-m-name-info-copy,
+.c-m-name-info-id:hover .c-m-name-info-copy {
+  display: inline;
+  position: relative;
+  visibility: visible;
+}
+.c-m-name-info-name:hover .c-m-popup-edit-popconfirm-edit,
+.c-m-name-info-id:hover .c-m-popup-edit-popconfirm-edit {
+  display: flex;
+  visibility: visible;
+}
+.c-m-name-info-name .c-m-copy,
+.c-m-name-info-id .c-m-copy {
+  padding-right: 4px;
+}
+.c-m-name-info-name-content > .c-m-ellipsis-content {
+  color: rgb(var(--link-6));
+}
+.c-m-name-info-name-text {
+  color: #42464e;
+}
+.c-m-name-info-suffix {
+  display: flex;
+  align-items: center;
+}
+.c-m-name-info-copy-squeeze {
+  display: none;
+}
+.c-m-name-info-copy-weight {
+  visibility: hidden;
+}
+.c-m-name-info-copy {
+  height: 24px;
+  align-items: center;
+  padding-left: 4px;
+}
+.c-m-name-info-copy-visible .c-m-name-info-copy {
+  visibility: visible;
+}
+.c-m-name-info-edit-hide-squeeze .c-m-ellipsis {
+  height: 29.5px;
+}
+.c-m-name-info-edit-hide-squeeze .c-m-popup-edit {
+  height: 28px;
+}
+.c-m-name-info-edit-hide-squeeze .c-m-popup-edit-popconfirm-edit-icon-hide {
+  display: none;
+}
+.c-m-name-info-edit-hide .c-m-popup-edit-popconfirm-edit-icon-hide {
+  visibility: hidden;
+}
+.c-m-name-info-edit-visible .c-m-popup-edit .c-m-popup-edit-value .c-m-popup-edit-popconfirm-edit.c-m-popup-edit-popconfirm-edit-icon-hide {
+  visibility: visible;
+  opacity: 1;
+}

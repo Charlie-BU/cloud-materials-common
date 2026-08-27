@@ -1,0 +1,41 @@
+.c-m-table-comp-col-config-btn-dropdown.arco-dropdown-menu {
+  min-width: 160px;
+  max-width: 220px;
+  max-height: 412px;
+  padding: 5px 0 0 0;
+}
+.c-m-table-comp-col-config-btn-dropdown.arco-dropdown-menu .arco-dropdown-menu-inner {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.c-m-table-comp-col-config-btn-dropdown.arco-dropdown-menu .arco-dropdown-menu-inner .arco-dropdown-menu-item {
+  width: calc(100% - 10px);
+  padding: 0 11px;
+}
+.c-m-table-comp-col-config-btn-dropdown.arco-dropdown-menu .arco-dropdown-menu-inner .arco-dropdown-menu-item:not(.arco-dropdown-menu-disabled):hover::before {
+  left: 0;
+  right: 0;
+}
+.c-m-table-comp-col-config-btn-dropdown-select-all {
+  display: flex;
+}
+.c-m-table-comp-col-config-btn-dropdown-footer {
+  background: #FFFFFF;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1px;
+}
+.c-m-table-comp-col-config-btn-dropdown-footer-divider.arco-divider {
+  margin: 0;
+}
+.c-m-table-comp-col-config-btn-dropdown-footer-reset {
+  margin-top: 9px;
+  margin-bottom: 8px;
+}

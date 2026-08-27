@@ -1,0 +1,112 @@
+@import (reference) '../../style/variables.less';
+@import (reference) '../../CInfoSection/style/index.less';
+@import (reference) '../../_factory/maskableComponent/style/index.less';
+
+@c-m-drawer-prefix: ~'@{cpn-prefix}-drawer';
+
+.@{c-m-drawer-prefix} {
+  .@{c-m-maskable-prefix}-children-renderer {
+    height: 100%;
+
+    &-scroll {
+      height: 100%;
+    }
+  }
+
+  .@{prefix}-drawer-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .@{prefix}-drawer-header {
+    min-height: 56px;
+    height: auto;
+    padding: 12px 24px;
+  }
+
+  &-content {
+    padding: 16px 24px;
+  }
+
+  &-shadow {
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
+  }
+
+  &-title-after {
+    margin-left: auto;
+    padding-right: 24px;
+  }
+
+  &-header-desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: @color-text-3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    padding-right: 12px;
+  }
+
+  &-title-box {
+    display: flex;
+    min-width: 0;
+  }
+
+  .@{prefix}-drawer-header-title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // 👇🏻 for DrawerDetail
+  &-detail {
+    .@{c-m-info-section-prefix}-wrapper {
+      margin: 0;
+    }
+
+    .@{prefix}-drawer-header {
+      padding-bottom: 0;
+    }
+
+    &-header-tabs.@{prefix}-tabs-card-gutter {
+      > .@{prefix}-tabs-content {
+        padding-top: 0;
+        border: 0;
+      }
+    }
+
+    &-custom-tab-header {
+      margin: 12px 0 -1px 0;
+      font-weight: normal;
+      > .@{prefix}-tabs-header-nav-card-gutter.@{prefix}-tabs-header-nav-horizontal {
+        padding-left: 0;
+      }
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+
+      &-text {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &-status {
+        margin-left: 12px;
+      }
+    }
+  }
+}

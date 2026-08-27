@@ -1,0 +1,21 @@
+.c-m-cform-group {
+  border: 1px solid var(--color-neutral-3);
+  border-radius: 4px;
+  padding: 16px 24px;
+  position: relative;
+  width: 100%;
+}
+.c-m-cform-group-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.003em;
+  color: var(--color-neutral-10);
+  margin-bottom: 20px;
+}
+.c-m-cform-group-remove-container {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 12px;
+}

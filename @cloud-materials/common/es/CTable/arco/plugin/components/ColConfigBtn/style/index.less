@@ -1,0 +1,56 @@
+@import (reference) '../../../../style/index.less';
+
+@comp-col-config-btn-prefix: ~'@{prefixCTable}-comp-col-config-btn';
+
+@comp-col-config-badge-prefix: ~'@{prefixCTable}-comp-col-config-badge';
+
+.@{comp-col-config-badge-prefix}.@{prefix}-badge-custom-dot {
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  transform: none;
+  transform-origin: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+}
+
+.@{comp-col-config-btn-prefix} {
+  &-checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &.disabled {
+      cursor: not-allowed;
+
+      &-name {
+        /* stylelint-disable */
+        color: #80838a;
+        /* stylelint-enable */
+      }
+    }
+
+    &-name {
+      margin-left: 8px;
+      overflow: hidden;
+    }
+
+    &-tooltip {
+      font-size: 14px;
+      margin-left: 4px;
+      flex-shrink: 0;
+    }
+  }
+
+  &-btn svg {
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  &-btn.@{prefix}-btn svg {
+    &.cloud-icon-Custom-table-columns {
+      margin-left: 4px;
+      margin-top: 1px;
+      font-size: 20px;
+    }
+  }
+}

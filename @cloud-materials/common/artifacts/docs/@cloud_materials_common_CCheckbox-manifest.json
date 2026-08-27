@@ -1,0 +1,222 @@
+{
+  "doclets": [
+    {
+      "filePath": "CCheckbox/interface.ts",
+      "name": "CCheckboxProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "tag",
+          "type": "ReactNode",
+          "required": false,
+          "description": "角标"
+        },
+        {
+          "name": "CTagProps",
+          "type": "Omit<[CTagProps](#CTagProps), 'shape' | 'type'>",
+          "required": false,
+          "description": "角标的样式配置"
+        },
+        {
+          "name": "arcoPopoverProps",
+          "type": "[PopoverProps](#PopoverProps)",
+          "required": false,
+          "description": "Arco Popover 属性透传"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用"
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": false,
+          "description": "错误样式"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false,
+          "description": "是否选中"
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false,
+          "description": "默认是否选中"
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false,
+          "description": "半选状态"
+        },
+        {
+          "name": "onChange",
+          "type": "(checked: boolean, e: Event) => void",
+          "required": false,
+          "description": "点击复选框的回调"
+        },
+        {
+          "name": "value",
+          "type": "T",
+          "required": false,
+          "description": "复选框的 value 属性"
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义 IconCheck",
+          "version": "2.43.0"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        }
+      ]
+    },
+    {
+      "filePath": "CCheckbox/interface.ts",
+      "name": "CCheckboxGroupProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "widthSize",
+          "type": "'small' | 'large' | 'default' | number",
+          "required": false,
+          "description": "固定宽度配置"
+        },
+        {
+          "name": "autoWidth",
+          "type": "'selfAdaptive' | 'groupAdaptive'",
+          "required": false,
+          "description": "自适应宽度配置，优先级低于widthSize属性，selfAdaptive表示单个按钮根据内部文字自适应，groupAdaptive表示单个按钮根据同组按钮宽度自适应",
+          "defaultValue": "selfAdaptive"
+        },
+        {
+          "name": "heightSize",
+          "type": "'default' | 'small' | number",
+          "required": false,
+          "description": "高度配置：默认是32px的高度，支持在空间有限情况下选在28px的small宽度",
+          "defaultValue": "default"
+        },
+        {
+          "name": "textLineType",
+          "type": "'single' | 'double'",
+          "required": false,
+          "description": "类型配置：配置单行文本模式或双行文本模式",
+          "defaultValue": "single"
+        },
+        {
+          "name": "horizontalLayout",
+          "type": "'center' | 'stretch'",
+          "required": false,
+          "description": "支持配置水平布局。在有icon时，icon和文字默认一起居中布局，通过配置为stretch后可以左右伸展对齐。",
+          "defaultValue": "center"
+        },
+        {
+          "name": "iconLayout",
+          "type": "'left' | 'right'",
+          "required": false,
+          "description": "支持将icon防止在文本的右侧",
+          "defaultValue": "left"
+        },
+        {
+          "name": "options",
+          "type": "[CCheckboxGroupOption](#CCheckboxGroupOption)<T>[]",
+          "required": false,
+          "description": "checkbox group的选项配置"
+        },
+        {
+          "name": "checkboxProps",
+          "type": "Pick<[CheckboxProps](#CheckboxProps), 'style' | 'className'>",
+          "required": false,
+          "description": "透传checkbox的props，可以直接在Group中配置Checkbox的样式等属性"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "整组失效"
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "required": false,
+          "description": "方向",
+          "defaultValue": "horizontal"
+        },
+        {
+          "name": "defaultValue",
+          "type": "T[]",
+          "required": false,
+          "description": "默认选中的选项"
+        },
+        {
+          "name": "value",
+          "type": "T[]",
+          "required": false,
+          "description": "选中的选项（受控模式）"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: T[], e: Event) => void",
+          "required": false,
+          "description": "变化时的回调函数"
+        }
+      ]
+    },
+    {
+      "filePath": "CCheckbox/interface.ts",
+      "name": "CCheckboxGroupOption",
+      "type": "/**\n * @zh 用于CCheckbox.Group.Options的Props。扩展自CheckboxGroupProps.options\n */\nexport type CCheckboxGroupOption<T> = T | {\n  /**\n   * @zh checkbox的显示文本\n   * @en checkbox label\n   */\n  label: ReactNode;\n  /**\n   * @zh 双行单选组的第二行展示文字\n   * @en checkbox description\n   */\n  description?: ReactNode;\n  /**\n   * @zh 图标配置\n   * @en icon config\n   */\n  icon?: ReactNode;\n  /**\n   * @zh value\n   * @en value\n   */\n  value: T;\n  /**\n   * @zh 禁用按钮\n   * @en disable button\n   */\n  disabled?: boolean;\n  /**\n   * @zh 角标\n   * @en tag\n   */\n  tag?: ReactNode;\n  /**\n   * @zh 角标的样式配置\n   * @en tag cssproperties config\n   */\n  CTagProps?: Omit<CTagProps, 'shape' | 'type'>;\n  /**\n   * @zh Arco Popover 属性透传\n   * @en Arco Popover props\n   */\n  arcoPopoverProps?: PopoverProps;\n};\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CCheckbox, IconCommand } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '@cloud-materials/common';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst statusOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '选中我吧',\n  },\n  {\n    value: 'Beijing2',\n    label: '不要选我',\n  },\n  {\n    value: 'Beijing3',\n    label: '不能选我',\n    disabled: true,\n  },\n];\nconst statusOptions2: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '选中我吧',\n  },\n  {\n    value: 'Beijing2',\n    label: '不要选我',\n  },\n  {\n    value: 'Beijing3',\n    label: '不能选我 非选我',\n    disabled: true,\n  },\n];\nconst badgeOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\nconst iconOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n    icon: <IconCommand />,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h4>Checkbox不同状态-checked/default/disbaled</h4>\n      <CCheckboxGroup options={statusOptions} defaultValue={['Beijing']} />\n      <h4>Checkbox不同状态-checked/default/disbaled 选中disabled</h4>\n      <CCheckboxGroup options={statusOptions2} defaultValue={['Beijing', 'Beijing3']} />\n      <h4>不同样式的角标</h4>\n      <CCheckboxGroup options={badgeOptions} widthSize={'default'} />\n      <h4>带icon</h4>\n      <CCheckboxGroup options={iconOptions} widthSize={200} />\n      <h4>自定义的写法</h4>\n      <CCheckboxGroup disabled defaultValue={[1]}>\n        {[1, 2].map(item => (\n          <CCheckbox tag=\"火爆\" key={item} value={item}>{`${item}核`}</CCheckbox>\n        ))}\n      </CCheckboxGroup>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '@cloud-materials/common';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst statusOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '选中我吧',\n  },\n  {\n    value: 'Beijing2',\n    label: '不要选我',\n  },\n  {\n    value: 'Beijing3',\n    label: '不能选我',\n    disabled: true,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h3>通过 options 数组的形式</h3>\n      <CCheckboxGroup options={statusOptions} defaultValue={['Beijing']} />\n      <h3>通过 children 的形式</h3>\n      <CCheckboxGroup disabled defaultValue={[1]}>\n        {[1, 2].map(item => (\n          <CCheckbox tag=\"火爆\" key={item} value={item}>{`${item}核`}</CCheckbox>\n        ))}\n      </CCheckboxGroup>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '../interface';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst statusOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Chengdu',\n    label: '成都',\n  },\n  {\n    value: 'Beijing',\n    label: '北京',\n  },\n  {\n    value: 'Shanghai',\n    label: '上海',\n    disabled: true,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h3>高度配置</h3>\n      <h4>heightSize: small; </h4>\n      <CCheckboxGroup options={statusOptions} heightSize=\"small\" defaultValue={['Beijing']} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox, Popover, IconCommand } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '../interface';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst statusOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '公共镜像',\n  },\n  {\n    value: 'Beijing2',\n    label: '公共镜像',\n  },\n  {\n    value: 'Beijing3',\n    label: '公共镜像',\n  },\n  {\n    value: 'Beijing4',\n    label: '公共镜像公共镜像',\n  },\n];\nconst iconOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '公共镜像',\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing2',\n    label: '按年计算',\n    disabled: true,\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing3',\n    label: '公共镜像公共镜像公共镜像',\n    icon: <IconCommand />,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h3>自适应宽度</h3>\n      <h4>根据文字自适应</h4>\n      <CCheckboxGroup options={iconOptions} defaultValue={['Beijing']} />\n      <h4>同组内自适应</h4>\n      <CCheckboxGroup options={iconOptions} autoWidth=\"groupAdaptive\" defaultValue={['Beijing']} />\n      <h3>固定宽度</h3>\n      <h4>widthSize:large</h4>\n      <CCheckboxGroup options={iconOptions} widthSize={'large'} defaultValue={['Beijing']} />\n      <h4>widthSize: default</h4>\n      <CCheckboxGroup options={statusOptions} widthSize={'default'} defaultValue={['Beijing']} />\n      <h4>自定义节点</h4>\n      <CCheckboxGroup heightSize={'small'} autoWidth=\"groupAdaptive\" defaultValue={['Beijing']}>\n        <Popover\n          title=\"Title\"\n          content={\n            <span>\n              <p>Here is the text content</p>\n            </span>\n          }\n        >\n          <CCheckbox value=\"Beijing\" tag={'空'}>\n            广州 广州 广州 广州 广州 广州\n          </CCheckbox>\n        </Popover>\n        <CCheckbox value=\"Shanghai\">上海</CCheckbox>\n        <CCheckbox value=\"Guangzhou\" disabled>\n          广州\n        </CCheckbox>\n      </CCheckboxGroup>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox, IconCommand } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '../interface';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst optionsDoubleStatus: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '选中我吧',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing2',\n    label: '不要选我',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing3',\n    disabled: true,\n    label: '不能选我',\n    description: '流量较大或较稳定的场景',\n  },\n];\nconst optionsDoubleStatus2: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '选中我吧',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing2',\n    label: '不要选我',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing3',\n    disabled: true,\n    label: '不能选我非选我',\n    description: '流量较大或较稳定的场景',\n  },\n];\nconst optionsDouble: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing2',\n    label: '近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n  },\n  {\n    value: 'Beijing3',\n    disabled: true,\n    label: '近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n  },\n];\nconst optionsDoubleIcon: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing2',\n    label: '近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n    icon: <IconCommand />,\n  },\n  {\n    value: 'Beijing3',\n    disabled: true,\n    label: '近1小时按带宽上限计费方式近1小时按带宽上限计费方式',\n    description: '流量较大或较稳定的场景',\n    icon: <IconCommand />,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h3>双行文本</h3>\n      <h4>不同状态</h4>\n      <CCheckboxGroup textLineType={'double'} options={optionsDoubleStatus} defaultValue={['Beijing']} />\n      <h4>不同状态</h4>\n      <CCheckboxGroup textLineType={'double'} options={optionsDoubleStatus2} defaultValue={['Beijing3']} />\n      <h4>自适应宽度</h4>\n      <CCheckboxGroup textLineType={'double'} options={optionsDouble} defaultValue={['Beijing']} />\n      <h4>自适应宽度 带icon</h4>\n      <CCheckboxGroup textLineType={'double'} options={optionsDoubleIcon} defaultValue={['Beijing']} />\n      <h4>固定宽度widthSize: 300</h4>\n      <CCheckboxGroup textLineType={'double'} options={optionsDoubleIcon} widthSize={300} defaultValue={['Beijing']} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox, CTag, IconCommand } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '../interface';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst optionsDoubleIcon: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: (\n      <div style={{ display: 'flex', alignItems: 'center' }}>\n        <span style={{ marginRight: '8px' }}>基础版</span>\n        <CTag size=\"small\" style={{ color: '#0E988A' }} color=\"rgba(29, 180, 165, 0.1)\">\n          高性价比\n        </CTag>\n      </div>\n    ),\n    description: (\n      <div>\n        <div>单节点结构，内侧使用</div>\n        <div>不可添加只读节点</div>\n      </div>\n    ),\n    icon: <IconCommand style={{ width: '96px', height: '86px' }} />,\n  },\n  {\n    value: 'Beijing2',\n    label: (\n      <div style={{ display: 'flex', alignItems: 'center' }}>\n        <span style={{ marginRight: '8px' }}>高可用版</span>\n        <CTag size=\"small\" style={{ color: '#636AF2' }} color=\"rgba(95, 101, 242, 0.1)\">\n          客户首选\n        </CTag>\n      </div>\n    ),\n    description: (\n      <div>\n        <div>一主一备经典架构</div>\n        <div>可添加多个只读节点</div>\n      </div>\n    ),\n    icon: <IconCommand style={{ width: '96px', height: '86px' }} />,\n  },\n  {\n    value: 'Beijing3',\n    disabled: true,\n    label: (\n      <div style={{ display: 'flex', alignItems: 'center' }}>\n        <span style={{ marginRight: '8px' }}>集群版</span>\n        <CTag size=\"small\" style={{ color: '#BC7005' }} color=\"rgba(219, 110, 0, 0.1)\">\n          极致可靠\n        </CTag>\n      </div>\n    ),\n    description: (\n      <div>\n        <div>一主多备集群模式</div>\n        <div>可添加多个只读节点</div>\n      </div>\n    ),\n    icon: <IconCommand style={{ width: '96px', height: '86px' }} />,\n  },\n];\n\nconst optionsHorizontal: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'MySQL',\n    label: 'MySQL',\n    icon: <IconCommand style={{ width: '30px', height: '32px' }} />,\n  },\n  {\n    value: 'veDBForMySQL',\n    label: <div style={{ whiteSpace: 'normal' }}>VEDB FOR MYSQL</div>,\n    icon: <IconCommand style={{ width: '30px', height: '32px' }} />,\n  },\n  {\n    value: 'MySQLSharding',\n    label: <div style={{ whiteSpace: 'normal' }}>MySQL Sharding</div>,\n    icon: <IconCommand style={{ width: '30px', height: '32px' }} />,\n  },\n  {\n    value: 'PostgreSQL',\n    label: <div style={{ whiteSpace: 'normal' }}>PostgreSQL</div>,\n    icon: <IconCommand style={{ width: '30px', height: '32px' }} />,\n  },\n  {\n    value: 'MicrosoftSQLServer',\n    label: <div style={{ whiteSpace: 'normal' }}>Micorsoft SQL Server</div>,\n    icon: <IconCommand style={{ width: '30px', height: '32px' }} />,\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h4>卡片模式</h4>\n      <CCheckboxGroup\n        options={optionsDoubleIcon}\n        textLineType={'double'}\n        widthSize={286}\n        heightSize={128}\n        defaultValue={['Beijing']}\n        checkboxProps={{ style: { marginRight: 20 } }}\n      />\n      <h4>左右放置icon </h4>\n      <CCheckboxGroup\n        options={optionsDoubleIcon}\n        textLineType={'double'}\n        iconLayout=\"right\"\n        widthSize={286}\n        heightSize={128}\n        defaultValue={['Beijing']}\n        checkboxProps={{ style: { marginRight: 20 } }}\n      />\n      <h4> horizontalLayout 属性</h4>\n      <CCheckboxGroup\n        options={optionsHorizontal}\n        horizontalLayout=\"stretch\"\n        iconLayout=\"right\"\n        widthSize={190}\n        heightSize={56}\n        defaultValue={['Beijing']}\n        checkboxProps={{ style: { marginRight: 20 } }}\n      />\n      <h4> horizontalLayout 属性，和iconLayout属性</h4>\n      <CCheckboxGroup\n        options={optionsHorizontal}\n        horizontalLayout=\"stretch\"\n        iconLayout=\"left\"\n        widthSize={190}\n        heightSize={56}\n        defaultValue={['Beijing']}\n        checkboxProps={{ style: { marginRight: 20 } }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCheckbox } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '@cloud-materials/common';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst badgeOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '渐进金色',\n    tag: 'SVIP',\n    CTagProps: {\n      color: 'linearGold',\n    },\n    disabled: true,\n    arcoPopoverProps: {\n      content: '不允许点击渐进金色',\n    },\n  },\n  {\n    value: 'Beijing2',\n    label: '渐进红色',\n    tag: '火爆',\n    CTagProps: {\n      color: 'linearRed',\n    },\n  },\n  {\n    value: 'Beijing3',\n    label: '渐进橘红',\n    tag: '罄',\n    CTagProps: {\n      color: 'linearOrangered',\n    },\n  },\n  {\n    value: 'Beijing4',\n    label: '默认颜色',\n    tag: '罄',\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h4>通过options配置popover</h4>\n      <CCheckboxGroup options={badgeOptions} widthSize={'default'} />\n      <h4>自定义的写法</h4>\n      <CCheckboxGroup disabled defaultValue={[1]}>\n        {[1, 2].map(item => (\n          <CCheckbox\n            arcoPopoverProps={{ content: 'hello my checkbox' }}\n            tag=\"火爆\"\n            key={item}\n            value={item}\n          >{`${item}核`}</CCheckbox>\n        ))}\n      </CCheckboxGroup>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { Button, CCheckbox } from '@cloud-materials/common';\nimport type { CCheckboxGroupOption } from '../interface';\n\nconst CCheckboxGroup = CCheckbox.Group;\n\nconst statusOptions: CCheckboxGroupOption<string>[] = [\n  {\n    value: 'Beijing',\n    label: '公共镜像',\n  },\n  {\n    value: 'Beijing2',\n    label: '公共镜像',\n  },\n  {\n    value: 'Beijing3',\n    label: '公共镜像',\n    disabled: true,\n  },\n  {\n    value: 'Beijing4',\n    label: '公共镜像公共镜像',\n  },\n];\n\nexport default () => {\n  return (\n    <>\n      <h3>可以通过传入函数类型的 children 来自定义渲染单选节点。</h3>\n      <CCheckboxGroup defaultValue={['Beijing']}>\n        {statusOptions.map((p: { value: string; label: string }) => (\n          <CCheckbox value={p.value} key={p.value}>\n            {({ checked }) => {\n              return (\n                <Button key={p.value} shape=\"round\" type={checked ? 'primary' : 'default'}>\n                  {p.label}\n                </Button>\n              );\n            }}\n          </CCheckbox>\n        ))}\n      </CCheckboxGroup>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

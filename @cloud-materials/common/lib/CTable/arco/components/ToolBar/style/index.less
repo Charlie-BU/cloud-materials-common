@@ -1,0 +1,72 @@
+@import (reference) '../../../style/index.less';
+
+@toolbar-prefix: ~'@{prefixCTable}-toolbar';
+@row-space-size: 16px;
+@item-space-size: 12px;
+
+.@{toolbar-prefix} {
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: @row-space-size;
+
+    &-left {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &-row-only-left {
+    justify-content: flex-start;
+  }
+
+  &-row-only-right {
+    justify-content: flex-end;
+  }
+
+  &-item-group {
+    display: flex;
+  }
+
+  &-item {
+    margin-right: @item-space-size;
+
+    .@{prefix}-form-item {
+      margin-bottom: 0;
+    }
+  }
+
+  &-item:last-child {
+    margin-right: 0;
+  }
+
+  &-bottom-toolbar-left {
+    display: flex;
+    align-items: center;
+    // 2023-11-15：底部的COperationMenu button 大小默认为28px
+    .@{cpn-prefix}-operation-menu {
+      button {
+        height: 28px;
+      }
+    }
+  }
+
+  &-bottom-toolbar-selected-info {
+    margin-right: 12px;
+    // 为了让左下角的 checkbox 和 table 行选择的 checkbox 对齐
+    margin-left: 15px;
+
+    .@{prefix}-checkbox {
+      margin-left: 6px;
+      margin-right: 19px;
+      // checkbox的padding-left在arco组件中是由变量checkbox-mask-bg-height和checkbox-bg-height计算而来
+      // 每个主题包对两个变量的定义不同导致padding-left值不同，因此这里直接写0，和table中checkbox对齐
+      padding-left: 0;
+    }
+  }
+}

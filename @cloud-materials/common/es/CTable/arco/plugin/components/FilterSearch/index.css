@@ -1,0 +1,31 @@
+.c-m-table-comp-filter-search {
+  padding: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dde2e9;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-inner-wrapper.arco-input-inner-wrapper-default {
+  width: 240px;
+  border: 1px solid #dde2e9;
+  border-radius: 4px;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-inner-wrapper.arco-input-inner-wrapper-default:hover {
+  border-color: #4281ff;
+  background-color: #FFFFFF;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-inner-wrapper.arco-input-inner-wrapper-default:focus {
+  border-color: #0055ff;
+  background-color: #FFFFFF;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-inner-wrapper.arco-input-inner-wrapper-default.arco-input-inner-wrapper-focus {
+  border-color: #0055ff;
+  background-color: #FFFFFF;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-group-addafter {
+  padding-left: 8px;
+}
+.c-m-table-comp-filter-search .arco-input-group-wrapper.arco-input-group-wrapper-default.arco-input-search.arco-input-search-button > .arco-input-group .arco-input-group-addafter .arco-input-search-btn {
+  border-radius: 4px;
+}

@@ -1,0 +1,125 @@
+{
+  "doclets": [
+    {
+      "filePath": "CAsyncSwitch/interface.ts",
+      "name": "CAsyncSwitchProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "value",
+          "type": "boolean",
+          "required": false,
+          "description": "Switch是否打开, 与checked等同"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: boolean) => Promise<void>",
+          "required": false,
+          "description": "开关改变的回调， 当变更状态失败时必须要reject error"
+        },
+        {
+          "name": "openConfirmTips",
+          "type": "ReactNode",
+          "required": false,
+          "description": "开启时的二次确认提示内容"
+        },
+        {
+          "name": "closeConfirmTips",
+          "type": "ReactNode",
+          "required": false,
+          "description": "关闭时的二次确认提示内容"
+        },
+        {
+          "name": "arcoPopconfirmProps",
+          "type": "Partial<[PopconfirmProps](#PopconfirmProps)>",
+          "required": false,
+          "description": "Arco Popconfirm props"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用"
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default'",
+          "required": false,
+          "description": "开关的尺寸，有 `small` 和 `default` 可供选择。"
+        },
+        {
+          "name": "type",
+          "type": "'circle' | 'round' | 'line'",
+          "required": false,
+          "description": "三种样式类型",
+          "defaultValue": "circle"
+        },
+        {
+          "name": "checkedText",
+          "type": "ReactNode",
+          "required": false,
+          "description": "开关打开时的文案，small 尺寸不生效。"
+        },
+        {
+          "name": "uncheckedText",
+          "type": "ReactNode",
+          "required": false,
+          "description": "开关关闭时的文案，small 尺寸不生效。"
+        },
+        {
+          "name": "uncheckedIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "开关关闭时，按钮上显示的图标"
+        },
+        {
+          "name": "checkedIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "开关打开时，按钮上显示的图标"
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false,
+          "description": "默认是否选中"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false,
+          "description": "开关是否打开"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "加载中状态"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CAsyncSwitch, Message } from '@cloud-materials/common';\n\nexport default () => (\n  <CAsyncSwitch\n    defaultChecked={true}\n    onChange={() => {\n      return new Promise<any>((rs, rj) => {\n        setTimeout(() => {\n          if (Math.random() > 0.5) {\n            rs('');\n            Message.success('提交成功');\n          } else {\n            rj('');\n            Message.error('发生错误请重试');\n          }\n        }, 1000);\n      });\n    }}\n  />\n);\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CAsyncSwitch } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState(true);\n  return (\n    <CAsyncSwitch\n      value={value}\n      closeConfirmTips={'确定关闭吗？'}\n      openConfirmTips={'确定开启吗？'}\n      onChange={checked =>\n        new Promise<any>(rs => {\n          setTimeout(() => {\n            rs('');\n            setValue(checked);\n          }, 1000);\n        })\n      }\n    />\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

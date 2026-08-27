@@ -1,0 +1,102 @@
+@import (reference) '../../../../../style/variables.less';
+
+@c-m-cform-async-select: ~'@{cpn-prefix}-cform-async-select';
+
+.@{c-m-cform-async-select} {
+  &-wrapper {
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+
+    &-btn {
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+  }
+
+  &-menu {
+    width: 100%;
+
+    &-loading {
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+
+      &-empty {
+        text-align: center;
+      }
+    }
+  }
+
+  &-option {
+    &-double {
+      padding: 5px 10px;
+    }
+
+    &-disabled {
+      color: @color-text-4;
+    }
+
+    &-label {
+      font-size: @font-size-body-2;
+      line-height: 22px;
+
+      &-empty {
+        display: inline-block;
+      }
+
+      &-double::after {
+        content: '\A';
+        white-space: pre;
+        display: block;
+        margin-bottom: -34px;
+      }
+    }
+
+    &-des {
+      font-size: @font-size-body-1;
+      line-height: 20px;
+      margin-left: 10px;
+
+      &-nodisabled {
+        color: @color-text-3;
+      }
+    }
+
+    &-pop {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &-label {
+        font-size: @font-size-body-2;
+      }
+
+      &-des {
+        font-size: @font-size-body-1;
+        color: @color-text-3;
+        margin-top: 8px;
+      }
+
+      &-tip {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &-format {
+    &-value {
+      color: @color-text-3;
+    }
+  }
+}
+
+// 多选时的checkbox
+.@{prefix}-select-option-wrapper:has(.@{c-m-cform-async-select}-option) {
+  align-items: stretch;
+  .@{prefix}-select-checkbox {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "doclets": [
+    {
+      "filePath": "CNameInfo/interface.ts",
+      "name": "CNameInfoProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "description": "自定义显示的 name"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "自定义显示的 ID"
+        },
+        {
+          "name": "nameCopyable",
+          "type": "boolean",
+          "required": false,
+          "description": "name是否可以copy",
+          "defaultValue": "false"
+        },
+        {
+          "name": "idCopyable",
+          "type": "boolean",
+          "required": false,
+          "description": "id是否可以copy",
+          "defaultValue": "false"
+        },
+        {
+          "name": "idEditable",
+          "type": "boolean",
+          "required": false,
+          "description": "id是否可编辑（兼容部分老场景中，上面为Name下面为备注，且备注可修改的场景）",
+          "defaultValue": "false"
+        },
+        {
+          "name": "onIdEditOk",
+          "type": "[CPopupEditProps](#CPopupEditProps)['onOk']",
+          "required": false,
+          "description": "编辑id的回调"
+        },
+        {
+          "name": "idEditRules",
+          "type": "[CPopupEditProps](#CPopupEditProps)['rules']",
+          "required": false,
+          "description": "编辑id的规则"
+        },
+        {
+          "name": "idEditPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "编辑id的弹窗placeholder"
+        },
+        {
+          "name": "nameEditable",
+          "type": "boolean",
+          "required": false,
+          "description": "name是否可以编辑",
+          "defaultValue": "false"
+        },
+        {
+          "name": "onNameEditOk",
+          "type": "[CPopupEditProps](#CPopupEditProps)['onOk']",
+          "required": false,
+          "description": "编辑name的回调"
+        },
+        {
+          "name": "nameEditRules",
+          "type": "[CPopupEditProps](#CPopupEditProps)['rules']",
+          "required": false,
+          "description": "编辑name的规则"
+        },
+        {
+          "name": "nameEditPlaceholder",
+          "type": "string",
+          "required": false,
+          "description": "编辑name的弹窗placeholder"
+        },
+        {
+          "name": "onNameClick",
+          "type": "(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void",
+          "required": false,
+          "description": "点击name的回调"
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false,
+          "description": "透传给 linkProps.href，配置了 href 就有 a 标签的效果，可以右键打开浏览器 tab"
+        },
+        {
+          "name": "disableLink",
+          "type": "boolean",
+          "required": false,
+          "description": "透传Link组件的disabled属性，该属性再nameRenderType='link'才生效"
+        },
+        {
+          "name": "nameRenderType",
+          "type": "'link' | 'text'",
+          "required": false,
+          "description": "nameRenderType name渲染的方式，有link和text可选",
+          "defaultValue": "link"
+        },
+        {
+          "name": "suffix",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "传入后缀，按照规范为CTag，protect-icon可以按需传入"
+        },
+        {
+          "name": "isIconHoverDisplay",
+          "type": "boolean",
+          "required": false,
+          "description": "icon 是否hover出现，兼容部分希望copy和edit icon一直显示场景",
+          "defaultValue": "true"
+        },
+        {
+          "name": "isIconHoverSqueezeWidth",
+          "type": "boolean",
+          "required": false,
+          "description": "isIconHoverSqueezeWidth hover时icon是否会挤压已显示部分内容宽度，false：icon在未显示时也会占据宽度，hover时并不会挤压前置内容。true：icon在未显示时不会占据宽度，hover时会挤压前置内容\nisIconHoverDisplay为false时，属性不生效",
+          "defaultValue": "false"
+        },
+        {
+          "name": "nameCPopupEditProps",
+          "type": "Partial<[CPopupEditProps](#CPopupEditProps)>",
+          "required": false,
+          "description": "name弹出式编辑的props"
+        },
+        {
+          "name": "nameCCopyProps",
+          "type": "Partial<[CCopyProps](#CCopyProps)>",
+          "required": false,
+          "description": "name Copy的Props"
+        },
+        {
+          "name": "nameCEllipsisProps",
+          "type": "Omit<[CEllipsisProps](#CEllipsisProps), 'children' | 'content'>",
+          "required": false,
+          "description": "name Ellipsis的props"
+        },
+        {
+          "name": "idCPopupEditProps",
+          "type": "Partial<[CPopupEditProps](#CPopupEditProps)>",
+          "required": false,
+          "description": "id弹出式编辑的props"
+        },
+        {
+          "name": "idCCopyProps",
+          "type": "Partial<[CCopyProps](#CCopyProps)>",
+          "required": false,
+          "description": "id Copy的Props"
+        },
+        {
+          "name": "idCEllipsisProps",
+          "type": "Omit<[CEllipsisProps](#CEllipsisProps), 'children' | 'content'>",
+          "required": false,
+          "description": "id Ellipsis的props"
+        },
+        {
+          "name": "nameStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "透传给组件name的content节点的内联样式，用于修改文字样式，而不是布局"
+        },
+        {
+          "name": "idStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "透传给组件id的content节点的内联样式，用于修改文字样式，而不是布局"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "透传给组件根节点的内联样式"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "挂到组件根节点的样式名"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { CNameInfo, Space, Slider, Typography } from '@cloud-materials/common';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: 'idRecord-正是江南好时节，落花时节又逢君',\n};\n\nexport default () => {\n  const [width, setWidth] = useState(80);\n\n  return (\n    <>\n      <Space size=\"medium\">\n        <span>文本容器宽度调整：</span>\n        <Slider\n          value={width}\n          onChange={value => setWidth(value as number)}\n          min={100}\n          max={300}\n          marks={{\n            100: '100px',\n            300: '300px',\n          }}\n          style={{ width: 200 }}\n        />\n      </Space>\n      <Typography.Title heading={5}>默认样式，不可编辑 复制</Typography.Title>\n      <div style={{ width }}>\n        <CNameInfo name={defaultRecord.name} id={defaultRecord.id} />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CNameInfo, Typography } from '@cloud-materials/common';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: 'idRecord-正是江南好时节，落花时节又逢君',\n};\n\nexport default () => {\n  return (\n    <>\n      <Typography.Title heading={5}>可复制，hover显示, 省略情况</Typography.Title>\n      <div style={{ width: 200 }}>\n        <CNameInfo name={defaultRecord.name} id={defaultRecord.id} idCopyable nameCopyable />\n      </div>\n      <Typography.Title heading={5}>可复制，hover显示, 非情况</Typography.Title>\n      <div style={{ width: 300 }}>\n        <CNameInfo name={defaultRecord.name} id={defaultRecord.id} idCopyable nameCopyable />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CNameInfo, Typography } from '@cloud-materials/common';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: 'idRecord-正是江南好时节，落花时节又逢君',\n};\n\nexport default () => {\n  return (\n    <>\n      <Typography.Title heading={5}>点击name onNameClick</Typography.Title>\n      <div>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          onNameClick={() => {\n            alert(1);\n          }}\n        />\n      </div>\n      <Typography.Title heading={5}>传入href，跳转其他页面</Typography.Title>\n      <div>\n        <CNameInfo name={defaultRecord.name} id={defaultRecord.id} href=\"https://www.google.com/\" />\n      </div>\n      <Typography.Title heading={5}>\n        传入href与onNameClick，禁用 a 标签的默认行为，右键在新标签中打开新俩链接\n      </Typography.Title>\n      <div>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          href=\"https://www.google.com/\"\n          onNameClick={() => {\n            alert(1);\n          }}\n        />\n      </div>\n      <Typography.Title heading={5}>传入Link 不可点击</Typography.Title>\n      <div>\n        <CNameInfo\n          disableLink\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          href=\"https://www.google.com/\"\n          onNameClick={() => {\n            alert(1);\n          }}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CNameInfo, Typography } from '@cloud-materials/common';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: 'idRecord-正是江南好时节，落花时节又逢君',\n};\n\nexport default () => {\n  const [record, setRecord] = useState(defaultRecord);\n\n  return (\n    <>\n      <Typography.Title heading={5}>可编辑、复制，省略情况</Typography.Title>\n      这里显示出外框的border用来说明，copy、edit、和后缀的icon会计入CEllipsis省略宽度的计算\n      <div style={{ width: 300, border: '1px solid beige', borderRadius: '2px' }}>\n        <CNameInfo\n          name={record.name}\n          id={record.id}\n          nameCopyable\n          nameEditable\n          idCopyable\n          onNameEditOk={val => {\n            setRecord({ ...defaultRecord, name: val || '-' });\n          }}\n          nameCEllipsisProps={{ maxWidth: 300 }}\n        />\n      </div>\n      <Typography.Title heading={5}>可编辑、复制，非省略情况</Typography.Title>\n      <div style={{ width: 350, border: '1px solid beige', borderRadius: '2px' }}>\n        <CNameInfo\n          name={record.name}\n          id={record.id}\n          nameCopyable\n          nameEditable\n          idCopyable\n          onNameEditOk={val => {\n            setRecord({ ...defaultRecord, name: val || '-' });\n          }}\n        />\n      </div>\n      <Typography.Title heading={5}>可带有校验的编辑使用</Typography.Title>\n      <div style={{ width: 300 }}>\n        <CNameInfo\n          name={record.name}\n          id={record.id}\n          nameEditable\n          onNameEditOk={val => {\n            setRecord({ ...defaultRecord, name: val || '-' });\n          }}\n          nameEditRules={[\n            {\n              required: true,\n              match: new RegExp('^[A-Za-z0-9-]{0,128}$'),\n              message: '必填，只能包含字母、数字和中划线，长度不超过128个字符',\n            },\n          ]}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CNameInfo, useCConfigContext, Typography, Popover, CTag } from '@cloud-materials/common';\nimport { IconWifiSecurity } from '@arco-design/iconbox-react-ve-o-design';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: 'idRecord-正是江南好时节，落花时节又逢君',\n};\n\nexport default () => {\n  const { useCssPrefix } = useCConfigContext();\n  const iconCls = useCssPrefix('')`icon`;\n\n  return (\n    <>\n      <Typography.Title heading={5}>添加CTag后缀或Protect后缀</Typography.Title>\n      <div style={{ width: 300 }}>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          nameCopyable\n          idCopyable\n          suffix={\n            <Popover content=\"已开启实例删除保护\">\n              <IconWifiSecurity className={iconCls} />\n            </Popover>\n          }\n        />\n      </div>\n      <div style={{ width: 300, marginTop: 20 }}>\n        <CNameInfo name={defaultRecord.name} id={defaultRecord.id} nameCopyable idCopyable suffix={<CTag>CTag</CTag>} />\n      </div>\n      <Typography.Title heading={5}>添加CTag后缀和Protect后缀, 有编辑</Typography.Title>\n      <div style={{ width: 200 }}>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          nameCopyable\n          idCopyable\n          nameEditable\n          suffix={\n            <Popover content=\"已开启实例删除保护\">\n              <IconWifiSecurity className={iconCls} />\n            </Popover>\n          }\n        />\n      </div>\n      <Typography.Title heading={5}>\n        不希望未显示的icon占据宽度，当固定宽度时，出现的icon会挤压前置空间\n      </Typography.Title>\n      <div style={{ width: 258 }}>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          nameCopyable\n          idCopyable\n          nameEditable\n          isIconHoverSqueezeWidth\n          suffix={\n            <Popover content=\"已开启实例删除保护\">\n              <IconWifiSecurity className={iconCls} />\n            </Popover>\n          }\n        />\n      </div>\n      <div style={{ width: 350 }}>\n        <CNameInfo\n          name={defaultRecord.name}\n          id={defaultRecord.id}\n          nameCopyable\n          idCopyable\n          nameEditable\n          isIconHoverSqueezeWidth\n          suffix={\n            <Popover content=\"已开启实例删除保护\">\n              <IconWifiSecurity className={iconCls} />\n            </Popover>\n          }\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { Typography, CNameInfo } from '@cloud-materials/common';\nimport React, { useState } from 'react';\n\nconst defaultRecord = {\n  name: 'nameRecord-正是江南好时节，落花时节又逢君',\n  id: '69720',\n};\n\nexport default () => {\n  const [remake, setRemake] = useState('这是备注');\n  return (\n    <>\n      <Typography.Title heading={5}>兼容特殊的旧场景：ID/备注</Typography.Title>\n      支持通过isIconHoverDisplay设置编辑icon一直显示\n      <div style={{ width: '300px', marginTop: 20 }}>\n        <CNameInfo\n          name={defaultRecord.id}\n          nameStyle={{ fontWeight: 500, color: 'black' }}\n          id={remake}\n          idEditable\n          nameRenderType=\"text\"\n          isIconHoverDisplay={false}\n          onIdEditOk={val => {\n            setRemake(val);\n          }}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    }
+  ],
+  "extraDocs": []
+}

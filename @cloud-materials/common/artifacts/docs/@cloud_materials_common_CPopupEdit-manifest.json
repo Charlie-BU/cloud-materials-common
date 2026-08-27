@@ -1,0 +1,270 @@
+{
+  "doclets": [
+    {
+      "filePath": "CPopupEdit/interface.ts",
+      "name": "CPopupEditProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "透传给组件根节点的内联样式"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "挂到组件根节点的样式名"
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": true,
+          "description": "输入框初始值"
+        },
+        {
+          "name": "displayContent",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义展示的文本",
+          "defaultValue": "— defaultValue 的值"
+        },
+        {
+          "name": "displayEditIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义编辑图标标签"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "description": "弹出框标题, 不写则表示无标题"
+        },
+        {
+          "name": "type",
+          "type": "'textArea' | 'input'",
+          "required": false,
+          "description": "输入框的类型",
+          "defaultValue": "— input"
+        },
+        {
+          "name": "trigger",
+          "type": "[PopconfirmProps](#PopconfirmProps)['trigger']",
+          "required": false,
+          "description": "触发方式。优先级高于在 arcoPopconfirmProps 设置的 trigger",
+          "defaultValue": "— click"
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "required": false,
+          "description": "输入框能够输入的最大字数"
+        },
+        {
+          "name": "maxLengthErrorMsg",
+          "type": "string",
+          "required": false,
+          "description": "自定义超出最大字数显示时的错误提示； 默认提示为：已超出字符数最大限制"
+        },
+        {
+          "name": "rules",
+          "type": "UseEditProps['rules']",
+          "required": false,
+          "description": "输入框的校验规则"
+        },
+        {
+          "name": "position",
+          "type": "[PopconfirmProps](#PopconfirmProps)['position']",
+          "required": false,
+          "description": "窗口出现的位置。优先级高于在 arcoPopconfirmProps 设置的 position"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "气泡宽度"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "输入框提示文字",
+          "defaultValue": "— 请输入"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确定按钮的参数；可接受 Button 组件的所有参数。优先级高于在 arcoPopconfirmProps 设置的 okButtonProps"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的参数；可接受 Button 组件的所有参数。优先级高于在 arcoPopconfirmProps 设置的 cancelButtonProps"
+        },
+        {
+          "name": "showCopy",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示 copy 图标",
+          "defaultValue": "— false"
+        },
+        {
+          "name": "cCopyProps",
+          "type": "[CCopyProps](#CCopyProps)",
+          "required": false,
+          "description": "CCopy 组件Props。 优先级高级在 cEllipsisProps 设置的 cCopyProps"
+        },
+        {
+          "name": "cEllipsisProps",
+          "type": "Omit<[CEllipsisProps](#CEllipsisProps), 'children' | 'content'>",
+          "required": false,
+          "description": "CEllipsisProps 组件 Props（除了 content, children）"
+        },
+        {
+          "name": "showEdit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示编辑按钮。如果设置成 false 则只有 hover 时才显示",
+          "defaultValue": "— true"
+        },
+        {
+          "name": "arcoInputProps",
+          "type": "[InputProps](#InputProps)",
+          "required": false,
+          "description": "透传 arcoInputProps"
+        },
+        {
+          "name": "arcoTextareaProps",
+          "type": "[TextAreaProps](#TextAreaProps)",
+          "required": false,
+          "description": "透传 arcoTextareaProps"
+        },
+        {
+          "name": "arcoPopconfirmProps",
+          "type": "[PopconfirmProps](#PopconfirmProps)",
+          "required": false,
+          "description": "透传 arcoPopconfirmProps"
+        },
+        {
+          "name": "arcoPopoverProps",
+          "type": "[PopoverProps](#PopoverProps)",
+          "required": false,
+          "description": "透传 arcoPopoverProps"
+        },
+        {
+          "name": "suffix",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "emptyNode",
+          "type": "ReactNode",
+          "required": false,
+          "description": "没有数据的时候显示的元素"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "编辑功能是否禁用（编辑图标是否禁用）"
+        },
+        {
+          "name": "onOk",
+          "type": "(newValue: string) => void | Promise<void>",
+          "required": false,
+          "description": "点击确认按钮时执行的函数"
+        },
+        {
+          "name": "onCancel",
+          "type": "() => void",
+          "required": false,
+          "description": "点击取消按钮时执行的函数"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        onOk={newValue => {\n          setValue(newValue);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('%%%');\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        title=\"修改名称\"\n        rules={[\n          {\n            required: true,\n            message: '必填字段',\n          },\n          {\n            match: new RegExp('^[a-zA-Z_][0-9a-zA-Z_]*$'),\n            message: '必须是字母或下划线开头，字母、数字和下划线组合',\n          },\n          {\n            message: '长度需要在2-20个字符内',\n            minLength: 2,\n            maxLength: 20,\n          },\n        ]}\n        defaultValue={value}\n        onOk={newValue => setValue(newValue)}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('shu');\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        type=\"textArea\"\n        rules={[\n          {\n            required: true,\n            message: '必填字段',\n          },\n          {\n            match: new RegExp('^[a-zA-Z_][0-9a-zA-Z_]*$'),\n            message: '必须是字母或下划线开头，字母、数字和下划线组合',\n          },\n          {\n            message: '长度需要在2-20个字符内',\n            minLength: 2,\n            maxLength: 20,\n          },\n        ]}\n        onOk={newValue => setValue(newValue)}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        type=\"textArea\"\n        title=\"修改名称\"\n        maxLength={88}\n        onOk={newValue => setValue(newValue)}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit defaultValue={value} title=\"修改名称\" maxLength={88} onOk={newValue => setValue(newValue)} />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        okButtonProps={{ disabled: true, loading: true }}\n        cancelButtonProps={{ disabled: true }}\n        arcoPopconfirmProps={{\n          okButtonProps: { disabled: false, loading: false },\n          cancelButtonProps: { disabled: false },\n        }}\n        onOk={newValue => setValue(newValue)}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        trigger=\"hover\"\n        position=\"right\"\n        arcoPopconfirmProps={{\n          trigger: 'click',\n          position: 'bottom',\n        }}\n        onOk={newValue => setValue(newValue)}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <div style={{ display: 'flex', justifyContent: 'center', marginRight: 20 }}>\n        <CPopupEdit\n          defaultValue=\"textArea\"\n          title=\"修改名称\"\n          width=\"500\"\n          type=\"textArea\"\n          onOk={newValue => {\n            console.log(newValue);\n          }}\n        />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center' }}>\n        <CPopupEdit\n          defaultValue=\"input\"\n          title=\"修改名称\"\n          width={450}\n          onOk={newValue => {\n            console.log(newValue);\n          }}\n        />\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值');\n\n  return (\n    <>\n      <div style={{ display: 'flex', justifyContent: 'center' }}>\n        <CPopupEdit\n          defaultValue={value}\n          title=\"修改名称\"\n          displayContent=\"自定义的展示的文本\"\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>\n        <CPopupEdit\n          defaultValue=\"初始值\"\n          title=\"修改名称\"\n          displayContent={<div style={{ color: 'red' }}>自定义的展示的文本</div>}\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>\n        <CPopupEdit\n          defaultValue=\"displayContent 为 null\"\n          title=\"修改名称\"\n          displayContent={null}\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { Button, CPopupEdit, IconLaunch } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('今天天气真好');\n\n  return (\n    <>\n      <div style={{ display: 'flex', justifyContent: 'center' }}>\n        <CPopupEdit\n          defaultValue={value}\n          title=\"修改名称\"\n          displayEditIcon={<IconLaunch style={{ color: 'red' }} />}\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>\n        <CPopupEdit\n          defaultValue={value}\n          title=\"修改名称\"\n          displayEditIcon={\n            <Button type=\"primary\" size=\"mini\">\n              编辑按钮\n            </Button>\n          }\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>\n        <CPopupEdit\n          defaultValue=\"displayEditIcon 为 null\"\n          title=\"修改名称\"\n          displayEditIcon={null}\n          onOk={newValue => setValue(newValue)}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('初始值初始值初始值初始值初始值初始值初始值初始值');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        showCopy={true}\n        cCopyProps={{\n          onCopy: () => {\n            console.log('直接设置');\n          },\n        }}\n        style={{ width: 300 }}\n        cEllipsisProps={{\n          showCopy: false,\n          cCopyProps: {\n            onCopy: () => {\n              console.log('cEllipsisProps 中设置');\n            },\n          },\n        }}\n        onOk={newValue => {\n          setValue(newValue);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('只有hover时才显示编辑按钮');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        showEdit={false}\n        onOk={newValue => {\n          setValue(newValue);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        cEllipsisProps={{\n          maxWidth: 100,\n        }}\n        onOk={newValue => {\n          setValue(newValue);\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": ".arco-table .arco-table-tr {\n  .c-m-popup-edit-popconfirm-edit {\n    opacity: 0;\n  }\n\n  &:hover {\n    .c-m-popup-edit-popconfirm-edit {\n      opacity: 1;\n    }\n  }\n}\n",
+      "language": "less"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit, Message } from '@cloud-materials/common';\n\nexport default () => {\n  const [value, setValue] = useState('异步关闭弹窗，确定按钮loading');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        title=\"修改名称\"\n        onOk={(newValue: string) => {\n          return new Promise<any>((rs, rj) => {\n            setTimeout(() => {\n              if (Math.random() > 0.5) {\n                setValue(newValue);\n                rs('');\n              } else {\n                rj('');\n                Message.error('发生错误请重试');\n              }\n            }, 1000);\n          });\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CPopupEdit, Message } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue=\"onOk 事件返回的是一个 reject 的 Promise， 则编辑弹窗不关闭\"\n        title=\"修改名称\"\n        onOk={() => {\n          return new Promise<any>((_rs, rj) => {\n            setTimeout(() => {\n              rj('');\n              Message.error('报错了');\n            }, 1000);\n          });\n        }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [inputValue, setInputValue] = useState('input 输入框按钮回车键也可触发确定事件(onOk)');\n  const [textAreaValue, setTextAreaValue] = useState('textArea 输入框按钮回车键也可触发确定事件(onOk)');\n  return (\n    <>\n      <div style={{ display: 'flex', justifyContent: 'center' }}>\n        <CPopupEdit defaultValue={inputValue} title=\"修改名称\" onOk={value => setInputValue(value)} />\n      </div>\n      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>\n        <CPopupEdit\n          type=\"textArea\"\n          defaultValue={textAreaValue}\n          title=\"修改名称\"\n          onOk={value => setTextAreaValue(value)}\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CPopupEdit } from '@cloud-materials/common';\n\nexport default () => {\n  const [value] = useState('编辑按钮是禁用的，Popover 展示');\n\n  return (\n    <div style={{ display: 'flex', justifyContent: 'center' }}>\n      <CPopupEdit\n        defaultValue={value}\n        disabled={true}\n        title=\"修改名称\"\n        arcoPopoverProps={{ disabled: false, trigger: 'click', content: '你无权限编辑， 请联系管理员' }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"utils.js","sourceRoot":"","sources":["../../../../../components/CTableEditor/view/components/TableButtons/utils.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,UAAU,EAAE,MAAM,WAAW,CAAC;AASvC,MAAM,CAAC,IAAM,WAAW,GAAG,UAAI,KAAuB,EAAE,WAAwB;IAC9E,IAAI,UAAU,CAAC,KAAK,CAAC;QAAE,OAAO,KAAK,CAAC,WAAW,CAAC,CAAC;IACjD,OAAO,KAAK,CAAC;AACf,CAAC,CAAC"}

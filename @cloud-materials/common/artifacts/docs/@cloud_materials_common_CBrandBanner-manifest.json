@@ -1,0 +1,50 @@
+{
+  "doclets": [
+    {
+      "filePath": "CBrandBanner/interface.ts",
+      "name": "CBrandBannerProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": true,
+          "description": "产品标题"
+        },
+        {
+          "name": "description",
+          "type": "ReactNode",
+          "required": true,
+          "description": "产品描述"
+        },
+        {
+          "name": "imgUrl",
+          "type": "string",
+          "required": true,
+          "description": "右侧图片，建议尺寸480*240"
+        },
+        {
+          "name": "operation",
+          "type": "ReactNode",
+          "required": false,
+          "description": "操作"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CBrandBanner, Button, Space, Link } from '@cloud-materials/common';\n\nexport const Buttons = () => {\n  return (\n    <Space>\n      <Button type=\"primary\">购买产品</Button>\n      <Button>控制台</Button>\n    </Space>\n  );\n};\n\nexport default () => {\n  return (\n    <>\n      <CBrandBanner\n        title={'欢迎来到智能边缘'}\n        description={\n          <>\n            火山引擎边缘计算节点，基于覆盖全国主要城市和运营商的300+边缘节点，面向企业用户提供计算、存储、网络等边缘基础。\n            <Link>了解更多</Link>\n          </>\n        }\n        imgUrl=\"https://lf3-static.bytednsdoc.com/obj/eden-cn/652eh7pbynuhbo/img/Illustration 欢迎页.svg\"\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBrandBanner, Button, Space, Link } from '@cloud-materials/common';\n\nexport const Buttons = () => {\n  return (\n    <Space>\n      <Button type=\"primary\">购买产品</Button>\n      <Button>控制台</Button>\n    </Space>\n  );\n};\n\nexport default () => {\n  return (\n    <>\n      <CBrandBanner\n        title={'欢迎来到智能边缘'}\n        description={\n          <>\n            火山引擎边缘计算节点，基于覆盖全国主要城市和运营商的300+边缘节点，面向企业用户提供计算、存储、网络等边缘基础。\n            <Link>了解更多</Link>\n          </>\n        }\n        imgUrl=\"https://lf3-static.bytednsdoc.com/obj/eden-cn/652eh7pbynuhbo/img/Illustration 欢迎页.svg\"\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBrandBanner, Button, Space, Link } from '@cloud-materials/common';\n\nexport const Buttons = () => {\n  return (\n    <Space>\n      <Button type=\"primary\">购买产品</Button>\n      <Button>控制台</Button>\n    </Space>\n  );\n};\n\nexport default () => {\n  return (\n    <>\n      <CBrandBanner\n        title={'欢迎来到智能边缘'}\n        description={\n          <>\n            火山引擎边缘计算节点，基于覆盖全国主要城市和运营商的300+边缘节点，面向企业用户提供计算、存储、网络等边缘基础。\n            <Link>了解更多</Link>\n          </>\n        }\n        imgUrl=\"https://lf3-static.bytednsdoc.com/obj/eden-cn/652eh7pbynuhbo/img/Illustration 欢迎页.svg\"\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

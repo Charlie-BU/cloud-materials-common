@@ -1,0 +1,104 @@
+.c-m-card.c-m-card-normal,
+.c-m-card.c-m-card-compact,
+.c-m-card.c-m-card-link-list {
+  box-sizing: border-box;
+}
+.c-m-card.c-m-card-normal.arco-card-hoverable:hover,
+.c-m-card.c-m-card-compact.arco-card-hoverable:hover,
+.c-m-card.c-m-card-link-list.arco-card-hoverable:hover {
+  box-shadow: none;
+}
+.c-m-card.c-m-card-normal .arco-card-header,
+.c-m-card.c-m-card-compact .arco-card-header,
+.c-m-card.c-m-card-link-list .arco-card-header {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+.c-m-card.c-m-card-normal .arco-card-header-title,
+.c-m-card.c-m-card-compact .arco-card-header-title,
+.c-m-card.c-m-card-link-list .arco-card-header-title {
+  display: flex;
+  align-items: center;
+  color: #0c0d0e;
+  font-size: 16px;
+  line-height: 24px;
+}
+.c-m-card.c-m-card-normal .arco-card-body,
+.c-m-card.c-m-card-compact .arco-card-body,
+.c-m-card.c-m-card-link-list .arco-card-body {
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.c-m-card.c-m-card-normal {
+  border-radius: 8px;
+  padding: 16px 20px;
+  opacity: 0.9;
+}
+.c-m-card.c-m-card-normal.arco-card-bordered {
+  border: 1px solid #eaedf1;
+}
+.c-m-card.c-m-card-normal.arco-card-hoverable:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 15px 35px -2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.c-m-card.c-m-card-normal .arco-card-header-title {
+  gap: 8px;
+}
+.c-m-card.c-m-card-normal .arco-card-body {
+  padding-top: 8px;
+  color: #737a87;
+}
+.c-m-card.c-m-card-compact {
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: #fafbfc;
+}
+.c-m-card.c-m-card-compact.arco-card-hoverable:hover {
+  background: #f1f3f5;
+  cursor: pointer;
+}
+.c-m-card.c-m-card-compact .arco-card-body {
+  padding-top: 8px;
+  color: #737a87;
+}
+.c-m-card.c-m-card-link-list {
+  border-radius: 8px;
+  padding: 0 16px 16px 16px;
+}
+.c-m-card.c-m-card-link-list.arco-card-bordered {
+  border: 1px dashed #dde2e9;
+}
+.c-m-card.c-m-card-link-list.arco-card-hoverable:hover {
+  border: 1px dashed transparent;
+}
+.c-m-card.c-m-card-link-list .arco-card-header-title {
+  font-size: 20px;
+  line-height: 28px;
+}
+.c-m-card.c-m-card-link-list .arco-card-header-extra {
+  color: #737a87;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.c-m-card.c-m-card-link-list .arco-card-header-extra:hover {
+  cursor: pointer;
+  color: #1664ff;
+}
+.c-m-card.c-m-card-link-list .arco-card-body {
+  padding-top: 16px;
+  color: #42464e;
+}
+.c-m-card.c-m-card-link-list .arco-card-body .c-m-card-link-card-item {
+  display: flex;
+}
+.c-m-card.c-m-card-link-list .arco-card-body .c-m-card-link-card-item-tag {
+  margin-right: 8px;
+}
+.c-m-card.c-m-card-link-list .arco-card-body .c-m-card-link-card-item-content:hover {
+  cursor: pointer;
+  color: #1664ff;
+}

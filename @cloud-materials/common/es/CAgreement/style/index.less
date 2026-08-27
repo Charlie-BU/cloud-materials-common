@@ -1,0 +1,81 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-agreement-prefix: ~'@{cpn-prefix}-agreement';
+
+.@{c-m-agreement-prefix} {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  // 整体左移，修复 checkbox右移动5px 产生的副作用
+  margin-left: -5px;
+  cursor: pointer;
+
+  // checkbox样式覆盖
+  &-checkbox {
+    margin-right: 6px;
+
+    &-container {
+      .@{prefix}-checkbox-mask {
+        width: 14px;
+        height: 14px;
+      }
+
+      .@{prefix}-checkbox {
+        // 火山主题中去掉了padding样式，导致tooltip的尖角和checkbox无法对不齐
+        padding-left: 5px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  // 链接样式
+  &-link {
+    line-height: 22px;
+    display: inline-block;
+    font-size: 13px;
+
+    // Arco Link 样式覆盖
+    .@{prefix}-link {
+      padding: 0;
+      line-height: inherit;
+      display: inline;
+      font-size: 13px;
+    }
+
+    &-prefix {
+      color: @color-text-1;
+    }
+
+    &-desc {
+      border-bottom: 1px dashed @color-text-1;
+      padding-bottom: 4px;
+    }
+  }
+
+  // Arco Tooltip样式覆盖
+  .@{prefix}-tooltip-content {
+    color: @danger-6;
+  }
+
+  .@{prefix}-trigger-arrow {
+    z-index: 1;
+  }
+
+  // 卡片场景
+  &.@{c-m-agreement-prefix}-card {
+    .@{c-m-agreement-prefix}-checkbox-container {
+      height: 20px;
+    }
+
+    .@{c-m-agreement-prefix}-link {
+      font-size: 12px;
+      line-height: 20px;
+
+      .@{prefix}-link {
+        font-size: 12px;
+      }
+    }
+  }
+}

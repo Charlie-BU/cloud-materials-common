@@ -1,0 +1,236 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-transfer-prefix: ~'@{cpn-prefix}-transfer';
+
+.pagination-bottom-line() {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background-color: @color-bg-1;
+  border-bottom: 1px solid @color-border-2;
+  top: -8px;
+  left: 0;
+}
+
+.@{c-m-transfer-prefix} {
+  display: flex;
+  align-items: center;
+
+  &-view {
+    width: 276px;
+    height: 340px;
+    border: 1px solid var(~'@{arco-cssvars-prefix}-color-neutral-3');
+    border-radius: @radius-large;
+    overflow: hidden;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    line-height: 42px;
+    padding: 0 16px;
+    color: @color-text-2;
+    font-size: @font-size-body-2;
+
+    &-title {
+      font-weight: 500;
+    }
+  }
+
+  &-icon {
+    cursor: pointer;
+  }
+
+  &-delete-icon {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(160, 162, 167, 0.1);
+    }
+  }
+
+  &-delete-all {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(160, 162, 167, 0.1);
+    }
+  }
+
+  &-operations {
+    display: flex;
+    flex-direction: column;
+    padding: 0 @spacing-8;
+  }
+
+  &-operation-btn:last-child {
+    margin-top: @spacing-6;
+  }
+
+  // ------ 以下为样式覆写 ------
+  .@{cpn-prefix}-table {
+    .@{prefix}-table-body {
+      background-color: var(--color-bg-1);
+    }
+    .@{prefix}-table-container {
+      padding: 0 4px 0;
+    }
+    // 头部固定
+    .@{cpn-prefix}-table-toolbar {
+      position: sticky;
+      background: @color-bg-1;
+      top: 0;
+      z-index: 1;
+
+      .@{cpn-prefix}-table-toolbar-row {
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+
+      .@{cpn-prefix}-table-toolbar-item-group {
+        display: block;
+        width: 100%;
+      }
+    }
+    // row 行高
+    .@{prefix}-table-td {
+      border-bottom: 0;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      line-height: 22px;
+
+      &:last-child {
+        padding-right: 15px;
+      }
+    }
+
+    // 隐藏已选中**条
+    .@{cpn-prefix}-table-toolbar-bottom-toolbar-selected-info {
+      .@{prefix}-checkbox {
+        margin-left: -2px;
+      }
+
+      > span {
+        display: none;
+      }
+    }
+
+    .@{prefix}-table-th {
+      /* 原值为:#fff，已被stylelint autofix，替换后为：@color-menu-light-bg， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-menu-light-bg | @color-bg-white | @color-white | @color-bg-1 | @radio-button-color-bg_active | @color-fill-5 | @dark-color-fill-5 */
+      background-color: @color-menu-light-bg;
+      font-weight: normal;
+      font-size: 13px;
+      color: @color-text-2;
+    }
+
+    .@{prefix}-table-tr {
+      font-size: @font-size-body-2;
+      border-radius: @border-radius-medium;
+    }
+
+    .@{prefix}-table:not(.@{prefix}-table-border-cell) .@{prefix}-table-operation.@{prefix}-table-checkbox {
+      padding-left: 0;
+    }
+  }
+
+  &-operation-btn:not(.@{prefix}-btn-disabled) {
+    color: @color-text-3;
+    background-color: @color-white;
+  }
+
+  .@{prefix}-btn.@{prefix}-btn-secondary.@{prefix}-btn-disabled {
+    background-color: @color-bg-1;
+    color: @color-text-4;
+  }
+
+  .@{cpn-prefix}-table-toolbar-row-right {
+    padding: 0 16px;
+  }
+
+  // ------ 以下需要动态控制的样式覆写 ------
+  &-pagination-mode {
+    .@{cpn-prefix}-table,
+    .@{prefix}-spin,
+    .@{prefix}-spin-children,
+    .@{cpn-prefix}-table-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .@{cpn-prefix}-table {
+      // 翻页顶部小白边
+      .@{cpn-prefix}-table-toolbar-bottom-toolbar-selected-info {
+        &::before {
+          .pagination-bottom-line();
+        }
+      }
+
+      .@{cpn-prefix}-table-pagination-with-toolbar {
+        padding: 10px 16px 10px 4px;
+        //fix: 2024-1-31，table bottomLeft不需要有勾选高亮动画
+        &-highlight {
+          animation: none;
+        }
+      }
+    }
+  }
+
+  &-right-pagination-mode {
+    .@{prefix}-pagination {
+      &::before {
+        .pagination-bottom-line();
+      }
+    }
+  }
+
+  &-left-simple {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  &-right-simple {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  // 远程模式下隐藏左侧全选按钮框
+  &-remote-hide {
+    .@{cpn-prefix}-table-toolbar-bottom-toolbar-left {
+      visibility: hidden;
+    }
+
+    .@{prefix}-pagination {
+      &::before {
+        .pagination-bottom-line();
+      }
+    }
+  }
+
+  &-table-mode {
+    .@{cpn-prefix}-table {
+      .@{prefix}-table-container {
+        padding: 0 16px 0;
+      }
+
+      .@{prefix}-table-tr:not(:last-child) {
+        .@{prefix}-table-td {
+          padding-top: 7px;
+          padding-bottom: 7px;
+          border-bottom: 1px solid @color-border-2;
+        }
+      }
+
+      .@{cpn-prefix}-table-pagination-with-toolbar {
+        padding-left: 16px;
+      }
+    }
+  }
+}

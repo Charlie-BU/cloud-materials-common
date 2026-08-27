@@ -1,0 +1,55 @@
+@import (reference) '../../../../style/variables.less';
+
+@c-m-form-preview-prefix: ~'@{cpn-prefix}-cform-preview';
+
+.@{c-m-form-preview-prefix} {
+  width: 100%;
+  border-bottom: 1px solid @color-border-2;
+
+  &-item {
+    &-title {
+      margin-bottom: 10px;
+      font-family: 'PingFang SC';
+      font-weight: @font-weight-500;
+      font-size: @font-size-body-3;
+      line-height: 22px;
+      letter-spacing: 0.003em;
+      color: @color-text-1;
+      order: 0;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      span {
+        display: inline-block;
+        height: 22px;
+      }
+    }
+  }
+
+  &-item:first-child {
+    margin-top: 0;
+  }
+
+  &-item:not(:last-child) {
+    border-bottom: 1px solid @color-border-2;
+  }
+
+  &-item-detail {
+    // arco description组件样式覆盖
+    .@{prefix}-descriptions-item-label,
+    .@{prefix}-descriptions-item-value {
+      padding: 0 4px 8px 0;
+      vertical-align: top;
+    }
+
+    .@{prefix}-descriptions-item-label {
+      color: @color-fill-2;
+      font-weight: @font-weight-400;
+      font-size: @font-size-body-1;
+    }
+
+    .@{prefix}-descriptions-item-value {
+      font-size: @font-size-body-1;
+    }
+  }
+}

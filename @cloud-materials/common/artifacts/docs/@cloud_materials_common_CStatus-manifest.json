@@ -1,0 +1,193 @@
+{
+  "doclets": [
+    {
+      "filePath": "CStatus/interface.ts",
+      "name": "CStatusProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "status",
+          "type": "StatusType",
+          "required": false,
+          "description": "status的状态",
+          "defaultValue": "usable"
+        },
+        {
+          "name": "type",
+          "type": "Type",
+          "required": false,
+          "description": "status类型",
+          "defaultValue": "normal"
+        },
+        {
+          "name": "text",
+          "type": "ReactNode",
+          "required": false,
+          "description": "资源描述"
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义icon，优先级高于status内置icon"
+        },
+        {
+          "name": "tagColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义tag背景颜色，type=tag生效，优先级高于status内置颜色"
+        },
+        {
+          "name": "highlightColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义highlight背景颜色，type=highlight生效，优先级高于status内置颜色"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "description": "自定义颜色，优先级高于模式自定义颜色，高于status内置颜色"
+        },
+        {
+          "name": "borderColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义border颜色，type=heavy、border、tag生效，优先级高于模式自定义颜色和status内置颜色"
+        },
+        {
+          "name": "statusName",
+          "type": "string",
+          "required": false,
+          "description": "状态名称，当使用了该字段status和text将不会生效"
+        },
+        {
+          "name": "statusMap",
+          "type": "Record<string, Omit<[CStatusConfig](#CStatusConfig), 'waitColor'>>",
+          "required": false,
+          "description": "使用statusName时会从该字典取状态配置，组件有内置字典状态"
+        },
+        {
+          "name": "popoverContent",
+          "type": "ReactNode",
+          "required": false,
+          "description": "hover显示"
+        },
+        {
+          "name": "waitColor",
+          "type": "[WaitColor](#WaitColor)",
+          "required": false,
+          "description": "wait状态配色选择，默认灰色，优先级高于全局配置"
+        },
+        {
+          "name": "size",
+          "type": "[Size](#Size)",
+          "required": false,
+          "description": "size status的尺寸，有large和default可选",
+          "defaultValue": "default"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number | false",
+          "required": false,
+          "description": "text 部分最大宽度，默认160，传入false，跟随父元素",
+          "defaultValue": "160"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatus/interface.ts",
+      "name": "CStatusConfig",
+      "type": null,
+      "properties": [
+        {
+          "name": "status",
+          "type": "StatusType",
+          "required": true,
+          "description": "status状态"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "资源描述"
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "传入自定义icon"
+        },
+        {
+          "name": "tagColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义tag背景颜色，type=tag生效，优先级高于status"
+        },
+        {
+          "name": "highlightColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义highlight背景颜色，type=highlight生效，优先级高于status"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "description": "自定义颜色，优先级高于模式自定义颜色，高于status"
+        },
+        {
+          "name": "borderColor",
+          "type": "string",
+          "required": false,
+          "description": "自定义border颜色，type=heavy、border、tag生效，优先级高于模式自定义颜色和status"
+        },
+        {
+          "name": "waitColor",
+          "type": "[WaitColor](#WaitColor)",
+          "required": false,
+          "description": "设置全局的 wait 配色，默认是灰色"
+        }
+      ]
+    },
+    {
+      "filePath": "CStatus/interface.ts",
+      "name": "WaitColor",
+      "type": "export type WaitColor = 'grey' | 'blue';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CStatus/interface.ts",
+      "name": "Size",
+      "type": "export type Size = 'default' | 'large';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CStatus } from '@cloud-materials/common';\nimport type { StatusType, Type } from '../interface';\n\nexport default () => {\n  const typeList = ['heavy', 'tag', 'highlight', 'normal', 'border', 'dot'];\n  const statusList = ['usable', 'error', 'warning', 'running', 'loading', 'wait', 'disable'];\n\n  return (\n    <div>\n      <p style={{ fontSize: 20 }}>默认资源状态</p>\n      <CStatus />\n      <p style={{ marginBottom: 0, fontSize: 20 }}>所有资源状态展示</p>\n      <div style={{ height: '300px' }}>\n        {typeList.map(type => (\n          <div style={{ margin: '0px 10px 0 0', display: 'inline-block' }} key={type}>\n            <div style={{ height: '30px', position: 'relative' }}>\n              <p>type={type}</p>\n            </div>\n            <div style={{ position: 'absolute' }}>\n              {statusList.map(status => (\n                <div style={{ marginBottom: '5px', height: '24px' }} key={status}>\n                  <CStatus type={type as Type} status={status as StatusType} text={status} waitColor=\"grey\" />\n                </div>\n              ))}\n            </div>\n          </div>\n        ))}\n      </div>\n\n      <p style={{ marginBottom: 0, fontSize: 20 }}>大尺寸所有资源状态展示</p>\n      <div style={{ height: '300px' }}>\n        {typeList.map(type => (\n          <div style={{ margin: '0px 10px 0 0', display: 'inline-block' }} key={type}>\n            <div style={{ height: '30px', position: 'relative' }}>\n              <p>type={type}</p>\n            </div>\n            <div style={{ position: 'absolute' }}>\n              {statusList.map(status => (\n                <div style={{ marginBottom: '5px', height: '28px' }} key={status}>\n                  <CStatus\n                    type={type as Type}\n                    status={status as StatusType}\n                    text={status}\n                    size=\"large\"\n                    waitColor=\"grey\"\n                  />\n                </div>\n              ))}\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatus } from '@cloud-materials/common';\n\nCStatus.config({\n  statusMap: {\n    Test: {\n      status: 'error',\n      text: '测试',\n    },\n  },\n});\nexport default () => {\n  const statusNames = ['Usable', 'Error', 'Warning', 'Running', 'Wait', 'Disable'];\n\n  return (\n    <div>\n      <p>内置statusMap 7种</p>\n      {statusNames.map(statusName => (\n        <div key={statusName}>\n          <CStatus statusName={statusName} />\n        </div>\n      ))}\n      <p>使用Status.config</p>\n      <div>\n        <CStatus statusName=\"Test\" />\n      </div>\n      <p>使用传入statusMap</p>\n      <div>\n        <CStatus\n          statusName=\"Test\"\n          statusMap={{\n            Test: {\n              status: 'usable',\n              text: '测试',\n            },\n          }}\n        />\n        <CStatus statusName=\"Usable\" statusMap={{}} />\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatus, Typography } from '@cloud-materials/common';\nimport { IconClose } from '@arco-design/iconbox-react-ve-o-design';\n\nconst { Title } = Typography;\n\nCStatus.config({\n  // text: 'config',\n  className: 'class-custom',\n  // style: { padding: '3px' },\n  // color: 'pink',\n  // tagColor: 'pink',\n  // highlightColor: 'pink',\n  // borderColor: 'pink',\n});\nexport default () => {\n  const statusNames = ['Usable', 'Error', 'Warning', 'Running', 'Wait', 'Disable'];\n\n  return (\n    <div>\n      <Title heading={6}>优先级最高：在组件传入自定义icon、color等信息</Title>\n      <CStatus status=\"usable\" text=\"正常\" />\n      <div>\n        <p>传入icon</p>\n        <CStatus status=\"usable\" text=\"正常\" icon={<IconClose />} />\n        <p>传入color, color为文字颜色，不影响icon</p>\n        <CStatus status=\"usable\" text=\"正常\" icon={<IconClose />} color=\"red\" />\n        <p>传入tagColor，自定义tag模式下的背景色</p>\n        <CStatus status=\"usable\" text=\"正常\" type=\"tag\" tagColor=\"green\" color=\"white\" />\n        <p>传入highlightColor，自定义高亮模式下的背景色</p>\n        <CStatus status=\"error\" text=\"正常\" type=\"highlight\" highlightColor=\"#eaf0fd\" />\n        <p>传入borderColor，自定义边框的颜色</p>\n        <CStatus status=\"error\" text=\"正常\" type=\"tag\" borderColor=\"black\" />\n      </div>\n      <Title heading={6}>优先级高于默认设置和statusMap，用Status.config做统一设置</Title>\n      <p>\n        className、style等，\n        <span style={{ color: 'red', fontSize: '24px' }}>对于text、颜色的统一设置，不要轻易使用！！</span>\n      </p>\n      {statusNames.map(statusName => (\n        <div key={statusName}>\n          <CStatus statusName={statusName} />\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatus, Typography } from '@cloud-materials/common';\nimport { IconCloseCircleFill } from '@arco-design/iconbox-react-ve-o-design';\n\nconst { Title } = Typography;\n\nCStatus.config({\n  // text: 'config',\n  className: 'class-custom',\n  style: { padding: '3px' },\n  // color: 'pink',\n  // tagColor: 'pink',\n  // highlightColor: 'pink',\n  // borderColor: 'pink',\n});\nexport default () => {\n  return (\n    <div>\n      <Title heading={6}>有popover的资源状态带有下划虚线</Title>\n      <CStatus status=\"usable\" text=\"正常\" popoverContent=\"tip\" />\n      <CStatus\n        status=\"usable\"\n        text=\"正常\"\n        popoverContent={\n          <span>\n            <IconCloseCircleFill />\n            icon\n          </span>\n        }\n      />\n      <Title heading={6}>传入arcoPopoverProps，定义popover出现位置</Title>\n      <CStatus status=\"usable\" text=\"正常\" arcoPopoverProps={{ content: 'tip', position: 'left' }} />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CStatus, Typography } from '@cloud-materials/common';\nimport type { Type } from '../interface';\n\nconst { Title } = Typography;\nconst typeList = ['heavy', 'tag', 'highlight', 'normal', 'border', 'dot'];\n\nCStatus.config({\n  waitColor: 'blue',\n});\n\nexport default () => {\n  return (\n    <div>\n      <Title heading={6}>\n        在业务中，对于wait状态，不同业务有蓝色blue和灰色grey两种配色需求。默认配置为灰色，可通过全局配置设定配置为蓝色。\n      </Title>\n      <div style={{ height: '80px', marginBottom: '16px' }}>\n        {typeList.map(type => (\n          <div style={{ margin: '0px 10px 0 0', display: 'inline-block' }} key={type}>\n            <div style={{ height: '30px', position: 'relative' }}>\n              <p>type={type}</p>\n            </div>\n            <div style={{ position: 'absolute' }}>\n              <div style={{ marginBottom: '5px', height: '24px' }}>\n                <CStatus type={type as Type} status=\"wait\" text=\"wait\" />\n              </div>\n            </div>\n          </div>\n        ))}\n      </div>\n      <Title heading={6}>在全局配置之后，对于局部页面有不同配色需求，可以通过传入waitColor参数进行配置。</Title>\n      <div style={{ height: '80px', marginBottom: '16px' }}>\n        {typeList.map(type => (\n          <div style={{ margin: '0px 10px 0 0', display: 'inline-block' }} key={type}>\n            <div style={{ height: '30px', position: 'relative' }}>\n              <p>type={type}</p>\n            </div>\n            <div style={{ position: 'absolute' }}>\n              <div style={{ marginBottom: '5px', height: '24px' }}>\n                <CStatus type={type as Type} status=\"wait\" text=\"wait\" waitColor=\"grey\" />\n              </div>\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    }
+  ],
+  "extraDocs": []
+}

@@ -1,0 +1,635 @@
+{
+  "doclets": [
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "GroupMenuItemProps arco的分组菜单",
+      "type": null,
+      "properties": [
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "菜单组的标题"
+        },
+        {
+          "name": "children",
+          "type": "[MenuItemConfig](#MenuItemConfig)[]",
+          "required": false,
+          "description": "subMenus配置"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "sidebar的最小菜单元素",
+      "type": null,
+      "properties": [
+        {
+          "name": "label",
+          "type": "ReactNode",
+          "required": false,
+          "description": "菜单的名称文本"
+        },
+        {
+          "name": "name",
+          "type": "ReactNode",
+          "required": false,
+          "description": "菜单的名称文本，过时的，使用label代替"
+        },
+        {
+          "name": "isOuter",
+          "type": "boolean",
+          "required": false,
+          "description": "标记菜单应该跳出当前应用",
+          "defaultValue": "false"
+        },
+        {
+          "name": "outerMarkIcon",
+          "type": "React.ReactElement | null",
+          "required": false,
+          "description": "跳出当前应用的 icon，设置 null 为不展示",
+          "defaultValue": "false"
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "菜单前面的icon"
+        },
+        {
+          "name": "exact",
+          "type": "boolean",
+          "required": false,
+          "description": "它决定了sidebar在自动计算selectKeys时是否精确匹配"
+        },
+        {
+          "name": "extraMatchKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "currentPath 匹配这里的任意 key 时，菜单高亮，匹配规则同 react-router"
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "required": false,
+          "description": "控制该条菜单是否展示。"
+        },
+        {
+          "name": "data",
+          "type": "T",
+          "required": false,
+          "description": "其他数据，用于在 onMenuItemClick 中拿到后做其他操作"
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "required": false,
+          "description": "菜单是否可以被选中高亮，不影响 onClickMenuItem 调用",
+          "defaultValue": "true"
+        },
+        {
+          "name": "badge",
+          "type": "React.ReactNode | [CSideBarBadgeProps](#CSideBarBadgeProps)",
+          "required": false,
+          "description": "菜单标签，促销等icon"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "required": true,
+          "description": "唯一标志"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "菜单项禁止选中"
+        },
+        {
+          "name": "wrapper",
+          "type": "string | React.FC<any> | React.ComponentClass<any>",
+          "required": false,
+          "description": "配置最外层标签，可以是 html 标签或是组件",
+          "defaultValue": "div",
+          "version": "2.16.0"
+        },
+        {
+          "name": "renderItemInTooltip",
+          "type": "() => ReactNode",
+          "required": false,
+          "description": "菜单折叠时，指定在 Tooltip 中展示的菜单项节点",
+          "version": "2.51.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "MenuSubMenuProps 包含子菜单的菜单类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "菜单title前面的icon"
+        },
+        {
+          "name": "badge",
+          "type": "React.ReactNode | [CSideBarBadgeProps](#CSideBarBadgeProps)",
+          "required": false,
+          "description": "菜单标签，促销等icon"
+        },
+        {
+          "name": "redDot",
+          "type": "boolean",
+          "required": false,
+          "description": "子菜单上是否有红点提示"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "禁用该菜单及其下面的所有子菜单"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "子菜单的标题"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "required": true,
+          "description": "唯一标志"
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将多级菜单头也作为一个菜单项，支持点击选中等状态。"
+        },
+        {
+          "name": "popup",
+          "type": "boolean | ((level: number) => boolean)",
+          "required": false,
+          "description": "是否强制使用弹出模式，`level` 表示当前子菜单的层级",
+          "version": "2.8.0"
+        },
+        {
+          "name": "triggerProps",
+          "type": "Partial<[TriggerProps](#TriggerProps)>",
+          "required": false,
+          "description": "弹出模式下可接受所有 `Trigger` 的 `Props`",
+          "version": "2.19.0"
+        },
+        {
+          "name": "children",
+          "type": "[MenuItemConfig](#MenuItemConfig)[]",
+          "required": false,
+          "description": "subMenus配置"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CategoryTitleProps 内置的分类标题",
+      "type": null,
+      "properties": []
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CustomProps 自定义渲染内容的菜单类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "render",
+          "type": "(options: [CustomRenderOptions](#CustomRenderOptions)) => React.ReactNode",
+          "required": true,
+          "description": "自定义渲染内容"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CSideBarProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "currentPath",
+          "type": "string",
+          "required": false,
+          "description": "当前页面的路径，如果有basePath，建议移除掉basePath，用于计算当前应该展开哪些子菜单，并选中哪些菜单项。\n与 `defaultSelectedKeys` 和 `defaultOpenKeys` 互斥！"
+        },
+        {
+          "name": "title",
+          "type": "{logo?: React.ReactNode;/** 与logo互斥，点击返回按钮回调 */onBack?: (e: React.MouseEvent) => void;text?: React.ReactNode;/** 标题自定义文字大小 */size?: number;menuConfig?: {menus?: ArcoMenuItemProps[];arcoDropdownProps?: [DropdownProps](#DropdownProps);arcoMenuProps?: [MenuProps](#MenuProps);};}",
+          "required": false,
+          "description": "sidebar 标题（icon + 应用名）"
+        },
+        {
+          "name": "appId",
+          "type": "string",
+          "required": false,
+          "description": "用于本地状态存储，不填会自动取text字段"
+        },
+        {
+          "name": "defaultCollapse",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认收起sidebar",
+          "defaultValue": "false"
+        },
+        {
+          "name": "collapse",
+          "type": "boolean",
+          "required": false,
+          "description": "传入后将使 sidebar 的`collapse`状态变为受控的。⚠️：注意，当 collapse 受控后，将无法自动保存 collapse 状态，因为受控模式下的展开收起可能不是用户操作的，所以不作持久化",
+          "defaultValue": "false"
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "required": false,
+          "description": "菜单是否可以折叠，当配置为不可折叠时底部折叠按钮将隐藏。若设置为false，collapse 将不再生效",
+          "defaultValue": "true"
+        },
+        {
+          "name": "collapsePersistFirstWhenControlled",
+          "type": "boolean",
+          "required": false,
+          "description": "collapse 属性在受控模式下，是否依然以本地状态优先。若为 true，用户未操作过收起或展开时，依然是受控，否则变为不受控",
+          "defaultValue": "false"
+        },
+        {
+          "name": "onCollapseChange",
+          "type": "(collapse: boolean) => void",
+          "required": false,
+          "description": "collapse 状态改变后触发",
+          "defaultValue": "false"
+        },
+        {
+          "name": "selectedKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "选中的菜单项 key 数组（受控模式）"
+        },
+        {
+          "name": "onSelectedKeysChange",
+          "type": "(selectedKeys: string[]) => void",
+          "required": false,
+          "description": "选中的菜单项 key 数组（受控模式）"
+        },
+        {
+          "name": "openKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "展开的子菜单 key 数组（受控模式）"
+        },
+        {
+          "name": "onOpenKeysChange",
+          "type": "(openKeys: string[]) => void",
+          "required": false,
+          "description": "展开的子菜单 key 数组（受控模式）"
+        },
+        {
+          "name": "defaultOpenKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "默认展开的菜单key"
+        },
+        {
+          "name": "defaultOpenSubMenu",
+          "type": "boolean",
+          "required": false,
+          "description": "默认展开所有子菜单，与 `defaultOpenKeys` `accordion` 互斥"
+        },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "初始选中的菜单项 key 数组"
+        },
+        {
+          "name": "menus",
+          "type": "[MenuItemConfig](#MenuItemConfig)[]",
+          "required": false,
+          "description": "菜单配置",
+          "defaultValue": "[]"
+        },
+        {
+          "name": "mode",
+          "type": "'normal' | 'icon-less'",
+          "required": false,
+          "description": "ui模式，icon-less默认不展示icon，且收起后占用的空间更小",
+          "defaultValue": "'normal'"
+        },
+        {
+          "name": "arcoMenuProps",
+          "type": "Omit<[MenuProps](#MenuProps),'defaultOpenKeys' | 'defaultCollapse' | 'defaultSelectedKeys' | 'accordion' | 'onClickMenuItem'>",
+          "required": false,
+          "description": "对arco的Menu组件进行属性透传"
+        },
+        {
+          "name": "accordion",
+          "type": "boolean",
+          "required": false,
+          "description": "开启手风琴效果（展开当前菜单时自动收起其他菜单）",
+          "defaultValue": "false"
+        },
+        {
+          "name": "widthControl",
+          "type": "| boolean| {/*** @defaultValue window.clientWidth / 2*/maxWidth?: number;/*** @defaultValue 140*/minWidth?: number;/*** 当小于 `minWidth` 时会自动收起* @defaultValue true*/autoCollapse?: boolean;}",
+          "required": false,
+          "description": "sidebar 支持宽度控制 **💥💥💥💥仅限内部产品使用**",
+          "defaultValue": "false"
+        },
+        {
+          "name": "autoCollapse",
+          "type": "boolean",
+          "required": false,
+          "description": "自动根据用户屏幕大小决定是否收起sidebar，阈值为窗口宽度 992。<br/>_自动展开/收起仅限于用户未操作过或者主动设置为展开状态时生效，程序不主动缩小用户视野*",
+          "defaultValue": "true"
+        },
+        {
+          "name": "extraCtrl",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "底部展开收起控制器旁边额外的内容"
+        },
+        {
+          "name": "onClickMenuItem",
+          "type": "(menu: [MenuItemPropsWithPath](#MenuItemPropsWithPath), ...restArgs: unknown[]) => void",
+          "required": false,
+          "description": "当菜单项被点击时的回调"
+        },
+        {
+          "name": "renderMenuItem",
+          "type": "(wrapperProps: { children?: React.ReactNode; className?: string },menuItemProps: [MenuItemProps](#MenuItemProps),) => React.ReactElement",
+          "required": false,
+          "description": "自定义渲染菜单，用于和 `react-router` 结合等场景"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CSideBarHooksProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "currentPath",
+          "type": "string",
+          "required": false,
+          "description": "当前页面的路径，如果有basePath，建议移除掉basePath，用于计算当前应该展开哪些子菜单，并选中哪些菜单项。\n与 `defaultSelectedKeys` 和 `defaultOpenKeys` 互斥！"
+        },
+        {
+          "name": "title",
+          "type": "{logo?: React.ReactNode;/** 与logo互斥，点击返回按钮回调 */onBack?: (e: React.MouseEvent) => void;text?: React.ReactNode;/** 标题自定义文字大小 */size?: number;menuConfig?: {menus?: ArcoMenuItemProps[];arcoDropdownProps?: [DropdownProps](#DropdownProps);arcoMenuProps?: [MenuProps](#MenuProps);};}",
+          "required": false,
+          "description": "sidebar 标题（icon + 应用名）"
+        },
+        {
+          "name": "appId",
+          "type": "string",
+          "required": false,
+          "description": "用于本地状态存储，不填会自动取text字段"
+        },
+        {
+          "name": "defaultCollapse",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认收起sidebar",
+          "defaultValue": "false"
+        },
+        {
+          "name": "collapse",
+          "type": "boolean",
+          "required": false,
+          "description": "传入后将使 sidebar 的`collapse`状态变为受控的。⚠️：注意，当 collapse 受控后，将无法自动保存 collapse 状态，因为受控模式下的展开收起可能不是用户操作的，所以不作持久化",
+          "defaultValue": "false"
+        },
+        {
+          "name": "collapsible",
+          "type": "boolean",
+          "required": false,
+          "description": "菜单是否可以折叠，当配置为不可折叠时底部折叠按钮将隐藏。若设置为false，collapse 将不再生效",
+          "defaultValue": "true"
+        },
+        {
+          "name": "collapsePersistFirstWhenControlled",
+          "type": "boolean",
+          "required": false,
+          "description": "collapse 属性在受控模式下，是否依然以本地状态优先。若为 true，用户未操作过收起或展开时，依然是受控，否则变为不受控",
+          "defaultValue": "false"
+        },
+        {
+          "name": "onCollapseChange",
+          "type": "(collapse: boolean) => void",
+          "required": false,
+          "description": "collapse 状态改变后触发",
+          "defaultValue": "false"
+        },
+        {
+          "name": "selectedKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "选中的菜单项 key 数组（受控模式）"
+        },
+        {
+          "name": "onSelectedKeysChange",
+          "type": "(selectedKeys: string[]) => void",
+          "required": false,
+          "description": "选中的菜单项 key 数组（受控模式）"
+        },
+        {
+          "name": "openKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "展开的子菜单 key 数组（受控模式）"
+        },
+        {
+          "name": "onOpenKeysChange",
+          "type": "(openKeys: string[]) => void",
+          "required": false,
+          "description": "展开的子菜单 key 数组（受控模式）"
+        },
+        {
+          "name": "defaultOpenKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "默认展开的菜单key"
+        },
+        {
+          "name": "defaultOpenSubMenu",
+          "type": "boolean",
+          "required": false,
+          "description": "默认展开所有子菜单，与 `defaultOpenKeys` `accordion` 互斥"
+        },
+        {
+          "name": "defaultSelectedKeys",
+          "type": "string[]",
+          "required": false,
+          "description": "初始选中的菜单项 key 数组"
+        },
+        {
+          "name": "menus",
+          "type": "[MenuItemConfig](#MenuItemConfig)[]",
+          "required": false,
+          "description": "菜单配置",
+          "defaultValue": "[]"
+        },
+        {
+          "name": "mode",
+          "type": "'normal' | 'icon-less'",
+          "required": false,
+          "description": "ui模式，icon-less默认不展示icon，且收起后占用的空间更小",
+          "defaultValue": "'normal'"
+        },
+        {
+          "name": "arcoMenuProps",
+          "type": "Omit<[MenuProps](#MenuProps),'defaultOpenKeys' | 'defaultCollapse' | 'defaultSelectedKeys' | 'accordion' | 'onClickMenuItem'>",
+          "required": false,
+          "description": "对arco的Menu组件进行属性透传"
+        },
+        {
+          "name": "accordion",
+          "type": "boolean",
+          "required": false,
+          "description": "开启手风琴效果（展开当前菜单时自动收起其他菜单）",
+          "defaultValue": "false"
+        },
+        {
+          "name": "widthControl",
+          "type": "| boolean| {/*** @defaultValue window.clientWidth / 2*/maxWidth?: number;/*** @defaultValue 140*/minWidth?: number;/*** 当小于 `minWidth` 时会自动收起* @defaultValue true*/autoCollapse?: boolean;}",
+          "required": false,
+          "description": "sidebar 支持宽度控制 **💥💥💥💥仅限内部产品使用**",
+          "defaultValue": "false"
+        },
+        {
+          "name": "autoCollapse",
+          "type": "boolean",
+          "required": false,
+          "description": "自动根据用户屏幕大小决定是否收起sidebar，阈值为窗口宽度 992。<br/>_自动展开/收起仅限于用户未操作过或者主动设置为展开状态时生效，程序不主动缩小用户视野*",
+          "defaultValue": "true"
+        },
+        {
+          "name": "extraCtrl",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "底部展开收起控制器旁边额外的内容"
+        },
+        {
+          "name": "onClickMenuItem",
+          "type": "(menu: [MenuItemPropsWithPath](#MenuItemPropsWithPath), ...restArgs: unknown[]) => void",
+          "required": false,
+          "description": "当菜单项被点击时的回调"
+        },
+        {
+          "name": "renderMenuItem",
+          "type": "(wrapperProps: { children?: React.ReactNode; className?: string },menuItemProps: [MenuItemProps](#MenuItemProps),) => React.ReactElement",
+          "required": false,
+          "description": "自定义渲染菜单，用于和 `react-router` 结合等场景"
+        }
+      ]
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "MenuItemConfig",
+      "type": "export type MenuItemConfig<MenuItemData extends Record<string, any> = Record<string, unknown>, SubMenuData extends Record<string, any> = Record<string, unknown>, GroupMenuData extends Record<string, any> = Record<string, unknown>> = CustomProps | GroupMenuItemProps<GroupMenuData> | MenuItemProps<MenuItemData> | MenuSubMenuProps<SubMenuData> | CategoryTitleProps;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CSideBarBadgeProps",
+      "type": "export interface CSideBarBadgeProps {\n  /**\n   * 数字徽标或自定义内容\n   */\n  type?: 'badge' | 'custom';\n  /**\n   * 是否紧随菜单文本\n   */\n  follow?: boolean;\n  /**\n   * 徽标内容\n   */\n  content: React.ReactNode;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "CustomRenderOptions",
+      "type": "interface CustomRenderOptions {\n  renderMenus: (menus: MenuItemConfig[]) => React.ReactNode;\n}\n",
+      "properties": []
+    },
+    {
+      "filePath": "CSideBar/interface.ts",
+      "name": "MenuItemPropsWithPath",
+      "type": "export interface MenuItemPropsWithPath extends MenuItemProps {\n  /**\n   * @internal\n   */\n  _menuPath: string[];\n}\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport {\n  CSideBar,\n  IconFindReplace,\n  IconGithub,\n  IconHome,\n  IconBrush,\n  IconSettings,\n  IconDesktop,\n  IconStop,\n  Checkbox,\n  Form,\n  Input,\n  Radio,\n  Button,\n  Space,\n  Tag,\n} from '@cloud-materials/common';\nimport type { CSideBarProps } from '@cloud-materials/common';\nimport { Link, MemoryRouter, useLocation } from 'react-router-dom';\n\nconst Path = () => {\n  const location = useLocation();\n  return <Tag>pathname : {location.pathname}</Tag>;\n};\n\nexport default () => {\n  const [values, setValues] = useState<CSideBarProps>({ mode: 'normal', currentPath: '/k0', collapsible: true });\n  return (\n    <>\n      <div\n        style={{\n          display: 'flex',\n          overflow: 'hidden',\n          height: 700,\n        }}\n      >\n        <MemoryRouter>\n          <CSideBar\n            title={{\n              logo: <IconGithub />,\n              text: '应用性能监控全链路',\n            }}\n            defaultOpenSubMenu\n            // demo 在生产环境是嵌在iframe里的，会导致初始化为收起状态产生误解，所以方便展示这里关闭了自动收起\n            autoCollapse={false}\n            extraCtrl={<Button size=\"mini\">底部定制内容</Button>}\n            menus={[\n              {\n                key: '/menu1',\n                type: 'menu',\n                label: '■■',\n                icon: <IconHome />,\n              },\n              {\n                key: '/menu-hidden',\n                type: 'menu',\n                label: '■■',\n                icon: <IconHome />,\n                hidden: true,\n              },\n              {\n                key: '/category-title1',\n                type: 'category-title',\n                label: '我是分类标题',\n              },\n              {\n                key: '/xxx',\n                type: 'sub-menu',\n                title: '我是分组',\n                icon: <IconSettings />,\n                children: [\n                  {\n                    type: 'menu',\n                    label: '我是子菜单',\n                    key: '/k0',\n                  },\n                  {\n                    type: 'menu',\n                    label: (\n                      <p style={{ margin: 0, lineHeight: '22px', padding: '4px 0' }}>\n                        我是子菜单菜单菜单\n                        <br />\n                        我在这里换行了\n                      </p>\n                    ),\n                    key: '/k02',\n                  },\n                  {\n                    type: 'menu',\n                    label: '我不能被选中',\n                    key: '/k1',\n                    isOuter: true,\n                    selectable: false,\n                  },\n                  {\n                    type: 'sub-menu',\n                    title: '我是子菜单我是子菜单我是子菜单我是子菜单',\n                    key: 'k2',\n                    children: [\n                      {\n                        type: 'menu',\n                        label: '我是超长子菜单我是超长子菜单我是超长子菜单',\n                        key: 'k11',\n                        path: 'kkkkk',\n                        isOuter: true,\n                      },\n                    ],\n                  },\n                ],\n              },\n              {\n                key: '/xxx2',\n                type: 'sub-menu',\n                title: '我是分组2',\n                icon: <IconFindReplace />,\n                children: [\n                  {\n                    type: 'menu',\n                    label: '我是子菜单',\n                    key: 'xxx21',\n                    isOuter: true,\n                  },\n                  {\n                    type: 'menu',\n                    label: '我是子菜单-禁用',\n                    key: 'xxx22',\n                    icon: <IconFindReplace />,\n                    disabled: true,\n                  },\n                  {\n                    type: 'sub-menu',\n                    title: '我是子菜单',\n                    key: 'xxx23',\n                    children: [\n                      {\n                        type: 'menu',\n                        label: '我是子菜单',\n                        key: 'k111',\n                        isOuter: true,\n                      },\n                    ],\n                  },\n                ],\n              },\n              {\n                key: 'category-title2',\n                type: 'category-title',\n                label: '我是另一个分类标题',\n              },\n              {\n                key: '/menu2',\n                type: 'menu',\n                label: '超级长超级长超级长超级长超级长超级长',\n                isOuter: true,\n                icon: <IconDesktop />,\n              },\n              {\n                key: '/menu3',\n                type: 'menu',\n                label: '字符串icon',\n                icon: '🐂',\n              },\n              {\n                key: 'group',\n                type: 'group',\n                title: 'group-自动缩进-无法收起',\n                children: [\n                  {\n                    label: '菜单',\n                    key: '/group/menu',\n                  },\n                  {\n                    label: '菜单2',\n                    key: '/group/menu2',\n                    icon: <IconBrush />,\n                  },\n                ],\n              },\n              {\n                key: 'disabled',\n                type: 'sub-menu',\n                title: '被禁用的子菜单',\n                disabled: true,\n                icon: <IconStop />,\n                children: [\n                  {\n                    label: '我也被禁用了',\n                    key: 'disabled-1',\n                  },\n                ],\n              },\n            ]}\n            {...values}\n            renderMenuItem={\n              values.renderMenuItem\n                ? (props, { disabled, path, key }) => {\n                    return disabled ? <span {...props} /> : <Link {...props} to={path ?? key} />;\n                  }\n                : void 0\n            }\n          />\n          <div style={{ flex: 1, padding: 20, background: '#fff' }}>\n            {values.renderMenuItem && <Path />}\n            <Form<CSideBarProps> layout=\"inline\" initialValues={values} onChange={(_, v) => setValues(v)}>\n              <Space direction=\"vertical\">\n                <Form.Item label=\"布局模式\" field=\"mode\">\n                  <Radio.Group options={['normal', 'icon-less']} />\n                </Form.Item>\n                <Form.Item label=\"手风琴模式\" field=\"accordion\" triggerPropName=\"checked\">\n                  <Checkbox />\n                </Form.Item>\n                <Form.Item\n                  label=\"可折叠\"\n                  field=\"collapsible\"\n                  triggerPropName=\"checked\"\n                  extra=\"当配置为不可折叠时，底部折叠按钮被收起，菜单始终保持展开状态\"\n                >\n                  <Checkbox />\n                </Form.Item>\n                <Form.Item label=\"将菜单渲染为 a 标签\" field=\"renderMenuItem\">\n                  <Checkbox />\n                </Form.Item>\n                <Form.Item label=\"currentPath\" field=\"currentPath\">\n                  <Input />\n                </Form.Item>\n              </Space>\n            </Form>\n          </div>\n        </MemoryRouter>\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { useCSideBar } from '@cloud-materials/common';\nimport type { MenuItemConfig } from '../interface';\n\ntype StateType = ReturnType<typeof useCSideBar>[0];\ntype ControlType = ReturnType<typeof useCSideBar>[1];\n\nconst renderMenu = (menus: StateType['menus'], sidebarState: StateType, control: ControlType, level = 0) => {\n  const { openKeys, selectedKeys } = sidebarState;\n  const indent = level * 12 + 2;\n  return menus?.map(menu => {\n    if (menu.type === 'sub-menu') {\n      return (\n        <details\n          open={openKeys.includes(menu.key)}\n          key={menu.key}\n          style={{\n            paddingLeft: indent,\n          }}\n        >\n          <summary\n            onClick={e => {\n              e.preventDefault();\n              control.setOpenKeys(menu.key);\n            }}\n            style={{ padding: '10px 0', cursor: 'pointer' }}\n          >\n            {menu.icon}&nbsp;{menu.title}\n          </summary>\n          {renderMenu(menu.children, sidebarState, control, level + 1)}\n        </details>\n      );\n    }\n\n    if (!menu.type || menu.type === 'menu') {\n      return (\n        <p\n          key={menu.key}\n          style={{\n            cursor: 'pointer',\n            paddingLeft: indent,\n            background: selectedKeys.includes(menu.key) ? '#fff' : '',\n          }}\n          onClick={() => {\n            control.onClickMenuItem(menu.key);\n          }}\n        >\n          {menu.label}\n        </p>\n      );\n    }\n\n    return <p key={menu.key}>未实现</p>;\n  });\n};\n\nexport default () => {\n  const [menus] = useState((): MenuItemConfig[] => [\n    {\n      label: '菜单1',\n      key: '/menu',\n    },\n    {\n      type: 'sub-menu',\n      title: '子菜单',\n      key: '/sub-menu',\n      icon: <>🚀</>,\n      children: [\n        {\n          label: '子菜单-1',\n          key: '/sub-menu/1',\n        },\n        {\n          label: '子菜单-2',\n          key: '/sub-menu/2',\n        },\n      ],\n    },\n    {\n      type: 'sub-menu',\n      title: '子菜单2',\n      key: '/sub-menu-2',\n      icon: <>💣</>,\n      children: [\n        {\n          label: '子菜单2-1',\n          key: '/sub-menu-2/1',\n        },\n        {\n          label: '子菜单2-2',\n          key: '/sub-menu-2/2',\n        },\n        {\n          type: 'sub-menu',\n          title: '子菜单2',\n          key: '/sub-menu-2-s',\n          icon: <>🐢</>,\n          children: [\n            {\n              label: '子菜单2-1',\n              key: '/sub-menu-2-s-1',\n            },\n          ],\n        },\n      ],\n    },\n  ]);\n\n  const [sidebarState, sidebarControl] = useCSideBar({\n    autoCollapse: false,\n    menus,\n    currentPath: '/sub-menu/1',\n  });\n\n  return (\n    <>\n      <div\n        style={{\n          width: sidebarState.collapse ? 0 : '',\n          overflow: 'hidden',\n          whiteSpace: 'nowrap',\n          border: '1px solid #ddd',\n          boxSizing: 'content-box',\n          height: 500,\n          background: '#efefef',\n        }}\n      >\n        <div\n          style={{\n            padding: 10,\n          }}\n        >\n          {renderMenu(sidebarState.menus, sidebarState, sidebarControl)}\n        </div>\n      </div>\n      <button\n        onClick={() => {\n          sidebarControl.toggleCollapse();\n        }}\n        style={{ marginTop: 10 }}\n      >\n        {sidebarState.collapse ? '→' : '←'}\n      </button>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CSideBar } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <>\n      <div style={{ overflow: 'hidden', display: 'flex' }}>\n        <CSideBar\n          autoCollapse={false}\n          style={{ height: 500 }}\n          title={{ text: 'icon less 模式也行' }}\n          menus={[\n            {\n              label: '■■■■■■■■■',\n              key: 'niu',\n            },\n            {\n              label: '■■■■■',\n              key: 'pj',\n            },\n            {\n              label: '■■■■',\n              key: 'xc',\n            },\n          ]}\n          currentPath=\"xc\"\n          widthControl\n        />\n        <div style={{ flex: 1, marginLeft: `20vw` }}>\n          <CSideBar\n            style={{ height: 500, zIndex: 2 }}\n            title={{ text: '■■■■■', logo: '🏀' }}\n            autoCollapse={false}\n            menus={[\n              {\n                label: '■■■■■',\n                icon: '👙',\n                key: 'niu',\n              },\n              {\n                label: '■■■■■■■■■',\n                icon: '🛞',\n                key: 'pj',\n              },\n              {\n                label: '■■■■',\n                icon: '🇺🇸',\n                key: 'xc',\n              },\n              {\n                type: 'category-title',\n                label: '💥宽度控制仅限内部产品使用',\n                key: 'xcx',\n              },\n            ]}\n            currentPath=\"pj\"\n            widthControl\n          />\n        </div>\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { Link, MemoryRouter, useLocation, Switch, Route } from 'react-router-dom';\nimport { CSideBar, IconGithub, IconHome, Space, Tag } from '@cloud-materials/common';\n\nconst URLBar = () => {\n  const location = useLocation();\n\n  return (\n    <Space direction=\"vertical\">\n      <Tag>当前地址：{location.pathname}</Tag>\n      <div\n        style={{\n          display: 'flex',\n          overflow: 'hidden',\n          height: 500,\n        }}\n      >\n        <CSideBar\n          title={{\n            logo: <IconGithub />,\n            text: '将 sidebar 与 react-router结合',\n          }}\n          currentPath={location.pathname}\n          renderMenuItem={(wrapperProps, { path, disabled }) => {\n            return disabled ? <div {...wrapperProps} /> : <Link to={path!} {...wrapperProps} />;\n          }}\n          autoCollapse={false}\n          menus={[\n            {\n              key: '/page1',\n              path: '/page1',\n              label: 'page 1',\n              icon: <IconHome />,\n            },\n            {\n              key: '/page2',\n              path: '/page2',\n              label: 'page 2',\n              icon: <IconHome />,\n              isOuter: true,\n            },\n            {\n              key: '/page3',\n              path: '/page3',\n              type: 'menu',\n              label: '被禁用的',\n              disabled: true,\n              icon: <IconHome />,\n            },\n            {\n              key: '/page4',\n              path: '/page4',\n              label: 'page 4',\n              icon: <IconHome />,\n              badge: {\n                content: (\n                  <Tag color=\"red\" size=\"small\">\n                    HOT\n                  </Tag>\n                ),\n                type: 'custom',\n              },\n            },\n          ]}\n        />\n        <div style={{ flex: 1 }}>\n          <Switch>\n            <Route path=\"/page1\">\n              <Link to=\"/page2\">去页面2</Link>\n            </Route>\n            <Route path=\"/page2\">\n              <Link to=\"/page1\">去页面1</Link>\n            </Route>\n          </Switch>\n        </div>\n      </div>\n    </Space>\n  );\n};\n\nexport default () => {\n  return (\n    <MemoryRouter initialEntries={['/page1']}>\n      <URLBar />\n    </MemoryRouter>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { Button, CSideBar, Skeleton, Space } from '@cloud-materials/common';\nimport { useRequest } from 'ahooks';\nimport React, { useState } from 'react';\nimport type { MenuItemConfig } from '../interface';\n\nconst getDefaultMenu = (): MenuItemConfig[] => [\n  {\n    key: 'xxx',\n    type: 'custom',\n    render() {\n      return (\n        <Space direction=\"vertical\" style={{ width: '100%' }} size={16}>\n          <Skeleton animation loading />\n          <Skeleton animation loading />\n          <Skeleton animation loading />\n        </Space>\n      );\n    },\n  },\n];\n\nexport default () => {\n  const [currentPath, setCurrentPath] = useState('/page2');\n  const { refresh, data, loading } = useRequest(\n    () =>\n      new Promise<MenuItemConfig[]>(r => {\n        setTimeout(() => {\n          r([\n            {\n              key: '/page1',\n              path: '/page1',\n              label: 'page 1',\n            },\n            {\n              key: '/page2',\n              path: '/page2',\n              label: 'page 2',\n            },\n          ]);\n        }, 2e3);\n      }),\n  );\n\n  return (\n    <div\n      style={{\n        display: 'flex',\n        overflow: 'hidden',\n        height: 500,\n      }}\n    >\n      <CSideBar\n        autoCollapse={false}\n        title={{\n          text: '异步菜单',\n        }}\n        menus={loading ? getDefaultMenu() : data}\n        currentPath={currentPath}\n        onClickMenuItem={({ path, key }) => {\n          setCurrentPath(key ?? path);\n        }}\n      />\n      <div style={{ flex: 1, padding: 20, background: '#fff' }}>\n        <Button onClick={refresh} disabled={loading}>\n          重新获取菜单\n        </Button>\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { IconLeft, IconClose } from '@arco-design/iconbox-react-ve-o-design';\nimport {\n  CSideBar,\n  IconCommand,\n  IconArchive,\n  IconAttachment,\n  IconBranch,\n  IconBug,\n  IconBulb,\n  IconCalendar,\n  IconCamera,\n  IconCheckCircle,\n  IconDriveFile,\n  IconExclamation,\n  IconLock,\n} from '@cloud-materials/common';\nimport React from 'react';\nimport type { MenuItemConfig } from '../interface';\n\nexport default () => {\n  let start = 0;\n  const getChildren = (): MenuItemConfig[] => {\n    const key = start++;\n    return [\n      {\n        key: key.toString(),\n        label: `子菜单-${key}`,\n      },\n    ];\n  };\n\n  return (\n    <div style={{ display: 'flex', height: 800 }}>\n      <CSideBar\n        title={{\n          text: '对大量菜单分组',\n        }}\n        menus={[\n          {\n            key: 'rds',\n            type: 'group',\n            title: '关系型数据库RDS关系型数据库RDS',\n            level: 0,\n            children: [\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'rdsMysql',\n                title: 'MySQL',\n                icon: <IconLeft useCurrentColor />,\n                children: [\n                  ...getChildren(),\n                  {\n                    key: '99',\n                    label: `子菜单-99`,\n                    icon: <IconCommand />,\n                  },\n                  {\n                    key: '999',\n                    label: `子菜单-999`,\n                    icon: <IconClose useCurrentColor />,\n                  },\n                ],\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'mysqlSharding',\n                title: 'MySQL Shardingggggg',\n                icon: <IconCommand />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'rdsPg',\n                title: 'PostgreSQL',\n                icon: <IconAttachment />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'vedbMysql',\n                title: 'veDB-MySQL',\n                icon: <IconCalendar />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'vedbPg',\n                title: 'veDB-PostgreSQL',\n                icon: <IconBranch />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'rdsSqlserver',\n                title: 'SQL Server',\n                icon: <IconBug />,\n                children: getChildren(),\n              },\n            ],\n          },\n          {\n            key: 'nosql',\n            type: 'group',\n            title: 'NoSQL数据库',\n            level: 0,\n            children: [\n              {\n                type: 'sub-menu',\n                level: 1,\n                key: 'redis',\n                title: 'Redis',\n                icon: <IconArchive />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                title: 'Abase',\n                key: 'abase',\n                icon: <IconCheckCircle />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                title: 'MongoDB',\n                key: 'mongodb',\n                icon: <IconBulb />,\n                children: getChildren(),\n              },\n              {\n                type: 'sub-menu',\n                level: 1,\n                title: 'HBase',\n                key: 'hbase',\n                icon: <IconExclamation />,\n                children: getChildren(),\n              },\n            ],\n          },\n          {\n            key: 'tool',\n            type: 'group',\n            title: '数据库生态工具',\n            level: 0,\n            children: [\n              {\n                label: '数据库传输服务 DTS',\n                key: 'dts',\n                icon: <IconLock />,\n                isOuter: true,\n                path: '/dts',\n              },\n              {\n                label: '数据库工作台 DBW',\n                key: 'dbw',\n                icon: <IconCamera />,\n                isOuter: true,\n                path: '/dbw',\n              },\n            ],\n          },\n          {\n            key: 'extra-submenu',\n            type: 'sub-menu',\n            title: '子菜单',\n            icon: <IconDriveFile />,\n            children: [\n              {\n                label: '子菜单-1',\n                key: 'extra-submenu-1',\n                path: '/dts',\n              },\n              {\n                label: '子菜单-2',\n                key: 'extra-submenu-2',\n                icon: <IconCamera />,\n              },\n            ],\n          },\n        ]}\n      />\n      <div style={{ flex: 1, padding: 20 }}>😊</div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { Button, CSideBar, IconDoubleLeft, IconDoubleRight } from '@cloud-materials/common';\nimport React, { useState } from 'react';\n\nexport default () => {\n  const [collapse, setCollapse] = useState(false);\n  const [openKeys, setOpenKeys] = useState<string[]>([]);\n  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);\n\n  return (\n    <div\n      style={{\n        display: 'flex',\n        overflow: 'hidden',\n        height: 500,\n      }}\n    >\n      <CSideBar\n        autoCollapse={false}\n        title={{\n          text: '从外部控制收起状态',\n        }}\n        menus={[\n          {\n            key: '/menu1',\n            type: 'menu',\n            icon: '🐂',\n            label: '这个菜单触发展开',\n            onClick() {\n              setCollapse(false);\n            },\n          },\n          {\n            key: '/menu1copy',\n            type: 'menu',\n            icon: '🐂',\n            label: '这个菜单触发收起',\n            onClick() {\n              setCollapse(true);\n            },\n          },\n          {\n            key: '/menu2',\n            type: 'sub-menu',\n            title: '菜单2',\n            children: [\n              {\n                key: '/menu2-1',\n                type: 'menu',\n                label: '菜单2-1',\n              },\n            ],\n          },\n          {\n            key: '/menu3',\n            type: 'sub-menu',\n            title: '菜单3',\n            children: [\n              {\n                key: '/menu3-1',\n                type: 'menu',\n                label: '菜单3-1',\n              },\n            ],\n          },\n        ]}\n        collapse={collapse}\n        onCollapseChange={setCollapse}\n        openKeys={openKeys}\n        onOpenKeysChange={setOpenKeys}\n        selectedKeys={selectedKeys}\n        onSelectedKeysChange={setSelectedKeys}\n      />\n      <div style={{ flex: 1, padding: 20, background: '#fff' }}>\n        <Button.Group>\n          <Button\n            type=\"primary\"\n            onClick={() => {\n              setCollapse(v => !v);\n            }}\n            icon={collapse ? <IconDoubleRight /> : <IconDoubleLeft />}\n            size=\"small\"\n          >\n            {collapse ? '展开' : '收起'}\n          </Button>\n          <Button\n            type=\"primary\"\n            onClick={() => {\n              setSelectedKeys(v => (v.length ? [] : ['/menu1']));\n            }}\n            size=\"small\"\n          >\n            菜单{selectedKeys.length ? '取消' : ''}选中\n          </Button>\n          <Button\n            type=\"primary\"\n            onClick={() => {\n              setOpenKeys(v => (v.length ? [] : ['/menu2', '/menu3']));\n            }}\n            size=\"small\"\n          >\n            {openKeys.length ? '关闭' : '打开'}所有子菜单\n          </Button>\n        </Button.Group>\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { CSideBar, Tag } from '@cloud-materials/common';\nimport React, { useState } from 'react';\n\nexport default () => {\n  const [redDot, setRedDot] = useState(true);\n  return (\n    <CSideBar\n      title={{\n        text: 'Badge',\n      }}\n      widthControl\n      onOpenKeysChange={keys => {\n        if (keys.includes('sub2')) {\n          setRedDot(false);\n        }\n      }}\n      menus={[\n        {\n          type: 'sub-menu',\n          key: 'sub',\n          title: '网络与安全网络与安全网络与安全网络与安全',\n          icon: '🐂',\n          badge: (\n            <Tag color=\"red\" size=\"small\">\n              NEW\n            </Tag>\n          ),\n          children: [\n            {\n              key: 'menu1',\n              label: '安全组',\n              badge: '99+',\n            },\n            {\n              key: 'menu2',\n              label: '安全组2',\n              isOuter: true,\n            },\n          ],\n        },\n        {\n          type: 'sub-menu',\n          key: 'sub2',\n          title: '网络与安全',\n          icon: '🐂',\n          redDot,\n          children: [\n            {\n              key: 'menu6',\n              label: '安全组',\n              badge: {\n                content: 1,\n                follow: true,\n              },\n            },\n            {\n              key: 'menu7',\n              label: '安全组2',\n              isOuter: true,\n              badge: 2,\n            },\n          ],\n        },\n        {\n          key: 'menu3',\n          label: '安全组3',\n          isOuter: true,\n          badge: 2,\n        },\n        {\n          key: 'menu4',\n          label: '安全组安全组安全组安全组安全组',\n          isOuter: true,\n          badge: 22,\n          icon: '🐂',\n        },\n        {\n          key: 'menu5',\n          label: '带徽标',\n          badge: {\n            content: (\n              <Tag color=\"red\" size=\"small\">\n                HOT\n              </Tag>\n            ),\n            follow: true,\n            type: 'custom',\n          },\n        },\n      ]}\n    />\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { CSideBar, Menu, Message, Space } from '@cloud-materials/common';\nimport React from 'react';\n\nexport default () => {\n  return (\n    <Space>\n      <CSideBar\n        title={{\n          text: '标题标题标题标',\n          onBack() {\n            Message.info('back');\n          },\n          menuConfig: {\n            menus: [\n              {\n                key: '1',\n                children: '菜单',\n              },\n              {\n                key: '2',\n                children: '菜单菜单菜单菜单菜单菜单菜单菜单',\n              },\n            ],\n          },\n        }}\n        style={{ height: 500 }}\n        menus={[\n          { label: '标题带了菜单', key: '1', icon: '🐂' },\n          { label: 'xxxxxxxxx', key: '2', icon: '🤡' },\n        ]}\n      />\n      <CSideBar\n        title={{\n          text: '自定义嵌套菜单',\n          menuConfig: {\n            menus: [\n              {\n                key: '1',\n                children: 'foo',\n              },\n            ],\n            arcoMenuProps: {\n              children: (\n                <>\n                  <Menu.SubMenu key=\"sub\" title=\"嵌套菜单\">\n                    <Menu.Item key=\"menu\">子菜单</Menu.Item>\n                    <Menu.Item key=\"menu2\">子菜单</Menu.Item>\n                  </Menu.SubMenu>\n                  <Menu.Item key=\"menu22\">子菜单子菜单子菜单子菜单子菜单子菜单子菜单</Menu.Item>\n                </>\n              ),\n            },\n            arcoDropdownProps: {\n              position: 'bl',\n            },\n          },\n        }}\n        style={{ height: 500, width: 400 }}\n        menus={[\n          { label: '标题带了菜单', key: '1', icon: '🐂' },\n          { label: 'xxxxxxxxx', key: '2', icon: '🤡' },\n        ]}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import {\n  Select,\n  CSideBar,\n  IconApps,\n  IconArrowRise,\n  IconFindReplace,\n  Tag,\n  IconHome,\n  IconGithub,\n  Space,\n  IconBug,\n} from '@cloud-materials/common';\nimport React, { useState } from 'react';\nimport type { MenuItemConfig } from '../interface';\nimport { IconDoubleDown, IconDoubleUp } from '@arco-design/iconbox-react-ve-o-design';\n\nexport default () => {\n  const [expand, setExpand] = useState(false);\n  return (\n    <Space>\n      <CSideBar\n        title={{ text: '特殊情况的自定义渲染' }}\n        menus={[\n          { label: '概览', key: '1', icon: <IconHome /> },\n          { type: 'category-title', label: '我的项目', key: '11' },\n\n          {\n            type: 'custom',\n            key: 'custom2',\n            render() {\n              return (\n                <Select defaultValue=\"\" style={{ padding: '4px 0' }}>\n                  <Select.Option value=\"\">\n                    <IconApps />\n                    &nbsp;选择项目选择项目\n                  </Select.Option>\n                </Select>\n              );\n            },\n          },\n          { label: '常规菜单项2', key: '2', icon: <IconGithub /> },\n\n          {\n            type: 'custom',\n            key: 'custom22',\n            render({ renderMenus }) {\n              return (\n                <div\n                  style={{\n                    position: 'absolute',\n                    left: 0,\n                    bottom: 0,\n                    width: '100%',\n                    borderTop: '1px solid #eaedf1',\n                    padding: '4px 12px',\n                    boxSizing: 'border-box',\n                  }}\n                >\n                  {renderMenus([\n                    { label: '在底部的菜单', key: '22', icon: <IconApps />, badge: 1 },\n                    { label: '数据监控', key: '22-2', icon: <IconFindReplace />, isOuter: true },\n                    {\n                      type: 'sub-menu',\n                      title: '在底部子菜单',\n                      key: '2-2',\n                      icon: <IconArrowRise />,\n                      badge: <Tag color=\"red\">HOT</Tag>,\n                      children: [\n                        {\n                          label: '在底部的菜单',\n                          key: '212',\n                        },\n                      ],\n                    },\n                  ])}\n                </div>\n              );\n            },\n          },\n        ]}\n        style={{ height: 600 }}\n      />\n      <CSideBar\n        title={{ text: '在 sidebar 内自定义布局' }}\n        currentPath=\"/bottom-menu2\"\n        menus={[\n          {\n            type: 'custom',\n            key: 'custom',\n            render({ renderMenus }) {\n              return (\n                <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>\n                  <div style={{ flex: 1, minHeight: 0, overflow: 'auto', margin: '0 -12px', padding: '0 12px' }}>\n                    {renderMenus(\n                      Array.from({ length: 14 }).map((_, index) => ({\n                        icon: <IconBug />,\n                        label: `top menu${index}`,\n                        key: `/top-menu${index}`,\n                      })),\n                    )}\n                  </div>\n                  <div style={{ borderTop: '1px solid #eaedf1', paddingTop: 4 }}>\n                    {renderMenus(\n                      Array.from({ length: 4 })\n                        .map<MenuItemConfig>((_, index) => ({\n                          icon: <IconApps />,\n                          label: `bottom menu${index}`,\n                          key: `/bottom-menu${index}`,\n                        }))\n                        .concat({\n                          type: 'custom',\n                          key: 'custom-inner',\n                          render({ renderMenus }) {\n                            return (\n                              <div\n                                style={{\n                                  padding: '10px 0',\n                                  borderTop: '1px solid #eaedf1',\n                                }}\n                              >\n                                {renderMenus([\n                                  {\n                                    label: '嵌套自定义渲染',\n                                    key: 'nest',\n                                  },\n                                  {\n                                    label: '嵌套自定义渲染2',\n                                    key: 'nest2',\n                                  },\n                                ])}\n                              </div>\n                            );\n                          },\n                        }),\n                    )}\n                  </div>\n                </div>\n              );\n            },\n          },\n        ]}\n        style={{ height: 600 }}\n      />\n      <CSideBar\n        title={{ text: '配置在底部可折叠的菜单' }}\n        currentPath=\"/bottom-menu2\"\n        menus={[\n          {\n            type: 'custom',\n            key: 'custom',\n            render({ renderMenus }) {\n              return (\n                <div\n                  style={{\n                    height: '100%',\n                    display: 'flex',\n                    flexDirection: 'column',\n                    position: 'relative',\n                    overflow: 'hidden',\n                  }}\n                >\n                  <div style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>\n                    {renderMenus(\n                      Array.from({ length: 4 }).map((_, index) => ({\n                        icon: <IconBug />,\n                        label: `top menu${index}`,\n                        key: `/top-menu${index}`,\n                      })),\n                    )}\n                  </div>\n                  <div\n                    style={{\n                      borderTop: '1px solid #eaedf1',\n                      paddingTop: 4,\n                      position: 'absolute',\n                      background: '#f6f8fa',\n                      top: '100%',\n                      width: '100%',\n                      transform: expand ? 'translateY(-100%)' : void 0,\n                      marginTop: expand ? 0 : -36,\n                      transition: 'all .2s',\n                    }}\n                  >\n                    <div\n                      style={{ display: 'flex', alignItems: 'center', padding: '6px 12px', cursor: 'pointer' }}\n                      onClick={() => setExpand(v => !v)}\n                    >\n                      展开更多菜单\n                      <span style={{ marginLeft: 'auto' }}>{expand ? <IconDoubleDown /> : <IconDoubleUp />}</span>\n                    </div>\n                    <div>\n                      {renderMenus(\n                        Array.from({ length: 4 }).map((_, index) => ({\n                          icon: <IconBug />,\n                          label: `expand menu${index}`,\n                          key: `/expand-menu${index}`,\n                        })),\n                      )}\n                    </div>\n                  </div>\n                </div>\n              );\n            },\n          },\n        ]}\n        style={{ height: 600 }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { CSideBar, IconApps, IconFindReplace, IconHome, Input } from '@cloud-materials/common';\nimport { useDebounceFn } from 'ahooks';\nimport React, { useMemo, useState } from 'react';\nimport type { MenuItemConfig } from '../interface';\n\nexport default () => {\n  const [search, setSearch] = useState('');\n\n  const { run } = useDebounceFn((value: string) => {\n    setSearch(value);\n  });\n\n  const menus = useMemo(() => {\n    const initialMenus: MenuItemConfig[] = [\n      { label: '概览', key: '1', icon: <IconHome /> },\n      {\n        type: 'custom',\n        key: 'custom',\n        render() {\n          return <Input.Search placeholder=\"输入内容以搜索菜单\" style={{ marginBottom: 4 }} onChange={run} />;\n        },\n      },\n      {\n        title: '镜像管理',\n        key: 'image',\n        type: 'sub-menu',\n        icon: <IconApps />,\n        children: [\n          {\n            label: '镜像列表',\n            key: 'image-1',\n          },\n          {\n            label: '镜像创建',\n            key: 'image-2',\n          },\n          {\n            label: '镜像删除',\n            key: 'image-3',\n          },\n        ],\n      },\n      {\n        title: '集群管理',\n        key: 'cluster',\n        type: 'sub-menu',\n        icon: <IconFindReplace />,\n        children: [\n          {\n            label: '集群列表',\n            key: 'cluster-1',\n          },\n          {\n            label: '集群创建',\n            key: 'cluster-2',\n          },\n          {\n            label: '集群删除',\n            key: 'cluster-3',\n          },\n        ],\n      },\n    ];\n\n    const highlightName = (title: string) => {\n      const splitStr = title.split(search);\n      if (splitStr.length > 1) {\n        return splitStr\n          .map((string, index) => {\n            if (index < splitStr.length - 1) {\n              return [\n                string,\n                <span style={{ color: 'red' }} key={index}>\n                  {search}\n                </span>,\n              ];\n            }\n            return string;\n          })\n          .flat();\n      }\n      return title;\n    };\n\n    if (search) {\n      const recursionMenus = (menus: MenuItemConfig[]): MenuItemConfig[] => {\n        return menus.map(menu => {\n          if (menu.type === 'sub-menu') {\n            return {\n              ...menu,\n              title: typeof menu.title === 'string' && highlightName(menu.title),\n              children: menu.children && recursionMenus(menu.children),\n            };\n          }\n\n          if (!menu.type || menu.type === 'menu') {\n            return {\n              ...menu,\n              label: typeof menu.label === 'string' && highlightName(menu.label),\n            };\n          }\n\n          return menu;\n        });\n      };\n\n      return recursionMenus(initialMenus);\n    }\n\n    return initialMenus;\n  }, [search]);\n\n  return <CSideBar title={{ text: '对菜单进行搜索' }} menus={menus} style={{ height: 600 }} defaultOpenSubMenu />;\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { IconOnbording } from '@arco-design/iconbox-react-ve-o-design';\nimport { CSideBar, IconApps, IconHome, IconStop, Message } from '@cloud-materials/common';\nimport React from 'react';\n\nexport default () => {\n  console.log(\n    <CSideBar.Feedback\n      onClick={() => {\n        Message.success('反馈成功');\n      }}\n    />,\n  );\n  return (\n    <div style={{ height: 412, display: 'flex' }}>\n      <CSideBar\n        title={{\n          text: 'sidebar 反馈按钮',\n        }}\n        defaultOpenSubMenu\n        // demo 在生产环境是嵌在iframe里的，会导致初始化为收起状态产生误解，所以方便展示这里关闭了自动收起\n        autoCollapse={false}\n        extraCtrl={\n          <CSideBar.Feedback\n            onClick={() => {\n              Message.success('反馈成功');\n            }}\n          />\n        }\n        menus={[\n          {\n            key: '/menu1',\n            type: 'menu',\n            label: '■■',\n            icon: <IconHome />,\n          },\n          {\n            key: '/menu3',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n        ]}\n      />\n      <CSideBar\n        style={{ marginLeft: 200 }}\n        title={{\n          text: '遮挡毛玻璃效果',\n        }}\n        defaultCollapse\n        // demo 在生产环境是嵌在iframe里的，会导致初始化为收起状态产生误解，所以方便展示这里关闭了自动收起\n        autoCollapse={false}\n        extraCtrl={<CSideBar.Feedback popoverContent=\"有奖反馈&遮挡毛玻璃效果\" type=\"prizes\" />}\n        menus={[\n          {\n            key: '/menu1',\n            type: 'menu',\n            label: '■■',\n            icon: <IconHome />,\n          },\n          {\n            key: '/menu2',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu3',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu4',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu5',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu6',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu7',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu8',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu9',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n          {\n            key: '/menu10',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconApps />,\n          },\n        ]}\n      />\n      <CSideBar\n        style={{ marginLeft: 200 }}\n        title={{\n          text: '自定义 Icon',\n        }}\n        // demo 在生产环境是嵌在iframe里的，会导致初始化为收起状态产生误解，所以方便展示这里关闭了自动收起\n        autoCollapse={false}\n        extraCtrl={<CSideBar.Feedback icon={<IconOnbording useCurrentColor />}>反馈没奖</CSideBar.Feedback>}\n        menus={[\n          {\n            key: '/menu1',\n            type: 'menu',\n            label: '■■',\n            icon: <IconHome />,\n          },\n          {\n            key: '/menu3',\n            type: 'menu',\n            label: '字符串icon',\n            icon: <IconStop />,\n          },\n        ]}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

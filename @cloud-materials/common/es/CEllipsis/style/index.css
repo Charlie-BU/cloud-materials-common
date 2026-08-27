@@ -1,0 +1,41 @@
+.c-m-ellipsis {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.c-m-ellipsis-copy {
+  min-height: 24px;
+}
+.c-m-ellipsis:hover .c-m-ellipsis-hidden {
+  visibility: visible;
+}
+.c-m-ellipsis-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.c-m-ellipsis-content__copy {
+  max-width: calc(100% - 24px);
+}
+.c-m-ellipsis-pointer {
+  cursor: pointer;
+}
+.c-m-ellipsis-hidden {
+  visibility: hidden;
+}
+.c-m-ellipsis-extra {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+.c-m-ellipsis-popover {
+  color: red;
+}
+.c-m-ellipsis-popover-disabled {
+  display: none !important;
+}
+.c-m-ellipsis-popover-copy.c-m-copy {
+  display: inline-block;
+  vertical-align: middle;
+}

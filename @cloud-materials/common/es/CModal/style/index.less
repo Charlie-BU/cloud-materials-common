@@ -1,0 +1,44 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-modal-prefix: ~'@{cpn-prefix}-modal';
+
+.@{c-m-modal-prefix} {
+  .@{prefix}-modal-content {
+    padding: 0;
+  }
+
+  &-no-footer {
+    .@{prefix}-modal-content {
+      padding-bottom: 20px;
+    }
+  }
+
+  &-content {
+    padding: 0 24px;
+
+    &-space {
+      padding-top: 16px;
+    }
+  }
+
+  .@{prefix}-modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 474px;
+  }
+
+  &-footer-divider {
+    .@{prefix}-modal-footer {
+      border-top: 1px solid var(~'@{arco-cssvars-prefix}-color-neutral-3');
+    }
+
+    .@{c-m-modal-prefix}-content {
+      padding-bottom: 16px;
+    }
+  }
+
+  .@{prefix}-modal-footer {
+    height: auto;
+    padding: 20px 24px;
+  }
+}
