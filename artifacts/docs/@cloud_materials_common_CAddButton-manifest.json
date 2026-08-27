@@ -1,0 +1,100 @@
+{
+  "doclets": [
+    {
+      "filePath": "CAddButton/interface.ts",
+      "name": "CAddButtonProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "type",
+          "type": "[CAddButtonType](#CAddButtonType)",
+          "required": true,
+          "description": "可通过type设置AddButton样式，实现样式的快速配置"
+        },
+        {
+          "name": "text",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "传入按钮文案, 不传时只展示Icon"
+        },
+        {
+          "name": "customTips",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "支持添加按钮后的 自定义文案tips"
+        },
+        {
+          "name": "popoverContent",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "popover展示的内容 优先级高于透传arcoPopoverProps的content属性"
+        },
+        {
+          "name": "arcoPopoverProps",
+          "type": "[PopoverProps](#PopoverProps)",
+          "required": false,
+          "description": "透传给 arco popover 的props"
+        },
+        {
+          "name": "dropdownList",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "下拉框的展示内容 优先级高于透传arcoDropdownProps的droplist属性"
+        },
+        {
+          "name": "arcoDropdownProps",
+          "type": "[DropdownProps](#DropdownProps)",
+          "required": false,
+          "description": "透传给 arco dropdown 的props"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "组件样式"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "组件类名"
+        },
+        {
+          "name": "htmlType",
+          "type": "'button' | 'submit' | 'reset'",
+          "required": false,
+          "description": "按钮原生的 html type 类型, 默认值button"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        }
+      ]
+    },
+    {
+      "filePath": "CAddButton/interface.ts",
+      "name": "CAddButtonType",
+      "type": "/**\n * 添加按钮类型\n * primary：基本/首要样式，包括蓝色的icon和文案\n * secondary: 次要样式，黑色文案和icon\n * dash：虚线边框，文案居中，Button宽度随父组件宽度变化而变化\n * */\nexport type CAddButtonType = 'primary' | 'secondary' | 'dashed';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CAddButton, Descriptions, Menu } from '@cloud-materials/common';\n\nexport default () => {\n  const dropList = (\n    <Menu onClickMenuItem={key => console.log(key)}>\n      <Menu.Item key=\"1\">菜单一</Menu.Item>\n      <Menu.Item key=\"2\">菜单二</Menu.Item>\n      <Menu.Item key=\"3\">菜单三</Menu.Item>\n    </Menu>\n  );\n  const data = [\n    ['Beijing', ['Haidian', 'Chaoyang', 'Daxing']],\n    ['Shanghai', ['Pudong', 'Huangpu', 'Xuhui']],\n    ['Guangzhou', ['Baiyun', 'Tianhe', 'Fanyu']],\n    ['Shenzhen', ['Futian', 'Luohu', 'Nanshan']],\n  ];\n\n  const dropListMultiply = (\n    <Menu>\n      {data.map((city, outerIndex) => {\n        if (city.length > 1) {\n          const districts = city[1] as string[];\n          return (\n            <Menu.SubMenu key={String(outerIndex)} title={<span>{city[0]}</span>}>\n              {districts.map((district, innerIndex) => {\n                return <Menu.Item key={`${outerIndex}_${innerIndex}`}>{district}</Menu.Item>;\n              })}\n            </Menu.SubMenu>\n          );\n        }\n\n        return <Menu.Item key={String(outerIndex)}>{city[0]}</Menu.Item>;\n      })}\n    </Menu>\n  );\n\n  return (\n    <div>\n      <Descriptions\n        column={1}\n        title=\"基础样式\"\n        data={[\n          {\n            label: '基本使用：',\n            value: (\n              <>\n                <CAddButton type=\"primary\" onClick={() => console.log('aaaa')} text=\"primary\" />\n                <CAddButton type=\"secondary\" onClick={() => console.log('aaaa')} text=\"secondary\" />\n              </>\n            ),\n          },\n          {\n            label: '只展示Icon：',\n            value: (\n              <>\n                <CAddButton type=\"primary\" onClick={() => console.log('aaaa')} />\n                <CAddButton type=\"secondary\" onClick={() => console.log('aaaa')} />\n              </>\n            ),\n          },\n          {\n            label: '默认的Tips：',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                onClick={() => console.log('aaaa')}\n                text=\"展示Button后的tips\"\n                showEnableAddTips\n              />\n            ),\n          },\n          {\n            label: 'enabledAddCount=5：',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                onClick={() => console.log('aaaa')}\n                text=\"展示Button后的tips\"\n                showEnableAddTips\n                enableAddCount={5}\n              />\n            ),\n          },\n          {\n            label: '自定义的Tips：',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                onClick={() => console.log('aaaa')}\n                text=\"展示Button后的tips\"\n                customTips={'我是自定义的Tips'}\n              />\n            ),\n          },\n          {\n            label: 'popoverContent(优先级高于透传arco的属性)：',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                text=\"popover配置\"\n                popoverContent=\"我是按钮的popover内容\"\n                arcoPopoverProps={{ content: '透传arco的content' }}\n              />\n            ),\n          },\n          {\n            label: 'arcoPopoverProps',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                text=\"popover配置\"\n                arcoPopoverProps={{ content: '透传arcoPopoverProps', position: 'bl' }}\n              />\n            ),\n          },\n          {\n            label: 'dropdownList(优先级高于透传arco的组件属性)',\n            value: (\n              <CAddButton\n                type=\"primary\"\n                text=\"下拉菜单\"\n                dropdownList={dropList}\n                arcoDropdownProps={{ droplist: dropListMultiply }}\n              />\n            ),\n          },\n          {\n            label: 'arcoDropdownProps：',\n            value: <CAddButton type=\"primary\" text=\"下拉菜单展示\" arcoDropdownProps={{ droplist: dropList }} />,\n          },\n          {\n            label: 'disabled',\n            value: <CAddButton type=\"primary\" text=\"下拉菜单展示\" disabled dropdownList={dropList} />,\n          },\n          {\n            label: '多级菜单',\n            value: <CAddButton type=\"primary\" text=\"多级菜单\" dropdownList={dropListMultiply} />,\n          },\n          {\n            label: 'dashed样式',\n            value: <CAddButton type=\"dashed\" text=\"添加模块\" />,\n          },\n          {\n            label: 'dashed样式-disabled',\n            value: <CAddButton type=\"dashed\" text=\"添加模块\" disabled popoverContent={'popover'} />,\n          },\n        ]}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { Form, Menu, CAddButton, Typography, Tabs, Space, Table } from '@cloud-materials/common';\n\nconst FormItem = Form.Item;\n\nexport default () => {\n  const dropList = (\n    <Menu onClickMenuItem={key => console.log(key)}>\n      <Menu.Item key=\"1\">步骤一</Menu.Item>\n      <Menu.Item key=\"2\">步骤二</Menu.Item>\n      <Menu.Item key=\"3\">步骤三</Menu.Item>\n    </Menu>\n  );\n\n  const tabs = [\n    { title: 'tab1', key: 1 },\n    { title: 'tab2', key: 2 },\n    { title: 'tab3', key: 3 },\n  ];\n\n  return (\n    <Space size={30} direction={'vertical'} style={{ width: '100%' }}>\n      <Typography.Title heading={5}>1、内置于Form组件的添加按钮</Typography.Title>\n      <Form autoComplete=\"off\" title=\"表单\" labelAlign=\"left\" labelCol={{ span: 2 }}>\n        <FormItem label=\"标签\">\n          <CAddButton type=\"primary\" text=\"添加标签1\" />\n          <CAddButton type=\"primary\" text=\"添加标签2\" />\n        </FormItem>\n        <FormItem label=\"环境变量\">\n          <CAddButton type=\"primary\" text=\"添加标签\" enableAddCount={5} />\n        </FormItem>\n        <FormItem label=\"Label 标题\">\n          <CAddButton\n            type=\"primary\"\n            text=\"添加 Label 标题\"\n            enableAddCount={0}\n            showEnableAddTips\n            popoverContent=\"数量已经添加够了\"\n          />\n        </FormItem>\n        <FormItem label=\"步骤\">\n          <CAddButton type=\"primary\" text=\"添加步骤\" dropdownList={dropList} />\n        </FormItem>\n        <CAddButton type=\"dashed\" text=\"添加模块\" />\n      </Form>\n\n      <Typography.Title heading={5}>2、用于Table中添加配置</Typography.Title>\n      <Table\n        columns={[\n          { title: '1', dataIndex: 'col1' },\n          { title: '2', dataIndex: 'col2' },\n          { title: '3', dataIndex: 'col3' },\n        ]}\n        data={[{ key: 1, col1: 'data1', col2: 'data2', col3: 'data3' }]}\n        footer={() => (\n          <div style={{ textAlign: 'center' }}>\n            <CAddButton type=\"primary\" text=\"添加条目\" style={{ padding: 0 }} />\n          </div>\n        )}\n        pagination={false}\n      />\n\n      <Typography.Title heading={5}>3、用于Tab中添加容器</Typography.Title>\n      <Tabs editable type=\"card-gutter\" addButton={<CAddButton type=\"secondary\" text=\"添加容器\" />}>\n        {tabs.map(x => (\n          <Tabs.TabPane destroyOnHide key={x.key} title={x.title}>\n            <Typography.Paragraph>Content of Tab Panel</Typography.Paragraph>\n          </Tabs.TabPane>\n        ))}\n      </Tabs>\n      <Tabs editable type=\"card-gutter\" addButton={<CAddButton type=\"secondary\" />}>\n        {tabs.map(x => (\n          <Tabs.TabPane destroyOnHide key={x.key} title={x.title}>\n            <Typography.Paragraph>Content of Tab Panel</Typography.Paragraph>\n          </Tabs.TabPane>\n        ))}\n      </Tabs>\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

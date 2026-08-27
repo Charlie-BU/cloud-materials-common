@@ -1,0 +1,131 @@
+@import (reference) '../../style/variables.less';
+@import './result.less';
+@import './spin.less';
+
+@c-m-loading-prefix: ~'@{cpn-prefix}-loading';
+
+.@{c-m-loading-prefix} {
+  @with-children: ~'@{c-m-loading-prefix}-with-children';
+  @without-children: ~'@{c-m-loading-prefix}-without-children';
+  @is-block: ~'@{c-m-loading-prefix}-is-block';
+  @display: ~'@{c-m-loading-prefix}-display';
+  @fallback: ~'@{c-m-loading-prefix}-fallback';
+
+  &-error {
+    position: relative;
+    user-select: none;
+  }
+
+  &-inline {
+    display: inline-block;
+  }
+
+  &-block,
+  &-page {
+    // block 和 page 类型如果包含 children，
+    // 需要在出错时根据 children 的尺寸进行布局。
+    &.@{with-children} {
+      display: inline-block;
+    }
+
+    &.@{is-block}.@{with-children} {
+      display: block;
+    }
+
+    &.@{without-children} {
+      position: relative;
+      display: block;
+    }
+  }
+
+  &-block,
+  &-page {
+    // block 和 page 类型如果包含 children，
+    // 需要在出错时根据 children 的尺寸进行布局。
+    // display 为 spin 及 children 的内容
+    &.@{with-children} .@{display} {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: @color-bg-1;
+        opacity: 0;
+        transition: opacity @transition-duration-1 @transition-timing-function-linear;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+  }
+
+  &-block&-error .@{fallback}, &-block.@{without-children} .@{display} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &-page&-error .@{fallback}, &-page.@{without-children} .@{display} {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &-block&-error .@{display}::after,
+  &-page&-error .@{display}::after {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &-inline&-error .@{display} {
+    display: none;
+  }
+
+  // 覆盖 Arco Spin 样式
+  &-page {
+    &.@{with-children} {
+      .@{prefix}-spin-loading .@{prefix}-spin-loading-layer-inner {
+        top: calc(50% - 100px);
+      }
+    }
+
+    // page 类型媒体查询，样式覆盖
+    @media (min-width: 1920px) {
+      .@{prefix}-result-icon-custom {
+        transform: scale(1.2);
+        transform-origin: bottom;
+      }
+    }
+  }
+
+  &-inline &-fallback {
+    .@{c-m-loading-prefixResultCls} {
+      padding: 0;
+    }
+  }
+
+  &-inline-fallback,
+  &-block-fallback,
+  &-page-fallback {
+    font-weight: @font-weight-400;
+    font-size: @font-size-body-2;
+
+    .@{fallback}-text {
+      color: @color-text-3;
+    }
+
+    .@{fallback}-reload {
+      color: @color-primary-6;
+      cursor: pointer;
+    }
+  }
+}

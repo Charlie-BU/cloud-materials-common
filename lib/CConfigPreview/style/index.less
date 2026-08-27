@@ -1,0 +1,83 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-config-preview-prefix: ~'@{cpn-prefix}-config-preview';
+
+// 整体样式
+.@{c-m-config-preview-prefix} {
+  width: 288px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line-color-border-2, @color-border-2);
+  background: var(--background-hover-color-bg-3, @color-bg-3);
+
+  // Arco样式覆盖
+  .@{prefix}-form-item {
+    margin-bottom: 0;
+  }
+  .@{prefix}-form-message {
+    height: 0;
+    min-height: 0;
+  }
+  .@{prefix}-descriptions-item {
+    padding: 0 4px 16px 0;
+  }
+
+  // 标题样式
+  &-title {
+    color: var(--text-color-text-1, #0c0d0e);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+
+  // 分割线样式
+  &-divider {
+    margin: 16px 0;
+  }
+}
+
+// 配置预览信息样式
+.@{c-m-config-preview-prefix}-info {
+  width: 100%;
+
+  &-list {
+    overflow-y: auto;
+  }
+
+  // arco description组件样式覆盖
+  .@{prefix}-descriptions-item-label,
+  .@{prefix}-descriptions-item-value {
+    padding: 0 4px 8px 0;
+    min-height: 20px;
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .@{prefix}-descriptions-item-label {
+    color: var(--text-color-text-3, #737a87);
+  }
+  .@{prefix}-descriptions-item-value {
+    color: var(--text-color-text-1, #0c0d0e);
+  }
+}
+
+// 协议信息样式
+.@{c-m-config-preview-prefix}-agree {
+  margin: 16px 0;
+}
+
+// 提交按钮样式
+.@{c-m-config-preview-prefix}-submit {
+  width: 100%
+}
+
+// 样式覆盖：避免CFee组件隐藏时，FormItem仍有占位
+.@{c-m-config-preview-prefix}-fee-formitem {
+  .@{prefix}-form-item-control {
+    min-height: 0;
+  }
+}

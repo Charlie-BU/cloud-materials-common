@@ -1,0 +1,218 @@
+{
+  "doclets": [
+    {
+      "filePath": "CLog/interface.ts",
+      "name": "CLogProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "showLatest",
+          "type": "boolean",
+          "required": false,
+          "description": "展示最新的日志, 本地模式适用",
+          "defaultValue": "false"
+        },
+        {
+          "name": "defaultTheme",
+          "type": "'white' | 'black'",
+          "required": false,
+          "description": "默认主题色",
+          "defaultValue": "white"
+        },
+        {
+          "name": "title",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题 title"
+        },
+        {
+          "name": "cStatusProps",
+          "type": "[CStatusProps](#CStatusProps)",
+          "required": false,
+          "description": "状态展示"
+        },
+        {
+          "name": "extraHeaderContent",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "顶部额外自定义渲染内容"
+        },
+        {
+          "name": "showSerialNumber",
+          "type": "boolean",
+          "required": false,
+          "description": "是否展示序列号"
+        },
+        {
+          "name": "serialNumberType",
+          "type": "'number' | 'time'",
+          "required": false,
+          "description": "序列号类型: 时间/行号 默认为行号"
+        },
+        {
+          "name": "formatSerial",
+          "type": "(val: string | number) => string",
+          "required": false,
+          "description": "序列号格式化"
+        },
+        {
+          "name": "showSearch",
+          "type": "boolean",
+          "required": false,
+          "description": "是否展示搜索"
+        },
+        {
+          "name": "operationConfig",
+          "type": "{ displayNum?: number; operations?: [OperationItem](#OperationItem)[] }",
+          "required": false,
+          "description": "操作按钮, 默认外露一个操作"
+        },
+        {
+          "name": "renderOperation",
+          "type": "(defaultOperations?: [COperationMenuProps](#COperationMenuProps)) => React.ReactNode",
+          "required": false,
+          "description": "自定义操作按钮, 传递内置操作按钮"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "首次加载数据"
+        },
+        {
+          "name": "noDataElement",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "无数据时候的展示元素"
+        },
+        {
+          "name": "dataSource",
+          "type": "{ total: number; data: [LogDataItem](#LogDataItem)[] }",
+          "required": false,
+          "description": "本地数据"
+        },
+        {
+          "name": "fetcher",
+          "type": "(currentPage: number) => Promise<{ total: number; data: [LogDataItem](#LogDataItem)[] }>",
+          "required": false,
+          "description": "获取日志数据"
+        },
+        {
+          "name": "renderItem",
+          "type": "(item: [LogDataItem](#LogDataItem), index: number) => React.ReactNode",
+          "required": false,
+          "description": "自定义渲染"
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "required": false,
+          "description": "下载文件名",
+          "defaultValue": "log.txt"
+        },
+        {
+          "name": "defaultPage",
+          "type": "number",
+          "required": false,
+          "description": "默认页码"
+        },
+        {
+          "name": "handleDownload",
+          "type": "() => void",
+          "required": false,
+          "description": "自定义下载的方法, 内置的下载方法只下载已加载了的数据"
+        },
+        {
+          "name": "onClickItem",
+          "type": "(val: [LogDataItem](#LogDataItem)) => void",
+          "required": false,
+          "description": "单行点击回调"
+        },
+        {
+          "name": "searchText",
+          "type": "string",
+          "required": false,
+          "description": "支持外部传入搜索数据"
+        },
+        {
+          "name": "renderFooter",
+          "type": "() => React.ReactNode",
+          "required": false,
+          "description": "自定义 footer"
+        },
+        {
+          "name": "offsetBottom",
+          "type": "number",
+          "required": false,
+          "description": "触发底部函数的距离阙值",
+          "defaultValue": "0"
+        },
+        {
+          "name": "throttleDelay",
+          "type": "number",
+          "required": false,
+          "description": "节流延时",
+          "defaultValue": "500"
+        },
+        {
+          "name": "scrollLoading",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "滚动加载状态时，滚动到底部的提示"
+        },
+        {
+          "name": "virtualListProps",
+          "type": "AvailableVirtualListProps",
+          "required": false,
+          "description": "传递虚拟列表属性，传入此参数以开启虚拟滚动",
+          "version": "2.11.0"
+        },
+        {
+          "name": "onReachBottom",
+          "type": "(currentPage: number) => void",
+          "required": false,
+          "description": "滚动至底部触发函数"
+        }
+      ]
+    },
+    {
+      "filePath": "CLog/interface.ts",
+      "name": "OperationItem",
+      "type": "export type OperationItem = Operation | DefaultOperationItem;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CLog/interface.ts",
+      "name": "DefaultOperationItem",
+      "type": "export type DefaultOperationItem = {\n  type: string;\n};\n",
+      "properties": []
+    },
+    {
+      "filePath": "CLog/interface.ts",
+      "name": "LogDataItem",
+      "type": "export type LogDataItem = LogDataObjectItem | string;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CLog/interface.ts",
+      "name": "LogDataObjectItem",
+      "type": "export type LogDataObjectItem = {\n  Log: string;\n  Time?: string | number;\n  [key: string]: any;\n};\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useEffect, useState } from 'react';\nimport CLog from '..';\nimport dayjs from 'dayjs';\nimport { Switch, Space, Input } from '@arco-design/web-react';\nimport COperationMenu from '../../COperationMenu';\n\nconst demoData = [\n  {\n    Log: '2023-12-05 01:57:09.049  INFO 1 --- [       Thread-4] c.b.coa.springdemo.RedisController       :  kafka send msg',\n    Time: 1701741429,\n  },\n  {\n    Log: '[otel.javaagent 2023-12-05 01:57:12.693 +0000] \\u001b[35m[OkHttp http://10.56.229.95:4317/...]\\u001b[0;39m \\u001b[1;31mERROR\\u001b[0;39m \\u001b[36mio.opentelemetry.exporter.internal.grpc.OkHttpGrpcExporter\\u001b[0;39m \\u001b[34m34\\u001b[0;39m - Failed to export spans. The request could not be executed. Full error message: Failed to connect to /10.56.229.95:4317',\n    Time: 1701741432,\n  },\n  {\n    Log: 'org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)',\n    Time: 1701741434,\n  },\n  {\n    Log: \"2023-12-05 01:57:39.050  INFO 1 --- [       Thread-4] c.b.coa.springdemo.KafkaProducer         : KAFKA:: sending payload='7e9c9e59-9018-42f2-be73-192b915721f0' to topic='testtopic1\",\n    Time: 1701741459,\n  },\n  {\n    Log: '2023-12-05 01:57:09.049  INFO 1 --- [       Thread-4] c.b.coa.springdemo.RedisController       :  kafka send msg',\n    Time: 1701741429,\n  },\n  {\n    Log: '[otel.javaagent 2023-12-05 01:57:12.693 +0000] \\u001b[35m[OkHttp http://10.56.229.95:4317/...]\\u001b[0;39m \\u001b[1;31mERROR\\u001b[0;39m \\u001b[36mio.opentelemetry.exporter.internal.grpc.OkHttpGrpcExporter\\u001b[0;39m \\u001b[34m34\\u001b[0;39m - Failed to export spans. The request could not be executed. Full error message: Failed to connect to /10.56.229.95:4317',\n    Time: 1701741432,\n  },\n  {\n    Log: 'org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)',\n    Time: 1701741434,\n  },\n  {\n    Log: \"2023-12-05 01:57:39.050  INFO 1 --- [       Thread-4] c.b.coa.springdemo.KafkaProducer         : KAFKA:: sending payload='7e9c9e59-9018-42f2-be73-192b915721f0' to topic='testtopic1\",\n    Time: 1701741459,\n  },\n  { Log: '2023-12-05 01:57:39.050\\r c.b.coa.springdemo', Time: 1701741459 },\n];\nexport default () => {\n  const [data, setData] = useState<any>([]);\n  const [loading, setLoading] = useState(true);\n  const [data2, setData2] = useState<string[]>([]);\n  const [searchText, setSearchText] = useState('');\n\n  useEffect(() => {\n    setTimeout(() => {\n      setData(demoData);\n      setLoading(false);\n    }, 3000);\n  }, []);\n\n  let timer: any = null;\n\n  return (\n    <div style={{ width: 600, height: 600 }}>\n      <p>本地数据</p>\n      <CLog\n        cStatusProps={{ type: 'normal', status: 'running', text: '运行中' }}\n        title=\"实例日志\"\n        loading={loading}\n        dataSource={{ total: 36, data }}\n        serialNumberType=\"time\"\n        formatSerial={(val: number) => dayjs.unix(val).format('YYYY-MM-DD HH:mm:ss')}\n        onReachBottom={current => {\n          if (current < 4) {\n            setTimeout(() => {\n              setData((pre: any) => pre.concat(demoData));\n            }, 1000);\n          }\n        }}\n        operationConfig={{\n          displayNum: 2,\n          operations: [{ type: 'download' }, { type: 'theme' }],\n        }}\n      />\n      <p>空态</p>\n      <CLog operationConfig={{ operations: [] }} noDataElement={<div>没有数据</div>} />\n      <p>自定义操作按钮</p>\n      <CLog\n        dataSource={{ total: data2?.length || 0, data: data2 }}\n        renderOperation={defaultOperation => (\n          <Space size={12}>\n            <Switch\n              onChange={val => {\n                if (val) {\n                  timer = setInterval(() => {\n                    const res = Array.from({ length: 3 }).map(\n                      (_, index) => `william.smith${Math.random().toString()}_${index}@example.com`,\n                    );\n                    setData2(prev => prev.concat(res));\n                  }, 2000);\n                } else {\n                  window.clearInterval(timer);\n                }\n              }}\n            >\n              实时日志\n            </Switch>\n            <COperationMenu {...defaultOperation} />\n          </Space>\n        )}\n        title={<Input onChange={setSearchText} style={{ width: 200 }} />}\n        showLatest\n        searchText={searchText}\n        style={{ height: 300 }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport CLog from '..';\nimport { Select } from '@arco-design/web-react';\n\nexport default () => {\n  const getData = (currentPage: number): Promise<{ data: any; total: number }> => {\n    const res = {\n      data: Array.from({ length: 20 }).map((_, index) => `William Smith_${currentPage}_${index}`),\n      total: 60,\n    };\n    return new Promise(resolve => {\n      setTimeout(() => {\n        resolve(res);\n      }, 1000);\n    });\n  };\n\n  return (\n    <div style={{ width: 600, height: 400 }}>\n      <CLog\n        title={\n          <Select\n            options={[\n              { label: '实例1', value: '123' },\n              { label: '实例2', value: '222' },\n            ]}\n            style={{ width: 100 }}\n          />\n        }\n        fetcher={getData}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useEffect, useState } from 'react';\nimport CLog from '..';\nimport dayjs from 'dayjs';\nimport { Space, Alert, Button } from '@arco-design/web-react';\n\nconst demoData = [\n  {\n    Log: '2023-12-05 01:57:09.049  INFO 1 --- [       Thread-4] c.b.coa.springdemo.RedisController       :  kafka send msg',\n    Time: 1701741429,\n  },\n  {\n    Log: '[otel.javaagent 2023-12-05 01:57:12.693 +0000] \\u001b[35m[OkHttp http://10.56.229.95:4317/...]\\u001b[0;39m \\u001b[1;31mERROR\\u001b[0;39m \\u001b[36mio.opentelemetry.exporter.internal.grpc.OkHttpGrpcExporter\\u001b[0;39m \\u001b[34m34\\u001b[0;39m - Failed to export spans. The request could not be executed. Full error message: Failed to connect to /10.56.229.95:4317',\n    Time: 1701741432,\n  },\n  {\n    Log: 'org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)',\n    Time: 1701741434,\n  },\n  {\n    Log: \"2023-12-05 01:57:39.050  INFO 1 --- [       Thread-4] c.b.coa.springdemo.KafkaProducer         : KAFKA:: sending payload='7e9c9e59-9018-42f2-be73-192b915721f0' to topic='testtopic1\",\n    Time: 1701741459,\n  },\n  {\n    Log: '2023-12-05 01:57:09.049  INFO 1 --- [       Thread-4] c.b.coa.springdemo.RedisController       :  kafka send msg',\n    Time: 1701741429,\n  },\n  {\n    Log: '[otel.javaagent 2023-12-05 01:57:12.693 +0000] \\u001b[35m[OkHttp http://10.56.229.95:4317/...]\\u001b[0;39m \\u001b[1;31mERROR\\u001b[0;39m \\u001b[36mio.opentelemetry.exporter.internal.grpc.OkHttpGrpcExporter\\u001b[0;39m \\u001b[34m34\\u001b[0;39m - Failed to export spans. The request could not be executed. Full error message: Failed to connect to /10.56.229.95:4317',\n    Time: 1701741432,\n  },\n  {\n    Log: 'org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)',\n    Time: 1701741434,\n  },\n  {\n    Log: '\\tat com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)',\n    Time: 1701741434,\n  },\n  {\n    Log: \"2023-12-05 01:57:39.050  INFO 1 --- [       Thread-4] c.b.coa.springdemo.KafkaProducer         : KAFKA:: sending payload='7e9c9e59-9018-42f2-be73-192b915721f0' to topic='testtopic1\",\n    Time: 1701741459,\n  },\n  { Log: '2023-12-05 01:57:39.050\\r c.b.coa.springdemo', Time: 1701741459 },\n];\nexport default () => {\n  const [data, setData] = useState<any>([]);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() => {\n    setTimeout(() => {\n      setData(demoData);\n      setLoading(false);\n    }, 3000);\n  }, []);\n\n  return (\n    <>\n      <div style={{ width: 600, height: 400, marginBottom: 20 }}>\n        <CLog\n          loading={loading}\n          dataSource={{ total: 36, data }}\n          serialNumberType=\"time\"\n          showSearch={false}\n          formatSerial={(val: number) => dayjs.unix(val).format('YYYY-MM-DD HH:mm:ss')}\n          operationConfig={{}}\n          extraHeaderContent={\n            <Alert type=\"success\" content=\"Here is a success text\" title=\"成功\" style={{ width: '100%' }} />\n          }\n          renderFooter={() => (\n            <Space size={12}>\n              <Button type=\"primary\">测试</Button>\n              <Button>取消</Button>\n            </Space>\n          )}\n        />\n      </div>\n      <div style={{ width: 600, height: 400 }}>\n        <CLog\n          loading={loading}\n          dataSource={{ total: 36, data }}\n          serialNumberType=\"time\"\n          title=\"实例日志\"\n          formatSerial={(val: number) => dayjs.unix(val).format('YYYY-MM-DD HH:mm:ss')}\n          extraHeaderContent={\n            <Alert type=\"error\" content=\"Here is a success text\" title=\"失败\" style={{ width: '100%' }} />\n          }\n        />\n      </div>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

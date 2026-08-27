@@ -1,0 +1,167 @@
+{
+  "doclets": [
+    {
+      "filePath": "CCard/interface.ts",
+      "name": "CCardProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "左上角 Icon"
+        },
+        {
+          "name": "type",
+          "type": "[CCardType](#CCardType)",
+          "required": false,
+          "description": "卡片类型，默认值为 default，使用 arco 样式"
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "required": false,
+          "description": "LinkListCard 每列元素个数"
+        },
+        {
+          "name": "items",
+          "type": "[CLinkListItemProps](#CLinkListItemProps)[]",
+          "required": false,
+          "description": "LinkListCard 子元素配置"
+        },
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "required": false,
+          "description": "是否有边框",
+          "defaultValue": "true"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "是否为加载中"
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否可悬浮"
+        },
+        {
+          "name": "size",
+          "type": "'default' | 'small'",
+          "required": false,
+          "description": "卡片尺寸",
+          "defaultValue": "default"
+        },
+        {
+          "name": "title",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "卡片标题"
+        },
+        {
+          "name": "extra",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "卡片右上角的操作区域"
+        },
+        {
+          "name": "cover",
+          "type": "ReactNode",
+          "required": false,
+          "description": "卡片封面"
+        },
+        {
+          "name": "actions",
+          "type": "ReactNode[]",
+          "required": false,
+          "description": "卡片底部的操作组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "自定义标题区域样式"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域自定义样式"
+        },
+        {
+          "name": "inputMode",
+          "type": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined",
+          "required": false,
+          "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
+        },
+        {
+          "name": "is",
+          "type": "string | undefined",
+          "required": false,
+          "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+        }
+      ]
+    },
+    {
+      "filePath": "CCard/interface.ts",
+      "name": "CLinkListItemProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "tag",
+          "type": "ReactNode",
+          "required": false,
+          "description": "标签"
+        },
+        {
+          "name": "content",
+          "type": "ReactNode",
+          "required": false,
+          "description": "内容"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": false,
+          "description": "点击事件"
+        }
+      ]
+    },
+    {
+      "filePath": "CCard/interface.ts",
+      "name": "CCardType",
+      "type": "type CCardType = 'normal' | 'compact' | 'linkList' | 'default';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CCard, Link } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <div style={{ display: 'flex' }}>\n      <CCard style={{ width: 360 }} title=\"Arco Card\" extra={<Link>More</Link>}>\n        文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案文案\n      </CCard>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { IconCLBP } from '@arco-design/iconbox-react-ve-o-design';\nimport { CCard, Space } from '@cloud-materials/common';\n\nexport default () => {\n  const IconArrowRight = (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" fill=\"none\">\n      <path d=\"M9 5L1.29199 5\" stroke=\"#42464E\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n      <path d=\"M5 1L9 5L5 9\" stroke=\"#42464E\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n    </svg>\n  );\n  return (\n    <Space>\n      <CCard\n        title=\"有hover 有边框\"\n        style={{ width: 400 }}\n        onClick={() => window.open('/')}\n        type=\"normal\"\n        hoverable\n        extra={IconArrowRight}\n        icon={<IconCLBP style={{ fontSize: '36px' }} />}\n      >\n        一种将访问流量按策略分发给多台后端服务器的服务，可以扩展系统对外服务能力，负载消除单点故障。\n      </CCard>\n      <CCard\n        title=\"无hover 无边框\"\n        style={{ width: 400 }}\n        type=\"normal\"\n        bordered={false}\n        icon={<IconCLBP style={{ fontSize: '36px' }} />}\n      >\n        一种将访问流量按策略分发给多台后端服务器的服务，可以扩展系统对外服务能力，负载消除单点故障。\n      </CCard>\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCard, Space } from '@cloud-materials/common';\n\nexport default () => {\n  const IconArrowRight = (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" fill=\"none\">\n      <path d=\"M9 5L1.29199 5\" stroke=\"#42464E\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n      <path d=\"M5 1L9 5L5 9\" stroke=\"#42464E\" strokeWidth=\"2\" strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n    </svg>\n  );\n  return (\n    <Space>\n      <CCard\n        title=\"负载均衡\"\n        onClick={() => window.open('/')}\n        type=\"compact\"\n        hoverable\n        style={{ width: 400 }}\n        extra={IconArrowRight}\n      >\n        一种将访问流量按策略分发给多台后端服务器的服务，可以扩展系统对外服务能力，负载消除单点故障。\n      </CCard>\n      <CCard title=\"负载均衡\" type=\"compact\" style={{ width: 400 }}>\n        一种将访问流量按策略分发给多台后端服务器的服务，可以扩展系统对外服务能力，负载消除单点故障。\n      </CCard>\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCard, CTag, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space>\n      <CCard\n        title=\"常见问题\"\n        type=\"linkList\"\n        extra={<div onClick={() => window.open('/')}>更多</div>}\n        hoverable\n        bordered\n        style={{ width: 380 }}\n        items={[\n          { content: '什么是边缘计算节点？' },\n          { content: '边缘计算节点的算力如何计费？' },\n          { content: '边缘计算节点的带宽如何计费？' },\n          { content: '边缘计算节点快速上手指南' },\n          { content: '如何快速创建边缘服务？' },\n          { content: '如何为现有边缘服务新增边缘实例？' },\n          { content: '如何快速制作镜像？' },\n          { content: '如何快速创建弹性公网IP？' },\n        ]}\n      />\n      <CCard\n        title=\"常见问题\"\n        type=\"linkList\"\n        extra={<div onClick={() => window.open('/')}>更多</div>}\n        hoverable\n        bordered\n        style={{ width: 380 }}\n        items={[\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '什么是边缘计算节点？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '边缘计算节点的算力如何计费？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '边缘计算节点的带宽如何计费？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '边缘计算节点快速上手指南',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '如何快速创建边缘服务？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '如何为现有边缘服务新增边缘实例？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '如何快速制作镜像？',\n          },\n          {\n            tag: <CTag size=\"medium\">功能</CTag>,\n            content: '如何快速创建弹性公网IP？',\n          },\n        ]}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCard, CTag, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space>\n      <CCard\n        title=\"常见问题\"\n        type=\"linkList\"\n        extra={<div onClick={() => window.open('/')}>更多</div>}\n        hoverable\n        bordered\n        style={{ width: 380 }}\n      >\n        <CCard.LinkListItem>什么是边缘计算节点？</CCard.LinkListItem>\n        <CCard.LinkListItem>边缘计算节点的算力如何计费？</CCard.LinkListItem>\n        <CCard.LinkListItem>边缘计算节点的带宽如何计费？</CCard.LinkListItem>\n        <CCard.LinkListItem>边缘计算节点快速上手指南</CCard.LinkListItem>\n        <CCard.LinkListItem>如何快速创建边缘服务？</CCard.LinkListItem>\n        <CCard.LinkListItem>如何为现有边缘服务新增边缘实例？</CCard.LinkListItem>\n        <CCard.LinkListItem>如何快速制作镜像？</CCard.LinkListItem>\n        <CCard.LinkListItem>如何快速创建弹性公网IP？</CCard.LinkListItem>\n      </CCard>\n      <CCard title=\"常见问题\" type=\"linkList\" extra={<div>更多</div>} hoverable bordered style={{ width: 380 }}>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>什么是边缘计算节点？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>边缘计算节点的算力如何计费？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>边缘计算节点的带宽如何计费？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>边缘计算节点快速上手指南</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>如何快速创建边缘服务？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>如何为现有边缘服务新增边缘实例？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>如何快速制作镜像？</CCard.LinkListItem>\n        <CCard.LinkListItem tag={<CTag size=\"medium\">功能</CTag>}>如何快速创建弹性公网IP？</CCard.LinkListItem>\n      </CCard>\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCard } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <CCard\n      title=\"常见问题\"\n      type=\"linkList\"\n      extra={<div onClick={() => window.open('/')}>更多</div>}\n      bordered={false}\n      cols={3}\n      style={{ width: 1176 }}\n    >\n      <CCard.LinkListItem>\n        <li>什么是边缘计算节点？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>边缘计算节点的算力如何计费？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>边缘计算节点的带宽如何计费？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>边缘计算节点快速上手指南</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>如何快速创建边缘服务？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>如何为现有边缘服务新增边缘实例？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>如何快速制作镜像？</li>\n      </CCard.LinkListItem>\n      <CCard.LinkListItem>\n        <li>如何快速创建弹性公网IP？</li>\n      </CCard.LinkListItem>\n    </CCard>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

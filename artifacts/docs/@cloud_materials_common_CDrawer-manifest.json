@@ -1,0 +1,1547 @@
+{
+  "doclets": [
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "CDrawerProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "onOk",
+          "type": "(...args: unknown[]) => Promise<any> | any",
+          "required": false,
+          "description": "这里需要用any去最大化onOk的参数和返回值范围，以便做扩展"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "CDrawerHooksProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "onOk",
+          "type": "(...args: unknown[]) => Promise<any> | any",
+          "required": false,
+          "description": "这里需要用any去最大化onOk的参数和返回值范围，以便做扩展"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "默认的 DrawerForm props 类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "formProps",
+          "type": "[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>",
+          "required": false,
+          "description": "透传给 CForm 的 props"
+        },
+        {
+          "name": "formConfig",
+          "type": "Required<[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>>[FormConfigKey]",
+          "required": true,
+          "description": "对应 CFormProps 的 config 或 stepConfig"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "默认的 DrawerFormStep props 类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "formProps",
+          "type": "[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>",
+          "required": false,
+          "description": "透传给 CForm 的 props"
+        },
+        {
+          "name": "formConfig",
+          "type": "Required<[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>>[FormConfigKey]",
+          "required": true,
+          "description": "对应 CFormProps 的 config 或 stepConfig"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "默认的 CDrawer.openForm 参数类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "forceNew",
+          "type": "boolean",
+          "required": false,
+          "description": "当配置mask: false时，第二次调用会更新已经打开的实例，此时如果设置forceNew: true 则强制新开一个实例覆盖在之前的实例之上"
+        },
+        {
+          "name": "throwOnOkErrorInPromise",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在作为Promise使用open函数时抛出onOk的错误，默认为 false 以避免 slardar 噪音\n```ts\n CModal.open({\n   throwOnOkErrorInPromise: true\n }).catch(() => {\n   // 可以捕获到onOk抛出的异常，否则不会\n })\n```",
+          "defaultValue": "false"
+        },
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "formProps",
+          "type": "[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>",
+          "required": false,
+          "description": "透传给 CForm 的 props"
+        },
+        {
+          "name": "formConfig",
+          "type": "Required<[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>>[FormConfigKey]",
+          "required": true,
+          "description": "对应 CFormProps 的 config 或 stepConfig"
+        }
+      ]
+    },
+    {
+      "filePath": "CDrawer/interface.ts",
+      "name": "默认的 CDrawer.openFormStep 参数类型",
+      "type": null,
+      "properties": [
+        {
+          "name": "forceNew",
+          "type": "boolean",
+          "required": false,
+          "description": "当配置mask: false时，第二次调用会更新已经打开的实例，此时如果设置forceNew: true 则强制新开一个实例覆盖在之前的实例之上"
+        },
+        {
+          "name": "throwOnOkErrorInPromise",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在作为Promise使用open函数时抛出onOk的错误，默认为 false 以避免 slardar 噪音\n```ts\n CModal.open({\n   throwOnOkErrorInPromise: true\n }).catch(() => {\n   // 可以捕获到onOk抛出的异常，否则不会\n })\n```",
+          "defaultValue": "false"
+        },
+        {
+          "name": "visible",
+          "type": "boolean | number",
+          "required": false,
+          "description": "传入number类型时将被转换为 `Boolean(visible)`，modal将会变得不受控"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "description": "设置抽屉的 zIndex",
+          "version": "2.42.0"
+        },
+        {
+          "name": "wrapClassName",
+          "type": "string | string[]",
+          "required": false,
+          "description": "设置外层容器的类名"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "弹出框的标题（设置为 null 时，不显示标题栏）"
+        },
+        {
+          "name": "footer",
+          "type": "React.ReactNode | ((cancelButtonNode: React.ReactNode, okButtonNode: React.ReactNode) => React.ReactNode)",
+          "required": false,
+          "description": "自定义按钮确认和取消按钮，为 null 的话没有按钮组"
+        },
+        {
+          "name": "headerStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "头部的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "bodyStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "内容区域的样式",
+          "version": "2.9.0"
+        },
+        {
+          "name": "maskStyle",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "设置遮罩层的样式"
+        },
+        {
+          "name": "okText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "确认按钮文案"
+        },
+        {
+          "name": "cancelText",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "取消按钮文案"
+        },
+        {
+          "name": "okButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "确认按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "cancelButtonProps",
+          "type": "ButtonProps",
+          "required": false,
+          "description": "取消按钮的 props",
+          "version": "2.26.0"
+        },
+        {
+          "name": "placement",
+          "type": "'top' | 'right' | 'bottom' | 'left'",
+          "required": false,
+          "description": "抽屉的方向 `top` `right` `bottom` `left`",
+          "defaultValue": "right"
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的宽度，`placement`为 `left` `right` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false,
+          "description": "抽屉的高度，`placement`为 `top` `bottom` 时生效",
+          "defaultValue": "250"
+        },
+        {
+          "name": "escToExit",
+          "type": "boolean",
+          "required": false,
+          "description": "按 `ESC` 键关闭",
+          "defaultValue": "true",
+          "version": "2.10.0"
+        },
+        {
+          "name": "mask",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示遮罩",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否显示右上角关闭按钮",
+          "defaultValue": "true"
+        },
+        {
+          "name": "closeIcon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义右上角关闭按钮",
+          "version": "2.49.0"
+        },
+        {
+          "name": "maskClosable",
+          "type": "boolean",
+          "required": false,
+          "description": "点击蒙层是否可以关闭",
+          "defaultValue": "true"
+        },
+        {
+          "name": "confirmLoading",
+          "type": "boolean",
+          "required": false,
+          "description": "确认按钮是否为加载中状态"
+        },
+        {
+          "name": "mountOnEnter",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在初次打开对话框时才渲染 dom。",
+          "defaultValue": "true"
+        },
+        {
+          "name": "unmountOnExit",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在隐藏的时候销毁 DOM 结构"
+        },
+        {
+          "name": "afterOpen",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉打开之后的回调"
+        },
+        {
+          "name": "afterClose",
+          "type": "() => void",
+          "required": false,
+          "description": "抽屉关闭之后的回调"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "() => Element",
+          "required": false,
+          "description": "指定弹出框挂载的父节点",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "getChildrenPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "抽屉里的弹出框 `Select` `Tooltip` 等挂载的容器，默认挂载在对话框内。"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认聚焦第一个可聚焦元素，只在 `focusLock` 开启时生效。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否将焦点锁定在弹出框内。",
+          "defaultValue": "true",
+          "version": "2.13.0"
+        },
+        {
+          "name": "titleAfter",
+          "type": "React.ReactNode | [COperationMenuProps](#COperationMenuProps)",
+          "required": false,
+          "description": "标题后面的内容"
+        },
+        {
+          "name": "extraHeader",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下面的内容"
+        },
+        {
+          "name": "headerDescription",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "标题下的描述"
+        },
+        {
+          "name": "contentTop",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分上部插入齐边内容"
+        },
+        {
+          "name": "contentBottom",
+          "type": "AlertContentType",
+          "required": false,
+          "description": "弹窗内容部分下部插入齐边内容"
+        },
+        {
+          "name": "hideCancel",
+          "type": "boolean",
+          "required": false,
+          "description": "隐藏 cancel 按钮"
+        },
+        {
+          "name": "formProps",
+          "type": "[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>",
+          "required": false,
+          "description": "透传给 CForm 的 props"
+        },
+        {
+          "name": "formConfig",
+          "type": "Required<[CFormProps](#CFormProps)<FormData, GlobalData, ComponentsMap>>[FormConfigKey]",
+          "required": true,
+          "description": "对应 CFormProps 的 config 或 stepConfig"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { Button, CDrawer } from '@cloud-materials/common';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\nimport { wait } from '../../_testUtils/wait';\n\nexport default () => {\n  const [visible, setVisible] = useState(false);\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <Button.Group>\n        <Button\n          onClick={() => {\n            setVisible(true);\n          }}\n        >\n          普通使用\n        </Button>\n        <Button\n          onClick={() => {\n            CDrawer.open({\n              title: 'alert跟随滚动',\n              contentTop: {\n                content: 'xxxx',\n                sticky: false,\n              },\n              confirmOnOk: {\n                title: '确认创建',\n                content: '你确定要创建这个集群吗？',\n              },\n              content: <div style={{ height: 800 }}>滚动以查看效果</div>,\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          alert跟随滚动\n        </Button>\n        <Button\n          onClick={() => {\n            CDrawer.open({\n              title: 'onOk 自动loading',\n              content: 'onOk 自动 loading',\n              onOk: () => wait(2e3),\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          onOk 返回 Promise 自动 loading\n        </Button>\n      </Button.Group>\n      <div id={id} />\n      <DemoContainerJustForDemo>\n        <CDrawer\n          visible={visible}\n          title=\"这里是标题\"\n          headerDescription=\"这里是描述\"\n          width={500}\n          contentTop=\"确认后，实例立即重启，变更将在重启后生效\"\n          titleAfter={{\n            operations: [\n              {\n                name: '额外操作1',\n                arcoButtonProps: {\n                  type: 'primary',\n                },\n              },\n              {\n                name: '额外操作2',\n              },\n              {\n                name: '额外操作3',\n              },\n            ],\n          }}\n          onCancel={() => setVisible(false)}\n        >\n          <div style={{ height: 800 }}>123</div>\n        </CDrawer>\n      </DemoContainerJustForDemo>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { Button, CDrawer } from '@cloud-materials/common';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nexport default () => {\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <Button\n        onClick={() => {\n          CDrawer.open({\n            title: '你好',\n            content: '123',\n            onOk: () => new Promise(r => setTimeout(r, 2e3)),\n            // 以下仅为demo演示必须要的内容\n            wrapper: [DemoContainerJustForDemo],\n            getMountContainer: () => document.getElementById(id)!,\n          });\n        }}\n      >\n        使用 API 方式打开\n      </Button>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { Popover, Typography, CDrawer, Link } from '@cloud-materials/common';\nimport React, { useState } from 'react';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nconst list = [\n  { name: '张三', age: 18, describe: '■■■■■■■■■■■■■■■■' },\n  { name: '李四', age: 28, describe: '■■■■■■■■■■' },\n  { name: '王五', age: 35, describe: '■■■■■■■■■■■■■■■■■■■■■■■■■■' },\n  {\n    name: '赵六(异步)',\n    age: 45,\n    describe: '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■',\n    async: true,\n  },\n];\n\nexport default () => {\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <Typography.Title heading={5}>\n        直接更新drawer内容，使用CDrawer.ModalTriggerWrapper组件包裹触发器以阻止关闭Drawer\n      </Typography.Title>\n      {list.map(item => (\n        <CDrawer.TriggerWrapper key={item.name}>\n          <Link\n            onClick={() => {\n              const open = () => {\n                CDrawer.open({\n                  mask: false,\n                  title: item.name,\n                  width: `50vw`,\n                  content: (\n                    <>\n                      <Typography.Title heading={3}>{item.name}</Typography.Title>\n                      <Typography.Title heading={4}>{item.age}岁</Typography.Title>\n                      <Popover content={item.describe}>\n                        <Typography.Title heading={5}>描述：{item.describe}</Typography.Title>\n                      </Popover>\n                    </>\n                  ),\n                  wrapper: [DemoContainerJustForDemo],\n                  getMountContainer: () => document.getElementById(id)!,\n                });\n              };\n\n              if (item.async) {\n                setTimeout(open, 1e3);\n              } else {\n                open();\n              }\n            }}\n          >\n            {item.name}\n          </Link>\n        </CDrawer.TriggerWrapper>\n      ))}\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CDrawer, Link } from '@cloud-materials/common';\nimport { isNumber } from 'lodash-es';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nexport default () => {\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <CDrawer.TriggerWrapper>\n        <Link\n          onClick={function foo(e: unknown) {\n            const depth = isNumber(e) ? e : 1;\n            const forceNew = depth > 1;\n            const wrapperId = 'cDrawerForceNew';\n            let mountContainer = document.getElementById(id)!;\n\n            if (forceNew) {\n              mountContainer = document.createElement('div');\n              mountContainer.id = `${wrapperId}${depth}`;\n              document.getElementById(wrapperId)!.appendChild(mountContainer);\n            }\n\n            CDrawer.open({\n              mask: false,\n              title: `第${depth}层内容`,\n              width: `${Math.max(50 - depth * 2, 12)}vw`,\n              forceNew,\n              content: (\n                <>\n                  <Link onClick={() => foo(depth + 1)}>打开第{depth + 1}层</Link>\n                </>\n              ),\n              // 以下仅为demo演示必须要的内容\n              wrapper: forceNew ? void 0 : [DemoContainerJustForDemo, { id: wrapperId }],\n              getPopupContainer: forceNew ? () => mountContainer : void 0,\n              getMountContainer: () => mountContainer,\n            });\n          }}\n        >\n          打开第1层drawer\n        </Link>\n      </CDrawer.TriggerWrapper>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import {\n  Button,\n  Checkbox,\n  Form,\n  Input,\n  Modal,\n  Radio,\n  Rate,\n  Select,\n  Slider,\n  Upload,\n  Switch,\n  CDrawer,\n} from '@cloud-materials/common';\nimport React, { useState } from 'react';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nimport { imgUrl } from './config_cn';\n\nconst FormItem = Form.Item;\nexport const ArcoFormDrawer = () => {\n  const [visible, setVisible] = useState(false);\n  const [id] = useState(() => Math.random().toString());\n\n  return (\n    <>\n      <Button.Group>\n        <Button onClick={() => setVisible(true)}>组件方式使用</Button>\n        <Button\n          onClick={() => {\n            CDrawer.openArcoForm({\n              title: 'API方式调用',\n              arcoFormProps: {\n                layout: 'vertical',\n              },\n              okText: '提交',\n              contentTop: '请提交下面的内容',\n              content: (\n                <>\n                  <FormItem label=\"Username\" field=\"name\" rules={[{ required: true }]}>\n                    <Input placeholder=\"please enter...\" />\n                  </FormItem>\n                  <FormItem\n                    label=\"Radio\"\n                    field=\"radio\"\n                    rules={[\n                      {\n                        validator: (value, callback) => {\n                          if (value !== 'b') {\n                            callback('you can only choose b');\n                          }\n                        },\n                      },\n                    ]}\n                  >\n                    <Radio.Group>\n                      <Radio value=\"a\">A</Radio>\n                      <Radio value=\"b\">B</Radio>\n                      <Radio disabled value=\"c\">\n                        C\n                      </Radio>\n                      <Radio value=\"d\"> D </Radio>\n                    </Radio.Group>\n                  </FormItem>\n                  <FormItem label=\"Post\" field=\"post\" rules={[{ required: true }]}>\n                    <Select\n                      placeholder=\"please select\"\n                      options={[\n                        {\n                          label: 'one',\n                          value: 0,\n                        },\n                        {\n                          label: 'two',\n                          value: 1,\n                        },\n                        {\n                          label: 'three',\n                          value: 2,\n                        },\n                      ]}\n                      allowClear\n                    />\n                  </FormItem>\n                  <FormItem label=\"Score\" field=\"score\" rules={[{ required: true, type: 'number' }]}>\n                    <Rate />\n                  </FormItem>\n                  <FormItem\n                    label=\"Switch\"\n                    field=\"switch\"\n                    triggerPropName=\"checked\"\n                    rules={[{ type: 'boolean', true: true }]}\n                  >\n                    <Switch />\n                  </FormItem>\n                  <FormItem\n                    label=\"Slide\"\n                    field=\"slider\"\n                    rules={[\n                      {\n                        validator: (value, callback) => {\n                          if (value < 50) {\n                            callback('must be greater than 50!');\n                          }\n                        },\n                      },\n                    ]}\n                  >\n                    <Slider />\n                  </FormItem>\n                  <Form.Item\n                    label=\"Upload\"\n                    field=\"upload\"\n                    triggerPropName=\"fileList\"\n                    initialValue={[\n                      {\n                        uid: '-1',\n                        url: imgUrl,\n                        name: '20200717',\n                      },\n                    ]}\n                  >\n                    <Upload\n                      listType=\"picture-card\"\n                      multiple\n                      name=\"files\"\n                      action=\"/\"\n                      onPreview={file => {\n                        Modal.info({\n                          title: 'Preview',\n                          content: (\n                            <img\n                              src={file.url || URL.createObjectURL(file.originFile!)}\n                              style={{\n                                maxWidth: '100%',\n                              }}\n                            />\n                          ),\n                        });\n                      }}\n                    />\n                  </Form.Item>\n                  <FormItem field=\"readme\" triggerPropName=\"checked\" rules={[{ type: 'boolean', true: true }]}>\n                    <Checkbox>I have read the employee manual</Checkbox>\n                  </FormItem>\n                </>\n              ),\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          API方式调用\n        </Button>\n      </Button.Group>\n      <DemoContainerJustForDemo>\n        <CDrawer.ArcoForm<{ name: string }>\n          visible={visible}\n          title=\"table modal demo\"\n          onOk={values => {\n            console.log(values);\n            setVisible(false);\n          }}\n          onCancel={() => setVisible(false)}\n        >\n          <Form.Item label=\"Username\" field=\"name\" rules={[{ required: true }]}>\n            <Input placeholder=\"please enter your username\" />\n          </Form.Item>\n        </CDrawer.ArcoForm>\n      </DemoContainerJustForDemo>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { Button, CDrawer, Radio } from '@cloud-materials/common';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nexport default () => {\n  const [visible, setVisible] = useState(false);\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <Button.Group>\n        <Button onClick={() => setVisible(true)}>组件方式使用</Button>\n        <Button\n          onClick={() => {\n            CDrawer.openForm({\n              contentTop: '通知',\n              formConfig: {\n                header: [\n                  {\n                    title: '创建实例（基本表单）',\n                    onBack: () => {\n                      alert('我被点击拉!');\n                    },\n                  },\n                  () => {\n                    return (\n                      <>\n                        <Radio.Group type=\"button\" name=\"lang\" defaultValue=\"自定义购买\">\n                          <Radio value=\"自定义购买\">自定义购买</Radio>\n                          <Radio value=\"快速购买\">快速购买</Radio>\n                        </Radio.Group>\n                      </>\n                    );\n                  },\n                ],\n                fields: [\n                  {\n                    name: 'name',\n                    title: '姓名',\n                    required: true,\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                    decoratorOptions: { component: 'FormItem' },\n                  },\n                ],\n                initConfig: async () => {\n                  await new Promise(resolve => {\n                    setTimeout(resolve, 2000);\n                  });\n                  // 自动类型推导\n                  return Promise.resolve({ values: { name: '123' } });\n                },\n              },\n              onOk(values) {\n                // 获得 initConfig 中 values 定义的类型\n                return values.name;\n              },\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          api 方式调用\n        </Button>\n      </Button.Group>\n      <DemoContainerJustForDemo>\n        <CDrawer.Form\n          visible={visible}\n          title=\"CForm demo\"\n          formConfig={{\n            fields: [\n              {\n                name: 'name',\n                title: '姓名',\n                required: true,\n                componentOptions: {\n                  component: 'Input',\n                },\n                decoratorOptions: { component: 'FormItem' },\n              },\n            ],\n          }}\n          onCancel={() => setVisible(false)}\n          onOk={() => setVisible(false)}\n        />\n      </DemoContainerJustForDemo>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { Alert, Button, CDrawer } from '@cloud-materials/common';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nexport default () => {\n  const [visible, setVisible] = useState(false);\n  const [id] = useState(() => Math.random().toString());\n  return (\n    <>\n      <Button.Group>\n        <Button onClick={() => setVisible(true)}>组件方式使用</Button>\n\n        <Button\n          onClick={() => {\n            CDrawer.openFormStep({\n              title: 'modal',\n              formConfig: {\n                steps: [\n                  {\n                    name: 'step1',\n                    title: '基本配置',\n                    fields: [\n                      {\n                        name: 'stepAlert1',\n                        type: 'VoidField',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: () => <Alert type=\"warning\" content=\"这是第一个步骤的提示信息\" />,\n                        },\n                      },\n                      {\n                        name: 'name',\n                        type: 'Field',\n                        title: '名称',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'desc',\n                        type: 'Field',\n                        title: '描述',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                    ],\n                  },\n                  {\n                    name: 'step2',\n                    title: '高级配置',\n                    fields: [\n                      {\n                        name: 'stepAlert2',\n                        type: 'VoidField',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: () => <Alert type=\"warning\" content=\"这是第二个步骤的提示信息\" />,\n                        },\n                      },\n                      {\n                        name: 'network',\n                        type: 'Field',\n                        title: '私有网络',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'subNetwork',\n                        type: 'Field',\n                        title: '子网',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'newtworkIp',\n                        type: 'Field',\n                        title: '主私网IP',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'subNetworkIp',\n                        type: 'Field',\n                        title: '辅助私网IP',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                    ],\n                  },\n                ],\n                initConfig: async () => {\n                  await new Promise(resolve => {\n                    setTimeout(resolve, 2000);\n                  });\n                  // 自动类型推导\n                  return Promise.resolve({ values: { name: '123' } });\n                },\n              },\n              onOk(values) {\n                // 获得 initConfig 中 values 定义的类型\n                return values.name;\n              },\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          api 方式调用\n        </Button>\n        <Button\n          onClick={() => {\n            CDrawer.openFormStep({\n              title: 'modal',\n              decoratorProps: {\n                stickyStep: false,\n              },\n              formConfig: {\n                steps: [\n                  {\n                    name: 'step1',\n                    title: '基本配置',\n                    fields: [\n                      {\n                        name: 'stepAlert1',\n                        type: 'VoidField',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: () => <Alert type=\"warning\" content=\"这是第一个步骤的提示信息\" />,\n                        },\n                      },\n                      {\n                        name: 'name',\n                        type: 'Field',\n                        title: '名称',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'desc',\n                        title: '描述',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: () => <div style={{ height: 800 }} />,\n                        },\n                      },\n                    ],\n                  },\n                  {\n                    name: 'step2',\n                    title: '高级配置',\n                    fields: [\n                      {\n                        name: 'stepAlert2',\n                        type: 'VoidField',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: () => <Alert type=\"warning\" content=\"这是第二个步骤的提示信息\" />,\n                        },\n                      },\n                      {\n                        name: 'network',\n                        type: 'Field',\n                        title: '私有网络',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'subNetwork',\n                        type: 'Field',\n                        title: '子网',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'newtworkIp',\n                        type: 'Field',\n                        title: '主私网IP',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                      {\n                        name: 'subNetworkIp',\n                        type: 'Field',\n                        title: '辅助私网IP',\n                        decoratorOptions: {\n                          component: 'FormItem',\n                        },\n                        componentOptions: {\n                          component: 'Input',\n                        },\n                      },\n                    ],\n                  },\n                ],\n                initConfig: async () => {\n                  await new Promise(resolve => {\n                    setTimeout(resolve, 2000);\n                  });\n                  // 自动类型推导\n                  return Promise.resolve({ values: { name: '123' } });\n                },\n              },\n              onOk(values) {\n                // 获得 initConfig 中 values 定义的类型\n                return values.name;\n              },\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          step 在下方\n        </Button>\n      </Button.Group>\n      <DemoContainerJustForDemo>\n        <CDrawer.FormStep\n          visible={visible}\n          title=\"cform demo\"\n          formConfig={{\n            steps: [\n              {\n                name: 'step1',\n                title: '基本配置',\n                fields: [\n                  {\n                    name: 'name',\n                    type: 'Field',\n                    title: '名称',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                  },\n                  {\n                    name: 'desc',\n                    type: 'Field',\n                    title: '描述',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Switch',\n                    },\n                  },\n                ],\n              },\n              {\n                name: 'step2',\n                title: '高级配置',\n                fields: [\n                  {\n                    name: 'stepAlert2',\n                    type: 'VoidField',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: () => <Alert type=\"warning\" content=\"这是第二个步骤的提示信息\" />,\n                    },\n                  },\n                  {\n                    name: 'network',\n                    type: 'Field',\n                    title: '私有网络',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                  },\n                  {\n                    name: 'subNetwork',\n                    type: 'Field',\n                    title: '子网',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                  },\n                  {\n                    name: 'newtworkIp',\n                    type: 'Field',\n                    title: '主私网IP',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                  },\n                  {\n                    name: 'subNetworkIp',\n                    type: 'Field',\n                    title: '辅助私网IP',\n                    decoratorOptions: {\n                      component: 'FormItem',\n                    },\n                    componentOptions: {\n                      component: 'Input',\n                    },\n                  },\n                ],\n              },\n            ],\n            initConfig: async () => {\n              return new Promise<any>(resolve => {\n                setTimeout(() => {\n                  resolve({\n                    name: '123',\n                  });\n                }, 2000);\n              });\n            },\n          }}\n          confirmOnOk={{\n            title: '确认要提交吗',\n            content: '提交后就真的提交了',\n          }}\n          onCancel={() => setVisible(false)}\n          onOk={values => {\n            console.log(values);\n            setVisible(false);\n          }}\n        />\n      </DemoContainerJustForDemo>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { Button, CDrawer, CInfoSection } from '@cloud-materials/common';\nimport DemoContainerJustForDemo from '../../CModal/__docs__/DemoContainerJustForDemo';\n\nexport default () => {\n  const [visible, setVisible] = useState(false);\n  const [id] = useState(() => Math.random().toString());\n\n  const tabs = {\n    defaultActiveTab: '1',\n    items: [\n      {\n        key: '1',\n        children: (\n          <CInfoSection.List\n            colNumber={2}\n            listData={[\n              {\n                title: '基本信息',\n                infoItemList: [\n                  {\n                    label: '名称',\n                    content: 'xxxxxxxx',\n                    enableEllipsis: true,\n                    cEllipsisProps: { showCopy: true },\n                    extraContent: <Button>操作</Button>,\n                  },\n                  {\n                    label: '描述a',\n                    content:\n                      '这是一条描述内容，可能会很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长',\n                    enableEllipsis: true,\n                    cEllipsisProps: { showCopy: 'hover' as 'hover' },\n                  },\n                  {\n                    label: '描述b',\n                    content: {\n                      component: 'CEllipsis',\n                      componentProps: {\n                        content:\n                          '这是一条描述内容，可能会很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长',\n                        showCopy: 'hover' as 'hover',\n                      },\n                    },\n                  },\n                  {\n                    label: '操作',\n                    content: {\n                      component: 'CInlineEdit',\n                      componentProps: {\n                        value: 'xxxxxxxxxxxxxxxxxxx',\n                        CEllipsisProps: { maxWidth: 100 },\n                        onSubmit: () => {},\n                      },\n                    },\n                  },\n                  {\n                    label: '地域',\n                    content: <span>华北4（北京）</span>,\n                    enableEllipsis: true,\n                  },\n                  {\n                    label: '创建时间',\n                    content: <span>2021-11-12 15:00:00</span>,\n                    enableEllipsis: true,\n                  },\n                  {\n                    label: '物理专线',\n                    content: <span>ssssssssssssss</span>,\n                    enableEllipsis: true,\n                  },\n                  {\n                    label: 'VLAND ID',\n                    content: <span>32444444442342</span>,\n                    enableEllipsis: true,\n                  },\n                  {\n                    label: '监控接口状态',\n                    content: <span>正常</span>,\n                  },\n                  {\n                    label: '空值',\n                  },\n                ],\n              },\n              {\n                title: '内置组件',\n                infoItemList: [\n                  {\n                    label: 'CEllipsis',\n                    content: {\n                      component: 'CEllipsis',\n                      componentProps: {\n                        content:\n                          '这是一条描述内容，可能会很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长',\n                      },\n                    },\n                  },\n                  {\n                    label: 'CInlineEdit',\n                    content: {\n                      component: 'CInlineEdit',\n                      componentProps: { value: 'xxxxxxxxxxxxxxxxxxx', onSubmit: () => {} },\n                    },\n                  },\n                  {\n                    label: 'CCpoy',\n                    content: {\n                      component: 'CCopy',\n                      componentProps: { text: '2333' },\n                    },\n                  },\n                  {\n                    label: 'Word',\n                    content: {\n                      component: 'Word',\n                      componentProps: { value: 'xxxx' },\n                    },\n                  },\n                ],\n              },\n              {\n                title: '垂直布局',\n                layout: 'vertical' as 'vertical',\n                infoItemList: [\n                  {\n                    label: '名称',\n                    content: 'xxxxxxxx',\n                    enableEllipsis: true,\n                    cEllipsisProps: { showCopy: true },\n                    extraContent: <Button>操作</Button>,\n                  },\n                  {\n                    label: 'url',\n                    content: <a href=\"#\">www.aaa.com</a>,\n                  },\n                  {\n                    label: 'VLAND',\n                    content: <span>32444444442342</span>,\n                  },\n                  {\n                    label: '监控接口状态',\n                    content: <span>正常</span>,\n                  },\n                  {\n                    label: 'test',\n                    content: <span>tttt</span>,\n                  },\n                ],\n              },\n            ]}\n          />\n        ),\n        title: 'Tabs title',\n      },\n      { key: '2', children: '自定义任何内容', title: 'Tabs title 2' },\n    ],\n  };\n  return (\n    <>\n      <Button.Group>\n        <Button onClick={() => setVisible(true)}>组件方式使用</Button>\n\n        <Button\n          onClick={() => {\n            CDrawer.openDetail({\n              title: '这是一个标题',\n              cStatusProps: { status: 'running', text: '正常', type: 'highlight' },\n              tabs,\n              headerDescription: 'header描述',\n              titleAfter: {\n                operations: [\n                  {\n                    name: '操作1',\n                    arcoButtonProps: {\n                      type: 'primary',\n                    },\n                  },\n                  {\n                    name: '操作2',\n                  },\n                  {\n                    name: '额外操作3',\n                  },\n                ],\n              },\n              // 以下仅为demo演示必须要的内容\n              wrapper: [DemoContainerJustForDemo],\n              getMountContainer: () => document.getElementById(id)!,\n            });\n          }}\n        >\n          api 方式调用\n        </Button>\n      </Button.Group>\n      <DemoContainerJustForDemo>\n        <CDrawer.Detail\n          visible={visible}\n          title=\"这是一个标题\"\n          cStatusProps={{ status: 'running', text: '正常', type: 'highlight' }}\n          tabs={tabs}\n          onCancel={() => setVisible(false)}\n        />\n      </DemoContainerJustForDemo>\n      <div id={id} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

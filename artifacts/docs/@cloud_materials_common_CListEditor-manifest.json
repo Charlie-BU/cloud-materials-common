@@ -1,0 +1,342 @@
+{
+  "doclets": [
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "CListEditorProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "传入style"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "传入className"
+        },
+        {
+          "name": "fieldName",
+          "type": "string",
+          "required": true,
+          "description": "表单字段名称"
+        },
+        {
+          "name": "items",
+          "type": "[Item](#Item)[]",
+          "required": true,
+          "description": "add时添加的内容"
+        },
+        {
+          "name": "maxLen",
+          "type": "number",
+          "required": false,
+          "description": "支持输入最大标签数量，默认不做限制和提示"
+        },
+        {
+          "name": "disableAddTip",
+          "type": "string",
+          "required": false,
+          "description": "添加标签到达上限后，添加按钮的tooltip文案"
+        },
+        {
+          "name": "addBtnText",
+          "type": "string",
+          "required": false,
+          "description": "添加按钮的文案"
+        },
+        {
+          "name": "addBtnSuffix",
+          "type": "ReactNode | ((num: number) => ReactNode)",
+          "required": false,
+          "description": "添加按钮后的文案\n当传入函数时，入参为剩余可添加标签数\n请注意当传入函数时，一定要传入maxLen。否则默认入参为0"
+        },
+        {
+          "name": "initValue",
+          "type": "[InitValue](#InitValue)[]",
+          "required": false,
+          "description": "初始化值"
+        },
+        {
+          "name": "repeatValidatorLabel",
+          "type": "string[] | string",
+          "required": false,
+          "description": "需要内置重复校验的item，传入Items中的label值"
+        },
+        {
+          "name": "repeatMessage",
+          "type": "string",
+          "required": false,
+          "description": "重复添加的错误提示，默认为：该值禁止重复添加"
+        },
+        {
+          "name": "requireLabel",
+          "type": "string[] | string",
+          "required": false,
+          "description": "必填label"
+        },
+        {
+          "name": "requireMessage",
+          "type": "string",
+          "required": false,
+          "description": "必填的错误提示，默认为：不能为空",
+          "defaultValue": "不能为空"
+        },
+        {
+          "name": "maxHeight",
+          "type": "number",
+          "required": false,
+          "description": "最大可视高度"
+        },
+        {
+          "name": "onEditingDisableVerify",
+          "type": "(values: [Value](#Value)[]) => [EditingDisableVerify](#EditingDisableVerify) | undefined | void",
+          "required": false,
+          "description": "编辑过程中动态校验创建+编辑的item数量并禁止修改"
+        }
+      ]
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "CListEditorRules\n传入CListEditor的规则，validator不同于传统规则，会传入当前item值、当前行所有item值、CListEditor所有行的值、当前行number",
+      "type": null,
+      "properties": [
+        {
+          "name": "key",
+          "type": "string | number",
+          "required": false,
+          "description": "关键字 用于错误信息和规则匹配，默认为索引",
+          "defaultValue": "索引"
+        }
+      ]
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "Item\nListEditor组件每一行需要展示的Item",
+      "type": null,
+      "properties": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "description": "传入label"
+        },
+        {
+          "name": "component",
+          "type": "'input' | 'select' | React.ReactElement | [DefineBuiltInHybridListType](#DefineBuiltInHybridListType)<typeof builtInMap>",
+          "required": true,
+          "description": "默认是input,当表单内容为非input、select时，传入自定义内容。支持内置通用组件组件内部会使用Form.Item包裹传入自定义内容"
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false,
+          "description": "不考虑该模式，如果需要多选，直接透传对应cAsyncSelectProps，或者传入component"
+        },
+        {
+          "name": "rules",
+          "type": "[CListEditorRules](#CListEditorRules)[]",
+          "required": false,
+          "description": "传入校验的规则"
+        },
+        {
+          "name": "popoverVerify",
+          "type": "boolean | Partial<Omit<[CPopoverVerifyProps](#CPopoverVerifyProps), 'rules'>>",
+          "required": false,
+          "description": "CPopoverVerify组件的透传属性, 默认为true，传入false，不使用弹出式校验，仅Form内校验"
+        },
+        {
+          "name": "popoverContent",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "非校验，只想要提示，优先级低于CPopoverVerifyProps"
+        },
+        {
+          "name": "arcoPopoverProps",
+          "type": "Partial<Omit<[PopoverProps](#PopoverProps), 'content'>>",
+          "required": false,
+          "description": "透传Popover的属性"
+        },
+        {
+          "name": "cAsyncSelectProps",
+          "type": "Partial<Omit<CAsyncSelectProps, 'rules'>>",
+          "required": false,
+          "description": "弹出框，实时校验"
+        },
+        {
+          "name": "arcoInputProps",
+          "type": "Partial<Omit<[InputProps](#InputProps), 'value'>>",
+          "required": false,
+          "description": "透传输入框其他props"
+        },
+        {
+          "name": "arcoInputTagProps",
+          "type": "Partial<Omit<[InputTagProps](#InputTagProps), 'value'>>",
+          "required": false,
+          "description": "透传InputTag其他props"
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "required": false,
+          "description": "item的宽度"
+        },
+        {
+          "name": "triggerPropName",
+          "type": "'value' | 'checked'",
+          "required": false,
+          "description": "默认值value"
+        },
+        {
+          "name": "addDefaultValue",
+          "type": "any",
+          "required": false,
+          "description": "添加时的默认值"
+        }
+      ]
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "InitValue\n一行的初始值及相关的控制变量",
+      "type": null,
+      "properties": [
+        {
+          "name": "value",
+          "type": "[Value](#Value)",
+          "required": true,
+          "description": "初始值，需要和Item.label一一对应"
+        },
+        {
+          "name": "disableChange",
+          "type": "{[label: string]: {disabled?: boolean;tip?: string;/** 初始值是否需要按传入规则校验，兼容IaaS */disableRules?: boolean;[key: string]: any;};}",
+          "required": false,
+          "description": "不可修改, 以两列为例，需要key不可修改，传入key"
+        },
+        {
+          "name": "disableDelete",
+          "type": "boolean",
+          "required": false,
+          "description": "item 不可删除"
+        },
+        {
+          "name": "disableDeleteTip",
+          "type": "string",
+          "required": false,
+          "description": "delete按钮提示"
+        },
+        {
+          "name": "rowDisabled",
+          "type": "boolean",
+          "required": false,
+          "description": "行不可删除、修改, 优先级高于disableChange"
+        },
+        {
+          "name": "rowDisabledTip",
+          "type": "string",
+          "required": false,
+          "description": "行提示"
+        }
+      ]
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "Value",
+      "type": null,
+      "properties": []
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "EditingDisableVerify\n传入onEditingDisableVerify可以返回的值",
+      "type": null,
+      "properties": [
+        {
+          "name": "disableAdd",
+          "type": "boolean",
+          "required": false,
+          "description": "添加按钮是否可用"
+        },
+        {
+          "name": "disableAddTip",
+          "type": "string",
+          "required": false,
+          "description": "添加按钮不可用，的文案提示"
+        },
+        {
+          "name": "disableItemsIndex",
+          "type": "(number | (Omit<[InitValue](#InitValue), 'value'> & { index: number; [key: string]: any }))[]",
+          "required": false,
+          "description": "传入number,指定行不可修改+删除；\n传入Object可精细化控制某行中的某个item是否可用, 一个这个item其他的属性，\n注意！透传属性会同时做用到Form.Item和组件上"
+        },
+        {
+          "name": "disableItemsIndexTip",
+          "type": "string",
+          "required": false,
+          "description": "item不可删除、修改的提示"
+        },
+        {
+          "name": "disableDelete",
+          "type": "boolean",
+          "required": false,
+          "description": "所有行不可删除,优先级低于disableItemsIndex内指定的disableDelete"
+        },
+        {
+          "name": "disableDeleteTip",
+          "type": "string",
+          "required": false,
+          "description": "所有行不可删除的提示文案"
+        }
+      ]
+    },
+    {
+      "filePath": "CListEditor/interface.ts",
+      "name": "DefineBuiltInHybridListType",
+      "type": "/**\n *\n * 可传入其他类型的混合类型的列表\n */\nexport type DefineBuiltInHybridListType<T extends ComponentsMap> = HybridReactNodeArrayAble<DefineBuiltInBasicType<T>>;\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form } from '@cloud-materials/common';\nimport { Typography } from '@arco-design/web-react';\nimport type { Item } from '../interface';\n\nconst ItemKey: Item[] = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n    arcoInputProps: {\n      placeholder: '请输入key',\n    },\n    addDefaultValue: 'ddd',\n  },\n];\n\nconst ItemValue: Item[] = [\n  {\n    label: 'value',\n    component: 'input' as 'input',\n  },\n];\n\nconst ItemValue2: Item[] = [\n  {\n    label: 'x',\n    component: 'input' as 'input',\n    width: 400,\n  },\n];\n\nconst ItemMultiple: Item[] = [\n  {\n    label: 'multiple',\n    component: 'input' as 'input',\n    multiple: true,\n    width: 400,\n  },\n];\n\nconst SelectItem: Item[] = [\n  {\n    label: 'select',\n    component: 'select' as 'select',\n    addDefaultValue: 'Shanghai',\n    cAsyncSelectProps: {\n      options: [\n        {\n          value: 'Beijing',\n          label: '北京',\n        },\n        {\n          value: 'Shanghai',\n          label: '上海',\n        },\n        {\n          value: 'Guangzhou',\n          label: '广州',\n        },\n        {\n          value: 'd',\n          label: '这是D',\n        },\n      ],\n      placeholder: '请选择dd',\n    },\n    width: 200,\n  },\n];\n\nconst InputNumberItem: Item[] = [\n  {\n    label: 'inputNumber',\n    component: {\n      component: 'InputNumber',\n      componentProps: { placeholder: '请输入数字' },\n    },\n    width: 200,\n  },\n];\nexport default () => {\n  return (\n    <div>\n      <Form>\n        <Typography.Title heading={5}>\n          设置1列，设置改列为input，内部使用Input组件，除value之外的属性通过arcoInputProps透传\n        </Typography.Title>\n        <CListEditor fieldName=\"field-1\" items={ItemKey} />\n        <Typography.Title heading={5}>设置2列</Typography.Title>\n        <CListEditor fieldName=\"field-2\" items={ItemKey.concat(ItemValue)} />\n        <Typography.Title heading={5}>设置3列，并指定第三列宽度</Typography.Title>\n        <CListEditor fieldName=\"field-3\" items={ItemKey.concat(ItemValue, ItemValue2)} />\n        <Typography.Title heading={5}>限制添加行数, 设置可是高度，超出高度滚动显示</Typography.Title>\n        <CListEditor fieldName=\"field-4\" items={ItemKey.concat(ItemValue)} maxLen={4} maxHeight={100} />\n        <Typography.Title heading={5}>自定义添加按钮文案</Typography.Title>\n        <CListEditor fieldName=\"field-5\" items={ItemKey} addBtnText=\"我是一个添加按钮\" />\n        <Typography.Title heading={5}>自定义添加按钮之后的文案</Typography.Title>\n        <CListEditor fieldName=\"field-6\" items={ItemKey} addBtnSuffix=\"能够无限添加\" />\n        <Typography.Title heading={5}>\n          一列允许多个值输入，内部使用组件为InputTag，希望其他属性通过arcoInputTagProps透传\n        </Typography.Title>\n        <CListEditor fieldName=\"field-7\" items={ItemMultiple} />\n        <Typography.Title heading={5}>\n          设置该列为select，内部暂时使用Select组件，(之后使用CAsyncSelect组件，组件其余属性通过cAsyncSelectProps传入)\n        </Typography.Title>\n        <CListEditor fieldName=\"field-8\" items={SelectItem} />\n        <Typography.Title heading={5}>使用内置组件</Typography.Title>\n        <CListEditor fieldName=\"field-9\" items={ItemKey.concat(InputNumberItem)} />\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography, Switch, Rate, Radio } from '@cloud-materials/common';\nimport type { Item } from '../interface';\n\nconst RadioGroup = Radio.Group;\n\nconst options = [\n  {\n    value: 'Beijing',\n    label: 'Beijing',\n  },\n  {\n    value: 'Shanghai',\n    label: 'Shanghai',\n  },\n  {\n    value: 'Guangzhou',\n    label: 'Guangzhou',\n    disabled: true,\n  },\n  {\n    value: 'Shenzhen',\n    label: 'Shenzhen',\n  },\n];\n\nconst ItemSwitch: Item[] = [\n  {\n    label: 'key',\n    component: <Switch />,\n    triggerPropName: 'checked' as 'checked',\n  },\n];\n\nconst ItemRate: Item[] = [\n  {\n    label: 'rate',\n    component: <Rate />,\n  },\n];\nconst ItemCheckbox: Item[] = [\n  {\n    label: 'checkbox',\n    component: {\n      component: 'Checkbox',\n      componentProps: {\n        children: 'Checkbox',\n      },\n    },\n  },\n];\n\nconst ItemRadio = [\n  {\n    label: 'radio',\n    component: <RadioGroup options={options} size=\"mini\" type=\"button\" defaultValue=\"Beijing\" />,\n  },\n];\n// type CounterDemoProps = {\n//   value: number;\n//   onChange: (v) => void;\n// };\n\n// const CounterDemo = props => {\n//   const { value, onChange } = props;\n\n//   return\n// };\n\nexport default () => {\n  return (\n    <div>\n      <Form>\n        <Typography.Title heading={5}>设置item是Switch组件</Typography.Title>\n        <CListEditor fieldName=\"field-1\" items={ItemSwitch} />\n        <Typography.Title heading={5}>设置item是Rate组件</Typography.Title>\n        <CListEditor fieldName=\"field-2\" items={ItemRate} />\n        <Typography.Title heading={5}>设置item是Radio组件</Typography.Title>\n        <CListEditor fieldName=\"field-3\" items={ItemRadio} />\n        <Typography.Title heading={5}>设置item是Checkbox组件</Typography.Title>\n        <CListEditor fieldName=\"field-4\" items={ItemCheckbox} />\n        <Typography.Title heading={5}>组合以上item</Typography.Title>\n        <CListEditor fieldName=\"field-5\" items={ItemRate.concat(ItemCheckbox, ItemSwitch, ItemRadio)} />\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography, Switch, Rate, Radio } from '@cloud-materials/common';\nimport useForm from '@arco-design/web-react/es/Form/useForm';\nimport type { Item } from '../interface';\n\nconst RadioGroup = Radio.Group;\n\nconst options = [\n  {\n    value: 'Beijing',\n    label: 'Beijing',\n  },\n  {\n    value: 'Shanghai',\n    label: 'Shanghai',\n  },\n  {\n    value: 'Guangzhou',\n    label: 'Guangzhou',\n    disabled: true,\n  },\n  {\n    value: 'Shenzhen',\n    label: 'Shenzhen',\n  },\n];\n\nconst ItemSwitch = [\n  {\n    label: 'switch',\n    component: <Switch />,\n    triggerPropName: 'checked' as 'checked',\n  },\n];\n\nconst ItemRate = [\n  {\n    label: 'rate',\n    component: <Rate />,\n  },\n];\n\nconst ItemRadio = [\n  {\n    label: 'radio',\n    component: <RadioGroup options={options} size=\"mini\" type=\"button\" defaultValue=\"Beijing\" />,\n  },\n];\n\nconst ItemKey = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n  },\n] as Item[];\n\nconst ItemMultiple = [\n  {\n    label: 'multiple',\n    component: 'input' as 'input',\n    multiple: true,\n    style: { minWidth: 169 },\n  },\n];\n\nconst SelectItem: Item[] = [\n  {\n    label: 'select',\n    component: 'select' as 'select',\n    cAsyncSelectProps: {\n      options: [\n        {\n          value: 'Beijing',\n          label: '北京',\n        },\n        {\n          value: 'Shanghai',\n          label: '上海',\n        },\n        {\n          value: 'Guangzhou',\n          label: '广州',\n        },\n        {\n          value: 'd',\n          label: '这是D',\n        },\n      ],\n      value: ['Shanghai'],\n    },\n  },\n];\n\nconst Items = ItemKey.concat(SelectItem, ItemMultiple, ItemSwitch, ItemRadio, ItemRate);\nconst initValue1 = [\n  {\n    value: {\n      key: 'key',\n      value: 'value',\n      multiple: ['multiple'],\n      select: 'Beijing',\n      switch: true,\n      radio: 'Shanghai',\n      rate: 4,\n    },\n  },\n];\n\nconst initValue2 = [\n  {\n    value: {\n      key: 'key',\n      value: 'value',\n      multiple: ['multiple'],\n      select: 'Beijing',\n      switch: true,\n      radio: 'Shanghai',\n      rate: 4,\n    },\n    disableDelete: true,\n    disableDeleteTip: '被指定不可删除',\n  },\n];\n\nconst initValue3 = [\n  {\n    value: {\n      key: 'key',\n      value: 'value',\n      multiple: ['multiple'],\n      select: 'Beijing',\n      switch: true,\n      radio: 'Shanghai',\n      rate: 4,\n    },\n    disableChange: {\n      key: {\n        disabled: true,\n        tip: 'key不可修改',\n      },\n      rate: {\n        disabled: true,\n        tip: '初始评分不可修改',\n      },\n    },\n  },\n];\n\nexport default () => {\n  const [form] = useForm();\n  return (\n    <div>\n      <Form\n        form={form}\n        initialValues={{\n          'field-1': [\n            {\n              key: 'key',\n              value: 'value',\n              multiple: ['multiple'],\n              select: 'Beijing',\n              switch: true,\n              radio: 'Shanghai',\n              rate: 4,\n            },\n          ],\n        }}\n      >\n        <Typography.Title heading={5}>通过initValue设置初始值</Typography.Title>\n        <CListEditor fieldName=\"field-1\" items={Items} />\n        <Typography.Title heading={5}>设置多行初始值，指定第2行不可删除</Typography.Title>\n        <CListEditor fieldName=\"field-2\" items={Items} initValue={initValue1.concat(initValue2)} />\n        <Typography.Title heading={5}>设置多行初始值，指定第3行的key和rate不可修改</Typography.Title>\n        <CListEditor fieldName=\"field-3\" items={Items} initValue={initValue1.concat(initValue2, initValue3)} />\n        <Typography.Title heading={5}>通过item中的addDefaultValue设置添加时的初始值</Typography.Title>\n        <CListEditor fieldName=\"field-3\" items={[{ ...SelectItem[0], addDefaultValue: ['Shanghai'] }]} />\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport useForm from '@arco-design/web-react/es/Form/useForm';\nimport { CListEditor, Form, Rate, Typography } from '@cloud-materials/common';\n\nimport type { InitValue, Item, Value } from '../interface';\n\nconst options = [\n  {\n    value: 'Beijing',\n    label: 'Beijing',\n  },\n  {\n    value: 'Shanghai',\n    label: 'Shanghai',\n  },\n  {\n    value: 'Guangzhou',\n    label: 'Guangzhou',\n    disabled: true,\n  },\n  {\n    value: 'Shenzhen',\n    label: 'Shenzhen',\n  },\n];\nconst ItemKey = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n  },\n];\n\nconst SelectItem = [\n  {\n    label: 'select',\n    component: 'select' as 'select',\n    cAsyncSelectProps: {\n      options: ['Beijing', 'Shanghai', 'Guangzhou'],\n      defaultValue: ['Beijing'],\n    },\n  },\n] as Item[];\n\nconst Items = SelectItem.concat(ItemKey);\nconst initValue1 = [\n  {\n    value: {\n      key: 'key',\n      select: 'Beijing',\n      value: 'value',\n      multiple: ['multiple'],\n      switch: true,\n      radio: 'Shanghai',\n      rate: 4,\n    },\n  },\n  {\n    value: {\n      key: 'key2',\n      value: 'value2',\n      multiple: ['multiple'],\n      select: 'Beijing',\n      switch: true,\n      radio: 'Shanghai',\n      rate: 4,\n    },\n  },\n];\n\nexport default () => {\n  const onChangeDisableAdd = (values: Value[]) => {\n    if (values[1] && values[1].key === 'key2') {\n      return {\n        disableAdd: true,\n        disableAddTip: '当第二行输入的key值为key2时，不允许再添加行',\n      };\n    } else {\n      return {\n        disableAdd: false,\n        disableAddTip: '',\n      };\n    }\n  };\n\n  const onChangeDisableIndex = (values: Value[]) => {\n    if (values[1] && values[1].key === 'key2') {\n      return {\n        disableItemsIndex: [0, 1],\n        disableItemsIndexTip: '第1,2行不许再修改和删除',\n      };\n    }\n  };\n\n  const onChangeKeepOneItem = (values: Value[]) => {\n    if (values.length < 2) {\n      return {\n        disableItemsIndex: [\n          {\n            index: 0,\n          },\n        ],\n        disableDelete: true,\n        disableDeleteTip: '第一行不许删除',\n      };\n    } else {\n      return {\n        disableDelete: false,\n      };\n    }\n  };\n\n  const onChangeOnlyKeyAllowValue = (values: Value[]) => {\n    const getRes = (index: number, disabled = true) => ({\n      index,\n      disableChange: {\n        value: {\n          disabled,\n          tip: disabled ? '请先选择key' : undefined,\n        },\n      },\n    });\n    const res: (number | (Omit<InitValue, 'value'> & { index: number }))[] = [];\n    values.forEach((val, index) => {\n      if (val.key) {\n        res.push(getRes(index, false));\n      } else {\n        res.push(getRes(index));\n      }\n    });\n    return {\n      disableItemsIndex: res,\n    };\n  };\n\n  const onChangeOtherPops = (values: Value[]) => {\n    const getRes = (index: number, display = true) => ({\n      index,\n      disableChange: {\n        path: {\n          style: display ? { display: 'block' } : { display: 'none' },\n        },\n      },\n    });\n    const res: (number | (Omit<InitValue, 'value'> & { index: number }))[] = [];\n    values.forEach((val, index) => {\n      if (val.isFormat) {\n        res.push(getRes(index));\n      } else {\n        res.push(getRes(index, false));\n      }\n    });\n    return {\n      disableItemsIndex: res,\n    };\n  };\n\n  const [form] = useForm();\n\n  return (\n    <div>\n      <Form\n        form={form}\n        initialValues={{\n          ['field-3']: [\n            {\n              key: 'key',\n              select: 'Beijing',\n            },\n            {\n              key: 'key',\n              select: 'Beijing',\n            },\n          ],\n          users: [\n            {\n              username: 'aaa',\n              address: 'bbb',\n            },\n          ],\n        }}\n      >\n        <Typography.Title heading={5}>用法1：通用TagEditor，一行中不存在key，value也不可以输入</Typography.Title>\n        <CListEditor\n          fieldName=\"field-0\"\n          items={[\n            {\n              label: 'key',\n              component: 'select',\n              cAsyncSelectProps: {\n                allowClear: true,\n                options,\n              },\n              width: 400,\n            },\n            { label: 'value', component: 'input', width: 400 },\n          ]}\n          onEditingDisableVerify={onChangeOnlyKeyAllowValue}\n        />\n        <Typography.Title heading={5}>用法2：当第二行输入的key值为key2时，不允许再添加行</Typography.Title>\n        <CListEditor\n          fieldName=\"field-1\"\n          items={Items}\n          initValue={initValue1}\n          onEditingDisableVerify={onChangeDisableAdd}\n        />\n        <Typography.Title heading={5}>用法3：当第二行输入的key值为key2时，第1,2行不许再修改和删除</Typography.Title>\n        <CListEditor\n          fieldName=\"field-2\"\n          items={Items}\n          initValue={initValue1}\n          onEditingDisableVerify={onChangeDisableIndex}\n        />\n        <Typography.Title heading={5}>用法4：使用form.initialValue传值 且 至少保留一行</Typography.Title>\n        <CListEditor\n          fieldName=\"field-3\"\n          items={Items.concat([\n            {\n              label: 'rate',\n              component: <Rate />,\n            },\n          ])}\n          onEditingDisableVerify={onChangeKeepOneItem}\n        />\n        <Typography.Title heading={5}>\n          用法5：通过onEditingDisableVerify透传其他属性，注意这些透传属性会同时作用在Form.Item和组件上\n        </Typography.Title>\n        <Typography.Title heading={6}>\n          用法5.1：通过修改style.display实现 当只有switch为true，才可见最后一个输入框\n        </Typography.Title>\n        <Form.Item label=\"数据盘\">\n          <CListEditor\n            fieldName=\"field-4\"\n            items={[\n              {\n                label: 'type',\n                component: 'select',\n                cAsyncSelectProps: {\n                  allowClear: true,\n                  options: [{ label: '通用型SSD云硬盘', value: 'SSD' }, 'HDD'],\n                },\n                width: 200,\n              },\n              {\n                label: 'size',\n                component: {\n                  component: 'InputNumber',\n                  componentProps: { placeholder: '请输入数字' },\n                },\n                width: 200,\n              },\n              {\n                label: 'isFormat',\n                component: {\n                  component: 'Switch',\n                },\n                triggerPropName: 'checked' as 'checked',\n                addDefaultValue: false,\n                width: 40,\n              },\n              {\n                label: 'path',\n                component: 'input',\n                width: 400,\n                arcoInputProps: {\n                  placeholder: '请输入格式化地址',\n                },\n              },\n            ]}\n            onEditingDisableVerify={onChangeOtherPops}\n          />\n        </Form.Item>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography } from '@cloud-materials/common';\nimport type { Item } from '../interface';\n\nconst Items: Item[] = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n    popoverContent: (\n      <div>\n        <div>{`支持为空或以字母、数字及分隔符(\"-\"、\"_\"、\".\")组成`}</div>\n        <div>需以字母、数字开头和结尾</div>\n        <div>长度 63 个字符以内</div>\n      </div>\n    ),\n    popoverVerify: false,\n    width: 300,\n  },\n  {\n    label: 'value',\n    component: 'input' as 'input',\n    popoverContent: (\n      <div>\n        <div>{`支持可选前缀和名称，使用分隔符（\"/\"）连接`}</div>\n        <div>{`前缀是由分隔符（\".\"）连接的一组 DNS 标签，长度 253 个字符以内`}</div>\n        <div>{`名称支持字母、数字及分隔符(\"-\"、\"_\"、\".\")，需以字母、数字开头和结尾，长度 1 - 63 个字符`}</div>\n      </div>\n    ),\n    popoverVerify: false,\n    arcoPopoverProps: {\n      position: 'right',\n    },\n  },\n];\n\nexport default () => {\n  return (\n    <div style={{ width: 700 }}>\n      <Typography.Title heading={5}>通过popoverContent设置编辑提示</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor fieldName=\"field-1\" items={Items} />\n        </Form.Item>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography } from '@cloud-materials/common';\nimport type { Item } from '../interface';\n\nconst Items: Item[] = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n    width: 300,\n    arcoInputProps: {\n      placeholder: '请输入key',\n    },\n  },\n  {\n    label: 'value',\n    component: 'input' as 'input',\n    arcoPopoverProps: {\n      position: 'right' as 'right',\n    },\n  },\n];\n\nconst Items2: Item[] = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n    width: 300,\n    multiple: true,\n  },\n  {\n    label: 'value',\n    component: 'input' as 'input',\n    arcoPopoverProps: {\n      position: 'right' as 'right',\n    },\n  },\n];\n\nexport default () => {\n  return (\n    <div>\n      <Typography.Title heading={5}>以两列key value为例，设置key这一列不能有重复值</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor\n            fieldName=\"field-1\"\n            maxLen={3}\n            items={Items}\n            repeatValidatorLabel=\"key\"\n            repeatMessage=\"系统标签不能重复\"\n          />\n        </Form.Item>\n        <Typography.Title heading={5}>当key为多值时，设置key这一列不能有重复值</Typography.Title>\n        <Form.Item label=\"标签2\">\n          <CListEditor\n            fieldName=\"field-2\"\n            maxLen={3}\n            items={Items2}\n            repeatValidatorLabel=\"key\"\n            repeatMessage=\"系统标签不能重复\"\n          />\n        </Form.Item>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography } from '@cloud-materials/common';\nimport type { Item } from '../interface';\nimport type { CPopoverVerifyRule } from '../../CPopoverVerify/interface';\n\nconst regName = /^([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9]$/;\nconst regPrefix = /^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$/;\nfunction checkPrefix(prefix: string): boolean {\n  return !(prefix.length > 253 || !regPrefix.test(prefix));\n}\nfunction checkName(name: string): boolean {\n  return !(name.length > 63 || !regName.test(name));\n}\n\nexport const PaaSKeyRules: CPopoverVerifyRule[] = [\n  {\n    message: '支持可选前缀和名称，使用分隔符（\"/\"）连',\n    validator: (v, cb) => {\n      if (v) {\n        const arr = v?.split('/');\n        if (arr?.length !== 2) cb('不符合输入规则');\n      }\n    },\n  },\n  {\n    message: '前缀是由分隔符（\".\"）连接的一组 DNS 标签，长度 253 个字符以内',\n    validator: (v, cb) => {\n      if (v) {\n        const arr = v?.split('/');\n        const prefix = arr[0];\n        if (!checkPrefix(prefix)) cb('不符合输入规则');\n      }\n    },\n  },\n  {\n    message: `名称支持字母、数字及分隔符(\"-\"、\"_\"、\".\")，需以字母、数字开头和结尾，长度 1 - 63 个字符`,\n    validator: (v, cb) => {\n      if (v) {\n        const arr = v?.split('/');\n        const name = arr[1];\n        if (!checkName(name)) cb('不符合输入规则');\n      }\n    },\n  },\n];\n\nconst PaaSValueRules: CPopoverVerifyRule[] = [\n  {\n    message: '支持为空或以字母、数字及分隔符(\"-\"、\"_\"、\".\")组成',\n    validator: (v, cb) => {\n      if (['-', '.', '_'].includes(v)) cb('不符合输入规则');\n    },\n  },\n  {\n    message: '需以字母、数字开头和结尾',\n    validator: (v, cb) => {\n      if (!/^(?![-._])[\\w-.]{0,63}$/.test(v)) cb('不符合输入规则');\n    },\n  },\n  { message: '长度 63 个字符以内', maxLength: 63 },\n];\n\nconst InitValuesPaaS = [\n  {\n    value: {},\n  },\n];\n\nconst Items: Item[] = [\n  {\n    label: 'key',\n    component: 'input',\n    width: 400,\n    rules: PaaSKeyRules,\n  },\n  {\n    label: 'value',\n    width: 200,\n    component: 'input',\n    rules: PaaSValueRules,\n  },\n];\n\nexport default () => {\n  return (\n    <div>\n      <Form>\n        <Typography.Title heading={5}>PaaS的规则，PaaS迁移示例</Typography.Title>\n        <Form.Item label={'PaaS'}>\n          <CListEditor\n            fieldName=\"field-1\"\n            items={Items}\n            initValue={InitValuesPaaS}\n            repeatValidatorLabel=\"key\"\n            repeatMessage=\"键名不能重复\"\n            requireLabel=\"key\"\n            maxLen={20}\n          />\n        </Form.Item>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography, Button } from '@cloud-materials/common';\nimport type { Item } from '../interface';\nimport type { CPopoverVerifyRule } from '../../CPopoverVerify/interface';\n\nconst { useForm } = Form;\n\nconst KEY_NOT_SYSTEM_MESSAGE = '不能以任何大小写形式的“volc:”开头';\nconst KV_VALIDATOR_MESSAGE = '只能包含语言字符、数字、空格和英文符号_.:/=+-@';\n\nconst IaaSKeyRules: CPopoverVerifyRule[] = [\n  {\n    message: '长度需要在1-128个字符内',\n    minLength: 1,\n    maxLength: 128,\n  },\n  {\n    message: '不能以任何大小写形式的“volc:”开头',\n    validator: (v, cb) => {\n      if (/^[Vv][Oo][Ll][Cc]:/.test(v)) cb(KEY_NOT_SYSTEM_MESSAGE);\n    },\n  },\n  {\n    message: KV_VALIDATOR_MESSAGE,\n    validator: (v, cb) => {\n      // eslint-disable-next-line no-useless-escape\n      if (!/^[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*$/gu.test(v)) cb(KV_VALIDATOR_MESSAGE);\n    },\n  },\n];\n\nconst IaaSValueRules: CPopoverVerifyRule[] = [\n  {\n    message: '长度需要在0-256个字符内',\n    maxLength: 256,\n  },\n  {\n    message: KV_VALIDATOR_MESSAGE,\n    validator: (v, cb) => {\n      // eslint-disable-next-line no-useless-escape\n      if (!/^[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*$/gu.test(v)) cb(KV_VALIDATOR_MESSAGE);\n    },\n  },\n];\n\nconst InitValues = [\n  {\n    value: { key: 'volc:ecs', value: 'value' },\n    rowDisabled: true,\n    rowDisabledTip: '系统标签不可修改',\n  },\n  { value: { key: 'ecs', value: 'ecs' } },\n  {\n    value: { key: 'image', value: 'windows : 2012' },\n  },\n  {\n    value: { key: 'flavor', value: 'ecs.g1.xlarge' },\n  },\n];\n\nconst Items: Item[] = [\n  {\n    label: 'key',\n    component: 'input',\n    width: 400,\n    rules: IaaSKeyRules,\n  },\n  {\n    label: 'value',\n    width: 400,\n    component: 'input',\n    rules: IaaSValueRules,\n  },\n];\n\nexport default () => {\n  const [form] = useForm();\n  return (\n    <div>\n      <Form form={form}>\n        <Typography.Title heading={5}>IaaS的规则，IaaS迁移示例</Typography.Title>\n        <Form.Item label={'IaaS'}>\n          <CListEditor\n            fieldName=\"field-1\"\n            items={Items}\n            initValue={InitValues}\n            repeatValidatorLabel=\"key\"\n            repeatMessage=\"已经添加过该标签键\"\n            maxLen={20}\n          />\n        </Form.Item>\n        <Button\n          htmlType=\"submit\"\n          onClick={() => {\n            form\n              .validate()\n              .then(res => {\n                console.log(res);\n              })\n              .catch(err => {\n                console.log(err);\n              });\n          }}\n        >\n          确定\n        </Button>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography, Button } from '@cloud-materials/common';\n\nconst multipleRules = [\n  {\n    validator: (v: string, cb: (s: string) => void) => {\n      if (Array.isArray(v)) {\n        if (v.length > 3) cb('数量不能超过三个');\n        if (v.includes('key')) cb('不能输入key值');\n      }\n    },\n    message: '数量不能超过三个, 不能输入key值',\n  },\n];\n\nconst initValue = [{ value: { key: ['key1', 'key2', 'key3', 'key4'] } }];\n\nexport default () => {\n  return (\n    <div>\n      <Form>\n        <Typography.Title heading={5}>多值输入时，做规则校验（不使用PopoverVerify校验）</Typography.Title>\n        <CListEditor\n          fieldName=\"field\"\n          items={[\n            {\n              label: 'key',\n              component: 'input' as 'input',\n              width: 400,\n              multiple: true,\n              rules: multipleRules,\n            },\n          ]}\n          initValue={initValue}\n        />\n        <Typography.Title heading={5}>多值输入时，做规则校验（使用PopoverVerify校验）</Typography.Title>\n        <CListEditor\n          fieldName=\"field\"\n          items={[\n            {\n              label: 'key',\n              component: 'input' as 'input',\n              width: 400,\n              multiple: true,\n              rules: multipleRules,\n            },\n          ]}\n          initValue={initValue}\n        />\n        <Button htmlType=\"submit\">确定</Button>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CListEditor, Form, Typography } from '@cloud-materials/common';\nimport type { Item } from '../interface';\n\nconst Items: Item[] = [\n  {\n    label: 'key',\n    component: 'input' as 'input',\n    width: 300,\n  },\n  {\n    label: 'value',\n    component: 'input' as 'input',\n  },\n];\n\nexport default () => {\n  const renderSuffix = (num: number) => {\n    return `还剩${num}个可以添加`;\n  };\n  return (\n    <div style={{ width: 700 }}>\n      <Typography.Title heading={5}>addBtnSuffix传入函数</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor fieldName=\"field-1\" items={Items} addBtnSuffix={renderSuffix} maxLen={10} />\n        </Form.Item>\n      </Form>\n      <Typography.Title heading={5}>addBtnSuffix传入固定值</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor fieldName=\"field-1\" items={Items} addBtnSuffix=\"添加个啥呀\" maxLen={10} />\n        </Form.Item>\n      </Form>\n      <Typography.Title heading={5}>不传入addBtnSuffix</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor fieldName=\"field-1\" items={Items} maxLen={10} />\n        </Form.Item>\n      </Form>\n      <Typography.Title heading={5}>addBtnSuffix传入函数,但是没设置maxLen,传入参数为0</Typography.Title>\n      <Form>\n        <Form.Item label=\"标签\">\n          <CListEditor fieldName=\"field-1\" items={Items} addBtnSuffix={renderSuffix} />\n        </Form.Item>\n      </Form>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

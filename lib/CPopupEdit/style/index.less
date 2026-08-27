@@ -1,0 +1,62 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-popup-edit-prefix: ~'@{cpn-prefix}-popup-edit';
+
+.@{c-m-popup-edit-prefix} {
+  display: flex;
+  align-items: center;
+
+  &-value {
+    padding-right: 12px;
+  }
+
+  &-error-message {
+    font-size: 12px;
+    color: rgb(var(~'@{arco-cssvars-prefix}-danger-6'));
+    min-height: 20px;
+    line-height: 20px;
+  }
+
+  &-popconfirm {
+    &-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .@{prefix}-textarea-word-limit {
+      background-color: rgba(246, 248, 250, 0.9);
+      padding: 0 8px;
+      border-radius: 4px;
+    }
+
+    .@{prefix}-textarea {
+      padding-bottom: 20px
+    }
+  }
+
+  &-popconfirm-edit {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.@{c-m-popup-edit-prefix}-hover-show-icon {
+  &:hover {
+    .@{c-m-popup-edit-prefix}-value {
+      .@{c-m-popup-edit-prefix}-popconfirm-edit.@{c-m-popup-edit-prefix}-popconfirm-edit-icon-hide {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.@{c-m-popup-edit-prefix} {
+  .@{c-m-popup-edit-prefix}-value {
+    .@{c-m-popup-edit-prefix}-popconfirm-edit.@{c-m-popup-edit-prefix}-popconfirm-edit-icon-hide {
+      opacity: 0;
+    }
+    .@{c-m-popup-edit-prefix}-popconfirm-edit.@{c-m-popup-edit-prefix}-popconfirm-edit-icon-show {
+      opacity: 1;
+    }
+  }
+}

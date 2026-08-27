@@ -1,0 +1,125 @@
+.c-m-tabs {
+  position: relative;
+}
+.c-m-tabs-no-left-bottom-border::before {
+  content: '';
+  width: 32px;
+  height: 36px;
+}
+.c-m-tabs-no-left-bottom-border > .arco-tabs > .arco-tabs-header-nav {
+  padding-left: 0;
+}
+.c-m-tabs-no-left-bottom-border > .arco-tabs > .arco-tabs-content {
+  padding-left: 0;
+}
+.c-m-tabs-no-left-bottom-border > .arco-tabs > .arco-tabs-header-nav-card-gutter.arco-tabs-header-nav-horizontal {
+  padding-left: 0;
+}
+.c-m-tabs-container .arco-tabs {
+  overflow: auto;
+}
+.c-m-tabs-container .arco-tabs .arco-tabs-content {
+  border: none;
+}
+.c-m-tabs-fullelement .arco-tabs {
+  overflow: auto;
+}
+.c-m-tabs-fullelement .arco-tabs .arco-tabs-header {
+  display: flex;
+  width: 100%;
+}
+.c-m-tabs-fullelement .arco-tabs .arco-tabs-header .arco-tabs-header-title {
+  flex: 1;
+  text-align: center;
+  justify-content: space-around;
+}
+.c-m-tabs-fullelement .arco-tabs .arco-tabs-content {
+  border: none;
+}
+.c-m-tabs-statistic .c-m-statistic {
+  background: none;
+}
+.c-m-tabs-statistic .c-m-statistic-border {
+  border: none;
+}
+.c-m-tabs-statistic .arco-tabs-line.arco-tabs-bottom .arco-tabs-header-wrapper {
+  align-items: center;
+  margin-top: 1px;
+}
+.c-m-tabs-statistic .arco-tabs-header-wrapper {
+  align-items: center;
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title {
+  background-color: var(--color-bg-2);
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title:hover,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title:hover {
+  background-color: var(--color-bg-4);
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled:hover,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled:hover {
+  background-color: var(--color-bg-2);
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled .c-m-statistic-title,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled .c-m-statistic-title,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled:hover .c-m-statistic-title,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled:hover .c-m-statistic-title,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled .arco-statistic-value,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled .arco-statistic-value,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled:hover .arco-statistic-value,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled:hover .arco-statistic-value,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled .c-m-statistic-unit,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled .c-m-statistic-unit,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-disabled:hover .c-m-statistic-unit,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-disabled:hover .c-m-statistic-unit {
+  color: #c7ccd6;
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-active,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-active,
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header-title-active:hover,
+.c-m-tabs-statistic .arco-tabs-header .arco-tabs-header-title-active:hover {
+  background-color: white;
+}
+.c-m-tabs-statistic .arco-tabs .arco-tabs-header .arco-tabs-header-title {
+  padding: 0;
+}
+.c-m-tabs-statistic .arco-tabs-card-gutter .arco-tabs-header-nav-card-gutter .arco-tabs-header-title-active {
+  box-shadow: inset 0 4px 0 #006eff, inset -1px 0 0 var(--color-border-2), inset 1px 0 0 var(--color-border-2);
+}
+.c-m-tabs-statistic .arco-tabs-card-gutter .arco-tabs-header-nav-card-gutter .arco-tabs-header-title {
+  border-radius: 8px 8px 0 0;
+}
+.c-m-tabs-statistic .arco-tabs-text .arco-tabs-header-nav-text .arco-tabs-header-title:not(:first-of-type):before {
+  height: 100%;
+}
+.c-m-tabs-statistic .arco-tabs-line .arco-tabs-header-nav-line .arco-tabs-header-title {
+  border-bottom: 1px solid var(--color-neutral-3);
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title {
+  border-radius: 8px;
+  border: 1px solid #eaedf1;
+  padding: 0;
+  margin: 20px 6px;
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title:first-child {
+  margin-left: 0;
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title:hover {
+  background: #fcfdfe;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 5px 5px -2px rgba(0, 0, 0, 0.05);
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title-disabled,
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title-disabled:hover {
+  box-shadow: none;
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title-active {
+  box-shadow: 0 4px 0 0 #1664ff inset;
+  position: relative;
+}
+.c-m-tabs-statistic .arco-tabs-rounded .arco-tabs-header-title-active:hover {
+  background: #fcfdfe;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 5px 5px -2px rgba(0, 0, 0, 0.05), 0 4px 0 0 #1664ff inset;
+}

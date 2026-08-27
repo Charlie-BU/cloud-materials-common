@@ -1,0 +1,16 @@
+@import (reference) '../../../../style/variables.less';
+
+@c-m-form-agreement-prefix: ~'@{cpn-prefix}-form-agreement';
+
+.@{c-m-form-agreement-prefix} {
+  &-common {
+    // 分开设置，避免影响margin-left属性
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &-formItem {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,31 @@
+.c-m-table-comp-col-config-btn-modal {
+  max-height: 612px;
+}
+.c-m-table-comp-col-config-btn-modal-content-select-all {
+  margin-bottom: 12px;
+}
+.c-m-table-comp-col-config-btn-modal-content-wrapper {
+  border: 1px solid #eaedf1;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+.c-m-table-comp-col-config-btn-modal-content-wrapper-column {
+  width: 0;
+  flex-basis: 33.33%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.c-m-table-comp-col-config-btn-modal-buttons {
+  display: flex;
+  align-items: center;
+}
+.c-m-table-comp-col-config-btn-modal-buttons-left {
+  margin-right: auto;
+}
+.c-m-table-comp-col-config-btn-modal-buttons-right {
+  margin-left: auto;
+  display: flex;
+}

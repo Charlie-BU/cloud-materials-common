@@ -1,0 +1,166 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-detail-pagePrefixCls: ~'@{cpn-prefix}-detail';
+@c-m-detail-headerPrefixCls: ~'@{cpn-prefix}-detail-header';
+@c-m-detail-contentPrefixCls: ~'@{cpn-prefix}-detail-content-wrapper';
+
+.@{c-m-detail-pagePrefixCls} {
+  height: 100%;
+  overflow: auto;
+}
+.@{c-m-detail-headerPrefixCls} {
+  background-color: @color-bg-white;
+  overflow: hidden;
+
+  &-affix {
+    .@{prefix}-affix {
+      // sidebar 为 @z-index-normal-max，将其放在sidebar下面
+      z-index: @z-index-normal-max - 1;
+    }
+  }
+
+  &-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 32px;
+    background-color: @color-bg-white;
+    // 防止header抖动
+    position: relative;
+    top: -1px;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-with-shadow {
+      box-shadow: inset 0 -1px 0 var(~'@{arco-cssvars-prefix}-color-border-2');
+    }
+  }
+
+  &-information {
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 var(~'@{arco-cssvars-prefix}-color-border-2');
+    margin-bottom: 40px;
+  }
+
+  &-tabs {
+    background-color: @color-bg-white;
+    position: relative;
+
+    &::before {
+      content: '';
+      background-color: var(~'@{arco-cssvars-prefix}-color-border-2');
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    &-wrapper {
+      display: flex;
+
+      .@{prefix}-tabs-header-nav-line > .@{prefix}-tabs-header-scroll .@{prefix}-tabs-header-title:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-breadcrumb {
+    display: flex;
+    align-items: center;
+    color: @color-text-3;
+    margin-bottom: 8px;
+
+    & &-item {
+      font-size: 12px;
+      line-height: 20px;
+
+      &:hover:not(:last-child) {
+        color: @primary-6;
+      }
+
+      &:not(:last-child) {
+        cursor: pointer;
+        padding-right: 6px;
+      }
+
+      &:is(:last-child) {
+        font-weight: 500;
+        color: @color-text-2;
+      }
+    }
+
+    &-separator {
+      display: inline-flex;
+      align-items: center;
+      padding-right: 6px;
+      font-size: 16px;
+    }
+  }
+
+  &-title-area {
+    display: flex;
+    align-items: center;
+  }
+
+  &-back {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+
+    &:hover {
+      background: @color-bg-6;
+    }
+  }
+
+  & &-title {
+    color: @color-text-1;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  &-status {
+    margin-left: 12px;
+    display: flex;
+  }
+
+  &-operate-area {
+    display: flex;
+    align-items: center;
+    //TODO:后面要去掉，和OperationMenu的问题有关
+    min-height: 32px;
+  }
+
+  &-close {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+
+    &:hover {
+      background: @color-bg-6;
+    }
+  }
+}
+.@{c-m-detail-contentPrefixCls} {
+  display: block;
+  overflow: auto;
+  padding: 20px 32px;
+  background-color: @color-bg-white;
+  box-sizing: border-box;
+}

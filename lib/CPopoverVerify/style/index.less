@@ -1,0 +1,31 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-popover-verify-prefix: ~'@{cpn-prefix}-popover-verify';
+
+.@{c-m-popover-verify-prefix} {
+  &-popover {
+    max-width: 300px;
+  }
+
+  &-rule {
+    margin-bottom: 4px;
+    display: flex;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-rule-icon {
+    vertical-align: top;
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 4px;
+  }
+
+  &-rule-desc {
+    display: inline-block;
+    max-width: 244px;
+    line-height: 22px;
+  }
+}

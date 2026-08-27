@@ -1,0 +1,43 @@
+@import '../../style/variables.less';
+
+@c-m-fee-type-prefix: ~'@{cpn-prefix}-fee-type';
+
+.@{c-m-fee-type-prefix} {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.003em;
+
+  &-type {
+    color: @color-text-1;
+  }
+
+  &-detail-wait,
+  &-detail-normal {
+    color: @color-text-3;
+  }
+
+  &-detail-normal-pop-container > .@{prefix}-popover-content {
+    padding: 8px 12px;
+  }
+
+  &-detail-normal-content {
+    border-bottom: 1px @oranged-4 dashed;
+    color: @oranged-4;
+  }
+
+  &-detail-error {
+    color: @danger-6;
+  }
+
+  &-detail-changing {
+    color: @color-text-2;
+    font-weight: 500;
+
+    svg {
+      font-size: 14px;
+      margin-bottom: -3px;
+      margin-right: 4px;
+    }
+  }
+}

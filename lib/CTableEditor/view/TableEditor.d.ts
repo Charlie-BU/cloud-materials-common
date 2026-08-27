@@ -1,0 +1,21 @@
+import type { RefAttributes } from 'react';
+import React from 'react';
+import type { TableEditor as TableEditorModel } from '../model/TableEditor';
+import type { TableEditorProps } from '../types';
+import { defineConfig, defineColumn, defineColumns } from '../utils';
+import { helper } from '../helper';
+import { AddRowButton, DeleteRowButton, SubmitButton, SwitchButton, UndoButton, EditableCell } from './components';
+type TableEditorComponent = React.ForwardRefExoticComponent<TableEditorProps & RefAttributes<TableEditorModel>> & {
+    defineConfig: typeof defineConfig;
+    defineColumn: typeof defineColumn;
+    defineColumns: typeof defineColumns;
+    helper: typeof helper;
+    AddRow: typeof AddRowButton;
+    DeleteRow: typeof DeleteRowButton;
+    Submit: typeof SubmitButton;
+    Switch: typeof SwitchButton;
+    Undo: typeof UndoButton;
+    EditableCell: typeof EditableCell;
+};
+declare const TableEditor: TableEditorComponent;
+export default TableEditor;

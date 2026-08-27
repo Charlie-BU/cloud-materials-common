@@ -1,0 +1,47 @@
+/** 在这里定义统一物料库自己的全局原子样式 */
+.c-m-icon,
+.c-m-icon.arco-icon {
+  color: #42464e;
+  padding: 4px;
+  border-radius: 4px;
+  box-sizing: content-box !important;
+  font-size: 16px;
+  cursor: pointer;
+}
+.c-m-icon:not(.disabled):hover,
+.c-m-icon.arco-icon:not(.disabled):hover {
+  background-color: rgba(26, 27, 30, 0.05);
+}
+.c-m-icon.active,
+.c-m-icon.arco-icon.active {
+  color: #1664ff;
+  background-color: rgba(2, 8, 20, 0.1);
+}
+.c-m-icon:not(.disabled):active,
+.c-m-icon.arco-icon:not(.disabled):active {
+  color: #1664ff;
+  background-color: rgba(2, 8, 20, 0.1);
+}
+.c-m-icon.disabled,
+.c-m-icon.arco-icon.disabled {
+  color: #c7ccd6;
+  cursor: not-allowed;
+}
+.c-m-icon.small,
+.c-m-icon.arco-icon.small {
+  font-size: 14px;
+}
+.c-m-icon.mini,
+.c-m-icon.arco-icon.mini {
+  font-size: 12px;
+}
+.c-m-icon.large,
+.c-m-icon.arco-icon.large {
+  font-size: 20px;
+  padding: 6px;
+}
+.c-m-icon.huge,
+.c-m-icon.arco-icon.huge {
+  font-size: 24px;
+  padding: 6px;
+}

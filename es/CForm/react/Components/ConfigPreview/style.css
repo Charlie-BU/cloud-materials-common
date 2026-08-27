@@ -1,0 +1,39 @@
+.c-m-cform-preview {
+  width: 100%;
+  border-bottom: 1px solid #eaedf1;
+}
+.c-m-cform-preview-item-title {
+  margin-bottom: 10px;
+  font-family: 'PingFang SC';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.003em;
+  color: #0c0d0e;
+  order: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.c-m-cform-preview-item-title span {
+  display: inline-block;
+  height: 22px;
+}
+.c-m-cform-preview-item:first-child {
+  margin-top: 0;
+}
+.c-m-cform-preview-item:not(:last-child) {
+  border-bottom: 1px solid #eaedf1;
+}
+.c-m-cform-preview-item-detail .arco-descriptions-item-label,
+.c-m-cform-preview-item-detail .arco-descriptions-item-value {
+  padding: 0 4px 8px 0;
+  vertical-align: top;
+}
+.c-m-cform-preview-item-detail .arco-descriptions-item-label {
+  color: #737a87;
+  font-weight: 400;
+  font-size: 12px;
+}
+.c-m-cform-preview-item-detail .arco-descriptions-item-value {
+  font-size: 12px;
+}

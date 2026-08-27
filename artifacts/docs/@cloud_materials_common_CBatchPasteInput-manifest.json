@@ -1,0 +1,577 @@
+{
+  "doclets": [
+    {
+      "filePath": "CBatchPasteInput/interface.ts",
+      "name": "CBatchPasteInputProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "defaultValue",
+          "type": "[CBatchPasteInputValueType](#CBatchPasteInputValueType)[]",
+          "required": false,
+          "description": "默认值"
+        },
+        {
+          "name": "separator",
+          "type": "[SeparatorType](#SeparatorType)",
+          "required": false,
+          "description": "自定义分隔符"
+        },
+        {
+          "name": "validatorMode",
+          "type": "[ValidatorModeType](#ValidatorModeType)",
+          "required": false,
+          "description": "预设校验规则"
+        },
+        {
+          "name": "tagValidator",
+          "type": "(value: any) => boolean",
+          "required": false,
+          "description": "自定义校验，传递该参数后覆盖validateorMode\n基于Arco InputTagProps的renderTag属性设计自定义校验，传参中的value和renderTag中的value保持一致\n校验通过，渲染正常颜色的tag；校验失败，渲染error状态的tag"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[], reason: ValueChangeReason) => void",
+          "required": false,
+          "description": "控件值改变时触发"
+        },
+        {
+          "name": "onSplit",
+          "type": "(addedValue: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[], // 粘贴事件或输入事件新增的标签组valueBeforeAdd: CBatchPasteInputValueType[], // 粘贴或输入前 的标签组valueAfterAdd: CBatchPasteInputValueType[], // 融合（去重）后的标签组) => void",
+          "required": false,
+          "description": "发生切割时的回调用。当 粘贴 或 输入的字符中包含分割符 时，会触发onSplit事件"
+        },
+        {
+          "name": "arcoTagProps",
+          "type": "| Omit<[TagProps](#TagProps), 'closable' | 'onClose'>| ((options: {value: [CBatchPasteInputValueType](#CBatchPasteInputValueType);values: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[];tagIndex: number;}) => Omit<[TagProps](#TagProps), 'closable' | 'onClose'>)",
+          "required": false,
+          "description": "透传 Arco.Tag"
+        },
+        {
+          "name": "tagTips",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "鼠标悬浮 tag 标签的提示"
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'small' | 'default' | 'large'",
+          "required": false,
+          "description": "不同尺寸"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "预设文案"
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": false,
+          "description": "是否是错误状态.(废弃，下个大版本移除，使用 status='error' 替代)"
+        },
+        {
+          "name": "status",
+          "type": "'error' | 'warning'",
+          "required": false,
+          "description": "状态",
+          "version": "2.45.0"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "自动聚焦"
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "required": false,
+          "description": "是否只读"
+        },
+        {
+          "name": "allowClear",
+          "type": "boolean",
+          "required": false,
+          "description": "是否允许清除"
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "required": false,
+          "description": "是否为内部标签变化添加动画。",
+          "defaultValue": "true",
+          "version": "2.15.0"
+        },
+        {
+          "name": "saveOnBlur",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在失焦时自动存储正在输入的文本",
+          "version": "2.25.0"
+        },
+        {
+          "name": "inputValue",
+          "type": "string",
+          "required": false,
+          "description": "控件的输入框内的值"
+        },
+        {
+          "name": "labelInValue",
+          "type": "boolean",
+          "required": false,
+          "description": "设置传入和回调出的值均为 `{ label: '', value: ''}` 格式。"
+        },
+        {
+          "name": "dragToSort",
+          "type": "boolean",
+          "required": false,
+          "description": "是否可以通过拖拽为 Tag 排序",
+          "version": "2.27.0"
+        },
+        {
+          "name": "maxTagCount",
+          "type": "number | 'responsive' | {count: number | 'responsive';render?: (invisibleTagCount: number, value: T[]) => ReactNode;popoverProps?: Partial<[PopoverProps](#PopoverProps)>;}",
+          "required": false,
+          "description": "最多显示多少个 `tag`",
+          "version": "2.59.0. `responsive ` in `2.62.0`"
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "添加前缀文字或者图标",
+          "version": "2.47.0"
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "addBefore",
+          "type": "ReactNode",
+          "required": false,
+          "description": "输入框前添加元素",
+          "version": "2.47.0"
+        },
+        {
+          "name": "addAfter",
+          "type": "ReactNode",
+          "required": false,
+          "description": "输入框后添加元素",
+          "version": "2.47.0"
+        },
+        {
+          "name": "icon",
+          "type": "{removeIcon?: ReactNode;clearIcon?: ReactNode;}",
+          "required": false,
+          "description": "自定义图标"
+        },
+        {
+          "name": "tokenSeparators",
+          "type": "string[]",
+          "required": false,
+          "description": "触发自动分词的分隔符",
+          "version": "2.44.0"
+        },
+        {
+          "name": "validate",
+          "type": "(inputValue: string, values: T[]) => boolean | Promise<boolean> | T | Promise<T>",
+          "required": false,
+          "description": "校验函数，默认在 按下enter时候触发。",
+          "defaultValue": "(inputValue, values) => inputValue && values.every((item) => item !== inputValue)",
+          "version": "return type T and `Promise<T>` in 2.37.0"
+        },
+        {
+          "name": "renderTag",
+          "type": "(props: {value: any;label: ReactNode;closable: boolean;onClose: (event: any) => void;}, index: number, values: ObjectValueType[]) => ReactNode",
+          "required": false,
+          "description": "自定义标签渲染，`props` 为当前标签属性，`index` 为当前标签的顺序，`values` 为所有标签的值.",
+          "version": "index、values added in 2.15.0"
+        },
+        {
+          "name": "onRemove",
+          "type": "(value: T, index: number, event: any) => void",
+          "required": false,
+          "description": "移除某一个标签时改变时触发"
+        },
+        {
+          "name": "onBlur",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "失去焦点时候触发"
+        },
+        {
+          "name": "onFocus",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "聚焦时触发"
+        },
+        {
+          "name": "onPressEnter",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "按 enter 键触发"
+        },
+        {
+          "name": "onInputChange",
+          "type": "(inputValue: string, event?: any) => void",
+          "required": false,
+          "description": "输入框文本改变的回调。"
+        },
+        {
+          "name": "onKeyDown",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "键盘事件回调"
+        },
+        {
+          "name": "onPaste",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "输入框文本粘贴的回调。"
+        },
+        {
+          "name": "onClear",
+          "type": "() => void",
+          "required": false,
+          "description": "点击清除按钮的回调",
+          "version": "2.20.0"
+        },
+        {
+          "name": "onClick",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "单击组件的回调。"
+        }
+      ]
+    },
+    {
+      "filePath": "CBatchPasteInput/interface.ts",
+      "name": "SeparatorType",
+      "type": null,
+      "properties": [
+        {
+          "name": "customSeparator",
+          "type": "RegExp",
+          "required": true,
+          "description": "用户自定义分隔符"
+        },
+        {
+          "name": "coverPresetSeparator",
+          "type": "boolean",
+          "required": false,
+          "description": "自定义分隔符是否覆盖预设分隔符",
+          "defaultValue": "false"
+        }
+      ]
+    },
+    {
+      "filePath": "CBatchPasteInput/interface.ts",
+      "name": "useCBatchPasteInputProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "defaultValue",
+          "type": "[CBatchPasteInputValueType](#CBatchPasteInputValueType)[]",
+          "required": false,
+          "description": "默认值"
+        },
+        {
+          "name": "separator",
+          "type": "[SeparatorType](#SeparatorType)",
+          "required": false,
+          "description": "自定义分隔符"
+        },
+        {
+          "name": "validatorMode",
+          "type": "[ValidatorModeType](#ValidatorModeType)",
+          "required": false,
+          "description": "预设校验规则"
+        },
+        {
+          "name": "tagValidator",
+          "type": "(value: any) => boolean",
+          "required": false,
+          "description": "自定义校验，传递该参数后覆盖validateorMode\n基于Arco InputTagProps的renderTag属性设计自定义校验，传参中的value和renderTag中的value保持一致\n校验通过，渲染正常颜色的tag；校验失败，渲染error状态的tag"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[], reason: ValueChangeReason) => void",
+          "required": false,
+          "description": "控件值改变时触发"
+        },
+        {
+          "name": "onSplit",
+          "type": "(addedValue: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[], // 粘贴事件或输入事件新增的标签组valueBeforeAdd: CBatchPasteInputValueType[], // 粘贴或输入前 的标签组valueAfterAdd: CBatchPasteInputValueType[], // 融合（去重）后的标签组) => void",
+          "required": false,
+          "description": "发生切割时的回调用。当 粘贴 或 输入的字符中包含分割符 时，会触发onSplit事件"
+        },
+        {
+          "name": "arcoTagProps",
+          "type": "| Omit<[TagProps](#TagProps), 'closable' | 'onClose'>| ((options: {value: [CBatchPasteInputValueType](#CBatchPasteInputValueType);values: [CBatchPasteInputValueType](#CBatchPasteInputValueType)[];tagIndex: number;}) => Omit<[TagProps](#TagProps), 'closable' | 'onClose'>)",
+          "required": false,
+          "description": "透传 Arco.Tag"
+        },
+        {
+          "name": "tagTips",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "鼠标悬浮 tag 标签的提示"
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'small' | 'default' | 'large'",
+          "required": false,
+          "description": "不同尺寸"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "预设文案"
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "required": false,
+          "description": "是否是错误状态.(废弃，下个大版本移除，使用 status='error' 替代)"
+        },
+        {
+          "name": "status",
+          "type": "'error' | 'warning'",
+          "required": false,
+          "description": "状态",
+          "version": "2.45.0"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "description": "自动聚焦"
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean",
+          "required": false,
+          "description": "是否只读"
+        },
+        {
+          "name": "allowClear",
+          "type": "boolean",
+          "required": false,
+          "description": "是否允许清除"
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "required": false,
+          "description": "是否为内部标签变化添加动画。",
+          "defaultValue": "true",
+          "version": "2.15.0"
+        },
+        {
+          "name": "saveOnBlur",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在失焦时自动存储正在输入的文本",
+          "version": "2.25.0"
+        },
+        {
+          "name": "inputValue",
+          "type": "string",
+          "required": false,
+          "description": "控件的输入框内的值"
+        },
+        {
+          "name": "labelInValue",
+          "type": "boolean",
+          "required": false,
+          "description": "设置传入和回调出的值均为 `{ label: '', value: ''}` 格式。"
+        },
+        {
+          "name": "dragToSort",
+          "type": "boolean",
+          "required": false,
+          "description": "是否可以通过拖拽为 Tag 排序",
+          "version": "2.27.0"
+        },
+        {
+          "name": "maxTagCount",
+          "type": "number | 'responsive' | {count: number | 'responsive';render?: (invisibleTagCount: number, value: T[]) => ReactNode;popoverProps?: Partial<[PopoverProps](#PopoverProps)>;}",
+          "required": false,
+          "description": "最多显示多少个 `tag`",
+          "version": "2.59.0. `responsive ` in `2.62.0`"
+        },
+        {
+          "name": "prefix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "添加前缀文字或者图标",
+          "version": "2.47.0"
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "后缀"
+        },
+        {
+          "name": "addBefore",
+          "type": "ReactNode",
+          "required": false,
+          "description": "输入框前添加元素",
+          "version": "2.47.0"
+        },
+        {
+          "name": "addAfter",
+          "type": "ReactNode",
+          "required": false,
+          "description": "输入框后添加元素",
+          "version": "2.47.0"
+        },
+        {
+          "name": "icon",
+          "type": "{removeIcon?: ReactNode;clearIcon?: ReactNode;}",
+          "required": false,
+          "description": "自定义图标"
+        },
+        {
+          "name": "tokenSeparators",
+          "type": "string[]",
+          "required": false,
+          "description": "触发自动分词的分隔符",
+          "version": "2.44.0"
+        },
+        {
+          "name": "validate",
+          "type": "(inputValue: string, values: T[]) => boolean | Promise<boolean> | T | Promise<T>",
+          "required": false,
+          "description": "校验函数，默认在 按下enter时候触发。",
+          "defaultValue": "(inputValue, values) => inputValue && values.every((item) => item !== inputValue)",
+          "version": "return type T and `Promise<T>` in 2.37.0"
+        },
+        {
+          "name": "renderTag",
+          "type": "(props: {value: any;label: ReactNode;closable: boolean;onClose: (event: any) => void;}, index: number, values: ObjectValueType[]) => ReactNode",
+          "required": false,
+          "description": "自定义标签渲染，`props` 为当前标签属性，`index` 为当前标签的顺序，`values` 为所有标签的值.",
+          "version": "index、values added in 2.15.0"
+        },
+        {
+          "name": "onRemove",
+          "type": "(value: T, index: number, event: any) => void",
+          "required": false,
+          "description": "移除某一个标签时改变时触发"
+        },
+        {
+          "name": "onBlur",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "失去焦点时候触发"
+        },
+        {
+          "name": "onFocus",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "聚焦时触发"
+        },
+        {
+          "name": "onPressEnter",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "按 enter 键触发"
+        },
+        {
+          "name": "onInputChange",
+          "type": "(inputValue: string, event?: any) => void",
+          "required": false,
+          "description": "输入框文本改变的回调。"
+        },
+        {
+          "name": "onKeyDown",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "键盘事件回调"
+        },
+        {
+          "name": "onPaste",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "输入框文本粘贴的回调。"
+        },
+        {
+          "name": "onClear",
+          "type": "() => void",
+          "required": false,
+          "description": "点击清除按钮的回调",
+          "version": "2.20.0"
+        },
+        {
+          "name": "onClick",
+          "type": "(e: any) => void",
+          "required": false,
+          "description": "单击组件的回调。"
+        }
+      ]
+    },
+    {
+      "filePath": "CBatchPasteInput/interface.ts",
+      "name": "CBatchPasteInputValueType",
+      "type": "export type CBatchPasteInputValueType = string | number | ObjectValueType;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CBatchPasteInput/interface.ts",
+      "name": "ValidatorModeType",
+      "type": "export type ValidatorModeType = 'v4' | 'v6' | 'v4v6' | 'v4cidr' | 'v6cidr' | 'v4v6cidr' | 'whitelistIp';\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React from 'react';\nimport { CBatchPasteInput, CCopy, Message } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <>\n      <span>\n        粘贴文本到输入框中 <CCopy>hello,my name is batchpaste</CCopy>\n      </span>\n      <CBatchPasteInput\n        className={'custome-class'}\n        defaultValue={['hello']}\n        style={{ width: 400, height: 100 }}\n        onSplit={(addedValue, valueBeforePaste) => {\n          console.log('onSplit被调用了');\n          const repeatedValue = addedValue.filter(item => valueBeforePaste.includes(item)) as string[];\n          if (repeatedValue.length) {\n            Message.info({\n              content: '已去除重复值：' + repeatedValue.join(),\n              duration: 500,\n            });\n          }\n        }}\n        onChange={v => {\n          console.log('onChange事件', v);\n        }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBatchPasteInput, CCopy } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <>\n      <span>\n        覆盖默认分隔符<CCopy>hello,test;log hh 和，，,log</CCopy>\n      </span>\n      <CBatchPasteInput separator={{ customSeparator: /;/g, coverPresetSeparator: true }} />\n      <span>\n        追加分隔符<CCopy>hello,test;log hh 和，，,log</CCopy>\n      </span>\n      <CBatchPasteInput separator={{ customSeparator: /;/g, coverPresetSeparator: false }} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBatchPasteInput } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <>\n      <h4>预设校验：指定validatorMode=v4，校验输入是否为ipv4格式，校验失败的tag将被标红</h4>\n      <CBatchPasteInput\n        defaultValue={['192.168.0.1', '256.156.0.6', '12.12.33.0/33', '12.12.33.0/12']}\n        validatorMode=\"v4\"\n        placeholder=\"输入合法的ipv4\"\n      />\n      <h4>自定义校验：通过tagValidator自定义校验规则</h4>\n      <CBatchPasteInput\n        defaultValue={['hi', 'word']}\n        tagValidator={value => {\n          if (value.length < 3) {\n            return false;\n          }\n          return true;\n        }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBatchPasteInput, Tag } from '@cloud-materials/common';\n\nexport default () => {\n  function tagRender(props: { value: any; label: React.ReactNode; closable: boolean; onClose: (event: any) => void }) {\n    const { label, value, closable, onClose } = props;\n    return (\n      <Tag\n        color={['arcoblue', 'orange', 'lime'].indexOf(value) > -1 ? value : 'gray'}\n        closable={closable}\n        onClose={onClose}\n        style={{ margin: '2px 6px 2px 0' }}\n      >\n        {label}\n      </Tag>\n    );\n  }\n  return (\n    <>\n      <h4>\n        用法同Arco InputTag的renderTag属性，使用该属性将覆盖tagValidator的自定义校验能力和validatorMode的预设校验能力\n      </h4>\n      <CBatchPasteInput defaultValue={['arcoblue', 'orange', 'lime']} renderTag={tagRender} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CBatchPasteInput, CCopy, Form, Button, Message } from '@cloud-materials/common';\nimport { isLegalIp } from '../utils';\n\nconst FormItem = Form.Item;\n\nexport default () => {\n  const [form] = Form.useForm();\n  return (\n    <>\n      <Form form={form} autoComplete=\"off\" style={{ width: 600 }}>\n        <FormItem label=\"copy\" field=\"copy\">\n          粘贴这段话到下面的输入框\n          <CCopy>10.255.255.253/24 172.255.10.1/33 172.255.10.1 172.255.255.253/24</CCopy>\n        </FormItem>\n        <FormItem\n          label=\"校验v4cidr\"\n          field=\"v4cidr\"\n          placeholder=\"请输入合法的v4cidr\"\n          initialValue={['10.255.255.253/24', '172.255.10.1/33']}\n          rules={[\n            {\n              validator(value, cb) {\n                const res = value?.find(item => {\n                  return !isLegalIp(item, 'v4cidr');\n                });\n                if (res) {\n                  return cb(`发现错误IP地址，请再次检查IP地址格式,当前value的值是:${JSON.stringify(value)}`);\n                }\n                cb();\n              },\n            },\n          ]}\n        >\n          <CBatchPasteInput\n            validatorMode=\"v4cidr\"\n            onChange={v => {\n              console.log('触发CBatchPasteInput的onChange，value:', v);\n            }}\n          />\n        </FormItem>\n        <FormItem\n          label=\"自定义校验规则\"\n          field=\"selfValidate\"\n          initialValue={[\n            { label: 'hello', value: 'hello' },\n            { label: 'hi', value: 'hi' },\n            { label: 'world', value: 'world' },\n          ]}\n          rules={[\n            {\n              validator(value, cb) {\n                const res = value?.find(item => {\n                  return item.value.length < 3;\n                });\n                if (res) {\n                  return cb(`发现长度小于3的输入值,当前value的值为:${JSON.stringify(value)}`);\n                }\n                cb();\n              },\n            },\n          ]}\n        >\n          <CBatchPasteInput\n            labelInValue\n            placeholder=\"value长度需要大于3\"\n            tagValidator={value => {\n              if (value.length < 3) {\n                return false;\n              }\n              return true;\n            }}\n            onChange={v => {\n              console.log('触发onChange，value:', v);\n            }}\n          />\n        </FormItem>\n        <FormItem wrapperCol={{ offset: 5 }}>\n          <Button\n            type=\"primary\"\n            onClick={async () => {\n              try {\n                await form.validate();\n                Message.success('校验通过');\n              } catch (e) {\n                Message.error('校验失败');\n              }\n            }}\n            style={{ marginRight: 24 }}\n          >\n            Validate Form\n          </Button>\n          <Button\n            style={{ marginRight: 24 }}\n            onClick={() => {\n              form.resetFields();\n            }}\n          >\n            Reset\n          </Button>\n        </FormItem>\n      </Form>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useRef } from 'react';\nimport type { CBatchPasteInputProps } from '@cloud-materials/common';\nimport { CForm, CBatchPasteInput, Message, CModal, Button } from '@cloud-materials/common';\nimport type { CForm as CFormType } from '@cloud-materials/common/es/CForm';\n\nconst ipValidator = (options: { ip: string }) => {\n  const { ip } = options;\n  const illegalIpList = ['0.0.0.0', '255.255.255.255'];\n  if (illegalIpList.includes(ip)) return false;\n  return true;\n};\n\nexport default () => {\n  const form = useRef<CFormType>();\n\n  const config = CForm.defineConfig({\n    formLayout: {\n      labelWidth: 200,\n    },\n    fields: [\n      {\n        name: 'required_1',\n        title: '输入IP',\n        initialValue: ['1.1.1.1'],\n        decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n        required: true,\n        componentOptions: CForm.defineComponentOption(({ value: totalValues, onChange }) => {\n          const props: CBatchPasteInputProps = {\n            value: totalValues,\n            onChange,\n            allowClear: true,\n            validatorMode: 'whitelistIp' as const,\n            placeholder: '请输入IP地址或地址段',\n            // 校验规则form和tag的颜色及校验状态保持一致\n            tagValidator: (value: string) => {\n              return ipValidator({ ip: value });\n            },\n            onSplit(addedValue, valueBeforeAdd, valueAfterAdd) {\n              const finalAddedLength = valueAfterAdd.length - valueBeforeAdd.length;\n              const duplicatedLength = addedValue.length - finalAddedLength;\n              duplicatedLength > 0 && Message.warning(`重复的 ${duplicatedLength} 个IP地址已为您自动清除，请检查`);\n            },\n            // * validate适用于单个输入，按回车的情况，不会触发onSplit\n            validate(inputValue, values: { value: string }[]) {\n              const isDuplicated = values.some(item => item.value === inputValue);\n              isDuplicated && Message.warning('当前IP地址输入重复，请检查');\n              return inputValue && values.every(item => item.value !== inputValue);\n            },\n            tagTips: '双击可编辑',\n            arcoTagProps({ tagIndex }) {\n              return {\n                style: { cursor: 'pointer' },\n                onDoubleClick() {\n                  CModal.openForm({\n                    title: '编辑IP',\n                    formConfig: {\n                      fields: [\n                        {\n                          name: 'ip',\n                          title: 'IP',\n                          decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n                          componentOptions: CForm.defineComponentOption('Input'),\n                          initialValue: totalValues[tagIndex],\n                          required: true,\n                          rules: [\n                            {\n                              validator: ({ value, callback }) => {\n                                if (!ipValidator({ ip: value })) {\n                                  return callback('请输入合法的IP地址或地址段');\n                                }\n                                const duplicatedIndex = totalValues?.findIndex((item: string) => item === value);\n                                if (duplicatedIndex > -1 && duplicatedIndex !== tagIndex) {\n                                  return callback('IP地址或地址段重复，请检查');\n                                }\n                                callback();\n                              },\n                            },\n                          ],\n                        },\n                      ],\n                    },\n                    onOk(values) {\n                      totalValues[tagIndex] = values.ip;\n                      onChange([...totalValues]);\n                    },\n                  });\n                },\n              };\n            },\n          };\n          return <CBatchPasteInput {...props} />;\n        }),\n      },\n    ],\n  });\n\n  return (\n    <div style={{ width: '100%', maxHeight: 1500, overflow: 'auto' }}>\n      <CForm config={config} defaultDecoratorProps={{ isFullPage: false }} ref={form} />\n      <Button\n        type=\"primary\"\n        onClick={() => {\n          form.current?.submit(values => {\n            console.log('submit values', values);\n          });\n        }}\n      >\n        提交\n      </Button>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "",
+      "language": ""
+    }
+  ],
+  "extraDocs": []
+}

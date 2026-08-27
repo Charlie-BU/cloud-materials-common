@@ -1,0 +1,67 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-guide-prefix: ~'@{cpn-prefix}-guide';
+// 💥 变量声明尽量带上c-m前缀，避免存量项目接入时变量名冲突
+
+.@{c-m-guide-prefix} {
+  display: flex;
+  min-width: 1000px;
+  border-radius: 8px;
+  transition: all 0.2s linear;
+  overflow: hidden;
+  opacity: 1;
+
+  &-step-item {
+    flex: 1;
+    background: @color-bg-3;
+    padding: 20px 24px;
+    box-sizing: border-box;
+
+    &-title {
+      line-height: 24px;
+
+      &-index {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 23px;
+        display: inline-block;
+        margin-right: 4px
+      }
+
+      &-text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &-introduction {
+      color: @color-text-3;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      margin: 12px 0;
+    }
+  }
+
+  &-fold-btn-isFold {
+    transition: all 0.1s ease-in;
+  }
+}
+
+.@{c-m-guide-prefix}-btn-wrapper {
+  .@{c-m-guide-prefix}-fold-btn {
+    padding: 0;
+    cursor: pointer;
+
+    svg {
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    span {
+      font-size: 13px;
+    }
+  }
+}

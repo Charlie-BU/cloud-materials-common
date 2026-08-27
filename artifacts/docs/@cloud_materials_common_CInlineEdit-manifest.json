@@ -1,0 +1,186 @@
+{
+  "doclets": [
+    {
+      "filePath": "CInlineEdit/interface.ts",
+      "name": "CInlineEditProps\n全局配置参数",
+      "type": null,
+      "properties": []
+    },
+    {
+      "filePath": "CInlineEdit/interface.ts",
+      "name": "CInlineEditProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "value",
+          "type": "T",
+          "required": true,
+          "description": "展示值，并且会用作编辑模式下的初始值",
+          "defaultValue": "T 默认是 string 类型"
+        },
+        {
+          "name": "renderFormat",
+          "type": "(value: T) => ReactNode",
+          "required": false,
+          "description": "自定义渲染展示值"
+        },
+        {
+          "name": "field",
+          "type": "[DefineBuiltInBasicType](#DefineBuiltInBasicType)<BuiltInCpnType>",
+          "required": false,
+          "description": "内置表单渲染组件，支持 Input,InputNumber,Textarea,Select"
+        },
+        {
+          "name": "emptyData",
+          "type": "string",
+          "required": false,
+          "description": "当 value 为 falsy 时，展示该值"
+        },
+        {
+          "name": "CEllipsisProps",
+          "type": "Partial<Omit<[CEllipsisProps](#CEllipsisProps), 'children' | 'content'>>",
+          "required": false,
+          "description": "透传 CEllipsis 组件"
+        },
+        {
+          "name": "showEditIcon",
+          "type": "boolean",
+          "required": false,
+          "description": "是否展示编辑按钮"
+        },
+        {
+          "name": "children",
+          "type": "ReactElement | ((params: { value: T; onChange: (value: T) => void }) => ReactElement)",
+          "required": false,
+          "description": "自定义渲染组件"
+        },
+        {
+          "name": "bizType",
+          "type": "string",
+          "required": false,
+          "description": "业务类型"
+        },
+        {
+          "name": "operationButton",
+          "type": "{btnType: 'icon' | 'text';submitText?: string;cancelText?: string;}",
+          "required": false,
+          "description": "操作按钮配置"
+        },
+        {
+          "name": "initEditable",
+          "type": "boolean",
+          "required": false,
+          "description": "是否默认在编辑态"
+        },
+        {
+          "name": "onSubmit",
+          "type": "(value: T) => void",
+          "required": true,
+          "description": "提交回调事件"
+        },
+        {
+          "name": "onCancel",
+          "type": "() => void",
+          "required": false,
+          "description": "取消回调事件"
+        },
+        {
+          "name": "arcoPopoverProps",
+          "type": "Partial<[PopoverProps](#PopoverProps)>",
+          "required": false,
+          "description": "透传 Arco.Popover"
+        },
+        {
+          "name": "options",
+          "type": "[SelectProps](#SelectProps)['options']",
+          "required": false,
+          "description": "Select 下的可选项"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "是否禁用"
+        },
+        {
+          "name": "disabledTips",
+          "type": "string",
+          "required": false,
+          "description": "禁用提示文案"
+        },
+        {
+          "name": "asyncValidator",
+          "type": "(value: T) => Promise<string> | void",
+          "required": false,
+          "description": "异步校验函数"
+        },
+        {
+          "name": "enableAsyncValidateWhenBlur",
+          "type": "boolean",
+          "required": false,
+          "description": "是否在失去焦点时进行异步校验",
+          "defaultValue": "false"
+        },
+        {
+          "name": "editTips",
+          "type": "string",
+          "required": false,
+          "description": "编辑 Icon 的提示文案"
+        },
+        {
+          "name": "rules",
+          "type": "[CPopoverVerifyProps](#CPopoverVerifyProps)['rules']",
+          "required": false,
+          "description": "校验规则"
+        },
+        {
+          "name": "suffix",
+          "type": "ReactNode",
+          "required": false,
+          "description": "EditIcon 之后的自定义 UI"
+        }
+      ]
+    },
+    {
+      "filePath": "CInlineEdit/interface.ts",
+      "name": "DefineBuiltInBasicType",
+      "type": "/**\n *\n * 仅对象形式的联合类型，不能传入其他类型\n */\nexport type DefineBuiltInBasicType<T extends ComponentsMap> = ToConfigUnionType<T>;\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit } from '@cloud-materials/common';\n\nfunction sleep(ms: number) {\n  return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nexport default () => {\n  const [value, setValue] = useState('向风而行');\n  const onSubmit = async (result: string) => {\n    await sleep(2000);\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit editTips=\"提示文案\" onSubmit={onSubmit} value={value} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit, Space, Typography } from '@cloud-materials/common';\n\nconst options = ['你站在桥上看风景', '看风景的人在楼上看你', '明月装饰了你的窗子', '你装饰了别人的梦'];\n\nexport default () => {\n  const [numberValue, setNumberValue] = useState(123);\n  const [textareaValue, setTextareaValue] = useState('向风而行');\n  const [selectValue, setSelectValue] = useState('你站在桥上看风景');\n\n  return (\n    <Space direction=\"vertical\">\n      <Typography.Title heading={3}>Input Number</Typography.Title>\n      <CInlineEdit value={numberValue} onSubmit={setNumberValue} field={{ component: 'InputNumber' }} />\n      <Typography.Title heading={3}>Textarea</Typography.Title>\n      <CInlineEdit value={textareaValue} onSubmit={setTextareaValue} field={{ component: 'TextArea' }} />\n      <Typography.Title heading={3}>Select</Typography.Title>\n      <CInlineEdit\n        value={selectValue}\n        onSubmit={setSelectValue}\n        field={{ component: 'Select', componentProps: { options } }}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit } from '@cloud-materials/common';\n\nfunction sleep(ms: number) {\n  return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nexport default () => {\n  const [value, setValue] = useState('向风而行');\n  const onSubmit = async (result: string) => {\n    await sleep(2000);\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit disabled onSubmit={onSubmit} value={value} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit } from '@cloud-materials/common';\n\nfunction sleep(ms: number) {\n  return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nexport default () => {\n  const [value, setValue] = useState('向风而行');\n\n  const onSubmit = async (result: string) => {\n    await sleep(2000);\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit\n        rules={[\n          {\n            required: true,\n            message: '请输入实例名称',\n          },\n          {\n            message: '长度需要在2-128个字符内',\n            minLength: 2,\n            maxLength: 128,\n          },\n        ]}\n        onSubmit={onSubmit}\n        value={value}\n        operationButton={{ btnType: 'text' }}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit, Radio } from '@cloud-materials/common';\n\nconst RadioGroup = Radio.Group;\n\nconst options = [\n  {\n    label: '上海',\n    value: 'shanghai',\n  },\n  {\n    label: '成都',\n    value: 'chengdu',\n  },\n  {\n    label: '杭州',\n    value: 'hangzhou',\n  },\n];\n\nexport default () => {\n  const [value, setValue] = useState('shanghai');\n  const onSubmit = async (result: string) => {\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit onSubmit={onSubmit} value={value}>\n        <RadioGroup style={{ width: 240 }} options={options} />\n      </CInlineEdit>\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit } from '@cloud-materials/common';\n\nexport default () => {\n  CInlineEdit.config({\n    name: {\n      emptyData: '暂无名称',\n      rules: [\n        {\n          validator(value: string | undefined, cb) {\n            if (value?.includes('a')) {\n              return cb('实例名称中不能包含a字符');\n            }\n            return cb();\n          },\n          message: '实例名称中不能包含a字符',\n        },\n      ],\n    },\n  });\n\n  const [value, setValue] = useState('向风而行');\n  const onSubmit = async (result: string) => {\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit bizType=\"name\" onSubmit={onSubmit} value={value} />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit } from '@cloud-materials/common';\n\nfunction sleep(ms: number) {\n  return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nexport default () => {\n  const [value, setValue] = useState('向风而行');\n\n  const onSubmit = async (result: string) => {\n    await sleep(2000);\n    setValue(result);\n  };\n\n  const asyncValidate = async () => {\n    await sleep(2000);\n    return '配置异步校验 onBlur 触发，且永不通过';\n  };\n\n  return (\n    <>\n      <CInlineEdit\n        rules={[\n          {\n            required: true,\n            message: '请输入实例名称',\n          },\n          {\n            message: '长度需要在2-128个字符内',\n            minLength: 2,\n            maxLength: 128,\n          },\n        ]}\n        enableAsyncValidateWhenBlur\n        onSubmit={onSubmit}\n        value={value}\n        asyncValidator={asyncValidate}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CInlineEdit, IconApps, IconArchive } from '@cloud-materials/common';\n\nfunction sleep(ms: number) {\n  return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nexport default () => {\n  const [value, setValue] = useState('向风而行');\n  const onSubmit = async (result: string) => {\n    await sleep(2000);\n    setValue(result);\n  };\n\n  return (\n    <>\n      <CInlineEdit\n        value={value}\n        editTips=\"提示文案\"\n        onSubmit={onSubmit}\n        CEllipsisProps={{ suffix: <IconArchive /> }}\n        suffix={<IconApps />}\n      />\n    </>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

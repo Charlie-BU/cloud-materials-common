@@ -1,0 +1,31 @@
+@import (reference) '../../../style/index.less';
+
+@load-more-prefix: ~'@{prefixCTable}-load-more';
+
+.@{load-more-prefix} {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: @color-bg-white;
+
+  .no-more-data {
+    color: @color-text-3;
+  }
+
+  .load-more-error {
+    span:first-child {
+      color: @color-text-3;
+      margin-right: 6px;
+    }
+
+    span:last-child {
+      color: @color-primary-6;
+      cursor: pointer;
+    }
+  }
+
+  .click-load-more {
+    color: @color-primary-6;
+    cursor: pointer;
+  }
+}

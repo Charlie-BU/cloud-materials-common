@@ -1,0 +1,76 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-collapse-prefix: ~'@{cpn-prefix}-collapse';
+
+.@{c-m-collapse-prefix} {
+  &-text {
+    word-break: break-all;
+    line-break: anywhere;
+    font-size: @font-size-body-1;
+    position: relative;
+
+    .@{c-m-collapse-prefix}-operation {
+      margin: 2px 0;
+    }
+  }
+
+  &-text-container,
+  &-group-container {
+    position: relative;
+
+    &.over {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        pointer-events: none;
+        background: linear-gradient(transparent, 90%, rgba(204, 206, 208, 50%));
+      }
+    }
+  }
+
+  &-text-ellipsis {
+    line-break: auto;
+  }
+
+  &-group-content {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  &-group-item {
+    margin: 0 4px 4px 0;
+  }
+
+  &-group-popover-content {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 14px;
+    position: relative;
+    .@{prefix}-group-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-group-popover {
+    .@{prefix}-popover-content {
+      padding: 0;
+    }
+  }
+
+  &-operation {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 4px;
+    color: @primary-6;
+    cursor: pointer;
+    font-size: @font-size-body-1;
+  }
+
+  &-suffix {
+    margin-left: 4px;
+  }
+}

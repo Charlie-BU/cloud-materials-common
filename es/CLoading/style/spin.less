@@ -1,0 +1,10 @@
+@import (reference) '../../style/variables.less';
+
+@prefixSpinCls: ~'@{cpn-prefix}-spin';
+
+.@{prefixSpinCls} {
+  //  覆盖 Arco Spin layer
+  .@{prefix}-spin-children::after {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}

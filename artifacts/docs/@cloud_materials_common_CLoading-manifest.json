@@ -1,0 +1,224 @@
+{
+  "doclets": [
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "CLoadingProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "type",
+          "type": "[CLoadingType](#CLoadingType)",
+          "required": false,
+          "description": "对应 `行内`、`块级`、`页面级` 不同层级的默认缺省占位及 loading 表现",
+          "defaultValue": "inline"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "是否展示加载状态",
+          "defaultValue": "false"
+        },
+        {
+          "name": "hasError",
+          "type": "boolean",
+          "required": false,
+          "description": "loading 是否出错，如果出错会展示占位元素",
+          "defaultValue": "false"
+        },
+        {
+          "name": "fallback",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义缺省占位，默认情况下  CLoading 组件已经根据不同的 `type` 给出了对应的占位 UI，\n可以使用该属性自定义缺省占位"
+        },
+        {
+          "name": "onReload",
+          "type": "() => void",
+          "required": false,
+          "description": "传给缺省占位使用的重试方法，如果自定义了 `fallback` 属性则可以不传"
+        },
+        {
+          "name": "isBlock",
+          "type": "boolean",
+          "required": false,
+          "description": "容器包含 children 时默认是 inline-block 布局，当你需要撑满父级容器时，可以设置 isBlock={true}"
+        },
+        {
+          "name": "cSpinProps",
+          "type": "[CSpinProps](#CSpinProps)",
+          "required": false,
+          "description": "透传给 CSpin 的参数"
+        },
+        {
+          "name": "cResultProps",
+          "type": "[CResultProps](#CResultProps)",
+          "required": false,
+          "description": "透传给 CResult 的参数"
+        }
+      ]
+    },
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "CResultProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "status",
+          "type": "[CResultStatus](#CResultStatus)",
+          "required": false,
+          "description": "结果状态，对应不同占位图片，当设置为 `null` 时需要 `icon` 属性设置图标",
+          "defaultValue": "'no-picture'"
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'medium' | 'large' | number",
+          "required": false,
+          "description": "占位图片的大小，分别有`大`、`中`，`小`三种枚举值可选，也可以传入数字自定义图标大小",
+          "defaultValue": "'large'"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode | [TitleProps](#TitleProps)",
+          "required": false,
+          "description": "占位标题文字",
+          "defaultValue": "null"
+        },
+        {
+          "name": "extra",
+          "type": "ReactNode",
+          "required": false,
+          "description": "额外内容，通常可以传入按钮列表设置不同的操作",
+          "defaultValue": "null"
+        },
+        {
+          "name": "icon",
+          "type": "ReactNode",
+          "required": false,
+          "description": "自定义图标"
+        },
+        {
+          "name": "arcoResultProps",
+          "type": "[ResultProps](#ResultProps)",
+          "required": false,
+          "description": "透传给 arco Result 组件的属性"
+        }
+      ]
+    },
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "CSpinProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "size",
+          "type": "'small' | 'large' | number",
+          "required": false,
+          "description": "Loading 图标大小，`大`、`小` 两种枚举，传入数字自定义图标大小",
+          "defaultValue": "'small'"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "是否为加载状态（仅在 Spin 有子节点时生效）",
+          "defaultValue": "false"
+        },
+        {
+          "name": "isBlock",
+          "type": "boolean",
+          "required": false,
+          "description": "是否为块级元素",
+          "defaultValue": "false"
+        },
+        {
+          "name": "arcoSpinProps",
+          "type": "[SpinProps](#SpinProps)",
+          "required": false,
+          "description": "透传给 arco Spin 组件的属性"
+        }
+      ]
+    },
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "CLoadingType",
+      "type": "export type CLoadingType = 'inline' | 'block' | 'page';\n",
+      "properties": []
+    },
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "CResultStatus",
+      "type": "export type CResultStatus = 'no-data' | 'no-data-simple' | 'no-data-gray' | 'no-permission' | 'no-permission-simple' | 'no-permission-gray' | 'no-search-result' | 'no-search-result-simple' | 'no-search-result-gray' | 'no-content' | 'no-content-simple' | 'no-content-gray' | 'network-error' | 'network-error-simple' | 'network-error-gray' | 'no-picture' | 'no-picture-gray' | 'no-chart' | 'no-chart-gray' | 'error-type' | 'error-type-simple' | 'error-type-gray' | '404-error' | '404-error-gray' | '403-error' | '403-error-gray' | null;\n",
+      "properties": []
+    },
+    {
+      "filePath": "CLoading/interface.ts",
+      "name": "TitleProps",
+      "type": "export interface TitleProps {\n  loadFailed?: React.ReactNode;\n  retry?: React.ReactNode;\n}\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { CLoading, CRadio, Divider, Message } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\nexport default () => {\n  const [status, setStatus] = useState('loading');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <span>默认加载：</span>\n      <CLoading loading={status === 'loading'} hasError={status === 'error'} onReload={() => Message.info('重新加载')}>\n        <input />\n      </CLoading>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CLoading, CRadio, Divider, Message } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\nexport default () => {\n  const [status, setStatus] = useState('loading');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <CLoading\n        type=\"inline\"\n        loading={status === 'loading'}\n        hasError={status === 'error'}\n        onReload={() => Message.info('重新加载')}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CLoading, CRadio, Card, Divider, Link, Message, Space } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\n\nconst Placeholder = () => {\n  return (\n    <Card style={{ width: '100%', boxSizing: 'border-box' }} title=\"Arco Card\" extra={<Link> More </Link>}>\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n    </Card>\n  );\n};\n\nexport default () => {\n  const [status, setStatus] = useState('error');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <CLoading\n        type=\"block\"\n        loading={status === 'loading'}\n        hasError={status === 'error'}\n        onReload={() => Message.info('重新加载')}\n      >\n        <Placeholder />\n      </CLoading>\n      <Divider />\n      <Space>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          onReload={() => Message.info('重新加载')}\n        >\n          <Placeholder />\n        </CLoading>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          onReload={() => Message.info('重新加载')}\n        >\n          <Placeholder />\n        </CLoading>\n      </Space>\n      <Divider> block 类型没有 children 的情况 </Divider>\n      <CLoading\n        type=\"block\"\n        loading={status === 'loading'}\n        hasError={status === 'error'}\n        onReload={() => Message.info('重新加载')}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CLoading, CRadio, Divider, Message } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\n\nconst Page = () => {\n  return <div style={{ width: '600px', height: '600px', background: 'rgb(var(--blue-1))' }} />;\n};\n\nconst FullPage = () => {\n  return <div style={{ width: '100%', height: '600px', background: 'rgb(var(--blue-1))' }} />;\n};\n\nexport default () => {\n  const [status, setStatus] = useState('loading');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <CLoading\n        type=\"page\"\n        loading={status === 'loading'}\n        hasError={status === 'error'}\n        onReload={() => Message.info('重新加载')}\n      >\n        <Page />\n      </CLoading>\n      <Divider />\n      <CLoading\n        type=\"page\"\n        loading={status === 'loading'}\n        hasError={status === 'error'}\n        onReload={() => Message.info('重新加载')}\n        isBlock={true}\n      >\n        <FullPage />\n      </CLoading>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React, { useState } from 'react';\nimport { CLoading, CRadio, Card, Divider, Link, Message, Space, IconFaceSmileFill } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\n\nconst Placeholder = () => {\n  return (\n    <Card style={{ width: '100%', boxSizing: 'border-box' }} title=\"Arco Card\" extra={<Link> More </Link>}>\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n    </Card>\n  );\n};\n\nexport default () => {\n  const [status, setStatus] = useState('error');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <Space>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          onReload={() => Message.info('重新加载')}\n        >\n          <Placeholder />\n        </CLoading>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          fallback={\n            <IconFaceSmileFill\n              style={{ color: 'rgb(var(--arcoblue-6))', fontSize: 100, cursor: 'pointer' }}\n              onClick={() => Message.info('自定义重新加载')}\n            />\n          }\n        >\n          <Placeholder />\n        </CLoading>\n      </Space>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\nimport React, { useState } from 'react';\nimport { CLoading, CRadio, Button, Card, Divider, Link, Message, Space } from '@cloud-materials/common';\n\nconst statusOptions = [\n  {\n    value: 'loading',\n    label: '加载中',\n  },\n  {\n    value: 'error',\n    label: '加载出错',\n  },\n  {\n    value: 'success',\n    label: '加载成功',\n  },\n];\n\nconst Placeholder = () => {\n  return (\n    <Card style={{ width: '100%', boxSizing: 'border-box' }} title=\"Arco Card\" extra={<Link> More </Link>}>\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n      ByteDances core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao started\n      out as a news recommendation engine and gradually evolved into a platform delivering content in various formats.\n    </Card>\n  );\n};\n\nexport default () => {\n  const [status, setStatus] = useState('loading');\n  return (\n    <div>\n      <CRadio.Group options={statusOptions} value={status} onChange={setStatus} />\n      <Divider />\n      <Space>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          onReload={() => Message.info('重新加载')}\n        >\n          <Placeholder />\n        </CLoading>\n        <CLoading\n          type=\"block\"\n          loading={status === 'loading'}\n          hasError={status === 'error'}\n          onReload={() => Message.info('重新加载')}\n          cSpinProps={{ size: 100, arcoSpinProps: { tip: '透传 cSpinProps' } }}\n          cResultProps={{\n            status: 'no-permission',\n            size: 100,\n            title: '加载失败',\n            extra: [<Button>返回</Button>],\n          }}\n        >\n          <Placeholder />\n        </CLoading>\n      </Space>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\nimport React from 'react';\nimport { CLoading, Button } from '@cloud-materials/common';\n\nexport default () => {\n  return <CLoading.Result title={'加载失败，不可以点击重试'} extra={[<Button type=\"primary\">点击重试</Button>]} />;\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\n\nimport React from 'react';\nimport { CLoading, Button, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space size={10}>\n      <CLoading.Result size=\"small\" title={'加载失败'} extra={[<Button type=\"primary\">点击重试</Button>]} />\n      <CLoading.Result size=\"medium\" title={'加载失败'} extra={[<Button type=\"primary\">点击重试</Button>]} />\n      <CLoading.Result size=\"large\" title={'加载失败'} extra={[<Button type=\"primary\">点击重试</Button>]} />\n      <CLoading.Result size={100} title={'加载失败'} extra={[<Button type=\"primary\">点击重试</Button>]} />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\nimport React from 'react';\nimport { CLoading, Button } from '@cloud-materials/common';\n\nconst statusArr = [\n  'no-data',\n  'no-data-simple',\n  'no-data-gray',\n  'no-permission',\n  'no-permission-simple',\n  'no-permission-gray',\n  'no-search-result',\n  'no-search-result-simple',\n  'no-search-result-gray',\n  'no-content',\n  'no-content-simple',\n  'no-content-gray',\n  'network-error',\n  'network-error-simple',\n  'network-error-gray',\n  'no-picture',\n  'no-picture-gray',\n  'no-chart',\n  'no-chart-gray',\n  'error-type',\n  'error-type-simple',\n  'error-type-gray',\n  '404-error',\n  '404-error-gray',\n  '403-error',\n  '403-error-gray',\n] as const;\nexport default () => {\n  return (\n    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>\n      {statusArr.map(status => (\n        <CLoading.Result\n          key={status}\n          status={status}\n          title={status}\n          extra={[<Button type=\"primary\">点击重试</Button>]}\n        />\n      ))}\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\nimport React from 'react';\nimport { CLoading, Button, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space size={10}>\n      <CLoading.Result title=\"加载失败，不可以点击重试\" />\n      <CLoading.Result title=\"没有搜索结果,点击重试\" extra={[<Button type=\"primary\">点击重试</Button>]} />\n      <CLoading.Result\n        title={'没有搜索结果,点击重试'}\n        extra={[\n          <Button type=\"primary\" style={{ margin: '0 16px' }}>\n            点击重试\n          </Button>,\n          <Button>返回</Button>,\n        ]}\n      />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "/* eslint-disable react/jsx-key */\nimport React from 'react';\nimport { CLoading, Button, Space, IconFaceSmileFill } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space>\n      <CLoading.Result\n        status={null}\n        icon={<IconFaceSmileFill style={{ color: 'rgb(var(--arcoblue-6))' }} />}\n        title={'加载失败'}\n        extra={[<Button type=\"primary\">点击重试</Button>]}\n      />\n      <CLoading.Result status={null} title={'加载失败'} />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CLoading } from '@cloud-materials/common';\n\nexport default () => {\n  return <CLoading.Spin />;\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CLoading, Space } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <Space size={40}>\n      <CLoading.Spin size=\"small\" />\n      <CLoading.Spin size=\"large\" />\n      <CLoading.Spin size={72} />\n    </Space>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CLoading } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <CLoading.Spin loading={true}>\n      <p style={{ width: 360 }}>\n        ByteDance core product, Toutiao (Headlines), is a content platform in China and around the world. Toutiao\n        started out as a news recommendation engine and gradually evolved into a platform delivering content in various\n        formats.\n      </p>\n    </CLoading.Spin>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CLoading } from '@cloud-materials/common';\n\nexport default () => {\n  return <CLoading.Spin arcoSpinProps={{ tip: '加载中', delay: 1000 }} />;\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

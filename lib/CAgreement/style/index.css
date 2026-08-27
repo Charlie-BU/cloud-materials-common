@@ -1,0 +1,54 @@
+.c-m-agreement {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-left: -5px;
+  cursor: pointer;
+}
+.c-m-agreement-checkbox {
+  margin-right: 6px;
+}
+.c-m-agreement-checkbox-container .arco-checkbox-mask {
+  width: 14px;
+  height: 14px;
+}
+.c-m-agreement-checkbox-container .arco-checkbox {
+  padding-left: 5px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+.c-m-agreement-link {
+  line-height: 22px;
+  display: inline-block;
+  font-size: 13px;
+}
+.c-m-agreement-link .arco-link {
+  padding: 0;
+  line-height: inherit;
+  display: inline;
+  font-size: 13px;
+}
+.c-m-agreement-link-prefix {
+  color: #0c0d0e;
+}
+.c-m-agreement-link-desc {
+  border-bottom: 1px dashed #0c0d0e;
+  padding-bottom: 4px;
+}
+.c-m-agreement .arco-tooltip-content {
+  color: #d7312a;
+}
+.c-m-agreement .arco-trigger-arrow {
+  z-index: 1;
+}
+.c-m-agreement.c-m-agreement-card .c-m-agreement-checkbox-container {
+  height: 20px;
+}
+.c-m-agreement.c-m-agreement-card .c-m-agreement-link {
+  font-size: 12px;
+  line-height: 20px;
+}
+.c-m-agreement.c-m-agreement-card .c-m-agreement-link .arco-link {
+  font-size: 12px;
+}

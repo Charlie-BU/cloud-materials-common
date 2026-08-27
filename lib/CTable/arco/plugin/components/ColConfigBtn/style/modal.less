@@ -1,0 +1,41 @@
+@import (reference) './index.less';
+
+.@{comp-col-config-btn-prefix}-modal {
+  max-height: 612px;
+
+  &-content {
+    &-select-all {
+      margin-bottom: 12px;
+    }
+
+    &-wrapper {
+      border: 1px solid @color-border-2;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+
+      &-column {
+        width: 0;
+        flex-basis: 33.33%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+
+    &-left {
+      margin-right: auto;
+    }
+
+    &-right {
+      margin-left: auto;
+      display: flex;
+    }
+  }
+}

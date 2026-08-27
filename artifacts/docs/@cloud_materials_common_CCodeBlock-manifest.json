@@ -1,0 +1,138 @@
+{
+  "doclets": [
+    {
+      "filePath": "CCodeBlock/interface.ts",
+      "name": "OperationItem",
+      "type": null,
+      "properties": [
+        {
+          "name": "type",
+          "type": "'download' | 'copy'",
+          "required": false,
+          "description": "组件提供的按钮"
+        },
+        {
+          "name": "render",
+          "type": "ReactNode",
+          "required": false,
+          "description": "按钮图标（自定义按钮可传）"
+        },
+        {
+          "name": "popoverContent",
+          "type": "ReactNode",
+          "required": false,
+          "description": "hover按钮显示文字"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void | Promise<void>",
+          "required": false,
+          "description": "按钮点击事件（自定义按钮可传）"
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "required": false,
+          "description": "下载文件名称 格式为 文件名.后缀（下载按钮可传）",
+          "defaultValue": "'code.txt'"
+        }
+      ]
+    },
+    {
+      "filePath": "CCodeBlock/interface.ts",
+      "name": "CCodeBlockProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "data",
+          "type": "string | string[]",
+          "required": true,
+          "description": "代码框内容"
+        },
+        {
+          "name": "title",
+          "type": "ReactNode",
+          "required": false,
+          "description": "代码框标题"
+        },
+        {
+          "name": "operationGroup",
+          "type": "[OperationItem](#OperationItem)[]",
+          "required": false,
+          "description": "配置可操作按钮"
+        },
+        {
+          "name": "showRowNumber",
+          "type": "boolean",
+          "required": false,
+          "description": "是否展示行数"
+        },
+        {
+          "name": "selectOptions",
+          "type": "string[]",
+          "required": false,
+          "description": "Select的数据来源"
+        },
+        {
+          "name": "arcoSelectProps",
+          "type": "Partial<[SelectProps](#SelectProps)>",
+          "required": false,
+          "description": "下拉选框透传Props"
+        },
+        {
+          "name": "tabTitles",
+          "type": "string[]",
+          "required": false,
+          "description": "Tab的数据来源"
+        },
+        {
+          "name": "arcoTabsProps",
+          "type": "Partial<[TabsProps](#TabsProps)>",
+          "required": false,
+          "description": "tabs透传Props"
+        },
+        {
+          "name": "onChangeTab",
+          "type": "(key: string) => void | Promise<void>",
+          "required": false,
+          "description": "切换tab事件"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false,
+          "description": "代码框是否处于loading状态"
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties",
+          "required": false,
+          "description": "CSS样式"
+        },
+        {
+          "name": "className",
+          "type": "string | string[]",
+          "required": false,
+          "description": "自定义className"
+        },
+        {
+          "name": "noDataElement",
+          "type": "string | ReactNode",
+          "required": false,
+          "description": "没有数据的时候现实的元素"
+        }
+      ]
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport { CCodeBlock, IconRefresh } from '@cloud-materials/common';\n\nconst codeObj = {\n  AvailableMonitor: {\n    AffectCount: 1,\n    AffectDurationMilliSecond: 1000,\n    AffectTimeItems: [\n      {\n        BeginTime: '2023-09-18 11:41:21.941',\n        EndTime: '2023-09-18 11:41:22.941',\n      },\n    ],\n    CheckConfig: {\n      CheckIntervalMilliSecond: 1000,\n      EnableStatUnavailableTime: true,\n    },\n  },\n};\n\nexport default () => {\n  const [data, setData] = useState<string | string[]>([\n    'ss\\nddd\\ndddddd\\nghasdfasdiiiiiiiiiiiiiiiiiiiiiiiiiii iiiiiii iiiiiiiiiiiiiiiiiiiiiiiif\\nqqqqqq\\nddddd\\nzzzzz\\nsssss\\nhhhhhh\\njjjjjj\\nffffff\\nlllll\\niiiii\\noooooo',\n    'asdfasdfsa',\n  ]);\n  const [loading, setLoading] = useState(false);\n\n  return (\n    <div>\n      <CCodeBlock\n        data={data}\n        operationGroup={[\n          { type: 'download' },\n          { type: 'copy' },\n          {\n            render: <IconRefresh />,\n            popoverContent: '刷新',\n            onClick: async () => {\n              await new Promise<void>(resolve => {\n                setLoading(true);\n\n                setTimeout(() => {\n                  setData([\n                    'aaa\\ndbbb\\nccc\\nghasdfasdf\\nqqqqqq\\nddddd\\nzzzzz\\nsssss\\nhhhhhh\\njjjjjj\\nffffff\\nlllll\\niiiii\\noooooo',\n                    'ggg',\n                  ]);\n                  resolve();\n                }, 1000);\n              }).then(() => {\n                setLoading(false);\n              });\n            },\n          },\n        ]}\n        tabTitles={['tab1', 'tab2']}\n        title={'我是标题'}\n        selectOptions={['java', 'typescript', 'c', 'ruby']}\n        arcoSelectProps={{ placeholder: 'c' }}\n        loading={loading}\n      />\n      <br />\n      <br />\n      <CCodeBlock\n        data={JSON.stringify(codeObj, null, 4)}\n        operationGroup={[{ type: 'download' }, { type: 'copy' }]}\n        // title={'我是标题'}\n        // selectOptions={['java', 'typescript', 'c', 'ruby']}\n        style={{ width: '600px' }}\n      />\n      <br />\n      <br />\n      <p>空态</p>\n      <div style={{ height: 300 }}>\n        <CCodeBlock data={[]} loading={loading} style={{ width: '600px', height: '100%' }} />\n      </div>\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import React from 'react';\nimport { CCodeBlock } from '@cloud-materials/common';\n\nexport default () => {\n  return (\n    <div>\n      <div>以下示例为精简模式，仅支持展示，不支持复杂功能</div>\n      <div>适用于不超过三行的短代码，一般置于列表中、一段文字中的着重展示，以说明代码内容</div>\n      <CCodeBlock\n        data={'topk(10, rate(container_cpu_usage_seconds_total{pod!=\"\", container!=\"\"}[5m]))'}\n        type={'simple'}\n        style={{ maxWidth: 248 }}\n      />\n    </div>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

@@ -1,0 +1,289 @@
+{
+  "doclets": [
+    {
+      "filePath": "CConfigProvider/interface.ts",
+      "name": "CConfigProviderProps",
+      "type": null,
+      "properties": [
+        {
+          "name": "keepPrevious",
+          "type": "boolean",
+          "required": false,
+          "description": "自动透传上一个CConfigProvider的props",
+          "defaultValue": "true"
+        },
+        {
+          "name": "onLog",
+          "type": "[OnLog](#OnLog)",
+          "required": false,
+          "description": "日志打印事件，当组件内部有错误或其它信息时，会打印出来"
+        },
+        {
+          "name": "locale",
+          "type": "CLocale",
+          "required": false,
+          "description": "设置语言包"
+        },
+        {
+          "name": "cPrefixCls",
+          "type": "string",
+          "required": false,
+          "description": "物料组件类名前缀",
+          "defaultValue": "c-m"
+        },
+        {
+          "name": "autoInsertSpaceInButton",
+          "type": "boolean",
+          "required": false,
+          "description": "当按钮中是两个汉字时，自动在两个汉字中添加一个空格。",
+          "version": "2.3.0"
+        },
+        {
+          "name": "componentConfig",
+          "type": "ComponentConfig",
+          "required": false,
+          "description": "用于全局配置所有组件的默认参数",
+          "version": "2.23.0"
+        },
+        {
+          "name": "theme",
+          "type": "ThemeConfig",
+          "required": false,
+          "description": "主题配置"
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'small' | 'default' | 'large'",
+          "required": false,
+          "description": "配置组件的默认尺寸，只会对支持`size`属性的组件生效。",
+          "defaultValue": "default"
+        },
+        {
+          "name": "prefixCls",
+          "type": "string",
+          "required": false,
+          "description": "全局组件类名前缀",
+          "defaultValue": "arco"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "全局弹出框挂载的父级节点。",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "loadingElement",
+          "type": "ReactNode",
+          "required": false,
+          "description": "全局的加载中图标，作用于所有组件。"
+        },
+        {
+          "name": "tablePagination",
+          "type": "[PaginationProps](#PaginationProps)",
+          "required": false,
+          "description": "Table 全局的分页配置。",
+          "version": "2.6.0"
+        },
+        {
+          "name": "renderEmpty",
+          "type": "(componentName?: string) => ReactNode",
+          "required": false,
+          "description": "全局配置组件内的空组件。",
+          "version": "2.10.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "{modal?: boolean | {autoFocus?: boolean;};drawer?: boolean | {autoFocus?: boolean;};}",
+          "required": false,
+          "description": "全局配置弹出框的 `focusLock`，作用于 `Modal` `Drawer` 组件。",
+          "defaultValue": "{ modal: { autoFocus: true }, drawer: { autoFocus: true }}",
+          "version": "2.13.0"
+        },
+        {
+          "name": "rtl",
+          "type": "boolean",
+          "required": false,
+          "description": "视图的表现形式是从右开始向左结束。",
+          "version": "2.36.0"
+        },
+        {
+          "name": "effectGlobalNotice",
+          "type": "boolean",
+          "required": false,
+          "description": "是否全局设置所有 `Message` 和 `Notification` 的配置。如果用了 `useMessage` 的 hook 局部设置请设置为 false",
+          "defaultValue": "true",
+          "version": "2.40.0"
+        },
+        {
+          "name": "effectGlobalModal",
+          "type": "boolean",
+          "required": false,
+          "description": "是否全局设置所有 `Modal` 的配置。",
+          "defaultValue": "true",
+          "version": "2.61.0"
+        }
+      ]
+    },
+    {
+      "filePath": "CConfigProvider/interface.ts",
+      "name": "CConfigContextValue",
+      "type": null,
+      "properties": [
+        {
+          "name": "getCPrefixCls",
+          "type": "(componentName: string, customPrefix?: string) => string",
+          "required": true,
+          "description": "获取组件类名前缀"
+        },
+        {
+          "name": "useCssPrefix",
+          "type": "(componentName: string,customPrefix?: string,) => (string: TemplateStringsArray, ...params: any[]) => string",
+          "required": true,
+          "description": "获取组件类名前缀"
+        },
+        {
+          "name": "formatLocale",
+          "type": "(locale: string, replaceParams: Record<string, string | number>) => string",
+          "required": true,
+          "description": "替换语言资源中 {name} 模板值"
+        },
+        {
+          "name": "cPrefixCls",
+          "type": "string",
+          "required": false,
+          "description": "物料组件类名前缀",
+          "defaultValue": "c-m"
+        },
+        {
+          "name": "keepPrevious",
+          "type": "boolean",
+          "required": false,
+          "description": "自动透传上一个CConfigProvider的props",
+          "defaultValue": "true"
+        },
+        {
+          "name": "onLog",
+          "type": "[OnLog](#OnLog)",
+          "required": false,
+          "description": "日志打印事件，当组件内部有错误或其它信息时，会打印出来"
+        },
+        {
+          "name": "autoInsertSpaceInButton",
+          "type": "boolean",
+          "required": false,
+          "description": "当按钮中是两个汉字时，自动在两个汉字中添加一个空格。",
+          "version": "2.3.0"
+        },
+        {
+          "name": "componentConfig",
+          "type": "ComponentConfig",
+          "required": false,
+          "description": "用于全局配置所有组件的默认参数",
+          "version": "2.23.0"
+        },
+        {
+          "name": "theme",
+          "type": "ThemeConfig",
+          "required": false,
+          "description": "主题配置"
+        },
+        {
+          "name": "size",
+          "type": "'mini' | 'small' | 'default' | 'large'",
+          "required": false,
+          "description": "配置组件的默认尺寸，只会对支持`size`属性的组件生效。",
+          "defaultValue": "default"
+        },
+        {
+          "name": "prefixCls",
+          "type": "string",
+          "required": false,
+          "description": "全局组件类名前缀",
+          "defaultValue": "arco"
+        },
+        {
+          "name": "getPopupContainer",
+          "type": "(node: HTMLElement) => Element",
+          "required": false,
+          "description": "全局弹出框挂载的父级节点。",
+          "defaultValue": "() => document.body"
+        },
+        {
+          "name": "loadingElement",
+          "type": "ReactNode",
+          "required": false,
+          "description": "全局的加载中图标，作用于所有组件。"
+        },
+        {
+          "name": "tablePagination",
+          "type": "[PaginationProps](#PaginationProps)",
+          "required": false,
+          "description": "Table 全局的分页配置。",
+          "version": "2.6.0"
+        },
+        {
+          "name": "renderEmpty",
+          "type": "(componentName?: string) => ReactNode",
+          "required": false,
+          "description": "全局配置组件内的空组件。",
+          "version": "2.10.0"
+        },
+        {
+          "name": "focusLock",
+          "type": "{modal?: boolean | {autoFocus?: boolean;};drawer?: boolean | {autoFocus?: boolean;};}",
+          "required": false,
+          "description": "全局配置弹出框的 `focusLock`，作用于 `Modal` `Drawer` 组件。",
+          "defaultValue": "{ modal: { autoFocus: true }, drawer: { autoFocus: true }}",
+          "version": "2.13.0"
+        },
+        {
+          "name": "rtl",
+          "type": "boolean",
+          "required": false,
+          "description": "视图的表现形式是从右开始向左结束。",
+          "version": "2.36.0"
+        },
+        {
+          "name": "effectGlobalNotice",
+          "type": "boolean",
+          "required": false,
+          "description": "是否全局设置所有 `Message` 和 `Notification` 的配置。如果用了 `useMessage` 的 hook 局部设置请设置为 false",
+          "defaultValue": "true",
+          "version": "2.40.0"
+        },
+        {
+          "name": "effectGlobalModal",
+          "type": "boolean",
+          "required": false,
+          "description": "是否全局设置所有 `Modal` 的配置。",
+          "defaultValue": "true",
+          "version": "2.61.0"
+        },
+        {
+          "name": "locale",
+          "type": "CLocale",
+          "required": false,
+          "description": "设置语言包"
+        }
+      ]
+    },
+    {
+      "filePath": "CConfigProvider/interface.ts",
+      "name": "OnLog",
+      "type": "export type OnLog = (arg: LogType) => void;\n",
+      "properties": []
+    }
+  ],
+  "snippets": [
+    {
+      "code": "import React, { useState } from 'react';\nimport type { CCSearchItem } from '@cloud-materials/common';\nimport { Card, CConfigProvider, CRadio, CSearch } from '@cloud-materials/common';\nimport zhCN from '@cloud-materials/common/es/locales/zh-CN';\nimport enUS from '@cloud-materials/common/es/locales/en-US';\n\nconst searchList: CCSearchItem[] = [\n  {\n    fieldName: 'Select',\n    content: {\n      component: 'Select',\n      componentProps: {\n        options: [\n          {\n            label: '专科',\n            value: 'junior',\n          },\n          {\n            label: '本科',\n            value: 'undergraduate',\n          },\n        ],\n      },\n    },\n    colspan: 6,\n  },\n  {\n    fieldName: 'Input',\n    content: {\n      component: 'Input',\n    },\n    colspan: 6,\n  },\n  {\n    fieldName: 'RangePicker',\n    content: {\n      component: 'RangePicker',\n    },\n    colspan: 6,\n  },\n];\n\nexport default () => {\n  const [locale, setLocale] = useState('zh-CN');\n\n  const getLocale = () => {\n    return locale === 'en-US' ? enUS : zhCN;\n  };\n\n  return (\n    <CConfigProvider cPrefixCls=\"c-m\" prefixCls=\"arco\" locale={getLocale()}>\n      <CRadio.Group options={['zh-CN', 'en-US']} value={locale} onChange={setLocale} />\n      <Card style={{ marginTop: 24 }}>\n        <CSearch list={searchList} displayCount={1} manual showAdvanceReset showReset />\n      </Card>\n    </CConfigProvider>\n  );\n};\n",
+      "language": "tsx"
+    },
+    {
+      "code": "import { CForm, CInfoSection, DatePicker, Grid, Typography } from '@cloud-materials/common';\nimport React from 'react';\nimport CConfigProvider from '..';\nimport enUS from '../../locales/en-US';\nimport zhCN from '../../locales/zh-CN';\nimport { faker } from '@faker-js/faker';\nimport dayjs from 'dayjs';\n\nexport default () => {\n  return (\n    <CConfigProvider>\n      <Grid.Row>\n        <Grid.Col span={11}>\n          <CConfigProvider locale={zhCN}>\n            <Typography.Title heading={2}>中文布局</Typography.Title>\n            <Typography.Title heading={4}>CInfoSection</Typography.Title>\n            <CInfoSection.List\n              noMargin\n              listData={[\n                {\n                  title: '基本信息',\n                  infoItemList: [\n                    {\n                      label: '描述b',\n                      content: {\n                        component: 'CEllipsis',\n                        componentProps: {\n                          content:\n                            '这是一条描述内容，可能会很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长',\n                          showCopy: 'hover' as 'hover',\n                        },\n                      },\n                    },\n                    {\n                      label: '地域',\n                      content: <span>华北4（北京）</span>,\n                      enableEllipsis: true,\n                    },\n                    {\n                      label: '创建时间',\n                      content: <span>2021-11-12 15:00:00</span>,\n                      enableEllipsis: true,\n                    },\n                    {\n                      label: '物理专线',\n                      content: <span>ssssssssssssss</span>,\n                      enableEllipsis: true,\n                    },\n                  ],\n                },\n              ]}\n            />\n            <Typography.Title heading={4}>CForm</Typography.Title>\n\n            <CForm\n              defaultDecoratorProps={{\n                isFullPage: false,\n              }}\n              config={{\n                fields: [\n                  {\n                    name: 'username',\n                    title: '用户名',\n                    decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n                    componentOptions: CForm.defineComponentOption('Input'),\n                    required: true,\n                  },\n                  {\n                    name: 'post',\n                    title: '用户密码',\n                    decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n                    componentOptions: CForm.defineComponentOption('Password'),\n                  },\n                ],\n              }}\n            />\n\n            <Typography.Title heading={4}>日期格式化</Typography.Title>\n            <DatePicker.RangePicker defaultValue={[dayjs().subtract(1, 'day'), dayjs()]} />\n          </CConfigProvider>\n        </Grid.Col>\n\n        <Grid.Col span={12} offset={1}>\n          <CConfigProvider\n            locale={enUS}\n            cComponentConfig={CConfigProvider.defineEnCComponentConfig()}\n            componentConfig={{\n              DatePicker: {\n                // @ts-expect-error\n                format: ['MMM D, YYYY HH:mm:ss', 'MMM D, YYYY HH:mm:ss'],\n              },\n            }}\n          >\n            <Typography.Title heading={2}>英文布局</Typography.Title>\n            <Typography.Title heading={4}>CInfoSection</Typography.Title>\n            <CInfoSection.List\n              noMargin\n              listData={[\n                {\n                  title: 'Basic info',\n                  infoItemList: [\n                    {\n                      label: faker.hacker.noun(),\n                      content: {\n                        component: 'CEllipsis',\n                        componentProps: {\n                          content: faker.hacker.phrase(),\n                          showCopy: 'hover' as 'hover',\n                        },\n                      },\n                    },\n                    {\n                      label: faker.hacker.noun(),\n                      content: faker.hacker.phrase(),\n                      enableEllipsis: true,\n                    },\n                    {\n                      label: faker.hacker.noun(),\n                      content: faker.hacker.phrase(),\n                      enableEllipsis: true,\n                    },\n                    {\n                      label: faker.hacker.noun(),\n                      content: faker.hacker.phrase(),\n                      enableEllipsis: true,\n                    },\n                  ],\n                },\n              ]}\n            />\n            <Typography.Title heading={4}>CForm</Typography.Title>\n\n            <CForm\n              defaultDecoratorProps={{\n                isFullPage: false,\n              }}\n              config={{\n                fields: [\n                  {\n                    name: 'username',\n                    title: 'User name',\n                    decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n                    componentOptions: CForm.defineComponentOption('Input'),\n                    required: true,\n                  },\n                  {\n                    name: 'post',\n                    title: 'Password',\n                    decoratorOptions: CForm.defineDecoratorOptions('FormItem'),\n                    componentOptions: CForm.defineComponentOption('Password'),\n                  },\n                ],\n              }}\n            />\n            <Typography.Title heading={4}>日期格式化</Typography.Title>\n            <DatePicker.RangePicker defaultValue={[dayjs().subtract(1, 'day'), dayjs()]} />\n          </CConfigProvider>\n        </Grid.Col>\n      </Grid.Row>\n    </CConfigProvider>\n  );\n};\n",
+      "language": "tsx"
+    }
+  ],
+  "extraDocs": []
+}

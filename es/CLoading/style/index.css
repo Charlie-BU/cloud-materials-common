@@ -1,0 +1,107 @@
+.c-m-result .arco-result-icon {
+  line-height: 0;
+  margin-bottom: 12px;
+}
+.c-m-result .arco-result-title {
+  color: #737a87;
+  font-size: 13px;
+}
+.c-m-result .arco-result-extra {
+  margin-top: 24px;
+}
+.c-m-spin .arco-spin-children::after {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.c-m-loading-error {
+  position: relative;
+  user-select: none;
+}
+.c-m-loading-inline {
+  display: inline-block;
+}
+.c-m-loading-block.c-m-loading-with-children,
+.c-m-loading-page.c-m-loading-with-children {
+  display: inline-block;
+}
+.c-m-loading-block.c-m-loading-is-block.c-m-loading-with-children,
+.c-m-loading-page.c-m-loading-is-block.c-m-loading-with-children {
+  display: block;
+}
+.c-m-loading-block.c-m-loading-without-children,
+.c-m-loading-page.c-m-loading-without-children {
+  position: relative;
+  display: block;
+}
+.c-m-loading-block.c-m-loading-with-children .c-m-loading-display,
+.c-m-loading-page.c-m-loading-with-children .c-m-loading-display {
+  position: relative;
+}
+.c-m-loading-block.c-m-loading-with-children .c-m-loading-display::after,
+.c-m-loading-page.c-m-loading-with-children .c-m-loading-display::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.1s cubic-bezier(0, 0, 1, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+.c-m-loading-block.c-m-loading-error .c-m-loading-fallback,
+.c-m-loading-block.c-m-loading-without-children .c-m-loading-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.c-m-loading-page.c-m-loading-error .c-m-loading-fallback,
+.c-m-loading-page.c-m-loading-without-children .c-m-loading-display {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.c-m-loading-block.c-m-loading-error .c-m-loading-display::after,
+.c-m-loading-page.c-m-loading-error .c-m-loading-display::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+.c-m-loading-inline.c-m-loading-error .c-m-loading-display {
+  display: none;
+}
+.c-m-loading-page.c-m-loading-with-children .arco-spin-loading .arco-spin-loading-layer-inner {
+  top: calc(50% - 100px);
+}
+@media (min-width: 1920px) {
+  .c-m-loading-page .arco-result-icon-custom {
+    transform: scale(1.2);
+    transform-origin: bottom;
+  }
+}
+.c-m-loading-inline .c-m-loading-fallback .c-m-result {
+  padding: 0;
+}
+.c-m-loading-inline-fallback,
+.c-m-loading-block-fallback,
+.c-m-loading-page-fallback {
+  font-weight: 400;
+  font-size: 13px;
+}
+.c-m-loading-inline-fallback .c-m-loading-fallback-text,
+.c-m-loading-block-fallback .c-m-loading-fallback-text,
+.c-m-loading-page-fallback .c-m-loading-fallback-text {
+  color: #737a87;
+}
+.c-m-loading-inline-fallback .c-m-loading-fallback-reload,
+.c-m-loading-block-fallback .c-m-loading-fallback-reload,
+.c-m-loading-page-fallback .c-m-loading-fallback-reload {
+  color: rgb(var(--primary-6));
+  cursor: pointer;
+}

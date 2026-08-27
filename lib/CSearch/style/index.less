@@ -1,0 +1,522 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-search-prefix: ~'@{cpn-prefix}-search';
+@c-m-search-component: ~'@{c-m-search-prefix}-component';
+@c-m-search-compact: ~'@{c-m-search-prefix}-compact';
+@c-m-search-cascader: ~'@{c-m-search-prefix}-cascader';
+@c-m-search-combine: ~'@{c-m-search-prefix}-combine';
+@c-m-search-box-shadow: 0px 0px 0px 1px #1664ff, 0px 1px 1px 0px rgba(0, 0, 0, 0.05),
+  0px 0px 0px 3px rgba(22, 100, 255, 0.3);
+
+.hideBorder() {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.@{c-m-search-component} {
+  .@{prefix}-input-inner-wrapper-has-prefix > .@{prefix}-input {
+    padding-left: 4px;
+  }
+
+  .@{c-m-search-compact} & {
+    flex-grow: 1;
+  }
+
+  .@{c-m-search-prefix}-tools & {
+    width: 240px;
+  }
+
+  .@{c-m-search-prefix}-collapse & {
+    width: 100%;
+  }
+
+  &-input-popover {
+    .@{prefix}-popover-inner-content {
+      overflow: auto;
+      max-height: 400px;
+    }
+  }
+}
+
+/***** compact start *****/
+.@{c-m-search-compact} {
+  // 加大权重
+  &.@{prefix}-input-group.@{prefix}-input-group-compact {
+    display: inline-flex;
+
+    .@{c-m-search-compact}-label {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      white-space: nowrap;
+      font-weight: 400;
+      font-size: @font-size-body-2;
+      line-height: 22px;
+      letter-spacing: 0.003em;
+
+      /* 原值为:#41464f，已被stylelint autofix，替换后为：@color-text-2， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-2 | @base-grey-6 */
+      color: @color-text-2;
+
+      /* 原值为:#fff，已被stylelint autofix，替换后为：@color-menu-light-bg， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-menu-light-bg | @color-bg-white | @color-white | @color-bg-1 | @radio-button-color-bg_active | @color-fill-5 | @dark-color-fill-5 */
+      background-color: @color-menu-light-bg;
+    }
+
+    .@{c-m-search-compact}-before {
+      flex-shrink: 0;
+    }
+
+    .@{c-m-search-compact}-bordered {
+      border: 1px solid @color-border-3;
+      border-right: none;
+    }
+  }
+}
+
+/***** compact end *****/
+
+/***** search start *****/
+.@{c-m-search-prefix} {
+  &-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > .@{c-m-search-compact} {
+      width: 240px;
+    }
+  }
+
+  &-collapse {
+    margin-top: 8px;
+    padding: 12px 16px;
+
+    /* 原值为:#fcfdfe，已被stylelint autofix，替换后为：@color-bg-2， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-bg-2 */
+    background: @color-bg-2;
+
+    /* 原值为:1px solid #eaedf1，已被stylelint autofix，替换后为：1px solid @color-border-2， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-border-2 */
+    border: 1px solid @color-border-2;
+    border-radius: 4px;
+  }
+
+  &-advance-button {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-advance-dot {
+    margin-left: 8px;
+    border: none;
+    background-color: #a2c1ff33;
+
+    /* 原值为:#0055ff，已被stylelint autofix，替换后为：@primary-7， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @primary-7 | @link-7 */
+    color: @primary-7;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+
+/***** search end *****/
+
+/***** combine start *****/
+.@{c-m-search-combine}-wrapper {
+  &-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-trigger {
+    &-left {
+      width: 100%;
+
+      > .@{prefix}-space-item:last-child {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.@{c-m-search-combine}-trigger {
+  width: fit-content;
+  position: relative;
+  min-width: 236px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid @color-border-3;
+  background-color: @color-bg-white;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: @color-bg-white;
+    border-color: @primary-5;
+
+    .@{c-m-search-combine}-trigger-clear {
+      display: block;
+    }
+  }
+
+  &-focused {
+    background-color: @color-bg-white;
+    border-color: @primary-5;
+    box-shadow: @c-m-search-box-shadow;
+  }
+
+  &-err {
+    animation: err-fade 500ms 2;
+  }
+
+  @keyframes err-fade {
+    from {
+      border-color: @primary-5;
+      box-shadow: @c-m-search-box-shadow;
+    }
+
+    50% {
+      border-color: @color-danger-3;
+      box-shadow: 0 0 0 2px rgba(219, 55, 63, 0.3);
+    }
+
+    to {
+      border-color: @primary-5;
+      box-shadow: @c-m-search-box-shadow;
+    }
+  }
+
+  &-search {
+    flex-shrink: 0;
+
+    /* 原值为:#80838a，已被stylelint autofix，替换后为：@color-text-3， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-3 | @color-fill-2 | @input-tag-tag-remove-icon-color-bg | @breadcrumb-color-separator | @menu-light-color-icon_default */
+
+    color: @color-text-3;
+  }
+
+  &-label {
+    flex-shrink: 0;
+    padding-left: 8px;
+    font-weight: 500;
+    font-size: @font-size-body-1;
+    line-height: 20px;
+    letter-spacing: 0.003em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    /* 原值为:#80838a，已被stylelint autofix，替换后为：@color-text-3， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-3 | @color-fill-2 | @input-tag-tag-remove-icon-color-bg | @breadcrumb-color-separator | @menu-light-color-icon_default */
+    color: @color-text-3;
+
+    &:hover {
+      background-color: @color-bg-4;
+    }
+  }
+
+  &-content {
+    flex: 1 1 auto;
+    width: 100%;
+    padding-left: 4px;
+    padding-right: 0;
+    .hideBorder();
+
+    &.@{prefix}-input-tag .@{prefix}-input-tag-input {
+      .hideBorder();
+
+      padding: 0 !important;
+    }
+    // 只在content为inputTag时限制高度
+    &.@{prefix}-input-tag {
+      max-height: 100px;
+      overflow: auto;
+    }
+
+    .@{prefix}-input-tag-input-mirror {
+      width: fit-content;
+    }
+
+    .@{prefix}-tag {
+      margin: 2px 6px 2px 0;
+      background-color: @color-bg-4;
+    }
+
+    &.@{prefix}-input-number .@{prefix}-input-inner-wrapper {
+      .hideBorder();
+
+      padding: 0 !important;
+    }
+  }
+
+  &-loading {
+    font-size: 1.5em;
+  }
+
+  &-clear {
+    flex-shrink: 0;
+    display: none;
+    padding: 0;
+    border-radius: 50%;
+    font-size: @font-size-body-3;
+  }
+
+  &-tip {
+    padding: 4px 16px;
+    font-size: @font-size-body-2;
+    justify-content: space-between;
+    color: @color-text-4;
+    width: 100%;
+    box-sizing: border-box;
+
+    &-svg {
+      display: inline-block;
+      color: inherit;
+      font-style: normal;
+      vertical-align: -2px;
+      margin-right: 4px;
+    }
+  }
+}
+
+.@{c-m-search-combine}-trigger-inline {
+  display: flex;
+  align-items: center;
+}
+
+.@{c-m-search-combine}-popover {
+  padding: 6px;
+  min-width: 200px;
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 0;
+  }
+}
+
+.@{c-m-search-combine}-select {
+  > div {
+    position: static !important;
+  }
+
+  .@{prefix}-select-popup {
+    padding: 0;
+
+    .@{prefix}-select-popup-inner > div {
+      padding: 0;
+    }
+    .@{prefix}-select-popup-inner > div > div {
+      padding: 0;
+    }
+  }
+
+  &-all {
+    display: block;
+    height: 32px;
+    padding: 6px 12px;
+    margin-bottom: 4px;
+  }
+}
+
+.@{c-m-search-combine}-view {
+  display: flex;
+  margin-top: 8px;
+
+  &-item {
+    cursor: pointer;
+    border: 1px solid @color-border-3;
+
+    &-nonedit {
+      cursor: unset;
+    }
+
+    &-pop {
+      .@{prefix}-popover-inner-content {
+        overflow: auto;
+        max-height: 400px;
+      }
+    }
+
+    &-inline {
+      &-input {
+        padding: 0 8px;
+        font-size: @font-size-body-1;
+        height: 20px;
+        width: 100px;
+        border: none;
+        background-color: @color-bg-5;
+
+        &:hover {
+          border: none;
+          background-color: @color-bg-5;
+        }
+
+        &:focus {
+          border: none;
+          box-shadow: none;
+          background-color: @color-bg-5;
+        }
+      }
+
+      &-inputNumber {
+        input {
+          width: 100px;
+          height: 20px;
+          padding: 0;
+          font-size: @font-size-body-1;
+        }
+      }
+    }
+  }
+
+  &-item-prefix {
+    /* 原值为:#80838a，已被stylelint autofix，替换后为：@color-text-3， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-3 | @color-fill-2 | @input-tag-tag-remove-icon-color-bg | @breadcrumb-color-separator | @menu-light-color-icon_default */
+
+    color: @color-text-3;
+  }
+
+  &-divider.@{prefix}-divider-vertical {
+    /* 原值为:#c9cdd4，已被stylelint autofix，替换后为：@gray-4， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @gray-4 */
+
+    border-left-color: @gray-4;
+    margin: 0 8px;
+  }
+
+  &-clear {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: @font-size-body-2;
+    line-height: 22px;
+    margin-right: 8px;
+
+    /* 原值为:#41464f，已被stylelint autofix，替换后为：@color-text-2， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-2 | @base-grey-6 */
+    color: @color-text-2;
+    cursor: pointer;
+
+    svg {
+      font-size: @font-size-body-3;
+      margin-right: 4px;
+    }
+  }
+
+  &-extra {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: @font-size-body-2;
+    line-height: 22px;
+    color: @color-text-2;
+  }
+}
+
+.@{c-m-search-combine}-inline {
+  width: 236px;
+  border: 1px solid @color-border-3;
+  background-color: @color-bg-white;
+  border-radius: 4px;
+  padding: 4px 12px 0 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  cursor: text;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: @color-bg-white;
+    border-color: @primary-5;
+  }
+
+  .@{prefix}-space-wrap {
+    flex: 1;
+  }
+
+  &-focused {
+    background-color: @color-bg-white;
+    border-color: @primary-5;
+    box-shadow: @c-m-search-box-shadow;
+  }
+
+  &-err {
+    animation: err-fade 500ms 2;
+  }
+
+  @keyframes err-fade {
+    from {
+      border-color: @primary-5;
+      box-shadow: @c-m-search-box-shadow;
+    }
+
+    50% {
+      border-color: @color-danger-3;
+      box-shadow: 0 0 0 2px rgba(219, 55, 63, 0.3);
+    }
+
+    to {
+      border-color: @primary-5;
+      box-shadow: @c-m-search-box-shadow;
+    }
+  }
+
+  .@{prefix}-space-item:last-child {
+    flex-grow: 1;
+    .@{prefix}-spin {
+      width: 100%;
+    }
+  }
+
+  // 提升权重
+  .@{c-m-search-combine}-view-item-inline-inputTag {
+    border: 1px solid @color-bg-5;
+    background-color: @color-bg-5;
+    box-shadow: none;
+  }
+  .@{c-m-search-combine}-view-item-inline-inputNumber {
+    .@{prefix}-input-inner-wrapper {
+      border: none;
+      background-color: @color-bg-5;
+      box-shadow: none;
+    }
+  }
+
+  &-clear {
+    visibility: hidden;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+    right: -6px;
+    background-color: @color-bg-3;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: @color-bg-5;
+    }
+
+    &-show {
+      visibility: visible;
+    }
+  }
+}
+
+/***** combine start *****/
+
+/***** cascader start *****/
+.@{c-m-search-cascader} {
+  width: 300px;
+
+  .@{prefix}-select-single .@{prefix}-select-view {
+    height: 100%;
+  }
+
+  .@{prefix}-select-single .@{prefix}-select-view-selector {
+    align-items: center;
+  }
+}
+
+/***** cascader end *****/

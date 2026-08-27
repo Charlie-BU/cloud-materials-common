@@ -1,0 +1,169 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-tabs-prefix: ~'@{cpn-prefix}-tabs';
+// 💥 变量声明尽量带上c-m前缀，避免存量项目接入时变量名冲突
+
+.@{c-m-tabs-prefix} {
+  position: relative;
+
+  &-no-left-bottom-border {
+    &::before {
+      content: '';
+      width: 32px;
+      height: 36px;
+    }
+    & >.@{prefix}-tabs {
+      & >.@{prefix}-tabs-header-nav {
+        padding-left: 0;
+      }
+      & >.@{prefix}-tabs-content {
+        padding-left: 0;
+      }
+      & >.@{prefix}-tabs-header-nav-card-gutter.@{prefix}-tabs-header-nav-horizontal {
+        padding-left: 0;
+      }
+    }
+  }
+
+  &-container {
+    .@{prefix}-tabs {
+      overflow: auto;
+
+      .@{prefix}-tabs-content {
+        border: none;
+      }
+    }
+  }
+
+  &-fullelement {
+    .@{prefix}-tabs {
+      overflow: auto;
+
+      .@{prefix}-tabs-header {
+        display: flex;
+        width: 100%;
+
+        .@{prefix}-tabs-header-title {
+          flex: 1;
+          text-align: center;
+          justify-content: space-around;
+        }
+      }
+      .@{prefix}-tabs-content {
+        border: none;
+      }
+    }
+  }
+
+  &-statistic {
+    .c-m-statistic {
+      background: none;
+    }
+
+    .c-m-statistic-border {
+      border: none;
+    }
+
+    .@{prefix}-tabs-line.@{prefix}-tabs-bottom {
+      .@{prefix}-tabs-header-wrapper {
+        align-items: center;
+        margin-top: 1px;
+      }
+    }
+
+    .@{prefix}-tabs-header-wrapper {
+      align-items: center;
+    }
+
+    .@{prefix}-tabs, .@{prefix}-tabs-header {
+      .@{prefix}-tabs-header-title {
+        background-color: var(--color-bg-2);
+
+        &:hover {
+          background-color: var(--color-bg-4);
+        }
+      }
+
+      .@{prefix}-tabs-header-title-disabled, .@{prefix}-tabs-header-title-disabled:hover {
+        background-color: var(--color-bg-2);
+
+        .c-m-statistic-title,
+        .@{prefix}-statistic-value,
+        .c-m-statistic-unit {
+          color: @color-text-4;
+        }
+      }
+
+      .@{prefix}-tabs-header-title-active,
+      .@{prefix}-tabs-header-title-active:hover {
+        background-color: white;
+      }
+    }
+
+    .@{prefix}-tabs {
+      .@{prefix}-tabs-header .@{prefix}-tabs-header-title {
+        padding: 0;
+      }
+    }
+
+    .@{prefix}-tabs-card-gutter {
+      .@{prefix}-tabs-header-nav-card-gutter {
+        .@{prefix}-tabs-header-title-active {
+          box-shadow: inset 0 4px 0 #006eff, inset -1px 0 0 var(--color-border-2), inset 1px 0 0 var(--color-border-2);
+        }
+
+        .@{prefix}-tabs-header-title {
+          border-radius: 8px 8px 0 0;
+        }
+      }
+    }
+
+    .@{prefix}-tabs-text {
+      .@{prefix}-tabs-header-nav-text {
+        .@{prefix}-tabs-header-title:not(:first-of-type):before {
+          height: 100%;
+        }
+      }
+    }
+
+    .@{prefix}-tabs-line {
+      .@{prefix}-tabs-header-nav-line {
+        .@{prefix}-tabs-header-title {
+          border-bottom: 1px solid var(--color-neutral-3);
+        }
+      }
+    }
+
+    .@{prefix}-tabs-rounded {
+      .@{prefix}-tabs-header-title {
+        border-radius: 8px;
+        border: 1px solid @color-border-2;
+        padding: 0;
+        margin: 20px 6px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:hover {
+          background: @color-bg-2;
+          box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 5px 5px -2px rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      .@{prefix}-tabs-header-title-disabled, .@{prefix}-tabs-header-title-disabled:hover {
+        box-shadow: none;
+      }
+
+      .@{prefix}-tabs-header-title-active {
+        box-shadow: 0 4px 0 0 @primary-6 inset;
+        position: relative;
+
+        &:hover {
+          background: @color-bg-2;
+          box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 5px 5px -2px rgba(0, 0, 0, 0.05), 0 4px 0 0 @primary-6 inset;
+        }
+      }
+    }
+  }
+}

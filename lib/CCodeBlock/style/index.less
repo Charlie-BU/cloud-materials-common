@@ -1,0 +1,131 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-code-block-prefix: ~'@{cpn-prefix}-code-block';
+
+.@{c-m-code-block-prefix} {
+  &-simple {
+    /* Background/深 灰底 @color-bg-4 */
+
+    /* 原值为:#F6F8FA，已被stylelint autofix，替换后为：@color-bg-4， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-bg-4 */
+    background: @color-bg-4;
+
+    /* shadow/组件/Input-tab/正常 */
+    border: 1px solid @color-border-2;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 6px;
+    word-break: break-all;
+  }
+
+  &-normal {
+    /* Background/深 灰底 @color-bg-4 */
+
+    /* 原值为:#F6F8FA，已被stylelint autofix，替换后为：@color-bg-4， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-bg-4 */
+    background: @color-bg-4;
+
+    /* shadow/组件/Input-tab/正常 */
+    border: 1px solid @color-border-2;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-direction: column;
+    word-break: break-all;
+    width: 500px;
+    // loading
+    .@{cpn-prefix}-loading {
+      width: 100%;
+      height: inherit;
+    }
+    .@{cpn-prefix}-loading-display {
+      display: flex;
+      height: inherit;
+      .@{prefix}-spin-loading {
+        width: 100%;
+        height: inherit;
+      }
+      .@{prefix}-spin-children {
+        width: 100%;
+        display: flex;
+        height: inherit;
+      }
+      .@{prefix}-empty {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .@{c-m-code-block-prefix}-header {
+      height: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      border-bottom: 1px solid #e6eaf0;
+      padding: 7px 12px;
+      font-family: 'Menlo';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+
+      /* 原值为:#1D2129，已被stylelint autofix，替换后为：@gray-10， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @gray-10 */
+      color: @gray-10;
+    }
+    .@{c-m-code-block-prefix}-below-content {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      padding: 12px;
+      justify-content: space-between;
+      white-space: pre-wrap;
+      margin: 0;
+    }
+    .@{c-m-code-block-prefix}-code-group {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Menlo';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      flex: 1 1;
+
+      /* 原值为:#41464F，已被stylelint autofix，替换后为：@color-text-2， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-2 | @base-grey-6 */
+      color: @color-text-2;
+    }
+    .@{c-m-code-block-prefix}-code-group-loading {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Menlo';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+
+      /* 原值为:#80838A，已被stylelint autofix，替换后为：@color-text-3， 推荐大家使用@arco-design/theme-volcengine-ui-v3/variables.less里的变量，可选替换项为: @color-text-3 | @color-fill-2 | @input-tag-tag-remove-icon-color-bg | @breadcrumb-color-separator | @menu-light-color-icon_default */
+      color: @color-text-3;
+      cursor: not-allowed;
+    }
+    .@{c-m-code-block-prefix}-code-content {
+      display: inline-flex;
+      flex-direction: row;
+    }
+    .@{c-m-code-block-prefix}-index {
+      margin-right: 24px;
+      display: inline-flex;
+      justify-content: flex-end;
+    }
+    .@{c-m-code-block-prefix}-code-value {
+      word-wrap: break-word;
+      flex: 1;
+    }
+    .@{c-m-code-block-prefix}-operation-btn {
+      display: inline-flex;
+      height: 24px;
+      margin-left: 10px;
+    }
+    .@{c-m-code-block-prefix}-custom-icon {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}

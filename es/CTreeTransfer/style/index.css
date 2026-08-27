@@ -1,0 +1,108 @@
+.c-m-tree-transfer .arco-transfer-view-header {
+  height: auto;
+  line-height: initial;
+}
+.c-m-tree-transfer-tree {
+  padding: 0 12px 0 4px;
+  min-height: 100%;
+}
+.c-m-tree-transfer-target-tree-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.c-m-tree-transfer-target-tree-title-content {
+  flex: 1;
+  width: 0;
+}
+.c-m-tree-transfer-header-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  color: #0c0d0e;
+}
+.c-m-tree-transfer-header-content .c-m-tree-transfer-header-check-all {
+  padding-left: 0;
+}
+.c-m-tree-transfer-header-search {
+  margin: 2px 0 8px;
+}
+.c-m-tree-transfer-header-right {
+  display: flex;
+  align-items: center;
+}
+.c-m-tree-transfer-header-right .c-m-tree-transfer-header-delete-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 11px;
+}
+.c-m-tree-transfer .arco-tree-node-title {
+  width: 0;
+  flex: 1;
+}
+.c-m-tree-transfer .arco-tree-node-custom-icon {
+  display: flex;
+  align-items: center;
+}
+.c-m-tree-transfer-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.c-m-tree-transfer-tree-item .arco-tree-node-title {
+  display: flex;
+  align-items: center;
+  color: #42464e;
+}
+.c-m-tree-transfer-tree-item .arco-tree-node-title-text {
+  width: 0;
+  flex: 1;
+}
+.c-m-tree-transfer-load-more-button {
+  margin-left: 8px;
+}
+.c-m-tree-transfer-load-more-button:hover {
+  background-color: inherit !important;
+}
+.c-m-tree-transfer-load-more-button .arco-tree-node-indent,
+.c-m-tree-transfer-load-more-button .arco-tree-node-switcher,
+.c-m-tree-transfer-load-more-button .arco-tree-node-icon {
+  display: none;
+}
+.c-m-tree-transfer-load-more-button .arco-tree-node-title:hover {
+  background: inherit;
+}
+.c-m-tree-transfer-load-more-button .arco-tree-node-title-text {
+  display: flex;
+  justify-content: space-around;
+}
+.c-m-tree-transfer .arco-transfer-view-target .arco-transfer-view-header {
+  padding-right: 0;
+}
+.c-m-tree-transfer .arco-transfer-view-target .arco-transfer-view-header .c-m-tree-transfer-header-search {
+  padding-right: 12px;
+}
+.c-m-tree-transfer-load-empty {
+  position: relative;
+  top: 30px;
+  height: 50px;
+  color: #86909c;
+  font-size: 12px;
+  width: 0;
+  white-space: nowrap;
+  left: calc(-100% + 80px);
+}
+.c-m-tree-transfer-load-custom-info {
+  position: relative;
+  top: 30px;
+  height: 50px;
+  color: #86909c;
+  font-size: 12px;
+  width: 0;
+  white-space: nowrap;
+  left: calc(-100% + 20px);
+}

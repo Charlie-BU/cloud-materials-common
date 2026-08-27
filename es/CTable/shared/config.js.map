@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sourceRoot":"","sources":["../../../components/CTable/shared/config.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,EAAE,KAAK,EAAE,MAAM,YAAY,CAAC;AAEnC,MAAM,CAAC,IAAM,kBAAkB,GAAG,UAAC,eAAoB,EAAE,cAAmB;IAC1E,IAAI,KAAK,CAAC,eAAe,CAAC,EAAE;QAC1B,OAAO,eAAe,CAAC;KACxB;IACD,OAAO,CAAC,eAAe,EAAE,cAAc,CAAC,CAAC;AAC3C,CAAC,CAAC"}

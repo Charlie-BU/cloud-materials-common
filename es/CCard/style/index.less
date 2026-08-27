@@ -1,0 +1,131 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-card-prefix: ~'@{cpn-prefix}-card';
+
+// 💥 变量声明尽量带上c-m前缀，避免存量项目接入时变量名冲突
+
+.@{c-m-card-prefix} {
+  &&-normal,
+  &&-compact,
+  &&-link-list {
+    // 重置 arco 样式
+    box-sizing: border-box;
+    &.@{prefix}-card-hoverable:hover {
+      box-shadow: none;
+    }
+    .@{prefix}-card-header {
+      display: flex;
+      align-items: center;
+      height: fit-content;
+
+      &-title {
+        display: flex;
+        align-items: center;
+        color: @color-text-1;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .@{prefix}-card-body {
+      padding: 0;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
+
+  //normal
+  &&-normal {
+    border-radius: 8px;
+    padding: 16px 20px;
+    opacity: 0.9;
+
+    &.@{prefix}-card-bordered {
+      border: 1px solid @color-border-2;
+    }
+
+    &.@{prefix}-card-hoverable:hover {
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05), 0 15px 35px -2px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+
+    .@{prefix}-card-header {
+      &-title {
+        gap: 8px;
+      }
+    }
+
+    .@{prefix}-card-body {
+      padding-top: 8px;
+      color: @color-text-3;
+    }
+  }
+
+  //normal
+  &&-compact {
+    border-radius: 8px;
+    padding: 12px 16px;
+    background: @color-bg-3;
+
+    &.@{prefix}-card-hoverable:hover {
+      background: @color-bg-5;
+      cursor: pointer;
+    }
+    .@{prefix}-card-body {
+      padding-top: 8px;
+      color: @color-text-3;
+    }
+  }
+
+  //linkList
+  &&-link-list {
+    border-radius: 8px;
+    padding: 0 16px 16px 16px;
+
+    &.@{prefix}-card-bordered {
+      border: 1px dashed @color-border-3;
+    }
+
+    &.@{prefix}-card-hoverable:hover {
+      border: 1px dashed transparent;
+    }
+
+    .@{prefix}-card-header {
+      &-title {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      &-extra {
+        color: @color-text-3;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 22px;
+      }
+
+      &-extra:hover {
+        cursor: pointer;
+        color: @primary-6;
+      }
+    }
+
+    .@{prefix}-card-body {
+      padding-top: 16px;
+      color: @color-text-2;
+
+      .@{c-m-card-prefix}-link-card-item {
+        display: flex;
+
+        &-tag {
+          margin-right: 8px;
+        }
+
+        &-content:hover {
+          cursor: pointer;
+          color: @primary-6;
+        }
+      }
+    }
+  }
+}

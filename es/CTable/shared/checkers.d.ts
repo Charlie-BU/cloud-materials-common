@@ -1,0 +1,9 @@
+export declare const getType: (obj: any) => any;
+export declare const isArr: (arg: any) => arg is any[];
+export declare const isStr: (obj: unknown) => obj is string;
+export declare const isNum: (obj: unknown) => obj is number;
+export declare const isFn: (val: any) => val is Function;
+export declare const isValid: (val: any) => boolean;
+export declare const isPlainObj: (obj: unknown) => obj is object;
+export declare const isReactFragment: (val: any) => boolean;
+export declare const isReactNode: (val: any) => boolean;

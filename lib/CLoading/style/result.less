@@ -1,0 +1,20 @@
+@import (reference) '../../style/variables.less';
+
+@c-m-loading-prefixResultCls: ~'@{cpn-prefix}-result';
+
+.@{c-m-loading-prefixResultCls} {
+  //  arco 样式覆盖
+  .@{prefix}-result-icon {
+    line-height: 0;
+    margin-bottom: 12px;
+  }
+
+  .@{prefix}-result-title {
+    color: @color-text-3;
+    font-size: @font-size-body-2;
+  }
+
+  .@{prefix}-result-extra {
+    margin-top: 24px;
+  }
+}

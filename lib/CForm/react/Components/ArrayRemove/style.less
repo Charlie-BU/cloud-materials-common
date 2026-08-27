@@ -1,0 +1,39 @@
+@import (reference) '../../../../style/variables.less';
+
+@c-m-form-array-remove-prefix: ~'@{cpn-prefix}-cform-array-remove';
+
+.@{c-m-form-array-remove-prefix} {
+  display: flex;
+  align-items: center;
+
+  &-size-mini {
+    height: @size-mini;
+    line-height: @size-mini;
+  }
+
+  &-size-small {
+    height: @size-small;
+    line-height: @size-small;
+  }
+
+  &-size-default {
+    height: @size-default;
+    line-height: @size-default;
+  }
+
+  &-size-large {
+    height: @size-large;
+    line-height: @size-large;
+  }
+
+  .@{prefix}-link {
+    .@{prefix}-link-icon {
+      display: flex;
+      align-items: center;
+      // 图标大小
+      font-size: 16px;
+      margin-right: 0;
+      color: @color-black;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.c-m-table-editor.c-m-table-editor-auto-scroll {
+  height: 100%;
+}
+.c-m-table-editor .arco-formily-item {
+  margin-bottom: 0;
+}
+.c-m-table-editor-operation-button {
+  display: inline-block;
+}
+.c-m-table-editor-operation-button-enabled {
+  cursor: pointer;
+  color: #4e5969;
+}
+.c-m-table-editor-operation-button-disabled {
+  cursor: not-allowed;
+  color: #c9cdd4;
+}
+.c-m-table-editor-operation-button-content {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+.c-m-table-editor-operation-button-content-icon {
+  padding-right: 5px;
+}
+.c-m-table-editor-operation-button + .c-m-table-editor-operation-button {
+  margin-left: 16px;
+}
+.c-m-table-editor-delete-row-button.c-m-table-editor-operation-button-enabled {
+  color: #e63f3f;
+}

@@ -1,0 +1,31 @@
+@import (reference) '../../../../style/index.less';
+
+@operation-button-prefix: ~'@{prefixCTableEditor}-operation-button';
+
+.@{operation-button-prefix} {
+  display: inline-block;
+
+  &-enabled {
+    cursor: pointer;
+    color: @gray-8;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    color: @gray-4;
+  }
+
+  &-content {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+
+    &-icon {
+      padding-right: 5px;
+    }
+  }
+
+  & + & {
+    margin-left: 16px;
+  }
+}

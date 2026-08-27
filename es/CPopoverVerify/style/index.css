@@ -1,0 +1,21 @@
+.c-m-popover-verify-popover {
+  max-width: 300px;
+}
+.c-m-popover-verify-rule {
+  margin-bottom: 4px;
+  display: flex;
+}
+.c-m-popover-verify-rule:last-child {
+  margin-bottom: 0;
+}
+.c-m-popover-verify-rule-icon {
+  vertical-align: top;
+  padding-top: 2px;
+  font-size: 14px;
+  margin-right: 4px;
+}
+.c-m-popover-verify-rule-desc {
+  display: inline-block;
+  max-width: 244px;
+  line-height: 22px;
+}
