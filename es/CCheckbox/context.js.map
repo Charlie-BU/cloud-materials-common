@@ -1,1 +1,0 @@
-{"version":3,"file":"context.js","sourceRoot":"","sources":["../../components/CCheckbox/context.tsx"],"names":[],"mappings":"AACA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,CAAC,IAAM,kBAAkB,GAAG,KAAK,CAAC,aAAa,CAAiC;IACpF,YAAY,EAAE,QAAQ;IACtB,gBAAgB,EAAE,QAAQ;IAC1B,UAAU,EAAE,MAAM;IAClB,SAAS,EAAE,SAAS;IACpB,UAAU,EAAE,SAAS;IACrB,aAAa,EAAE,EAAE;CAClB,CAAC,CAAC"}

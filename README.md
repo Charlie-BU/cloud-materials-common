@@ -4,11 +4,7 @@
 
 ## 外网项目使用
 
-在消费项目根目录执行安装脚本：
-
-```bash
-bash /path/to/cloud-materials-common/setup-consumer.sh .
-```
+在消费项目根目录执行安装脚本：[`setup-consumer.sh`](https://raw.githubusercontent.com/Charlie-BU/cloud-materials-common/main/setup-consumer.sh)
 
 脚本会完成以下操作：
 
