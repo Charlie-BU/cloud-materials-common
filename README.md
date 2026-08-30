@@ -75,3 +75,40 @@ Vite alias 只负责运行时和打包解析。为了让 `tsc` 找到类型声�
 仓库根目录 `node_modules/.pnpm` 和其中的符号链接是离线运行时依赖，必须一并保留。它们使 Vite 可以按标准 Node 解析规则找到组件库依赖，因此不会访问字节内网 registry。
 
 组件库目录固定在消费项目根目录，不需要配置任何额外环境变量。
+
+## Icon Gallery
+
+仓库包含独立的图标预览站，展示所有可通过
+`@cloud-materials/common/ve-o-iconbox` 消费的图标。推送到 `main` 后，GitHub
+Actions 会自动部署到 GitHub Pages：
+
+<https://charlie-bu.github.io/cloud-materials-common/>
+
+本地预览无需安装依赖：
+
+```bash
+npm --prefix icon-gallery run dev
+```
+
+### AI 图标搜索（火山方舟）
+
+浏览器不能安全保存 `ARK_API_KEY`，因此图标站通过一个受控的边缘代理调用方舟，
+密钥只保存于代理环境变量中。代理实现位于
+[`icon-gallery/ark-proxy`](./icon-gallery/ark-proxy)，使用
+`https://ark.cn-beijing.volces.com/api/v3/chat/completions`。
+
+部署代理后，在 GitHub 仓库 Settings → Secrets and variables → Actions → Variables 中
+创建以下**非敏感**变量；Pages 工作流会在构建时注入它：
+
+```bash
+AI_ICON_SEARCH_ENDPOINT=https://<your-worker>.workers.dev
+```
+
+在 Worker 环境中设置敏感变量（切勿写入 `.env` 或 Git）：
+
+```bash
+wrangler secret put ARK_API_KEY
+```
+
+代理会把用户的自然语言需求和当前图标名称目录交给模型；模型只能返回目录中的
+1 至 12 个名称，代理与前端都会再次校验名称后才展示。

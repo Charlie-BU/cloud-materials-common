@@ -1,0 +1,6 @@
+name = "cloud-materials-icon-search"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+ARK_MODEL = "deepseek-v4-flash-ga-260731"
