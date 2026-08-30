@@ -120,7 +120,7 @@ export default function App() {
         <label className="search-label" htmlFor="icon-search">
           <span className="search-title">
             搜索图标
-            {isAiSearching && <span className="ai-loading" role="status"><i />AI 匹配中</span>}
+            {isAiSearching && <span className="ai-loading" role="status"><i />AI 检索中</span>}
           </span>
           <input
             id="icon-search"

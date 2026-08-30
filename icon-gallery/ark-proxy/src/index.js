@@ -1,7 +1,4 @@
-const ALLOWED_ORIGINS = new Set([
-  'https://charlie-bu.github.io',
-  'http://localhost:5173',
-]);
+const PRODUCTION_ORIGINS = new Set(['https://charlie-bu.github.io']);
 
 const SYSTEM_PROMPT = `You are an icon-search assistant for a React icon library.
 Select icons that best express the user's intent from the supplied icon-name catalog.
@@ -13,9 +10,22 @@ Rules:
 - The user may write Chinese or English.
 - Do not return Markdown, code fences, or any extra keys.`;
 
+function isLocalDevelopmentOrigin(origin) {
+  try {
+    const originUrl = new URL(origin);
+    return originUrl.protocol === 'http:'
+      && (originUrl.hostname === 'localhost' || originUrl.hostname === '127.0.0.1');
+  } catch {
+    return false;
+  }
+}
+
 function corsHeaders(origin) {
+  const isLocalDevelopment = isLocalDevelopmentOrigin(origin);
+  const allowedOrigin = PRODUCTION_ORIGINS.has(origin) || isLocalDevelopment ? origin : 'https://charlie-bu.github.io';
+
   return {
-    'Access-Control-Allow-Origin': ALLOWED_ORIGINS.has(origin) ? origin : 'https://charlie-bu.github.io',
+    'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     Vary: 'Origin',
