@@ -46,13 +46,8 @@ export default function App() {
   const filteredIcons = useMemo(() => {
     if (!aiResult) return keywordMatchedIcons;
     const keywordNames = new Set(keywordMatchedIcons.map(([name]) => name));
-    const iconEntryMap = new Map(iconEntries);
-    const aiOrderedIcons = aiResult.iconNames
-      .map(name => iconEntryMap.get(name))
-      .filter((entry): entry is IconEntry => Boolean(entry));
-    const keywordOnlyIcons = keywordMatchedIcons.filter(([name]) => !aiResult.iconNames.includes(name));
-    const aiOnlyIcons = aiOrderedIcons.filter(([name]) => !keywordNames.has(name));
-    return [...aiOrderedIcons.filter(([name]) => keywordNames.has(name)), ...aiOnlyIcons, ...keywordOnlyIcons];
+    const aiOnlyIcons = iconEntries.filter(([name]) => aiResult.iconNames.includes(name) && !keywordNames.has(name));
+    return [...keywordMatchedIcons, ...aiOnlyIcons];
   }, [aiResult, keywordMatchedIcons]);
 
   const pageCount = Math.max(1, Math.ceil(filteredIcons.length / PAGE_SIZE));
@@ -85,7 +80,7 @@ export default function App() {
 
         const availableNames = new Set(iconEntries.map(([name]) => name));
         const iconNames = (payload.iconNames || []).filter(name => availableNames.has(name));
-        setAiResult({ iconNames, reason: payload.reason || 'AI 已按置信度排序图标候选。' });
+        setAiResult({ iconNames, reason: payload.reason || 'AI 已按语义筛选图标。' });
       } catch {
         if (!controller.signal.aborted) {
           // AI 是关键词搜索的增强能力，失败时保留原始关键词结果，不打断用户操作。
