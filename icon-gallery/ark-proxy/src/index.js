@@ -5,8 +5,10 @@ Select icons that best express the user's intent from the supplied icon-name cat
 Return JSON only, with exactly this shape:
 {"iconNames":["IconExample"],"reason":"a short Chinese explanation"}
 Rules:
-- Select 1 to 12 names only from the catalog, with no invented names.
-- Prefer semantically precise icons; include alternatives only when they are genuinely useful.
+- Select all plausible icon names from the catalog, with no invented names.
+- Order iconNames by confidence from highest to lowest.
+- Do not stop at only the most likely icons; include lower-confidence but still reasonable alternatives as well.
+- Prefer semantically precise icons, but keep every candidate that could reasonably satisfy the user's intent.
 - The user may write Chinese or English.
 - Do not return Markdown, code fences, or any extra keys.`;
 
@@ -77,7 +79,7 @@ export default {
       body: JSON.stringify({
         model: env.ARK_MODEL || 'deepseek-v4-flash-ga-260731',
         temperature: 0.1,
-        max_tokens: 350,
+        max_tokens: 1200,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: `用户需求：${query}\n\n可选图标目录：${catalog}` },
@@ -94,11 +96,10 @@ export default {
       const result = parseModelJson(arkPayload.choices?.[0]?.message?.content || '');
       const allowedNames = new Set(iconNames);
       const uniqueNames = [...new Set(result.iconNames || [])]
-        .filter(name => typeof name === 'string' && allowedNames.has(name))
-        .slice(0, 12);
+        .filter(name => typeof name === 'string' && allowedNames.has(name));
       return json({
         iconNames: uniqueNames,
-        reason: typeof result.reason === 'string' ? result.reason.slice(0, 160) : 'AI 已按语义筛选图标。',
+        reason: typeof result.reason === 'string' ? result.reason.slice(0, 160) : 'AI 已按置信度排序图标候选。',
       }, 200, headers);
     } catch {
       return json({ error: 'AI 返回内容无法解析，请重试。' }, 502, headers);
