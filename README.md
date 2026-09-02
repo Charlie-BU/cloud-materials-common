@@ -1,80 +1,42 @@
 # @cloud-materials/common 组件库
 
-> 离线消费说明：此仓库已附带 `@cloud-materials/common@1.20.1` 的运行时依赖树，供外网前端项目直接消费；无需、也不要在本仓库执行 `pnpm install`，否则会尝试解析原始依赖中的字节内部包。
+组件库已作为 GitHub Release 资产发布。消费项目直接安装已发布的 tarball；无需 clone 本仓库、引用源码目录、提交离线 `node_modules`，或配置 Vite alias / TypeScript paths。
 
-## 外网项目使用
+## 安装
 
-在消费项目根目录执行安装脚本：[`setup-consumer.sh`](https://raw.githubusercontent.com/Charlie-BU/cloud-materials-common/main/setup-consumer.sh)
-
-脚本会完成以下操作：
-
-1. 通过 SSH 将本仓库 clone 到消费项目根目录的 `cloud-materials-common/`；
-2. 校验组件库和离线 pnpm 依赖树是否完整；
-3. 将 `/cloud-materials-common/` 写入消费项目的 `.gitignore`。
-
-也可以手动完成同样的操作：
+在消费项目根目录执行：
 
 ```bash
-git clone git@github.com:Charlie-BU/cloud-materials-common.git ./cloud-materials-common
-printf '\n/cloud-materials-common/\n' >> .gitignore
+pnpm add https://github.com/Charlie-BU/cloud-materials-common/releases/download/release/cloud-materials-common-1.20.1-cdi.0.tgz
 ```
 
-### 配置 Vite
+该命令会将包及其完整性信息写入 `package.json` 和 `pnpm-lock.yaml`。请提交这两个文件，CI 使用 `pnpm install --frozen-lockfile` 安装依赖。
 
-在消费项目的 `vite.config.ts` 中配置 alias。`new URL(..., import.meta.url)`
-以 Vite 配置文件所在的项目根目录为基准，因此会指向刚刚 clone 的目录：
+消费项目需要自行安装与应用一致版本的 `react`、`react-dom`，以满足组件库的 peer dependency。
 
-```ts
-import { defineConfig } from "vite";
-import { fileURLToPath, URL } from "node:url";
+## 使用
 
-const cloudMaterialsPath = fileURLToPath(
-    new URL("./cloud-materials-common/@cloud-materials/common", import.meta.url)
-);
+安装后无需额外配置：
 
-export default defineConfig({
-    resolve: {
-        alias: {
-            "@cloud-materials/common": cloudMaterialsPath,
-        },
-        // 避免组件库自带的 React 16 与消费项目的 React 重复加载。
-        dedupe: ["react", "react-dom"],
-    },
-});
-```
-
-该 alias 会同时覆盖以下导入形式：
-
-```ts
+```tsx
 import { Button } from "@cloud-materials/common";
 import { IconHouseDashboard } from "@cloud-materials/common/ve-o-iconbox";
 import "@cloud-materials/common/dist/css/index.css";
 ```
 
-### 配置 TypeScript
+### 微前端（Module Federation）
 
-Vite alias 只负责运行时和打包解析。为了让 `tsc` 找到类型声明，还需要在
-`tsconfig.app.json`（或项目实际使用的 tsconfig）中增加：
+同一页面由宿主与远程模块共同使用该组件库时，宿主和远程模块必须解析到同一版本，并共享以下单例：
 
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@cloud-materials/common": [
-        "cloud-materials-common/@cloud-materials/common"
-      ],
-      "@cloud-materials/common/*": [
-        "cloud-materials-common/@cloud-materials/common/*"
-      ]
-    }
-  }
+```ts
+shared: {
+  react: { singleton: true },
+  "react-dom": { singleton: true },
+  "@cloud-materials/common": { singleton: true },
 }
 ```
 
-仓库根目录 `node_modules/.pnpm` 和其中的符号链接是离线运行时依赖，必须一并保留。它们使 Vite 可以按标准 Node 解析规则找到组件库依赖，因此不会访问字节内网 registry。
-
-组件库目录固定在消费项目根目录，不需要配置任何额外环境变量。
+宿主提供公共组件库；远程模块配置 `"@cloud-materials/common": { singleton: true, import: false }`，避免再次打包该库。普通单体应用不需要这项 Federation 配置。
 
 ## Icon Gallery
 
